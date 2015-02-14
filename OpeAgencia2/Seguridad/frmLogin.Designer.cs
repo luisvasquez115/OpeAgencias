@@ -33,11 +33,11 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtClave = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grbBotones = new System.Windows.Forms.GroupBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.lblSucursal = new System.Windows.Forms.Label();
             this.cmbSucursal = new System.Windows.Forms.ComboBox();
-            this.grbBotones = new System.Windows.Forms.GroupBox();
+            this.lblSucursal = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.grbBotones.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +66,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(188, 20);
             this.txtUsuario.TabIndex = 2;
+            this.txtUsuario.Text = "Manfredo";
             // 
             // txtClave
             // 
@@ -90,6 +91,16 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             // 
+            // grbBotones
+            // 
+            this.grbBotones.Controls.Add(this.btnAceptar);
+            this.grbBotones.Controls.Add(this.btnCancelar);
+            this.grbBotones.Location = new System.Drawing.Point(94, 112);
+            this.grbBotones.Name = "grbBotones";
+            this.grbBotones.Size = new System.Drawing.Size(167, 40);
+            this.grbBotones.TabIndex = 8;
+            this.grbBotones.TabStop = false;
+            // 
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(8, 13);
@@ -110,16 +121,6 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // lblSucursal
-            // 
-            this.lblSucursal.AutoSize = true;
-            this.lblSucursal.Location = new System.Drawing.Point(15, 89);
-            this.lblSucursal.Name = "lblSucursal";
-            this.lblSucursal.Size = new System.Drawing.Size(51, 13);
-            this.lblSucursal.TabIndex = 6;
-            this.lblSucursal.Text = "Sucursal:";
-            this.lblSucursal.Visible = false;
-            // 
             // cmbSucursal
             // 
             this.cmbSucursal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -130,15 +131,15 @@
             this.cmbSucursal.TabIndex = 7;
             this.cmbSucursal.Visible = false;
             // 
-            // grbBotones
+            // lblSucursal
             // 
-            this.grbBotones.Controls.Add(this.btnAceptar);
-            this.grbBotones.Controls.Add(this.btnCancelar);
-            this.grbBotones.Location = new System.Drawing.Point(94, 112);
-            this.grbBotones.Name = "grbBotones";
-            this.grbBotones.Size = new System.Drawing.Size(167, 40);
-            this.grbBotones.TabIndex = 8;
-            this.grbBotones.TabStop = false;
+            this.lblSucursal.AutoSize = true;
+            this.lblSucursal.Location = new System.Drawing.Point(15, 89);
+            this.lblSucursal.Name = "lblSucursal";
+            this.lblSucursal.Size = new System.Drawing.Size(51, 13);
+            this.lblSucursal.TabIndex = 6;
+            this.lblSucursal.Text = "Sucursal:";
+            this.lblSucursal.Visible = false;
             // 
             // frmLogin
             // 

@@ -403,7 +403,8 @@ namespace AgenciaEF_BO.BO
                         RecibosDet oRecDet = new RecibosDet();
                         oRecDet.BLT_NUMERO = iBltNumero;
                         oRecDet.RECIBO_ID = oRecibos.RECIBO_ID;
-                        oRecDet.CARGO_ID = sQry.CargosProducto.CARGO_ID;
+                        oRecDet.CARGO_ID = unitOfWork.CargosProductoRepository.GetByID(sQry.CARGO_PROD_ID).CARGO_ID;
+                        
                         oRecDet.MONTO_LOCAL = sQry.BVA_MONTO_LOCAL;
                         if (sQry.CargosProducto.Cargos.CAR_ITBIS == true && sQry.CargosProducto.Cargos.ITBIS > 0)
                         {
@@ -571,6 +572,9 @@ namespace AgenciaEF_BO.BO
             return bRetorno;
         }
 
+
+
+      
         string FindNextNCF( int iTipFiscal)
         {
             string sRetorno = "";
@@ -615,18 +619,17 @@ namespace AgenciaEF_BO.BO
                     oButos.BLT_ANCHO = 0;
                     oButos.BLT_BOLSA_SUCURSAL = "0";
                     oButos.BLT_BOLSA_SUPLIDOR = "0";
-                    oButos.BLT_CODIGO_BARRA = "CORR-" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Month.ToString() + "-" +
-                                               DateTime.Now.Year.ToString() + "-" + DateTime.Now.Minute.ToString() + "-" +
-                                                    "-" + DateTime.Now.Minute.ToString();
+                    oButos.BLT_CODIGO_BARRA = "C-" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Month.ToString() + "-" +
+                                               DateTime.Now.Year.ToString() + "-" + DateTime.Now.Minute.ToString();
 
                     oButos.BLT_DESPA_SUPLIDOR = DateTime.Now;
                     oButos.BLT_ENTREGAR = true;
                     oButos.BLT_ESTADO_ID = 1;
                     oButos.BLT_FECHA_ENTREGADO = DateTime.Now;
                     oButos.BLT_FECHA_RECEPCION = DateTime.Now;
-                    oButos.BLT_GUIA_HIJA = "CORR-" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Month.ToString() + "-" +
-                                               DateTime.Now.Year.ToString() + "-" + DateTime.Now.Minute.ToString() + "-" +
-                                                    "-" + DateTime.Now.Minute.ToString();
+                    oButos.BLT_GUIA_HIJA = "C-" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Month.ToString() + "-" +
+                                               DateTime.Now.Year.ToString() + "-" + DateTime.Now.Minute.ToString();
+                                               
                     oButos.BLT_HORA_ENTREGADO = "0";
                     oButos.BLT_HORA_RECIBIDO = "0";
                     oButos.BLT_LARGO = 0;
@@ -664,6 +667,7 @@ namespace AgenciaEF_BO.BO
                     oButos.USUARIO_ID = iUsuarioId;
                     unitOfWork.BultosRepository.Insert(oButos);
 
+                    unitOfWork.Save();
                     //Agrego los bultos de correspondencia
                     pBultos.Add(oButos.BLT_NUMERO);
 
@@ -694,6 +698,22 @@ namespace AgenciaEF_BO.BO
                     bRetorno = true;
 
                 }
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    string s = "";
+
+
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        s += ve.ErrorMessage + "\n";
+
+                    }
+                    throw e;
+                }
+                //throw;
             }
             catch (Exception ex)
             {
