@@ -73,6 +73,12 @@ namespace AgenciaEF_BO.DAL
         public DbSet<PagosRecibos> PagosRecibos { set; get; }
         public DbSet<DatosPago> DatosPago { set; get; }
 
+        public DbSet<Envios> Envios { set; get; }
+
+        public DbSet<TarifaEnvio> TarifaEnvio { set; get; }
+
+        public DbSet<TarifaEnvioZona> TarifaEnvioZona { set; get; }
+
      
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

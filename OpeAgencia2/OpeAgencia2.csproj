@@ -103,11 +103,23 @@
     <Compile Include="Creditos\frmCredito.Designer.cs">
       <DependentUpon>frmCredito.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\frmAgregarEnvio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\frmAgregarEnvio.Designer.cs">
+      <DependentUpon>frmAgregarEnvio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\frmCorrespond.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Facturacion\frmCorrespond.Designer.cs">
       <DependentUpon>frmCorrespond.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\frmFactEnvios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\frmFactEnvios.Designer.cs">
+      <DependentUpon>frmFactEnvios.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\frmFactMercancia.cs">
       <SubType>Form</SubType>
@@ -244,6 +256,12 @@
     </Compile>
     <Compile Include="Parametros\Parametros.cs" />
     <Compile Include="Parametros\ParametrosSucursal.cs" />
+    <Compile Include="Precios\frmCargarTarifaCourier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Precios\frmCargarTarifaCourier.Designer.cs">
+      <DependentUpon>frmCargarTarifaCourier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Precios\frmCargos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +273,12 @@
     </Compile>
     <Compile Include="Precios\frmCargosProducto.Designer.cs">
       <DependentUpon>frmCargosProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Precios\frmEnvios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Precios\frmEnvios.Designer.cs">
+      <DependentUpon>frmEnvios.cs</DependentUpon>
     </Compile>
     <Compile Include="Precios\frmProductos.cs">
       <SubType>Form</SubType>
@@ -273,6 +297,18 @@
     </Compile>
     <Compile Include="Precios\frmValores.Designer.cs">
       <DependentUpon>frmValores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Precios\frmZonaEnvioEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Precios\frmZonaEnvioEdit.Designer.cs">
+      <DependentUpon>frmZonaEnvioEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Precios\frmZonasEnvios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Precios\frmZonasEnvios.Designer.cs">
+      <DependentUpon>frmZonasEnvios.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -350,8 +386,14 @@
     <EmbeddedResource Include="Creditos\frmCredito.resx">
       <DependentUpon>frmCredito.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\frmAgregarEnvio.resx">
+      <DependentUpon>frmAgregarEnvio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\frmCorrespond.resx">
       <DependentUpon>frmCorrespond.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\frmFactEnvios.resx">
+      <DependentUpon>frmFactEnvios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\frmFactMercancia.resx">
       <DependentUpon>frmFactMercancia.cs</DependentUpon>
@@ -419,11 +461,17 @@
     <EmbeddedResource Include="Parametros\frmTipos.resx">
       <DependentUpon>frmTipos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Precios\frmCargarTarifaCourier.resx">
+      <DependentUpon>frmCargarTarifaCourier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Precios\frmCargos.resx">
       <DependentUpon>frmCargos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Precios\frmCargosProducto.resx">
       <DependentUpon>frmCargosProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Precios\frmEnvios.resx">
+      <DependentUpon>frmEnvios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Precios\frmProductos.resx">
       <DependentUpon>frmProductos.cs</DependentUpon>
@@ -433,6 +481,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Precios\frmValores.resx">
       <DependentUpon>frmValores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Precios\frmZonaEnvioEdit.resx">
+      <DependentUpon>frmZonaEnvioEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Precios\frmZonasEnvios.resx">
+      <DependentUpon>frmZonasEnvios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

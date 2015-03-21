@@ -539,6 +539,52 @@ namespace OpeAgencia2.Precios
             }
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+            DialogResult x = MessageBox.Show("Seguro que quiere borrar el cargo seleccionado", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button2);
+
+            if (x == System.Windows.Forms.DialogResult.No)
+                return;
+
+            int iCargoId = -1;
+            try
+            {
+                iCargoId = Convert.ToInt32(dgCargos.CurrentRow.Cells[0].Value);
+            }
+            catch
+            {
+                iCargoId = -1;
+            }
+
+            if (iCargoId > 0)
+            {
+                BO.Models.CargosProducto oProd = unitOfWork.CargosProductoRepository.GetByID(iCargoId);
+
+                try
+                {
+                    var oValores = unitOfWork.CargosValoresRepository.Get(filter: s => s.CARGO_PROD_ID == iCargoId);
+
+                    foreach (var oVar in oValores)
+                    {
+                        unitOfWork.CargosValoresRepository.Delete(oVar.TABLA_VAL_ID);
+                    }
+                    unitOfWork.Save();
+
+                    unitOfWork.CargosProductoRepository.Delete(oProd);
+                    unitOfWork.Save();
+
+                    MessageBox.Show("Cargo eliminando exitosamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch(Exception ex)
+                {
+                    throw ex;
+                    
+                }
+            }
+
+        }
+
 
 
     }

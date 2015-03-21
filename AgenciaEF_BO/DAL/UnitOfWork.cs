@@ -72,6 +72,55 @@ namespace AgenciaEF_BO.DAL
 
         private PagosRecibosRepository pagosRecibosRepository;
 
+        private EnviosRepository enviosRepository;
+
+        private TarifaEnvioRepository tarifaEnvioRepository;
+
+        private TarifaEnvioZonaRepository tarifaEnvioZonaRepository;
+
+
+        public TarifaEnvioZonaRepository TarifaEnvioZonaRepository
+        {
+            get
+            {
+
+                if (this.tarifaEnvioZonaRepository == null)
+                {
+                    this.tarifaEnvioZonaRepository = new TarifaEnvioZonaRepository(context);
+                }
+                return tarifaEnvioZonaRepository;
+            }
+        }
+
+
+        public TarifaEnvioRepository TarifaEnvioRepository
+        {
+            get
+            {
+
+                if (this.tarifaEnvioRepository == null)
+                {
+                    this.tarifaEnvioRepository = new TarifaEnvioRepository(context);
+                }
+                return tarifaEnvioRepository;
+            }
+        }
+
+
+        public EnviosRepository EnviosRepository
+        {
+            get
+            {
+
+                if (this.enviosRepository == null)
+                {
+                    this.enviosRepository = new EnviosRepository(context);
+                }
+                return enviosRepository;
+            }
+        }
+
+
 
         public PagosRecibosRepository PagosRecibosRepository
         {

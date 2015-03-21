@@ -8,11 +8,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AgenciaEF_BO.Models
 {
+    [Table("BULTOS")]
     public class Bultos
     {
-
-       
-
         [Key]
         public int BLT_NUMERO { set; get; }
 

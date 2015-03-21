@@ -59,6 +59,9 @@
   <ItemGroup>
     <Compile Include="BO\CalculoTafiras.cs" />
     <Compile Include="BO\Facturar.cs" />
+    <Compile Include="DAL\TarifaEnvioZonaRepository.cs" />
+    <Compile Include="DAL\TarifaEnvioRepository.cs" />
+    <Compile Include="DAL\EnviosRepository.cs" />
     <Compile Include="DAL\CargosVariosRepository.cs" />
     <Compile Include="DAL\PagosRecibosRepository.cs" />
     <Compile Include="DAL\PagosRepository.cs" />
@@ -127,6 +130,7 @@
     <Compile Include="Models\CargosVarios.cs" />
     <Compile Include="Models\Clientes.cs" />
     <Compile Include="Models\DatosPago.cs" />
+    <Compile Include="Models\Envios.cs" />
     <Compile Include="Models\EquivalenciaBultos.cs" />
     <Compile Include="Models\Modulos.cs" />
     <Compile Include="Models\PagosRecibos.cs" />
@@ -156,6 +160,8 @@
     <Compile Include="Models\Sucursales.cs" />
     <Compile Include="Models\Suplidores.cs" />
     <Compile Include="Models\Codigos.cs" />
+    <Compile Include="Models\TarifaEnvio.cs" />
+    <Compile Include="Models\TarifaEnvioZona.cs" />
     <Compile Include="Models\TasaCambio.cs" />
     <Compile Include="Models\Tipos.cs" />
     <Compile Include="Models\VW\vw_bultos_valores.cs" />

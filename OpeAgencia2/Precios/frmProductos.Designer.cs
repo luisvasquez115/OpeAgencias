@@ -33,6 +33,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dg = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtMinimoFacturar = new clsUtils.NumericTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.cmbUnidad = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -59,11 +60,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabCargos = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.lblProducto = new System.Windows.Forms.Label();
             this.btnAddCargo = new System.Windows.Forms.Button();
             this.dgCargos = new System.Windows.Forms.DataGridView();
             this.usrbntMant1 = new OpeAgencia2.usrbntMant();
-            this.txtMinimoFacturar = new clsUtils.NumericTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -169,6 +170,21 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // txtMinimoFacturar
+            // 
+            this.txtMinimoFacturar.AllowSpace = false;
+            this.txtMinimoFacturar.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtMinimoFacturar.IntValue = 0;
+            this.txtMinimoFacturar.Location = new System.Drawing.Point(111, 362);
+            this.txtMinimoFacturar.Name = "txtMinimoFacturar";
+            this.txtMinimoFacturar.Size = new System.Drawing.Size(96, 21);
+            this.txtMinimoFacturar.TabIndex = 41;
+            this.txtMinimoFacturar.Tag = "PRO_MINIMO";
             // 
             // label12
             // 
@@ -416,6 +432,7 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.btnEliminar);
             this.splitContainer2.Panel1.Controls.Add(this.lblProducto);
             this.splitContainer2.Panel1.Controls.Add(this.btnAddCargo);
             // 
@@ -426,10 +443,20 @@
             this.splitContainer2.SplitterDistance = 43;
             this.splitContainer2.TabIndex = 0;
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(90, 10);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // lblProducto
             // 
             this.lblProducto.AutoSize = true;
-            this.lblProducto.Location = new System.Drawing.Point(139, 15);
+            this.lblProducto.Location = new System.Drawing.Point(210, 15);
             this.lblProducto.Name = "lblProducto";
             this.lblProducto.Size = new System.Drawing.Size(13, 13);
             this.lblProducto.TabIndex = 1;
@@ -470,15 +497,6 @@
             this.usrbntMant1.Name = "usrbntMant1";
             this.usrbntMant1.Size = new System.Drawing.Size(479, 28);
             this.usrbntMant1.TabIndex = 0;
-            // 
-            // txtMinimoFacturar
-            // 
-            this.txtMinimoFacturar.AllowSpace = false;
-            this.txtMinimoFacturar.Location = new System.Drawing.Point(111, 362);
-            this.txtMinimoFacturar.Name = "txtMinimoFacturar";
-            this.txtMinimoFacturar.Size = new System.Drawing.Size(96, 21);
-            this.txtMinimoFacturar.TabIndex = 41;
-            this.txtMinimoFacturar.Tag = "PRO_MINIMO";
             // 
             // frmProductos
             // 
@@ -547,5 +565,6 @@
         private System.Windows.Forms.Button btnAddCargo;
         private System.Windows.Forms.DataGridView dgCargos;
         private clsUtils.NumericTextBox txtMinimoFacturar;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }
