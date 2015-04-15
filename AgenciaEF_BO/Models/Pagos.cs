@@ -47,12 +47,14 @@ namespace AgenciaEF_BO.Models
 
         public virtual Sucursales Sucursales { set; get; }
 
-        public virtual ICollection<DatosPago> DatosPago { set; get; }
+        public virtual ICollection<DatosPagos> DatosPago { set; get; }
 
         public virtual Tipos Tipos { set; get; }
 
         public virtual Estados Estados { set; get; }
 
         public virtual ICollection<PagosRecibos> PagosRecibos { set; get; }
+
+   
     }
 }

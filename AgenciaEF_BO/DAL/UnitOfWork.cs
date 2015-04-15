@@ -78,6 +78,23 @@ namespace AgenciaEF_BO.DAL
 
         private TarifaEnvioZonaRepository tarifaEnvioZonaRepository;
 
+        private BultosEnviosRepository bultosEnviosRepository;
+
+        //
+
+        public BultosEnviosRepository BultosEnviosRepository
+        {
+            get
+            {
+
+                if (this.bultosEnviosRepository == null)
+                {
+                    this.bultosEnviosRepository = new BultosEnviosRepository(context);
+                }
+                return bultosEnviosRepository;
+            }
+        }
+
 
         public TarifaEnvioZonaRepository TarifaEnvioZonaRepository
         {

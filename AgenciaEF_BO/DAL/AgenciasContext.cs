@@ -70,8 +70,10 @@ namespace AgenciaEF_BO.DAL
         public DbSet<CargosVarios> CargosVarios { set; get; }
 
         public DbSet<Pagos> Pagos { set; get; }
+
         public DbSet<PagosRecibos> PagosRecibos { set; get; }
-        public DbSet<DatosPago> DatosPago { set; get; }
+
+        public DbSet<DatosPagos> DatosPago { set; get; }
 
         public DbSet<Envios> Envios { set; get; }
 
@@ -79,12 +81,13 @@ namespace AgenciaEF_BO.DAL
 
         public DbSet<TarifaEnvioZona> TarifaEnvioZona { set; get; }
 
-     
+        public DbSet<BultosEnvios> BultosEnvios { set; get; }
 
+     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-
+          //  modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+           
 
             modelBuilder.Entity<Recibos>()
              .HasRequired(c => c.Tipos)

@@ -86,6 +86,11 @@ namespace AgenciaEF_BO.Models
 
         public virtual Sucursales Sucursales { set; get; }
 
+        public virtual Clientes Clientes { set; get; }
+
+        public virtual Estados Estados { set; get; }
+
+
      
 
         

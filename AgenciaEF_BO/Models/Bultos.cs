@@ -34,7 +34,7 @@ namespace AgenciaEF_BO.Models
         public string BLT_GUIA_HIJA { set; get; }
 
         [Required]
-        [MaxLength(16)]
+        [MaxLength(20)]
         public string BLT_CODIGO_BARRA { set; get; }
 
          [MaxLength(10)]

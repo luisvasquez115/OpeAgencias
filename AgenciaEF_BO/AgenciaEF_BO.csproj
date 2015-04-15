@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="BO\CalculoTafiras.cs" />
     <Compile Include="BO\Facturar.cs" />
+    <Compile Include="DAL\BultosEnviosRepository.cs" />
     <Compile Include="DAL\TarifaEnvioZonaRepository.cs" />
     <Compile Include="DAL\TarifaEnvioRepository.cs" />
     <Compile Include="DAL\EnviosRepository.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="DAL\SuplidoresRepository.cs" />
     <Compile Include="DAL\UnitOfWork.cs" />
     <Compile Include="Models\Bultos.cs" />
+    <Compile Include="Models\BultosEnvios.cs" />
     <Compile Include="Models\BultosValores.cs" />
     <Compile Include="Models\CargosValores.cs" />
     <Compile Include="Models\Cargos.cs" />

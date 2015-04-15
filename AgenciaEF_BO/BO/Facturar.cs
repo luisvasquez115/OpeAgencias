@@ -17,6 +17,162 @@ namespace AgenciaEF_BO.BO
 
         public int FacturaGenerada { set; get; }
 
+
+
+        public bool ProcesarAnulacion(int iReciboId, int iUsuarioId, ref string  psMensaje)
+        {
+            Boolean bRetorno = false;
+       
+
+            //1. Cargar los datos del recibo y el detalle de recibo 
+
+            var recibo = unitOfWork.RecibosRepository.GetByID(iReciboId);
+            var reciboDet = unitOfWork.RecibosDetRepository.Get(filter: s => s.RECIBO_ID == iReciboId);
+            var oClientes = unitOfWork.ClientesRepository.GetByID(recibo.CTE_ID);
+
+            if (recibo == null)
+            {
+                psMensaje = " Recibo inexistente";
+                return false;
+            }
+
+            if (recibo.Tipos.TIPO_CODIGO == "NC01")
+            {
+                psMensaje = " Recibo inválido";
+                return false;
+            }
+
+            try
+            {
+                Models.Recibos RecAnul = new Recibos();
+
+       
+                RecAnul.RECIBO_ID_ANUL = recibo.RECIBO_ID;
+                RecAnul.REC_CREDITO = false;
+                RecAnul.NUM_REC = -1;
+                RecAnul.SUC_ID = recibo.SUC_ID;
+                RecAnul.TIP_FISCAL = recibo.TIP_FISCAL;
+                RecAnul.TIPO_REC_ID = 5;  //Anulaciones
+                RecAnul.USER_CREA = "Usuario";
+                RecAnul.USER_MODIFICA = "Usario";
+                RecAnul.IMPORTE_TOTAL = recibo.IMPORTE_TOTAL;
+                RecAnul.IMPORTE_ITEBIS = recibo.IMPORTE_ITEBIS;
+                RecAnul.IMPORTE_CTA = recibo.IMPORTE_CTA;
+                RecAnul.FECHA_MODIF = DateTime.Now;
+                RecAnul.FECHA_CREA = DateTime.Now;
+                RecAnul.FECHA = DateTime.Now;
+                RecAnul.F_VCTO = DateTime.Now;
+                RecAnul.F_COBRO = DateTime.Now;
+                RecAnul.ESTADO_ID = recibo.ESTADO_ID;
+                RecAnul.CTE_ID = recibo.CTE_ID;
+                RecAnul.COUNTER_ID = iUsuarioId;
+                RecAnul.NUM_FISCAL = FindNextNCF_ANUL();
+
+                unitOfWork.RecibosRepository.Insert(RecAnul);
+
+                ArrayList oBultosProc = new ArrayList();
+
+                foreach(var oRecDet in reciboDet.ToList())
+                {
+                    Models.RecibosDet RecAnulDet = new RecibosDet();
+                    RecAnulDet.RECIBO_ID = RecAnul.RECIBO_ID;
+                    RecAnulDet.ITBIS = oRecDet.ITBIS;
+                    RecAnulDet.MONTO_ITBIS = oRecDet.MONTO_ITBIS;
+                    RecAnulDet.MONTO_LOCAL = oRecDet.MONTO_LOCAL;
+                    RecAnulDet.MONTO_TOTAL = oRecDet.MONTO_TOTAL;
+                    RecAnulDet.BLT_NUMERO = oRecDet.BLT_NUMERO;
+                    RecAnulDet.CARGO_ID = oRecDet.CARGO_ID;
+                   
+
+
+                    if (oBultosProc.Contains(oRecDet.BLT_NUMERO) == false)
+                    {
+
+                        Models.Bultos oBultos = unitOfWork.BultosRepository.Get(filter: s => s.BLT_NUMERO == oRecDet.BLT_NUMERO).FirstOrDefault();
+
+                        if (oBultos.Productos.PRO_TIPO_ID == 31)
+                            oBultos.BLT_ESTADO_ID = 2; // Inventario
+                        else
+                            oBultos.BLT_ESTADO_ID = 6; // Inventario
+
+                        unitOfWork.BultosRepository.Update(oBultos);
+                        oBultosProc.Add(oBultos.BLT_NUMERO);
+                    }
+
+
+
+                    unitOfWork.RecibosDetRepository.Insert(RecAnulDet);
+
+                }
+
+                //Inserta movimiento de caja
+
+                MovCaja oCaja = new MovCaja();
+                oCaja.FPAGO_ID = -1;
+                oCaja.FECHA = DateTime.Now;
+                oCaja.CTE_ID = RecAnul.CTE_ID;
+                oCaja.COUNTER_ID = iUsuarioId;
+                oCaja.IMPORTE = RecAnul.IMPORTE_TOTAL * -1;
+                oCaja.SUC_ID = RecAnul.SUC_ID;
+
+                oCaja.TIP_MOV = 60;// Registor de cobros;
+
+                unitOfWork.MovCajaRepository.Insert(oCaja);
+
+                //
+                if  (recibo.REC_CREDITO == true)
+                {
+                    oClientes.CTE_BALANCE_DISPONIBLE = oClientes.CTE_BALANCE_DISPONIBLE + RecAnul.IMPORTE_TOTAL;
+                    unitOfWork.ClientesRepository.Update(oClientes);
+
+                }
+                
+                recibo.ESTADO_ID = 15;
+
+                unitOfWork.RecibosRepository.Update(recibo);
+
+                bRetorno = true;
+                unitOfWork.Save();
+                this.FacturaGenerada = RecAnul.RECIBO_ID;
+
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    string s = "";
+                    /*
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    */
+
+
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        s += ve.ErrorMessage + "\n";
+                        /*Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);*/
+                    }
+                    // MessageBox.Show("Existen los siguientes errores:" + s, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw e;
+                }
+                //throw;
+            }
+            catch (DataException ex)
+            {
+
+                throw ex;
+            }
+
+            //2. Crear el nuevo reicbo
+            //3. Si es un bulto hay que ir al estado anterior de inventario.
+            //4. Si es a credito hay que reversar el balance.
+            //4. Cambiar el estado del recibo
+
+            return bRetorno;
+        
+        }
+
         /*en esta version van sin codigos fiscales*/
         public bool CrearFacturaCargoVarios(ArrayList pCargVar, int iCteId, int iUsuarioId, int iSucId, int iTipoFiscal)
         {
@@ -278,7 +434,7 @@ namespace AgenciaEF_BO.BO
                 //Datos pago
             foreach (DataRow dr in pDatosPago.Rows)
             {
-                DatosPago oDatosPagos = new DatosPago();
+                DatosPagos oDatosPagos = new DatosPagos();
                 oDatosPagos.BANCO_ID = Convert.ToInt32(dr["Banco"]);
                 oDatosPagos.FECHA_VENC = Convert.ToDateTime(dr["Fecha"]);
                 oDatosPagos.IMPORTE = Convert.ToDecimal(dr["Importe"]);
@@ -477,10 +633,12 @@ namespace AgenciaEF_BO.BO
 
                 unitOfWork.MovCajaRecibosRepository.Insert(oCajaRec);
 
+                Pagos oPagos = new Pagos();
+
                 if (!bCredito)
                 {                 //Datos pago
 
-                    Pagos oPagos = new Pagos();
+                  
                     oPagos.CTE_ID = iCteId;
                     oPagos.COUNTER_ID = oCaja.COUNTER_ID;
                     oPagos.ESTADO_ID = 14;
@@ -497,11 +655,12 @@ namespace AgenciaEF_BO.BO
                     if (pDatosPago.Rows.Count > 0)
                         oPagos.TIPO_ID = Convert.ToInt32(pDatosPago.Rows[0]["TipoPago"]);
 
+
                     unitOfWork.PagosRepository.Insert(oPagos);
 
                     foreach (DataRow dr in pDatosPago.Rows)
                     {
-                        DatosPago oDatosPagos = new DatosPago();
+                        DatosPagos oDatosPagos = new DatosPagos();
                         oDatosPagos.BANCO_ID = Convert.ToInt32(dr["Banco"]);
                         oDatosPagos.FECHA_VENC = Convert.ToDateTime(dr["Fecha"]);
                         oDatosPagos.IMPORTE = Convert.ToDecimal(dr["Importe"]);
@@ -509,13 +668,16 @@ namespace AgenciaEF_BO.BO
                         oDatosPagos.NUMERO = dr["Numero"].ToString();
 
                         unitOfWork.DatosPagoRepository.Insert(oDatosPagos);
-
-
+                        //
                     }
+                    
+                  
 
                     PagosRecibos oPagosRec = new PagosRecibos();
                     oPagosRec.PAGO_ID = oPagos.PAGO_ID;
                     oPagosRec.RECIBO_ID = oRecibos.RECIBO_ID;
+                    
+                
 
                     unitOfWork.PagosRecibosRepository.Insert(oPagosRec);
 
@@ -534,6 +696,11 @@ namespace AgenciaEF_BO.BO
                 {
                     unitOfWork.Save();
                     FacturaGenerada = oRecibos.RECIBO_ID;
+                    //Esto es un parcho muy mal hecho
+                  
+                    //
+                    // unitOfWork.Save();
+                  
                 }
 
                 catch (System.Data.Entity.Validation.DbEntityValidationException e)
@@ -728,7 +895,7 @@ namespace AgenciaEF_BO.BO
 
                     foreach (DataRow dr in pDatosPago.Rows)
                     {
-                        DatosPago oDatosPagos = new DatosPago();
+                        DatosPagos oDatosPagos = new DatosPagos();
                         oDatosPagos.BANCO_ID = Convert.ToInt32(dr["Banco"]);
                         oDatosPagos.FECHA_VENC = Convert.ToDateTime(dr["Fecha"]);
                         oDatosPagos.IMPORTE = Convert.ToDecimal(dr["Importe"]);
@@ -1079,7 +1246,7 @@ namespace AgenciaEF_BO.BO
             return dMontoItebis;
         }
 
-      
+        /*Hay que ponerlo por sucursal*/
         string FindNextNCF( int iTipFiscal)
         {
             string sRetorno = "";
@@ -1101,6 +1268,27 @@ namespace AgenciaEF_BO.BO
             return sRetorno;
         }
 
+        string FindNextNCF_ANUL()
+        {
+            string sRetorno = "";
+
+            NumeroFiscal oFiscal = unitOfWork.NumeroFicalRepository.Get(filter: xy => xy.TIPO_ID == 61).FirstOrDefault();
+
+            if (oFiscal != null)
+            {
+                sRetorno = oFiscal.PREFIJO + oFiscal.SECUENCIA.ToString().PadLeft(6, '0');
+
+                oFiscal.SECUENCIA += 1;
+
+                unitOfWork.NumeroFicalRepository.Update(oFiscal);
+
+
+            }
+
+
+            return sRetorno;
+        }
+
 
 
         bool RegistroBultosEnvio(int iCteId, int iSucId, dsDatos.EnviosDataTable pTableEnvio, 
@@ -1117,6 +1305,8 @@ namespace AgenciaEF_BO.BO
                 foreach (dsDatos.EnviosRow dr in pTableEnvio.Rows)
                 {
                     Bultos oButos = new Bultos();
+
+                    BultosEnvios oBultosEnvios = new BultosEnvios();
 
 
                     oButos.ALM_CODIGO = 0;
@@ -1173,8 +1363,31 @@ namespace AgenciaEF_BO.BO
                     oButos.UBI_CODIGO = "NA";
                     oButos.USUARIO_ID = iUsuarioId;
                     unitOfWork.BultosRepository.Insert(oButos);
+                    // Agrego la informacion relacionada con el envio.
 
+                
+                    oBultosEnvios.DEST_CIUDAD = dr.consignatario_ciudad;
+                    oBultosEnvios.DEST_DIR1 = dr.consignatario_dir1;
+                    oBultosEnvios.DEST_DIR2 = dr.consignatario_dir2;
+                    oBultosEnvios.DEST_PAIS_ID = dr.consignatario_paisId;
+                    oBultosEnvios.DEST_PROVINCIA = dr.consignatario_region;
+                    oBultosEnvios.DEST_TEL = dr.consignatario_tel;
+                    oBultosEnvios.DEST_ZIP = "";
+                    oBultosEnvios.DESTINATARIO = dr.consignatario;
+
+                    oBultosEnvios.REM_CIUDAD = dr.remitente_ciudad;
+                    oBultosEnvios.REM_EMAIL = " ";
+                    oBultosEnvios.REM_PAIS_ID = dr.remitente_paisId;
+                    oBultosEnvios.REM_PROVINCIA = dr.remitente_region;
+                    oBultosEnvios.REM_TELEFONO = dr.remitente_tel;
+                    oBultosEnvios.REM_ZIP = " ";
+                    oBultosEnvios.REMITENTE = dr.remitente;
+                    oBultosEnvios.REMITENTE_DIR1 = dr.remitente_dir1;
+                    oBultosEnvios.REMITENTE_DIR2 = dr.remitente_dir2;
                     unitOfWork.Save();
+                    oBultosEnvios.BLT_NUMERO = oButos.BLT_NUMERO;
+
+                    unitOfWork.BultosEnviosRepository.Insert(oBultosEnvios);
                     //Agrego los bultos de correspondencia
                     pBultos.Add(oButos.BLT_NUMERO);
 

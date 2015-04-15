@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AgenciaEF_BO.Models
 {
-    [Table("MOVCAJA")]
+    [Table("MOVCAJAS")]
     public class MovCaja
     {
         [Key]
@@ -43,7 +43,6 @@ namespace AgenciaEF_BO.Models
 
         public virtual Sucursales Sucursales { set; get; }
 
-        public virtual ICollection<DatosPago> DatosPago { set; get; }
 
         public virtual ICollection<MovCajaRecibos> MovCajaRecibos { set; get; }
     }

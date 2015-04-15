@@ -8,11 +8,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AgenciaEF_BO.Models
 {
-    [Table("DATOS_PAGO")]
-    public class DatosPago
+    [Table("DATOS_PAGOS")]
+    public class DatosPagos
     {
         [Key]
-        public int DATOS_PAGO_ID { set; get; }
+        public int DATO_PAGO_ID { set; get; }
 
         [Required]
         public int PAGO_ID { set; get; }
@@ -28,6 +28,5 @@ namespace AgenciaEF_BO.Models
 
         [Required]
         public decimal IMPORTE { set; get; }
-
     }
 }

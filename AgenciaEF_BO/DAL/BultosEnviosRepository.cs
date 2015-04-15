@@ -8,10 +8,10 @@ using System.Linq.Dynamic;
 
 namespace AgenciaEF_BO.DAL
 {
-    public class DatosPagoRepository : GenericRepository<DatosPagos>
+    public class BultosEnviosRepository : GenericRepository<BultosEnvios>
     {
 
-        public DatosPagoRepository(AgenciasContext context)
+        public BultosEnviosRepository(AgenciasContext context)
             : base(context)
         {
 
