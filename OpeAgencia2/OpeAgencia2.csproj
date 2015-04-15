@@ -103,6 +103,12 @@
     <Compile Include="Creditos\frmCredito.Designer.cs">
       <DependentUpon>frmCredito.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\ConsultaEnvios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\ConsultaEnvios.Designer.cs">
+      <DependentUpon>ConsultaEnvios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\frmAgregarEnvio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -385,6 +391,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Creditos\frmCredito.resx">
       <DependentUpon>frmCredito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\ConsultaEnvios.resx">
+      <DependentUpon>ConsultaEnvios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\frmAgregarEnvio.resx">
       <DependentUpon>frmAgregarEnvio.cs</DependentUpon>
