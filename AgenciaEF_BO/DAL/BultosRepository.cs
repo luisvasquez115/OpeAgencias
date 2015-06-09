@@ -19,11 +19,19 @@ namespace AgenciaEF_BO.DAL
 
         public IEnumerable<Bultos> GetByNumeroEPS(string psNumeroEPS, string psGuiaMadre, string sCodigoBarra,string sTracking, int piEstado)
         {
+            //Bultos oBultos = new Bultos();
+            //Productos.PRO_TIPO_ID = 31
 
-            string sCadena = "";
 
-           if (sCodigoBarra != "")
-               sCadena = "BLT_CODIGO_BARRA == " + '"' + sCodigoBarra + '"';
+            string sCadena = " Productos.PRO_TIPO_ID == 31 ";
+
+            if (sCodigoBarra != "")
+            {
+                if (sCadena != "")
+                    sCadena += " && ";
+
+                sCadena = "BLT_CODIGO_BARRA == " + '"' + sCodigoBarra + '"';
+            }
 
            if (psNumeroEPS != "")
            {

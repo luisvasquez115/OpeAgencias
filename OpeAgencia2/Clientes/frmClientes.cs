@@ -806,6 +806,12 @@ namespace OpeAgencia2.Clientes
                                 MyComp.CTE_MANEJO_OPERACIONAL =  ((ComboBox)ctr).SelectedIndex;
 
                             break;
+                        case "CTE_EMAIL":
+                            if (pbConsulta)
+                                ((TextBox)ctr).Text = MyComp.CTE_EMAIL;
+                            else
+                                MyComp.CTE_EMAIL = ((TextBox)ctr).Text;
+                            break;
 
                     }
               }

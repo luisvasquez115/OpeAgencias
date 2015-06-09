@@ -94,6 +94,17 @@ namespace AgenciaEF_BO.DAL
             .WithMany(d => d.Recibos)
             .HasForeignKey(c => c.TIPO_REC_ID);
 
+            modelBuilder.Entity<MovCaja>()
+            .HasRequired(c => c.Tipos)
+           .WithMany(d => d.MovCaja)
+           .HasForeignKey(c => c.TIP_MOV);
+
+            modelBuilder.Entity<MovCaja>()
+           .HasRequired(c => c.Usuarios)
+          .WithMany(d => d.MovCaja)
+          .HasForeignKey(c => c.COUNTER_ID);
+
+
            
             try
             {

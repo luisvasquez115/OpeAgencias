@@ -36,7 +36,7 @@ namespace AgenciaEF_BO.BO
                 return false;
             }
 
-            if (recibo.Tipos.TIPO_CODIGO == "NC01")
+            if (recibo.Tipos.TIPO_CODIGO == "NC01" || recibo.Tipos.TIPO_CODIGO =="FT10")
             {
                 psMensaje = " Recibo inválido";
                 return false;
@@ -512,8 +512,12 @@ namespace AgenciaEF_BO.BO
             bool bRetorno = true;
             Recibos oRecibos = new Recibos();
             decimal MontoFact = 0; ;
-            decimal MontoItebis = 0; 
+            decimal MontoItebis = 0;
+            decimal dTasaItbis = 0;
+            decimal dMontoGrabado = 0;
+            string sUsuario = "";
 
+            sUsuario = unitOfWork.UsuariosRepository.GetByID(iUsuarioId).NOMBRES.TrimEnd() + " " + unitOfWork.UsuariosRepository.GetByID(iUsuarioId).APELLIDOS.TrimEnd();
 
             //1. CrearLos bultos de la mensajeria.
             if (pTableCorr.Rows.Count > 0)
@@ -541,11 +545,10 @@ namespace AgenciaEF_BO.BO
                 oRecibos.SUC_ID = iSucId;
                 oRecibos.TIP_FISCAL = iTipoFiscal;
                 oRecibos.TIPO_REC_ID = 1; //FT00  RECEPCION.
-                oRecibos.USER_CREA = "NA";
-                oRecibos.USER_MODIFICA = "NA";
+                oRecibos.USER_CREA = sUsuario;
+                oRecibos.USER_MODIFICA = sUsuario;
                 oRecibos.REC_CREDITO = bCredito;
-
-               
+                              
  
                 foreach(object s in pBultos)
                 {
@@ -566,6 +569,9 @@ namespace AgenciaEF_BO.BO
                         {
                             oRecDet.MONTO_ITBIS = Math.Round((sQry.BVA_MONTO_LOCAL * sQry.CargosProducto.Cargos.ITBIS) / 100, 2);
                             oRecDet.MONTO_TOTAL = sQry.BVA_MONTO_LOCAL + oRecDet.MONTO_ITBIS;
+                            dTasaItbis = sQry.CargosProducto.Cargos.ITBIS;
+                            dMontoGrabado += sQry.BVA_MONTO_LOCAL;
+                           
                         }
                         else
                         {
@@ -587,7 +593,12 @@ namespace AgenciaEF_BO.BO
 
                 }
                 oRecibos.IMPORTE_ITEBIS = MontoItebis;
+                oRecibos.ITBIS = dTasaItbis;
+                oRecibos.IMPORTE_GRAVADO = dMontoGrabado;
                 //oRecibos.IMPORTE_TOTAL = MontoFact + MontoItebis;
+                
+                oRecibos.USER_CREA = sUsuario;
+                oRecibos.USER_MODIFICA = sUsuario;
 
                 //BUSCA COMPROVANTE FISCAL.
                 //oRecibos.NUM_FISCAL
@@ -606,8 +617,6 @@ namespace AgenciaEF_BO.BO
                 else
                     oRecibos.IMPORTE_CTA = oRecibos.IMPORTE_TOTAL;
 
-
-               
 
                 unitOfWork.RecibosRepository.Insert(oRecibos);
                 //
@@ -751,8 +760,15 @@ namespace AgenciaEF_BO.BO
             Recibos oRecibos = new Recibos();
             decimal MontoFact = 0; ;
             decimal MontoItebis = 0;
+            decimal dTasaItbis = 0;
+            decimal dMontoGrabado = 0;
 
             ArrayList pBultos = new ArrayList();
+
+            string sUsuario = "";
+
+            sUsuario = unitOfWork.UsuariosRepository.GetByID(iUsuarioId).NOMBRES.TrimEnd() + " " + unitOfWork.UsuariosRepository.GetByID(iUsuarioId).APELLIDOS.TrimEnd();
+
 
                        
             //bRetornoCorr = RegistroCorrespondencia(iCteId, iSucId, pTableCorr, iUsuarioId, ref pBultos);
@@ -779,8 +795,8 @@ namespace AgenciaEF_BO.BO
                 oRecibos.SUC_ID = iSucId;
                 oRecibos.TIP_FISCAL = iTipoFiscal;
                 oRecibos.TIPO_REC_ID = 3; //FT07  ENVIOS.
-                oRecibos.USER_CREA = "NA";
-                oRecibos.USER_MODIFICA = "NA";
+                oRecibos.USER_CREA = sUsuario;
+                oRecibos.USER_MODIFICA = sUsuario;
                 oRecibos.REC_CREDITO = bCredito;
 
 
@@ -804,6 +820,8 @@ namespace AgenciaEF_BO.BO
                         {
                             oRecDet.MONTO_ITBIS = Math.Round((sQry.BVA_MONTO_LOCAL * sQry.CargosProducto.Cargos.ITBIS) / 100, 2);
                             oRecDet.MONTO_TOTAL = sQry.BVA_MONTO_LOCAL + oRecDet.MONTO_ITBIS;
+                            dTasaItbis = sQry.CargosProducto.Cargos.ITBIS;
+                            dMontoGrabado = sQry.BVA_MONTO_LOCAL;
                         }
                         else
                         {
@@ -825,6 +843,8 @@ namespace AgenciaEF_BO.BO
 
                 }
                 oRecibos.IMPORTE_ITEBIS = MontoItebis;
+                oRecibos.ITBIS = dTasaItbis;
+                oRecibos.IMPORTE_GRAVADO = dMontoGrabado;
                 //oRecibos.IMPORTE_TOTAL = MontoFact + MontoItebis;
 
                 //BUSCA COMPROVANTE FISCAL.

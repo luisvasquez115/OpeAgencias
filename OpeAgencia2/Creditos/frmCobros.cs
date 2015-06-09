@@ -36,6 +36,7 @@ namespace OpeAgencia2.Creditos
 
         void BuscarCliente()
         {
+            unitOfWork = new BO.DAL.UnitOfWork();
 
             oCliente = unitOfWork.ClientesRepository.Get(filter: s => s.CTE_NUMERO_EPS == txtEPS.Text 
                             && s.CTE_SUC_ID == Parametros.Parametros.SucursalActual && s.CTE_CREDITO == true).FirstOrDefault();
@@ -165,7 +166,7 @@ namespace OpeAgencia2.Creditos
                         oImpFact.ImprimirComprobate(oFact.FacturaGenerada);
 
 
-                       // LimpiarPantalla();
+                        LimpiarPantalla();
 
 
                         MessageBox.Show("Pago aplicado correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -173,8 +174,17 @@ namespace OpeAgencia2.Creditos
 
                 }
             }
-
             
+        }
+
+        void LimpiarPantalla()
+        {
+            BuscarCliente();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

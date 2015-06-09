@@ -137,6 +137,7 @@ namespace OpeAgencia2.Facturacion
                     oFactRow.REC_ID = oRecibo.RECIBO_ID;
                     oFactRow.REC_TIPO = unitOfWork.TiposRepository.GetByID(oRecibo.TIPO_REC_ID).TIPO_CODIGO;
                     oFactRow.REMITENTE = Bultos.REMITENTE;
+                    
                     oFactRow.RNC = "NA";
                     oFactRow.BLT_NUMERO = Bultos.BLT_NUMERO;
                     oFactRow.CODIGO = oRecDet.Cargos.CAR_DESCRIPCION;

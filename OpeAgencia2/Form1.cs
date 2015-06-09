@@ -257,7 +257,52 @@ namespace OpeAgencia2
             this.Close();
         }
 
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            Clientes.frmClientes x = new Clientes.frmClientes();
+            x.MdiParent = this;
+            x.Show();
+        }
 
+        private void btnConsultaPaquetes_Click(object sender, EventArgs e)
+        {
+            Clientes.frmConsultaMercancia x = new Clientes.frmConsultaMercancia();
+            x.MdiParent = this;
+            x.Show();
+        }
+
+        private void paquetesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Facturacion.frmFactMercancia x = new Facturacion.frmFactMercancia();
+            x.MdiParent = this;
+            x.Show();
+        }
+
+        private void enviosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Facturacion.frmFactEnvios x = new Facturacion.frmFactEnvios();
+            x.MdiParent = this;
+            x.Show();
+        }
+
+        private void movimientosDeCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Facturacion.frmMovCaja x = new Facturacion.frmMovCaja();
+            x.MdiParent = this;
+            x.Show();
+        }
+
+        private void listadoDeTransaccionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Facturacion.ConsultaOperaciones x = new Facturacion.ConsultaOperaciones();
+            x.MdiParent = this;
+            x.Show();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
 
     }

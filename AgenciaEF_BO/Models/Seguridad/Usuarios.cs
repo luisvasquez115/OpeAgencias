@@ -47,7 +47,7 @@ namespace AgenciaEF_BO.Models
 
         public ICollection<UsuarioSucursal> UsuarioSucursal { set; get; }
 
-  
+        public ICollection<MovCaja> MovCaja { set; get; }
 
     }
 }

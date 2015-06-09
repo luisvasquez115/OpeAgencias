@@ -43,6 +43,9 @@ namespace AgenciaEF_BO.Models
 
         public virtual Sucursales Sucursales { set; get; }
 
+        public virtual Tipos Tipos { set; get; }
+
+        public virtual Usuarios Usuarios {set; get; }
 
         public virtual ICollection<MovCajaRecibos> MovCajaRecibos { set; get; }
     }

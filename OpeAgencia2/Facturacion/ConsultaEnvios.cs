@@ -66,18 +66,41 @@ namespace OpeAgencia2.Facturacion
 
             DateTime dFechaIni;
             DateTime dFechaFin;
+            int iCounterId = -1;
+
+
 
             dFechaIni = txtFecha.Value.Date;
             dFechaFin = txtFecha.Value.Date.AddDays(1);
 
-            var sQuery = from p in unitOfWork.RecibosRepository.Get(filter: s => s.FECHA >= dFechaIni && s.FECHA < dFechaFin
-                                   )
-                         orderby p.FECHA descending
-                         select new { Id = p.RECIBO_ID, p.COUNTER_ID, Tipo = p.Tipos.TIPO_CODIGO+" "+p.Tipos.TIPO_NOMBRE, p.Clientes.CTE_NUMERO_EPS,NCF= p.NUM_FISCAL,Importe= p.IMPORTE_TOTAL, Estado = p.Estados.ESTADO_NOMBRE };
+            iCounterId = Convert.ToInt32(cmbCounter.SelectedValue);
+
+            if (txtEPS.Text == "")
+            {
 
 
-            dgDatos.DataSource = sQuery.ToList();
+                var sQuery = from p in unitOfWork.RecibosRepository.Get(filter: s => s.FECHA >= dFechaIni && s.FECHA < dFechaFin && s.COUNTER_ID == iCounterId
+                                       )
+                             orderby p.FECHA descending
+                             select new { Id = p.RECIBO_ID, p.COUNTER_ID, Tipo = p.Tipos.TIPO_CODIGO + " " + p.Tipos.TIPO_NOMBRE, p.Clientes.CTE_NUMERO_EPS, NCF = p.NUM_FISCAL, Importe = p.IMPORTE_TOTAL, Estado = p.Estados.ESTADO_NOMBRE };
+
+
+                dgDatos.DataSource = sQuery.ToList();
             
+            }
+            else
+            {
+
+                var sQuery = from p in unitOfWork.RecibosRepository.Get(filter: s => s.FECHA >= dFechaIni && s.FECHA < dFechaFin && s.Clientes.CTE_NUMERO_EPS == txtEPS.Text && s.COUNTER_ID == iCounterId
+                                     )
+                             orderby p.FECHA descending
+                             select new { Id = p.RECIBO_ID, p.COUNTER_ID, Tipo = p.Tipos.TIPO_CODIGO + " " + p.Tipos.TIPO_NOMBRE, p.Clientes.CTE_NUMERO_EPS, NCF = p.NUM_FISCAL, Importe = p.IMPORTE_TOTAL, Estado = p.Estados.ESTADO_NOMBRE };
+
+
+                dgDatos.DataSource = sQuery.ToList();
+
+            }
+           
                       
                   
 
@@ -143,6 +166,16 @@ namespace OpeAgencia2.Facturacion
 
         private void reImprimirToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            int iReciboId = -1;
+
+            iReciboId = Convert.ToInt32(dgDatos[0, dgDatos.CurrentCell.RowIndex].Value);
+
+           // MessageBox.Show("Anulación realizada exitosamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //ImprimirFactura(oFact.FacturaGenerada);
+            ImprimirFactura oImpFact = new ImprimirFactura();
+            oImpFact.Imprimir(iReciboId);
+
 
         }
     }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.usrbntMant1 = new OpeAgencia2.usrbntMant();
             this.tabMant = new System.Windows.Forms.TabControl();
             this.tabConsulta = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -107,6 +106,8 @@
             this.txtCTE_CEDULA = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cmbCTE_MANEJO_OPERACIONAL = new System.Windows.Forms.ComboBox();
+            this.label34 = new System.Windows.Forms.Label();
             this.txtDiaCorte = new System.Windows.Forms.NumericUpDown();
             this.label41 = new System.Windows.Forms.Label();
             this.cmbCFG_METODO_TARIFA = new System.Windows.Forms.ComboBox();
@@ -137,8 +138,10 @@
             this.label28 = new System.Windows.Forms.Label();
             this.txtCTE_NOMBRE_COMPANIA = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.cmbCTE_MANEJO_OPERACIONAL = new System.Windows.Forms.ComboBox();
-            this.label34 = new System.Windows.Forms.Label();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.txtCTE_EMAIL = new System.Windows.Forms.TextBox();
+            this.usrbntMant1 = new OpeAgencia2.usrbntMant();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -165,6 +168,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaCorte)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -184,15 +188,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(745, 602);
             this.splitContainer1.SplitterDistance = 38;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // usrbntMant1
-            // 
-            this.usrbntMant1.bAdiciona = false;
-            this.usrbntMant1.bExito = false;
-            this.usrbntMant1.Location = new System.Drawing.Point(0, 3);
-            this.usrbntMant1.Name = "usrbntMant1";
-            this.usrbntMant1.Size = new System.Drawing.Size(479, 28);
-            this.usrbntMant1.TabIndex = 1;
             // 
             // tabMant
             // 
@@ -243,7 +238,7 @@
             // 
             // btnFind
             // 
-            this.btnFind.Image = global::OpeAgencia2.Properties.Resources.btnBusqueda_Image;
+//            this.btnFind.Image = global::OpeAgencia2.Properties.Resources.btnBusqueda_Image;
             this.btnFind.Location = new System.Drawing.Point(693, 13);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(24, 23);
@@ -339,6 +334,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox8);
             this.tabPage1.Controls.Add(this.groupBox6);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.groupBox3);
@@ -361,7 +357,7 @@
             this.groupBox6.Controls.Add(this.chkCredito);
             this.groupBox6.Controls.Add(this.textCTE_LIMITE_CREDITO);
             this.groupBox6.Controls.Add(this.label37);
-            this.groupBox6.Location = new System.Drawing.Point(383, 344);
+            this.groupBox6.Location = new System.Drawing.Point(383, 331);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(315, 122);
             this.groupBox6.TabIndex = 20;
@@ -676,7 +672,7 @@
             this.groupBox3.Controls.Add(this.txtCelular);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.txtCTE_TELEFONO_CASA);
-            this.groupBox3.Location = new System.Drawing.Point(6, 366);
+            this.groupBox3.Location = new System.Drawing.Point(6, 357);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(364, 97);
             this.groupBox3.TabIndex = 15;
@@ -788,7 +784,7 @@
             this.groupBox7.Controls.Add(this.cmbCTE_ESTADO_ID);
             this.groupBox7.Location = new System.Drawing.Point(389, 7);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(315, 230);
+            this.groupBox7.Size = new System.Drawing.Size(315, 207);
             this.groupBox7.TabIndex = 19;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Indicadores";
@@ -914,7 +910,7 @@
             this.groupBox2.Controls.Add(this.txtCTE_PASAPORTE);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.txtCTE_CEDULA);
-            this.groupBox2.Location = new System.Drawing.Point(389, 243);
+            this.groupBox2.Location = new System.Drawing.Point(389, 224);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(315, 97);
             this.groupBox2.TabIndex = 14;
@@ -1015,6 +1011,28 @@
             this.groupBox4.TabIndex = 16;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Asignaciones";
+            // 
+            // cmbCTE_MANEJO_OPERACIONAL
+            // 
+            this.cmbCTE_MANEJO_OPERACIONAL.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCTE_MANEJO_OPERACIONAL.FormattingEnabled = true;
+            this.cmbCTE_MANEJO_OPERACIONAL.Items.AddRange(new object[] {
+            "IMPUESTO",
+            "GESTION"});
+            this.cmbCTE_MANEJO_OPERACIONAL.Location = new System.Drawing.Point(110, 207);
+            this.cmbCTE_MANEJO_OPERACIONAL.Name = "cmbCTE_MANEJO_OPERACIONAL";
+            this.cmbCTE_MANEJO_OPERACIONAL.Size = new System.Drawing.Size(253, 21);
+            this.cmbCTE_MANEJO_OPERACIONAL.TabIndex = 6;
+            this.cmbCTE_MANEJO_OPERACIONAL.Tag = "CTE_MANEJO_OPERACIONAL";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(4, 210);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(103, 13);
+            this.label34.TabIndex = 24;
+            this.label34.Text = "Manejo operacional:";
             // 
             // txtDiaCorte
             // 
@@ -1322,27 +1340,42 @@
             this.label27.TabIndex = 16;
             this.label27.Text = "Empresa:";
             // 
-            // cmbCTE_MANEJO_OPERACIONAL
+            // groupBox8
             // 
-            this.cmbCTE_MANEJO_OPERACIONAL.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCTE_MANEJO_OPERACIONAL.FormattingEnabled = true;
-            this.cmbCTE_MANEJO_OPERACIONAL.Items.AddRange(new object[] {
-            "IMPUESTO",
-            "GESTION"});
-            this.cmbCTE_MANEJO_OPERACIONAL.Location = new System.Drawing.Point(110, 207);
-            this.cmbCTE_MANEJO_OPERACIONAL.Name = "cmbCTE_MANEJO_OPERACIONAL";
-            this.cmbCTE_MANEJO_OPERACIONAL.Size = new System.Drawing.Size(253, 21);
-            this.cmbCTE_MANEJO_OPERACIONAL.TabIndex = 6;
-            this.cmbCTE_MANEJO_OPERACIONAL.Tag = "CTE_MANEJO_OPERACIONAL";
+            this.groupBox8.Controls.Add(this.label43);
+            this.groupBox8.Controls.Add(this.txtCTE_EMAIL);
+            this.groupBox8.Location = new System.Drawing.Point(8, 460);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(690, 33);
+            this.groupBox8.TabIndex = 21;
+            this.groupBox8.TabStop = false;
             // 
-            // label34
+            // label43
             // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(4, 210);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(103, 13);
-            this.label34.TabIndex = 24;
-            this.label34.Text = "Manejo operacional:";
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(40, 16);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(35, 13);
+            this.label43.TabIndex = 18;
+            this.label43.Text = "Email:";
+            // 
+            // txtCTE_EMAIL
+            // 
+            this.txtCTE_EMAIL.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCTE_EMAIL.Location = new System.Drawing.Point(79, 12);
+            this.txtCTE_EMAIL.Name = "txtCTE_EMAIL";
+            this.txtCTE_EMAIL.Size = new System.Drawing.Size(596, 20);
+            this.txtCTE_EMAIL.TabIndex = 17;
+            this.txtCTE_EMAIL.Tag = "CTE_EMAIL";
+            // 
+            // usrbntMant1
+            // 
+            this.usrbntMant1.bAdiciona = false;
+            this.usrbntMant1.bExito = false;
+            this.usrbntMant1.Location = new System.Drawing.Point(0, 3);
+            this.usrbntMant1.Name = "usrbntMant1";
+            this.usrbntMant1.Size = new System.Drawing.Size(479, 28);
+            this.usrbntMant1.TabIndex = 1;
             // 
             // frmClientes
             // 
@@ -1387,6 +1420,8 @@
             this.tabPage3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1504,5 +1539,8 @@
         private System.Windows.Forms.DataGridView dg;
         private System.Windows.Forms.ComboBox cmbCTE_MANEJO_OPERACIONAL;
         private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.TextBox txtCTE_EMAIL;
     }
 }

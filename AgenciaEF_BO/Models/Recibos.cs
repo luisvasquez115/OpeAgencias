@@ -82,6 +82,10 @@ namespace AgenciaEF_BO.Models
         [Required]
         public string USER_MODIFICA { set; get; }
 
+        public decimal ITBIS { set; get; }
+
+        public decimal IMPORTE_GRAVADO { set; get; }
+
         public virtual  ICollection<RecibosDet> RecibosDet { set; get; }
 
         public virtual Sucursales Sucursales { set; get; }

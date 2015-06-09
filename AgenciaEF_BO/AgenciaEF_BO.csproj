@@ -60,6 +60,11 @@
     <Compile Include="BO\CalculoTafiras.cs" />
     <Compile Include="BO\Facturar.cs" />
     <Compile Include="DAL\BultosEnviosRepository.cs" />
+    <Compile Include="DAL\dsReportes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReportes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DAL\TarifaEnvioZonaRepository.cs" />
     <Compile Include="DAL\TarifaEnvioRepository.cs" />
     <Compile Include="DAL\EnviosRepository.cs" />
@@ -193,6 +198,17 @@
     </None>
     <None Include="DAL\dsFactura.xss">
       <DependentUpon>dsFactura.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\dsReportes.xsc">
+      <DependentUpon>dsReportes.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\dsReportes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReportes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\dsReportes.xss">
+      <DependentUpon>dsReportes.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\AgenciaEF_BO.DAL.dsFactura.datasource" />

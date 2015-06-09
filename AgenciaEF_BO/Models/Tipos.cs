@@ -29,5 +29,7 @@ namespace AgenciaEF_BO.Models
         public virtual GruposTipos GruposTipos { set; get; }
 
         public virtual ICollection<Recibos> Recibos { set; get; }
+
+        public virtual ICollection<MovCaja> MovCaja { set; get; }
     }
 }
