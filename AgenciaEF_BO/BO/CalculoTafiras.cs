@@ -179,11 +179,51 @@ namespace AgenciaEF_BO.BO
 
                 //unitOfWork.BultosValoresRepository.Insert(oBultosVal);
 
-                lBultosVal.Add(oBultosVal);
-
-               
+                lBultosVal.Add(oBultosVal); 
 
             }
+
+            //Actualiza Itebis
+            decimal dMontoItebis = 0;
+
+            var QrycargosProd = unitOfWork.CargosProductoRepository.Get(filter: s => s.Cargos.CAR_CODIGO == "999").FirstOrDefault();
+            
+            if (QrycargosProd != null)
+            {
+                foreach (var bultos in lBultosVal)
+                {
+                    var sQry = unitOfWork.CargosProductoRepository.Get(filter: s => s.CARGO_PROD_ID == bultos.CARGO_PROD_ID).FirstOrDefault();
+
+
+                    if (sQry.Cargos.CAR_ITBIS == true && sQry.Cargos.ITBIS > 0)
+                    {
+                        dMontoItebis += Math.Round((bultos.BVA_MONTO_LOCAL * sQry.Cargos.ITBIS) / 100, 2);
+                    }
+                }
+
+                if  ( dMontoItebis > 0 )
+                {
+                    BultosValores oBultosVal = new BultosValores();
+
+                    oBultosVal.CARGO_PROD_ID = QrycargosProd.CARGO_PROD_ID;
+                    oBultosVal.BVA_TASA = QrycargosProd.Cargos.ITBIS;
+                    oBultosVal.BVA_MONTO = dMontoItebis;
+                    oBultosVal.BVA_MONTO_APLICAR = dMontoItebis;
+                    oBultosVal.BVA_MONTO_LOCAL = dMontoItebis;
+
+                    lBultosVal.Add(oBultosVal); 
+
+                }
+
+
+
+
+
+
+
+            }
+
+          
 
             return lBultosVal;
 

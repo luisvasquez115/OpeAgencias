@@ -83,6 +83,8 @@ namespace AgenciaEF_BO.DAL
 
         public DbSet<BultosEnvios> BultosEnvios { set; get; }
 
+        public DbSet<Terminal> Terminal { set; get; }
+
      
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

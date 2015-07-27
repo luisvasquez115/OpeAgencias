@@ -28,6 +28,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -60,6 +61,7 @@
     <Compile Include="BO\CalculoTafiras.cs" />
     <Compile Include="BO\Facturar.cs" />
     <Compile Include="DAL\BultosEnviosRepository.cs" />
+    <Compile Include="DAL\TerminalRepository.cs" />
     <Compile Include="DAL\dsReportes.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -170,6 +172,7 @@
     <Compile Include="Models\TarifaEnvio.cs" />
     <Compile Include="Models\TarifaEnvioZona.cs" />
     <Compile Include="Models\TasaCambio.cs" />
+    <Compile Include="Models\Terminal.cs" />
     <Compile Include="Models\Tipos.cs" />
     <Compile Include="Models\VW\vw_bultos_valores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

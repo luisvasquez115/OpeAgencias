@@ -662,13 +662,14 @@ namespace AgenciaEF_BO.BO
                     oPagos.TIPO_ID = 48; /*efectivo*/
 
                     if (pDatosPago.Rows.Count > 0)
-                        oPagos.TIPO_ID = Convert.ToInt32(pDatosPago.Rows[0]["TipoPago"]);
-
-
-                    unitOfWork.PagosRepository.Insert(oPagos);
+                        unitOfWork.PagosRepository.Insert(oPagos);
 
                     foreach (DataRow dr in pDatosPago.Rows)
                     {
+                        if (Convert.ToInt32(dr["TipoPago"]) != -1)
+                        {
+                            oPagos.TIPO_ID = Convert.ToInt32(pDatosPago.Rows[0]["TipoPago"]);
+
                         DatosPagos oDatosPagos = new DatosPagos();
                         oDatosPagos.BANCO_ID = Convert.ToInt32(dr["Banco"]);
                         oDatosPagos.FECHA_VENC = Convert.ToDateTime(dr["Fecha"]);
@@ -677,7 +678,7 @@ namespace AgenciaEF_BO.BO
                         oDatosPagos.NUMERO = dr["Numero"].ToString();
 
                         unitOfWork.DatosPagoRepository.Insert(oDatosPagos);
-                        //
+                        }
                     }
                     
                   
@@ -909,21 +910,24 @@ namespace AgenciaEF_BO.BO
                     oPagos.TIPO_ID = 48; /*efectivo*/
 
                     if (pDatosPago.Rows.Count > 0)
-                        oPagos.TIPO_ID = Convert.ToInt32(pDatosPago.Rows[0]["TipoPago"]);
+                        unitOfWork.PagosRepository.Insert(oPagos);
 
-                    unitOfWork.PagosRepository.Insert(oPagos);
 
                     foreach (DataRow dr in pDatosPago.Rows)
                     {
-                        DatosPagos oDatosPagos = new DatosPagos();
-                        oDatosPagos.BANCO_ID = Convert.ToInt32(dr["Banco"]);
-                        oDatosPagos.FECHA_VENC = Convert.ToDateTime(dr["Fecha"]);
-                        oDatosPagos.IMPORTE = Convert.ToDecimal(dr["Importe"]);
-                        oDatosPagos.PAGO_ID = oPagos.PAGO_ID;
-                        oDatosPagos.NUMERO = dr["Numero"].ToString();
+                        if (Convert.ToInt32(dr["TipoPago"]) != -1)
+                        {
+                            oPagos.TIPO_ID = Convert.ToInt32(pDatosPago.Rows[0]["TipoPago"]);
 
-                        unitOfWork.DatosPagoRepository.Insert(oDatosPagos);
+                            DatosPagos oDatosPagos = new DatosPagos();
+                            oDatosPagos.BANCO_ID = Convert.ToInt32(dr["Banco"]);
+                            oDatosPagos.FECHA_VENC = Convert.ToDateTime(dr["Fecha"]);
+                            oDatosPagos.IMPORTE = Convert.ToDecimal(dr["Importe"]);
+                            oDatosPagos.PAGO_ID = oPagos.PAGO_ID;
+                            oDatosPagos.NUMERO = dr["Numero"].ToString();
 
+                            unitOfWork.DatosPagoRepository.Insert(oDatosPagos);
+                        }
 
                     }
 

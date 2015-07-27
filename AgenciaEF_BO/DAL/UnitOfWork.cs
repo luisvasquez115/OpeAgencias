@@ -80,7 +80,24 @@ namespace AgenciaEF_BO.DAL
 
         private BultosEnviosRepository bultosEnviosRepository;
 
+        private TerminalRepository terminalRepository;
+
         //
+
+        public TerminalRepository TerminalRepository
+        {
+            get
+            {
+
+                if (this.terminalRepository == null)
+                {
+                    this.terminalRepository = new TerminalRepository(context);
+                }
+                return terminalRepository;
+            }
+        }
+
+
 
         public BultosEnviosRepository BultosEnviosRepository
         {

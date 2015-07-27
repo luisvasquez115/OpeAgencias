@@ -40,18 +40,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgDatos = new System.Windows.Forms.DataGridView();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.cmOpciones = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.reImprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.anularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDatos)).BeginInit();
+            this.cmOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.cmOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -97,6 +97,7 @@
             this.btnPrint.TabIndex = 5;
             this.btnPrint.Text = "Imprimir";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnBuscar
             // 
@@ -165,6 +166,28 @@
             this.dgDatos.TabIndex = 0;
             this.dgDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDatos_CellContentClick);
             // 
+            // cmOpciones
+            // 
+            this.cmOpciones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reImprimirToolStripMenuItem,
+            this.anularToolStripMenuItem});
+            this.cmOpciones.Name = "cmOpciones";
+            this.cmOpciones.Size = new System.Drawing.Size(139, 48);
+            // 
+            // reImprimirToolStripMenuItem
+            // 
+            this.reImprimirToolStripMenuItem.Name = "reImprimirToolStripMenuItem";
+            this.reImprimirToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.reImprimirToolStripMenuItem.Text = "Re-Imprimir";
+            this.reImprimirToolStripMenuItem.Click += new System.EventHandler(this.reImprimirToolStripMenuItem_Click);
+            // 
+            // anularToolStripMenuItem
+            // 
+            this.anularToolStripMenuItem.Name = "anularToolStripMenuItem";
+            this.anularToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.anularToolStripMenuItem.Text = "Anular";
+            this.anularToolStripMenuItem.Click += new System.EventHandler(this.anularToolStripMenuItem_Click);
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -183,28 +206,6 @@
             this.splitContainer1.SplitterDistance = 122;
             this.splitContainer1.TabIndex = 2;
             // 
-            // cmOpciones
-            // 
-            this.cmOpciones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reImprimirToolStripMenuItem,
-            this.anularToolStripMenuItem});
-            this.cmOpciones.Name = "cmOpciones";
-            this.cmOpciones.Size = new System.Drawing.Size(139, 48);
-            // 
-            // reImprimirToolStripMenuItem
-            // 
-            this.reImprimirToolStripMenuItem.Name = "reImprimirToolStripMenuItem";
-            this.reImprimirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.reImprimirToolStripMenuItem.Text = "Re-Imprimir";
-            this.reImprimirToolStripMenuItem.Click += new System.EventHandler(this.reImprimirToolStripMenuItem_Click);
-            // 
-            // anularToolStripMenuItem
-            // 
-            this.anularToolStripMenuItem.Name = "anularToolStripMenuItem";
-            this.anularToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.anularToolStripMenuItem.Text = "Anular";
-            this.anularToolStripMenuItem.Click += new System.EventHandler(this.anularToolStripMenuItem_Click);
-            // 
             // ConsultaOperaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -218,11 +219,11 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgDatos)).EndInit();
+            this.cmOpciones.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.cmOpciones.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

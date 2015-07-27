@@ -1095,6 +1095,10 @@ namespace AgenciaEF_BO.DAL {
             
             private global::System.Data.DataColumn columnImporte;
             
+            private global::System.Data.DataColumn columnMontoEfectivo;
+            
+            private global::System.Data.DataColumn columnDevolucion;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DatosPagoDataTable() {
@@ -1186,6 +1190,22 @@ namespace AgenciaEF_BO.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MontoEfectivoColumn {
+                get {
+                    return this.columnMontoEfectivo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DevolucionColumn {
+                get {
+                    return this.columnDevolucion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1221,7 +1241,7 @@ namespace AgenciaEF_BO.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DatosPagoRow AddDatosPagoRow(int TipoPago, long Numero, int Banco, string TipoPagoDesc, string BancoDesc, System.DateTime Fecha, decimal Importe) {
+            public DatosPagoRow AddDatosPagoRow(int TipoPago, long Numero, int Banco, string TipoPagoDesc, string BancoDesc, System.DateTime Fecha, decimal Importe, decimal MontoEfectivo, decimal Devolucion) {
                 DatosPagoRow rowDatosPagoRow = ((DatosPagoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TipoPago,
@@ -1230,7 +1250,9 @@ namespace AgenciaEF_BO.DAL {
                         TipoPagoDesc,
                         BancoDesc,
                         Fecha,
-                        Importe};
+                        Importe,
+                        MontoEfectivo,
+                        Devolucion};
                 rowDatosPagoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDatosPagoRow);
                 return rowDatosPagoRow;
@@ -1268,6 +1290,8 @@ namespace AgenciaEF_BO.DAL {
                 this.columnBancoDesc = base.Columns["BancoDesc"];
                 this.columnFecha = base.Columns["Fecha"];
                 this.columnImporte = base.Columns["Importe"];
+                this.columnMontoEfectivo = base.Columns["MontoEfectivo"];
+                this.columnDevolucion = base.Columns["Devolucion"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1287,6 +1311,10 @@ namespace AgenciaEF_BO.DAL {
                 base.Columns.Add(this.columnFecha);
                 this.columnImporte = new global::System.Data.DataColumn("Importe", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnImporte);
+                this.columnMontoEfectivo = new global::System.Data.DataColumn("MontoEfectivo", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMontoEfectivo);
+                this.columnDevolucion = new global::System.Data.DataColumn("Devolucion", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDevolucion);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTipoPago,
                                 this.columnNumero}, true));
@@ -2844,6 +2872,38 @@ namespace AgenciaEF_BO.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal MontoEfectivo {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDatosPago.MontoEfectivoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MontoEfectivo\' in table \'DatosPago\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDatosPago.MontoEfectivoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Devolucion {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDatosPago.DevolucionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Devolucion\' in table \'DatosPago\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDatosPago.DevolucionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsBancoNull() {
                 return this.IsNull(this.tableDatosPago.BancoColumn);
             }
@@ -2900,6 +2960,30 @@ namespace AgenciaEF_BO.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetImporteNull() {
                 this[this.tableDatosPago.ImporteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMontoEfectivoNull() {
+                return this.IsNull(this.tableDatosPago.MontoEfectivoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMontoEfectivoNull() {
+                this[this.tableDatosPago.MontoEfectivoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDevolucionNull() {
+                return this.IsNull(this.tableDatosPago.DevolucionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDevolucionNull() {
+                this[this.tableDatosPago.DevolucionColumn] = global::System.Convert.DBNull;
             }
         }
         

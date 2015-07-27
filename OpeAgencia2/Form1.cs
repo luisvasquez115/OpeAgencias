@@ -74,7 +74,34 @@ namespace OpeAgencia2
                 lblUsuario.Text = Parametros.Parametros.UserName;
                 lblSucursal.Text = Parametros.Parametros.NombreSucActual;
 
+                BuscaTerminalFiscal();
+
             }
+        }
+
+        void BuscaTerminalFiscal()
+        {
+            string sSerial = clsUtils.Utils.ObtenerSerialTerminal();
+            BO.Models.Terminal oTerminal = new BO.Models.Terminal();
+
+            var oRetorno = unitOfWork.TerminalRepository.Get(xy => xy.SERIAL == sSerial && xy.SUC_ID == Parametros.Parametros.SucursalActual).FirstOrDefault();
+            if (oRetorno !=null)
+            {
+              
+
+                Parametros.ParametrosSucursal.PuertoFiscal =oRetorno.PUERTO;
+                Parametros.ParametrosSucursal.TermFiscalId = oRetorno.TERM_ID;
+
+            }
+            else
+            {
+                Parametros.ParametrosSucursal.PuertoFiscal = "NA";
+                Parametros.ParametrosSucursal.TermFiscalId = -1;
+
+            } 
+         
+            
+            
         }
 
         void InicializaParametros()

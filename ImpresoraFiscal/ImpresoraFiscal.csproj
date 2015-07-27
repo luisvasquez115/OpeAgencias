@@ -4,21 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ED2F93B5-D20B-4859-BDE7-A8D3B5E59354}</ProjectGuid>
+    <ProjectGuid>{10C7F73A-86B1-419B-B0E9-0338F5994A22}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>clsUtils</RootNamespace>
-    <AssemblyName>clsUtils</AssemblyName>
+    <RootNamespace>ImpresoraFiscal</RootNamespace>
+    <AssemblyName>ImpresoraFiscal</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,31 +33,25 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="VmaxCom">
+      <HintPath>..\Impresora Fiscal\vmax\VmaxCom.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Crypto.cs" />
-    <Compile Include="IErrores.cs" />
-    <Compile Include="NumericTextBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="NumericTextBox.Designer.cs">
-      <DependentUpon>NumericTextBox.cs</DependentUpon>
-    </Compile>
+    <Compile Include="FiscalPrinter.cs" />
+    <Compile Include="FiscalPrinterWrapper.cs" />
+    <Compile Include="Invoice.cs" />
+    <Compile Include="IPrinter.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="Payment.cs" />
+    <Compile Include="PrinterResponses.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StringHelpers.cs" />
-    <Compile Include="Utils.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="NumericTextBox.resx">
-      <DependentUpon>NumericTextBox.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="TSP650FPrinter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -42,11 +42,18 @@ namespace OpeAgencia2.Facturacion
             DataTable dt = new DataTable();
             dt = CargarDataSet(iReciboId);
             dt.TableName = "FACTURAS";
-            //dsFacturas.Tables.Add(dt);
+            BO.Models.Terminal oTerm = new BO.Models.Terminal();
+
+            //oTerm  =unitOfWork.TerminalRepository.GetByID(Parametros.ParametrosSucursal.TermFiscalId);
+
+          //  Printer oPrinter = new Printer(oTerm);
+
+            //oPrinter.SetInvoiceData()
+
+            dsFacturas.Tables.Add(dt);
 
 
-
-
+            
             LocalReport report = new LocalReport();
             report.ReportPath = @".\Reportes\rFactura.rdlc";
 
@@ -65,16 +72,40 @@ namespace OpeAgencia2.Facturacion
             report.SetParameters(new ReportParameter("Encabezado2", Parametros.ParametrosSucursal.EncabezadoFactura2));
             report.SetParameters(new ReportParameter("Encabezado3", Parametros.ParametrosSucursal.EncabezadoFactura3));
             
-
-            /*
+          /*
             report.DataSources.Add(
                new ReportDataSource("Sales", LoadSalesData()));
-             */
-
+             -----
+            */
 
             Export(report);
             Print();
+          
         }
+
+
+        public void Imprimir(int iReciboId, BO.DAL.dsDatos.DatosPagoDataTable oDatosPago)
+        {
+            // dsFacturaBindingSource.DataSource = CargarDataSet();
+            BO.DAL.dsFactura.FACTURASDataTable dtFatura = new BO.DAL.dsFactura.FACTURASDataTable();
+           // DataTable dt = new DataTable();
+            dtFatura = CargarDataSetFiscal(iReciboId);
+            //dt.TableName = "FACTURAS";
+            BO.Models.Terminal oTerm = new BO.Models.Terminal();
+
+            oTerm = unitOfWork.TerminalRepository.GetByID(Parametros.ParametrosSucursal.TermFiscalId);
+
+            Printer oPrinter = new Printer(oTerm);
+
+            oPrinter.SetInvoiceData(dtFatura, oDatosPago,false,1);
+
+            oPrinter.Print();
+            //dsFacturas.Tables.Add(dt);
+
+
+          
+        }
+
 
         public void ImprimirComprobate(int piMovCaja)
         {
@@ -126,19 +157,42 @@ namespace OpeAgencia2.Facturacion
             var oRecibosDet = unitOfWork.RecibosDetRepository.Get(filter: xy => xy.RECIBO_ID == oRecibo.RECIBO_ID);
                 /*
                  */
+            int iCantElementos = 0;
+            var elementos  = from p in oRecibosDet
+                             select new { p.BLT_NUMERO };
+
+            iCantElementos = elementos.Distinct().Count();
+                              
+           
                 foreach(var oRecDet in  oRecibosDet)
                 {
-                //var BultosValores = unitOfWork.BultosValoresRepository.GetByID(oDet.BVA_ID);
+                  
+                    
+                     //var BultosValores = unitOfWork.BultosValoresRepository.GetByID(oDet.BVA_ID);
                     var Bultos = unitOfWork.BultosRepository.GetByID(oRecDet.BLT_NUMERO);
 
                     BO.DAL.dsFactura.FACTURASRow oFactRow = oTable.NewFACTURASRow();
 
 
                     oFactRow.REC_ID = oRecibo.RECIBO_ID;
-                    oFactRow.REC_TIPO = unitOfWork.TiposRepository.GetByID(oRecibo.TIPO_REC_ID).TIPO_CODIGO;
+                    var  oTipoDoc = unitOfWork.TiposRepository.GetByID(oRecibo.TIPO_REC_ID);
+                    oFactRow.REC_TIPO = oTipoDoc.TIPO_CODIGO;
+                    oFactRow.REC_TIPO_DESC = oTipoDoc.TIPO_DESCR;
                     oFactRow.REMITENTE = Bultos.REMITENTE;
-                    
-                    oFactRow.RNC = "NA";
+
+                    if (Bultos.Clientes.CTE_CEDULA == null)
+                        oFactRow.RNC = Bultos.Clientes.CTE_RNC;
+                    else
+                    {
+                         if (Bultos.Clientes.CTE_CEDULA.TrimEnd() == "")
+                             oFactRow.RNC = Bultos.Clientes.CTE_RNC;
+                         else
+                         {
+                             oFactRow.RNC = Bultos.Clientes.CTE_CEDULA;
+                         }
+
+                    }
+
                     oFactRow.BLT_NUMERO = Bultos.BLT_NUMERO;
                     oFactRow.CODIGO = oRecDet.Cargos.CAR_DESCRIPCION;
                     oFactRow.CONSIGNATARIO = Bultos.DESTINATARIO;
@@ -158,6 +212,9 @@ namespace OpeAgencia2.Facturacion
                     oFactRow.ITBIS = oRecDet.Cargos.CAR_ITBIS;
                     oFactRow.MONTO_ITEBIS = oRecDet.MONTO_ITBIS;
                     oFactRow.MONTO_TOTAL = oRecDet.MONTO_TOTAL;
+                    oFactRow.TASA_ITBIS = oRecDet.Cargos.ITBIS;
+                    oFactRow.USUARIO = oRecibo.USER_CREA;
+                    oFactRow.TIPO_FISCAL = unitOfWork.NumeroFicalRepository.Get(xy=>xy.TIPO_ID == Bultos.Clientes.CTE_TIPO_FISCAL).FirstOrDefault().TIPO_FISCAL;
                     
                     if (oRecDet.Cargos.CAR_CODIGO == "010")
                     {
@@ -169,13 +226,125 @@ namespace OpeAgencia2.Facturacion
                 oFactRow.TELEFONOCLI = Bultos.Clientes.CTE_TELEFONO_CASA;
                 oFactRow.TRACKING = Bultos.BLT_TRACKING_NUMBER;
 
-                oTable.Rows.Add(oFactRow);
+                oFactRow.CANT_ELEMENTOS = iCantElementos;
+
+                 oTable.Rows.Add(oFactRow);
                 }
 
 
             return oTable;
         }
 
+        public  BO.DAL.dsFactura.FACTURASDataTable CargarDataSetFiscal(int piReciboId)
+        {
+
+            string sNCF_ANUL = "";
+
+            BO.DAL.dsFactura.FACTURASDataTable oTable = new BO.DAL.dsFactura.FACTURASDataTable();
+
+            var oRecibo = unitOfWork.RecibosRepository.GetByID(piReciboId);
+
+            var oReciboAnul = unitOfWork.RecibosRepository.GetByID(oRecibo.RECIBO_ID_ANUL);
+
+            if (oReciboAnul != null)
+                sNCF_ANUL = oReciboAnul.NUM_FISCAL;
+
+            var oRecibosDet = unitOfWork.RecibosDetRepository.Get(filter: xy => xy.RECIBO_ID == oRecibo.RECIBO_ID);
+            /*
+             */
+            int iCantElementos = 0;
+            var elementos = from p in oRecibosDet
+                            select new { p.BLT_NUMERO };
+
+            iCantElementos = elementos.Distinct().Count();
+            int iBltNumero = -1;
+            decimal dTarifa = 1;
+
+            foreach (var oRecDet in oRecibosDet)
+            {
+
+                
+                //var BultosValores = unitOfWork.BultosValoresRepository.GetByID(oDet.BVA_ID);
+                var Bultos = unitOfWork.BultosRepository.GetByID(oRecDet.BLT_NUMERO);
+
+                BO.DAL.dsFactura.FACTURASRow oFactRow = oTable.NewFACTURASRow();
+
+
+                oFactRow.REC_ID = oRecibo.RECIBO_ID;
+                var oTipoDoc = unitOfWork.TiposRepository.GetByID(oRecibo.TIPO_REC_ID);
+                oFactRow.REC_TIPO = oTipoDoc.TIPO_CODIGO;
+                oFactRow.REC_TIPO_DESC = oTipoDoc.TIPO_DESCR;
+                oFactRow.REMITENTE = Bultos.REMITENTE;
+
+                if (Bultos.Clientes.CTE_CEDULA == null)
+                    oFactRow.RNC = Bultos.Clientes.CTE_RNC;
+                else
+                {
+                    if (Bultos.Clientes.CTE_CEDULA.TrimEnd() == "")
+                        oFactRow.RNC = Bultos.Clientes.CTE_RNC;
+                    else
+                    {
+                        oFactRow.RNC = Bultos.Clientes.CTE_CEDULA;
+                    }
+
+                }
+
+                if (iBltNumero != Bultos.BLT_NUMERO)
+                {
+                    var BultosValores = unitOfWork.BultosValoresRepository.Get(filter: xy => xy.BLT_NUMERO == oRecDet.BLT_NUMERO && xy.CargosProducto.Cargos.CAR_CODIGO == "010").FirstOrDefault();
+                    if (BultosValores != null)
+                    {
+                        dTarifa = BultosValores.BVA_MONTO_APLICAR;
+                
+                    }
+                    else
+                        dTarifa =1;
+
+                    iBltNumero = Bultos.BLT_NUMERO;
+                    
+
+                }
+                oFactRow.TARIFA = dTarifa;
+                
+                oFactRow.BLT_NUMERO = Bultos.BLT_NUMERO;
+                oFactRow.CODIGO = oRecDet.Cargos.CAR_DESCRIPCION;
+                oFactRow.CONSIGNATARIO = Bultos.DESTINATARIO;
+                oFactRow.CONTENIDO = Bultos.CONTENIDO;
+                oFactRow.CUENTACLI = Bultos.Clientes.CTE_NUMERO_EPS.TrimEnd() + " " + Bultos.Clientes.CTE_NOMBRE + " " + Bultos.Clientes.CTE_APELLIDO;
+                oFactRow.DIRECCIONCLI = Bultos.Clientes.CTE_DIRECCION_CASA;
+                oFactRow.IDENTIFICACION = Bultos.BLT_CODIGO_BARRA;
+                oFactRow.MONTO = oRecDet.MONTO_LOCAL;
+                oFactRow.NCF = oRecibo.NUM_FISCAL;
+                oFactRow.NCF_TIPO = unitOfWork.TiposRepository.GetByID(Bultos.Clientes.CTE_TIPO_FISCAL).TIPO_DESCR;
+                oFactRow.PESO = Bultos.BLT_PESO.ToString();
+                oFactRow.PIEZAS = Bultos.BLT_PIEZAS.ToString();
+                oFactRow.PRODUCTO = Bultos.Productos.PRO_CODIGO + " " + Bultos.Productos.PRO_DESCRIPCION;
+                oFactRow.REC_CREDITO = oRecibo.REC_CREDITO == false ? "N" : "S";
+                oFactRow.REC_FECHA = oRecibo.FECHA.ToShortDateString();
+                oFactRow.SUCURSAL = Bultos.Sucursales.SUC_DESCRIPCION;
+                oFactRow.ITBIS = oRecDet.Cargos.CAR_ITBIS;
+                oFactRow.MONTO_ITEBIS = oRecDet.MONTO_ITBIS;
+                oFactRow.MONTO_TOTAL = oRecDet.MONTO_TOTAL;
+                oFactRow.TASA_ITBIS = oRecDet.Cargos.ITBIS;
+                oFactRow.USUARIO = oRecibo.USER_CREA;
+                oFactRow.TIPO_FISCAL = unitOfWork.NumeroFicalRepository.Get(xy => xy.TIPO_ID == Bultos.Clientes.CTE_TIPO_FISCAL).FirstOrDefault().TIPO_FISCAL;
+
+                
+                oFactRow.TELEFONO = "NA";
+                oFactRow.TELEFONOCLI = Bultos.Clientes.CTE_TELEFONO_CASA;
+                oFactRow.TRACKING = Bultos.BLT_TRACKING_NUMBER;
+
+                oFactRow.CANT_ELEMENTOS = iCantElementos;
+                oFactRow.NCF_AFECTADO = sNCF_ANUL;
+
+                oFactRow.ENTREGADO_A = Bultos.Clientes.CTE_NOMBRE;
+
+                oTable.Rows.Add(oFactRow);
+            }
+
+
+            return oTable;
+        }
 
         public DataTable CargarDataSetPagos(int piMovCajaId)
         {

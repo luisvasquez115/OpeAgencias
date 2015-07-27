@@ -148,6 +148,8 @@ namespace OpeAgencia2.Facturacion
                     dr["BancoDesc"] = cmbBancos.Text;
                     dr["Fecha"] = txtFecha.Value;
                     dr["Importe"] = txtMontoCk.DecimalValue;
+                    dr["MontoEfectivo"] = txtEfectivo.DecimalValue;
+                    dr["Devolucion"] = txtDevolucion.DecimalValue;
 
                     oTable.Rows.Add(dr);
                     bRetorno = true;

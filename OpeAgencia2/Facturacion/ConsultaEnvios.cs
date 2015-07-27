@@ -155,7 +155,9 @@ namespace OpeAgencia2.Facturacion
                     MessageBox.Show("Anulación realizada exitosamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //ImprimirFactura(oFact.FacturaGenerada);
                     ImprimirFactura oImpFact = new ImprimirFactura();
-                    oImpFact.Imprimir(oFact.FacturaGenerada);
+                    BO.DAL.dsDatos.DatosPagoDataTable oDatosPago = null;
+
+                    oImpFact.Imprimir(oFact.FacturaGenerada, oDatosPago);
 
 
                     //LimpiarPantalla();
@@ -176,6 +178,11 @@ namespace OpeAgencia2.Facturacion
             ImprimirFactura oImpFact = new ImprimirFactura();
             oImpFact.Imprimir(iReciboId);
 
+
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
 
         }
     }

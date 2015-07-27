@@ -21,7 +21,7 @@
     </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -145,11 +145,23 @@
     <Compile Include="Facturacion\frmImpFactura.Designer.cs">
       <DependentUpon>frmImpFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\frmManejadorImpresora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\frmManejadorImpresora.Designer.cs">
+      <DependentUpon>frmManejadorImpresora.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\frmMovCaja.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Facturacion\frmMovCaja.Designer.cs">
       <DependentUpon>frmMovCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\frmRegistraImpresora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\frmRegistraImpresora.Designer.cs">
+      <DependentUpon>frmRegistraImpresora.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\ImprimirFactura.cs" />
     <Compile Include="Facturacion\ListadoFacturasFecha.cs">
@@ -158,6 +170,7 @@
     <Compile Include="Facturacion\ListadoFacturasFecha.Designer.cs">
       <DependentUpon>ListadoFacturasFecha.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\Printer.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -431,8 +444,14 @@
     <EmbeddedResource Include="Facturacion\frmImpFactura.resx">
       <DependentUpon>frmImpFactura.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\frmManejadorImpresora.resx">
+      <DependentUpon>frmManejadorImpresora.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\frmMovCaja.resx">
       <DependentUpon>frmMovCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\frmRegistraImpresora.resx">
+      <DependentUpon>frmRegistraImpresora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\ListadoFacturasFecha.resx">
       <DependentUpon>ListadoFacturasFecha.cs</DependentUpon>
@@ -633,6 +652,10 @@
     <ProjectReference Include="..\clsUtils\clsUtils.csproj">
       <Project>{ed2f93b5-d20b-4859-bde7-a8d3b5e59354}</Project>
       <Name>clsUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ImpresoraFiscal\ImpresoraFiscal.csproj">
+      <Project>{10c7f73a-86b1-419b-b0e9-0338f5994a22}</Project>
+      <Name>ImpresoraFiscal</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

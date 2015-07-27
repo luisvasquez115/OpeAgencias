@@ -19,11 +19,25 @@ namespace OpeAgencia2.Parametros
         static string sEncabezadoFactura2;
         static string sEncabezadoFactura3;
 
-
+        static int iTermFiscalId;
+        static string sPuertoFiscal;
 
         private  static    BO.DAL.UnitOfWork unitOfWork = new BO.DAL.UnitOfWork();
 
 
+        public static int TermFiscalId
+        {
+            set { iTermFiscalId = value; }
+            get { return iTermFiscalId; }
+        }
+
+        public static string PuertoFiscal
+        {
+            set { sPuertoFiscal = value; }
+            get { return sPuertoFiscal; }
+        }
+
+     
         public static int CodigoAlmacen
         {
             set { mAlmacen = value; }

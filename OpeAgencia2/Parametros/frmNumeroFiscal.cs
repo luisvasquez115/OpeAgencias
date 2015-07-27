@@ -171,6 +171,7 @@ namespace OpeAgencia2.Parametros
             oCom.MAX_SECUENCIA = txtMaximo.IntValue;
            
             oCom.SUC_ID = Convert.ToInt32(cmbSucursal.SelectedValue);
+            oCom.TIPO_FISCAL = Convert.ToInt32(txtTIPO_FISCAL.Value);
 
 
             try
@@ -276,6 +277,10 @@ namespace OpeAgencia2.Parametros
 
                         ((clsUtils.NumericTextBox)ctr).IntValue = MyComp.MAX_SECUENCIA;
                        
+                        break;
+                    case "TIPO_FISCAL":
+                          ((NumericUpDown)ctr).Value = MyComp.TIPO_FISCAL;
+
                         break;
 
 

@@ -27,7 +27,12 @@ namespace OpeAgencia2.Facturacion
 
         private void frmFactMercancia_Load(object sender, EventArgs e)
         {
-            
+
+            if (Parametros.ParametrosSucursal.TermFiscalId == -1)
+            {
+                MessageBox.Show("Esta unida no tiene configurada impresora fiscal", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
             CargarCorrespondencia();
             LimpiarPantalla();
         }
@@ -190,6 +195,16 @@ namespace OpeAgencia2.Facturacion
 
             oTableCorr.Rows.Add(dr);
             
+
+
+
+
+
+
+
+
+
+
         }
 
         private void dgCorr_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -239,6 +254,24 @@ namespace OpeAgencia2.Facturacion
                 DatosPago = x.DatosPago;
                 if (x.DialogResult == System.Windows.Forms.DialogResult.OK)
                      bPagado = true;
+
+                if (DatosPago.Rows.Count == 0)
+                {
+                    BO.DAL.dsDatos.DatosPagoRow oRow = DatosPago.NewDatosPagoRow();
+                    oRow.Banco = -1;
+                    oRow.BancoDesc = "";
+                    oRow.Devolucion = dDevolucion;
+                    oRow.Fecha = DateTime.Now;
+                    oRow.Importe = Convert.ToDecimal(txtMontoTotal.Text);
+                    oRow.MontoEfectivo = dMontoEfectivo;
+                    oRow.Numero = 99;
+                    oRow.TipoPago = -1;
+                    oRow.TipoPagoDesc = "";
+                    DatosPago.Rows.Add(oRow);
+                  
+                }
+
+
             }
             else
             {
@@ -268,7 +301,7 @@ namespace OpeAgencia2.Facturacion
 
                     //ImprimirFactura(oFact.FacturaGenerada);
                     ImprimirFactura oImpFact = new ImprimirFactura();
-                    oImpFact.Imprimir(oFact.FacturaGenerada);
+                    oImpFact.Imprimir(oFact.FacturaGenerada, DatosPago);
 
 
                     LimpiarPantalla();

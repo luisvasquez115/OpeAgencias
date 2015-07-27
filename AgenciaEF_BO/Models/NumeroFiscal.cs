@@ -27,6 +27,9 @@ namespace AgenciaEF_BO.Models
         [Required]
         public int SECUENCIA { set; get; }
 
+  
+        public int TIPO_FISCAL { set; get; }
+
         [Required]
         public int MAX_SECUENCIA { set; get; }
 

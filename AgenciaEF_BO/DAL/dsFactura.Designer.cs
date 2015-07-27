@@ -376,6 +376,20 @@ namespace AgenciaEF_BO.DAL {
             
             private global::System.Data.DataColumn columnMONTO_GRAVADO;
             
+            private global::System.Data.DataColumn columnTASA_ITBIS;
+            
+            private global::System.Data.DataColumn columnTIPO_FISCAL;
+            
+            private global::System.Data.DataColumn columnCANT_ELEMENTOS;
+            
+            private global::System.Data.DataColumn columnREC_TIPO_DESC;
+            
+            private global::System.Data.DataColumn columnUSUARIO;
+            
+            private global::System.Data.DataColumn columnNCF_AFECTADO;
+            
+            private global::System.Data.DataColumn columnENTREGADO_A;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public FACTURASDataTable() {
@@ -659,6 +673,62 @@ namespace AgenciaEF_BO.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TASA_ITBISColumn {
+                get {
+                    return this.columnTASA_ITBIS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TIPO_FISCALColumn {
+                get {
+                    return this.columnTIPO_FISCAL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CANT_ELEMENTOSColumn {
+                get {
+                    return this.columnCANT_ELEMENTOS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn REC_TIPO_DESCColumn {
+                get {
+                    return this.columnREC_TIPO_DESC;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn USUARIOColumn {
+                get {
+                    return this.columnUSUARIO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NCF_AFECTADOColumn {
+                get {
+                    return this.columnNCF_AFECTADO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ENTREGADO_AColumn {
+                get {
+                    return this.columnENTREGADO_A;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -724,7 +794,14 @@ namespace AgenciaEF_BO.DAL {
                         bool ITBIS, 
                         decimal MONTO_ITEBIS, 
                         decimal MONTO_TOTAL, 
-                        string MONTO_GRAVADO) {
+                        string MONTO_GRAVADO, 
+                        decimal TASA_ITBIS, 
+                        int TIPO_FISCAL, 
+                        int CANT_ELEMENTOS, 
+                        string REC_TIPO_DESC, 
+                        string USUARIO, 
+                        string NCF_AFECTADO, 
+                        string ENTREGADO_A) {
                 FACTURASRow rowFACTURASRow = ((FACTURASRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -757,7 +834,14 @@ namespace AgenciaEF_BO.DAL {
                         ITBIS,
                         MONTO_ITEBIS,
                         MONTO_TOTAL,
-                        MONTO_GRAVADO};
+                        MONTO_GRAVADO,
+                        TASA_ITBIS,
+                        TIPO_FISCAL,
+                        CANT_ELEMENTOS,
+                        REC_TIPO_DESC,
+                        USUARIO,
+                        NCF_AFECTADO,
+                        ENTREGADO_A};
                 rowFACTURASRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFACTURASRow);
                 return rowFACTURASRow;
@@ -818,6 +902,13 @@ namespace AgenciaEF_BO.DAL {
                 this.columnMONTO_ITEBIS = base.Columns["MONTO_ITEBIS"];
                 this.columnMONTO_TOTAL = base.Columns["MONTO_TOTAL"];
                 this.columnMONTO_GRAVADO = base.Columns["MONTO_GRAVADO"];
+                this.columnTASA_ITBIS = base.Columns["TASA_ITBIS"];
+                this.columnTIPO_FISCAL = base.Columns["TIPO_FISCAL"];
+                this.columnCANT_ELEMENTOS = base.Columns["CANT_ELEMENTOS"];
+                this.columnREC_TIPO_DESC = base.Columns["REC_TIPO_DESC"];
+                this.columnUSUARIO = base.Columns["USUARIO"];
+                this.columnNCF_AFECTADO = base.Columns["NCF_AFECTADO"];
+                this.columnENTREGADO_A = base.Columns["ENTREGADO_A"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -885,6 +976,20 @@ namespace AgenciaEF_BO.DAL {
                 base.Columns.Add(this.columnMONTO_TOTAL);
                 this.columnMONTO_GRAVADO = new global::System.Data.DataColumn("MONTO_GRAVADO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMONTO_GRAVADO);
+                this.columnTASA_ITBIS = new global::System.Data.DataColumn("TASA_ITBIS", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTASA_ITBIS);
+                this.columnTIPO_FISCAL = new global::System.Data.DataColumn("TIPO_FISCAL", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTIPO_FISCAL);
+                this.columnCANT_ELEMENTOS = new global::System.Data.DataColumn("CANT_ELEMENTOS", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCANT_ELEMENTOS);
+                this.columnREC_TIPO_DESC = new global::System.Data.DataColumn("REC_TIPO_DESC", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnREC_TIPO_DESC);
+                this.columnUSUARIO = new global::System.Data.DataColumn("USUARIO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUSUARIO);
+                this.columnNCF_AFECTADO = new global::System.Data.DataColumn("NCF_AFECTADO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNCF_AFECTADO);
+                this.columnENTREGADO_A = new global::System.Data.DataColumn("ENTREGADO_A", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnENTREGADO_A);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("HEADERKey1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -2028,6 +2133,118 @@ namespace AgenciaEF_BO.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal TASA_ITBIS {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableFACTURAS.TASA_ITBISColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TASA_ITBIS\' in table \'FACTURAS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFACTURAS.TASA_ITBISColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int TIPO_FISCAL {
+                get {
+                    try {
+                        return ((int)(this[this.tableFACTURAS.TIPO_FISCALColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TIPO_FISCAL\' in table \'FACTURAS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFACTURAS.TIPO_FISCALColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int CANT_ELEMENTOS {
+                get {
+                    try {
+                        return ((int)(this[this.tableFACTURAS.CANT_ELEMENTOSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CANT_ELEMENTOS\' in table \'FACTURAS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFACTURAS.CANT_ELEMENTOSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string REC_TIPO_DESC {
+                get {
+                    try {
+                        return ((string)(this[this.tableFACTURAS.REC_TIPO_DESCColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'REC_TIPO_DESC\' in table \'FACTURAS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFACTURAS.REC_TIPO_DESCColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string USUARIO {
+                get {
+                    try {
+                        return ((string)(this[this.tableFACTURAS.USUARIOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'USUARIO\' in table \'FACTURAS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFACTURAS.USUARIOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NCF_AFECTADO {
+                get {
+                    try {
+                        return ((string)(this[this.tableFACTURAS.NCF_AFECTADOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NCF_AFECTADO\' in table \'FACTURAS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFACTURAS.NCF_AFECTADOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ENTREGADO_A {
+                get {
+                    try {
+                        return ((string)(this[this.tableFACTURAS.ENTREGADO_AColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ENTREGADO_A\' in table \'FACTURAS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFACTURAS.ENTREGADO_AColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsREC_TIPONull() {
                 return this.IsNull(this.tableFACTURAS.REC_TIPOColumn);
             }
@@ -2372,6 +2589,90 @@ namespace AgenciaEF_BO.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetMONTO_GRAVADONull() {
                 this[this.tableFACTURAS.MONTO_GRAVADOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTASA_ITBISNull() {
+                return this.IsNull(this.tableFACTURAS.TASA_ITBISColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTASA_ITBISNull() {
+                this[this.tableFACTURAS.TASA_ITBISColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTIPO_FISCALNull() {
+                return this.IsNull(this.tableFACTURAS.TIPO_FISCALColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTIPO_FISCALNull() {
+                this[this.tableFACTURAS.TIPO_FISCALColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCANT_ELEMENTOSNull() {
+                return this.IsNull(this.tableFACTURAS.CANT_ELEMENTOSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCANT_ELEMENTOSNull() {
+                this[this.tableFACTURAS.CANT_ELEMENTOSColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsREC_TIPO_DESCNull() {
+                return this.IsNull(this.tableFACTURAS.REC_TIPO_DESCColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetREC_TIPO_DESCNull() {
+                this[this.tableFACTURAS.REC_TIPO_DESCColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUSUARIONull() {
+                return this.IsNull(this.tableFACTURAS.USUARIOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUSUARIONull() {
+                this[this.tableFACTURAS.USUARIOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNCF_AFECTADONull() {
+                return this.IsNull(this.tableFACTURAS.NCF_AFECTADOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNCF_AFECTADONull() {
+                this[this.tableFACTURAS.NCF_AFECTADOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsENTREGADO_ANull() {
+                return this.IsNull(this.tableFACTURAS.ENTREGADO_AColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetENTREGADO_ANull() {
+                this[this.tableFACTURAS.ENTREGADO_AColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -243,6 +243,23 @@ namespace OpeAgencia2.Facturacion
                 DatosPago = x.DatosPago;
                 if (x.DialogResult == System.Windows.Forms.DialogResult.OK)
                     bPagado = true;
+
+                if (DatosPago.Rows.Count == 0)
+                {
+                    BO.DAL.dsDatos.DatosPagoRow oRow = DatosPago.NewDatosPagoRow();
+                    oRow.Banco = -1;
+                    oRow.BancoDesc = "";
+                    oRow.Devolucion = dDevolucion;
+                    oRow.Fecha = DateTime.Now;
+                    oRow.Importe = Convert.ToDecimal(txtMontoTotal.Text);
+                    oRow.MontoEfectivo = dMontoEfectivo;
+                    oRow.Numero = 99;
+                    oRow.TipoPago = -1;
+                    oRow.TipoPagoDesc = "";
+                    DatosPago.Rows.Add(oRow);
+
+                }
+
             }
             else
             {
@@ -272,7 +289,7 @@ namespace OpeAgencia2.Facturacion
 
                     //ImprimirFactura(oFact.FacturaGenerada);
                     ImprimirFactura oImpFact = new ImprimirFactura();
-                    oImpFact.Imprimir(oFact.FacturaGenerada);
+                    oImpFact.Imprimir(oFact.FacturaGenerada, DatosPago);
 
 
                     LimpiarPantalla();
