@@ -67,6 +67,7 @@ namespace AgenciaEF_BO.BO
                 RecAnul.CTE_ID = recibo.CTE_ID;
                 RecAnul.COUNTER_ID = iUsuarioId;
                 RecAnul.NUM_FISCAL = FindNextNCF_ANUL();
+                RecAnul.IMPRESO = false;
 
                 unitOfWork.RecibosRepository.Insert(RecAnul);
 
@@ -202,6 +203,7 @@ namespace AgenciaEF_BO.BO
             oRecibos.USER_CREA = "NA";
             oRecibos.USER_MODIFICA = "NA";
             oRecibos.REC_CREDITO = true;
+            oRecibos.IMPRESO = false;
 
             foreach (int iCargoVario in pCargVar)
             {
@@ -422,14 +424,6 @@ namespace AgenciaEF_BO.BO
 
             }
 
-          
-          
-
-          
-
-
-           
-
 
                 //Datos pago
             foreach (DataRow dr in pDatosPago.Rows)
@@ -548,6 +542,7 @@ namespace AgenciaEF_BO.BO
                 oRecibos.USER_CREA = sUsuario;
                 oRecibos.USER_MODIFICA = sUsuario;
                 oRecibos.REC_CREDITO = bCredito;
+                oRecibos.IMPRESO = false;
                               
  
                 foreach(object s in pBultos)
@@ -660,6 +655,7 @@ namespace AgenciaEF_BO.BO
                     oPagos.MOVCAJA_ID = oCaja.MOVCAJA_ID;
                     oPagos.SUC_ID = iSucId;
                     oPagos.TIPO_ID = 48; /*efectivo*/
+                    oPagos.MONTO_EFECTIVO = Convert.ToDecimal(pDatosPago.Rows[0]["MontoEfectivo"]);
 
                     if (pDatosPago.Rows.Count > 0)
                         unitOfWork.PagosRepository.Insert(oPagos);
@@ -676,6 +672,7 @@ namespace AgenciaEF_BO.BO
                         oDatosPagos.IMPORTE = Convert.ToDecimal(dr["Importe"]);
                         oDatosPagos.PAGO_ID = oPagos.PAGO_ID;
                         oDatosPagos.NUMERO = dr["Numero"].ToString();
+                        oPagos.MONTO_EFECTIVO = 0;
 
                         unitOfWork.DatosPagoRepository.Insert(oDatosPagos);
                         }
@@ -799,6 +796,7 @@ namespace AgenciaEF_BO.BO
                 oRecibos.USER_CREA = sUsuario;
                 oRecibos.USER_MODIFICA = sUsuario;
                 oRecibos.REC_CREDITO = bCredito;
+                oRecibos.IMPRESO = false;
 
 
 
@@ -908,6 +906,8 @@ namespace AgenciaEF_BO.BO
                     oPagos.MOVCAJA_ID = oCaja.MOVCAJA_ID;
                     oPagos.SUC_ID = iSucId;
                     oPagos.TIPO_ID = 48; /*efectivo*/
+                    oPagos.MONTO_EFECTIVO = Convert.ToDecimal(pDatosPago.Rows[0]["MontoEfectivo"]);
+
 
                     if (pDatosPago.Rows.Count > 0)
                         unitOfWork.PagosRepository.Insert(oPagos);
@@ -925,6 +925,8 @@ namespace AgenciaEF_BO.BO
                             oDatosPagos.IMPORTE = Convert.ToDecimal(dr["Importe"]);
                             oDatosPagos.PAGO_ID = oPagos.PAGO_ID;
                             oDatosPagos.NUMERO = dr["Numero"].ToString();
+                            oPagos.MONTO_EFECTIVO = 0;
+
 
                             unitOfWork.DatosPagoRepository.Insert(oDatosPagos);
                         }

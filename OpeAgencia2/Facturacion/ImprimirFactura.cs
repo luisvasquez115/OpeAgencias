@@ -84,8 +84,9 @@ namespace OpeAgencia2.Facturacion
         }
 
 
-        public void Imprimir(int iReciboId, BO.DAL.dsDatos.DatosPagoDataTable oDatosPago)
+        public void Imprimir(int iReciboId, BO.DAL.dsDatos.DatosPagoDataTable oDatosPago, bool pbImpreso = false )
         {
+             bool bError = false;
             // dsFacturaBindingSource.DataSource = CargarDataSet();
             BO.DAL.dsFactura.FACTURASDataTable dtFatura = new BO.DAL.dsFactura.FACTURASDataTable();
            // DataTable dt = new DataTable();
@@ -97,9 +98,23 @@ namespace OpeAgencia2.Facturacion
 
             Printer oPrinter = new Printer(oTerm);
 
-            oPrinter.SetInvoiceData(dtFatura, oDatosPago,false,1);
+            oPrinter.SetInvoiceData(dtFatura, oDatosPago, !pbImpreso,1);
 
-            oPrinter.Print();
+            bError = oPrinter.Print();
+
+            if (bError == false)
+            {
+                var oRecibos = unitOfWork.RecibosRepository.GetByID(iReciboId);
+                oRecibos.IMPRESO = true;
+                unitOfWork.RecibosRepository.Update(oRecibos);
+                unitOfWork.Save();
+            }
+            else
+            {
+                MessageBox.Show("Ha ocurrido un error en la Impresión del recibo, favor revisar la conexión ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
             //dsFacturas.Tables.Add(dt);
 
 

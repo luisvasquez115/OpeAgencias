@@ -94,6 +94,8 @@ namespace AgenciaEF_BO.Models
 
         public virtual Estados Estados { set; get; }
 
+        public bool IMPRESO { set; get; }
+
 
      
 
