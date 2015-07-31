@@ -190,6 +190,12 @@ namespace OpeAgencia2.Facturacion
                    if (oResult == System.Windows.Forms.DialogResult.No)
                        return;
                 }
+                else
+                {
+                    DialogResult oResult = MessageBox.Show("Este recibo ya fué impreso fiscalmente, no es posible reimprimir?", "Information", MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
+                    return;
+                  
+                }
 
                 var PagosRecibos = unitOfWork.PagosRecibosRepository.Get(xy => xy.RECIBO_ID == iReciboId).FirstOrDefault();
 
