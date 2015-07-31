@@ -537,6 +537,7 @@ namespace OpeAgencia2.Facturacion
 
             */
         }
+
         public bool Print()
         {
             bool bError = false;

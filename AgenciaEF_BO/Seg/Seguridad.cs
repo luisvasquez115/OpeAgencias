@@ -19,6 +19,7 @@ namespace AgenciaEF_BO.Seg
         {
 
             string sClave = ClaveMD5(psClave);
+           
             bool bRetorno = false;
             piUsuarioId = -1;
 

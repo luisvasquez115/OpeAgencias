@@ -98,7 +98,6 @@ namespace OpeAgencia2.Facturacion
             Printer oPrinter = new Printer(oTerm);
 
             oPrinter.SetInvoiceData(dtFatura, oDatosPago,false,1);
-
             oPrinter.Print();
             //dsFacturas.Tables.Add(dt);
 

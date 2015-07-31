@@ -39,7 +39,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="VmaxCom">
-      <HintPath>..\Impresora Fiscal\vmax\VmaxCom.dll</HintPath>
+      <HintPath>..\..\Sistema_Operaciones_v2\SistemaOperaciones\SistemaOperaciones.Cliente\bin\x86\Debug\VmaxCom.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
