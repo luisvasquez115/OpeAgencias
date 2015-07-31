@@ -44,11 +44,21 @@ namespace OpeAgencia2.Clientes
 
         protected void CargarDatosIniciales()
         {
-           
+            /*
+             * var q =
+         from c in categories
+         join p in products on c equals p.Category
+         select new { Category = c, p.ProductName };
+
+             */
+            int piUserId;
+
+            piUserId = Parametros.Parametros.UsuarioId;
 
             if (txtFindEPS.Text != "")
             {
-                var opciones = from p in unitOfWork.ClientesRepository.Get(filter: s => s.CTE_NUMERO_EPS == txtFindEPS.Text)
+                var opciones = from p in unitOfWork.ClientesRepository.Get(filter: s => s.CTE_NUMERO_EPS == txtFindEPS.Text )
+                               join j in unitOfWork.UsuarioSucursalRepository.Get(filter: s => s.USUARIO_ID == piUserId ) on p.CTE_SUC_ID equals j.SUC_ID  
                                select new { Id = p.CTE_ID, EPS = p.CTE_NUMERO_EPS, Nombres = p.CTE_NOMBRE, Apellidos = p.CTE_APELLIDO };
 
 
@@ -138,8 +148,10 @@ namespace OpeAgencia2.Clientes
             //Agregar filtro de usuario 
             //piUserId
             int piUserId = -1;
-            var Qry = (from p in unitOfWork.UsuarioSucursalRepository.Get(filter: s => s.USUARIO_ID != piUserId)
-                      select new { Id = p.SUC_ID, Nombre = p.Sucursales.SUC_CODIGO + " " + p.Sucursales.SUC_DESCRIPCION + "(" + p.Sucursales.Empresas.COM_DESCORTA + ")" } 
+            piUserId = Parametros.Parametros.UsuarioId;
+
+            var Qry = (from p in unitOfWork.UsuarioSucursalRepository.Get(filter: s => s.USUARIO_ID == piUserId)
+                        select new { Id = p.SUC_ID, Nombre = p.Sucursales.SUC_CODIGO + " " + p.Sucursales.SUC_DESCRIPCION + "(" + p.Sucursales.Empresas.COM_DESCORTA + ")" } 
                        ).Distinct()  ;
 
 

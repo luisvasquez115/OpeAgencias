@@ -88,6 +88,7 @@
     <Compile Include="DAL\MovCajaRepository.cs" />
     <Compile Include="DAL\RecibosDet.cs" />
     <Compile Include="DAL\Recibos.cs" />
+    <Compile Include="DAL\vwUsuarioOpcionesRepository.cs" />
     <Compile Include="DAL\vwBultosValoresRepository.cs" />
     <Compile Include="DAL\EquivalenciaBultosRepository.cs" />
     <Compile Include="DAL\BultosValoresRepository.cs" />
@@ -175,6 +176,7 @@
     <Compile Include="Models\Terminal.cs" />
     <Compile Include="Models\Tipos.cs" />
     <Compile Include="Models\VW\vw_bultos_valores.cs" />
+    <Compile Include="Models\VW\vw_usuario_opciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seg\Seguridad.cs" />
   </ItemGroup>

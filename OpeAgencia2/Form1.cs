@@ -32,10 +32,13 @@ namespace OpeAgencia2
             }
         
         }
-
+        
         MenuStrip oMenu = new MenuStrip();
         private BO.DAL.UnitOfWork unitOfWork = new BO.DAL.UnitOfWork();
        // public  Parametros.ParametrosSucursal oParamSuc;
+
+        ICollection<BO.Models.Opciones> mOpciones;
+        ICollection<BO.Models.VW.vw_usuario_opciones> mUsuariosOpciones;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -58,8 +61,10 @@ namespace OpeAgencia2
                 }
 
                 Parametros.ParametrosSucursal.IdSucursal = Parametros.Parametros.SucursalActual;
-
+                
                 InicializaParametros();
+
+                CargarOpciones();
 
                 OrganizaMenu();
                 //dataGridView1.DataSource = oCom.CompaniaList();
@@ -77,6 +82,29 @@ namespace OpeAgencia2
                 BuscaTerminalFiscal();
 
             }
+        }
+
+        void CargarOpciones()
+        {
+
+            int iUserId, iSucId;
+
+            iUserId = Parametros.Parametros.UsuarioId;
+            iSucId = Parametros.Parametros.SucursalActual;
+            
+
+          //  mOpciones = unitOfWork.OpcionesRepository.Get().ToList();
+
+          //  mUsuariosOpciones = unitOfWork.vwUsuarioOpcionesRepository.Get(xy => xy.USUARIO_ID == iUserId).ToList();
+
+            mUsuariosOpciones = unitOfWork.vwUsuarioOpcionesRepository.Get(xy => xy.USUARIO_ID == iUserId && xy.SUC_ID == iSucId).ToList();
+
+            /*
+               var MyQry = from s in mUsuariosOpciones
+                        where s.OPC_ID == piOpcId && s.UsuariosModulos.MOD_ID == iModId && s.UsuariosModulos.UsuarioSucursal.USR_SUC_ID == iSucUsrId
+                        select new { s.OPC_ID, s.ACTIVO };
+              */
+
         }
 
         void BuscaTerminalFiscal()
@@ -116,17 +144,22 @@ namespace OpeAgencia2
 
         void OrganizaMenu()
         {
-
+            /*
             var Opciones = from p in unitOfWork.OpcionesRepository.Get(filter: q => q.OPC_PARENT_ID == 0)
                            orderby p.OPC_ORDER
                            select new { p.OPC_NAME, p.OPC_FORM, p.OPC_ID };
-                          
+             * */
+
+            var Opciones = from p in mUsuariosOpciones
+                           where p.OPC_PARENT_ID == 0
+                           orderby p.OPC_ORDER
+                           select new { p.OPC_NAME, p.OPC_FORM, p.OPC_ID };                          
                            
 
             foreach (var opc in Opciones)
             {
-                if (VerificaPermiso(opc.OPC_ID))
-                {
+                /*if (VerificaPermiso(opc.OPC_ID))
+                {*/
 
                     ToolStripMenuItem oItem = new ToolStripMenuItem();
                     oItem.ShowShortcutKeys = true;
@@ -136,7 +169,7 @@ namespace OpeAgencia2
                     AddMenuItem(opc.OPC_ID, ref oItem);
 
                     menuStrip1.Items.Add(oItem);
-                }
+                /*}*/
             }
             
 
@@ -149,15 +182,21 @@ namespace OpeAgencia2
             int iSucUsrId = Parametros.Parametros.UsuarioSucursalActual;
 
 
-            var MyQry = unitOfWork.UsuariosOpcionesRepository.Get(filter: s => s.OPC_ID == piOpcId && s.UsuariosModulos.MOD_ID == iModId && s.UsuariosModulos.UsuarioSucursal.USR_SUC_ID == iSucUsrId).FirstOrDefault();
-
+            //var MyQry = unitOfWork.UsuariosOpcionesRepository.Get(filter: s => s.OPC_ID == piOpcId && s.UsuariosModulos.MOD_ID == iModId && s.UsuariosModulos.UsuarioSucursal.USR_SUC_ID == iSucUsrId).FirstOrDefault();
+/*
+            var MyQry = from s in mUsuariosOpciones
+                        where s.OPC_ID == piOpcId && s.UsuariosModulos.MOD_ID == iModId && s.UsuariosModulos.UsuarioSucursal.USR_SUC_ID == iSucUsrId
+                        select new { s.OPC_ID, s.ACTIVO };
+                       
+            
             if (MyQry != null)
             {
-                bRetorno = MyQry.ACTIVO;
+                if (MyQry.ToList().Count > 0)
+                    bRetorno = MyQry.FirstOrDefault().ACTIVO;
             }
        
 
-
+            */
             return bRetorno;
 
         }
@@ -182,15 +221,31 @@ namespace OpeAgencia2
 
         void AddMenuItem(int OpcId, ref ToolStripMenuItem oItem)
         {
+            /*
             var Opciones = from p in unitOfWork.OpcionesRepository.Get(filter: q => q.OPC_PARENT_ID == OpcId)
                            orderby p.OPC_ORDER
                            select new {p.OPC_ID, p.OPC_FORM, p.OPC_NAME};
+            
+
+
+            var Opciones = from p in mOpciones
+                           where (p.OPC_PARENT_ID==OpcId)
+                           orderby p.OPC_ORDER
+                           select new { p.OPC_ID, p.OPC_FORM, p.OPC_NAME };
+             */ 
+
+
+            var Opciones = from p in mUsuariosOpciones
+                           where (p.OPC_PARENT_ID == OpcId)
+                           orderby p.OPC_ORDER
+                           select new { p.OPC_ID, p.OPC_FORM, p.OPC_NAME };
+
 
 
             foreach (var opc in Opciones)
             {
-                if (VerificaPermiso(opc.OPC_ID))
-                {
+                /*if (VerificaPermiso(opc.OPC_ID))
+                {*/
                     ToolStripMenuItem oItem2 = new ToolStripMenuItem(opc.OPC_NAME);
                     oItem2.Tag = opc.OPC_FORM;
                     if (oItem2.Tag != null)
@@ -199,7 +254,7 @@ namespace OpeAgencia2
                     AddMenuItem(opc.OPC_ID, ref oItem2);
 
                     oItem.DropDownItems.Add(oItem2);
-                }
+                /*}*/
             }
 
 
