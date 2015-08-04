@@ -165,6 +165,7 @@ namespace OpeAgencia2.Facturacion
                     dMontoCorr = dMontoCorr + Convert.ToDecimal(dgCorr.Rows[i].Cells[2].Value);
             }
 
+            dMontoVenta += dMontoCorr;
 
             this.txtPaq.Text = iPaq.ToString();
             txtMontoTotal.Text = string.Format("{0:0,0.00}", dMontoVenta);
@@ -295,7 +296,7 @@ namespace OpeAgencia2.Facturacion
 
             if (!bCredito)
             {
-                frmDatosPago x = new frmDatosPago(dMontoVenta + dMontoNoVenta);
+                frmDatosPago x = new frmDatosPago(dMontoVenta);
                 x.StartPosition = FormStartPosition.CenterParent;
                 x.ShowDialog();
                 dMontoEfectivo = x.MontoEfectivo;
