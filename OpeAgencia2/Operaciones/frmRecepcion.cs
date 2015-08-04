@@ -131,7 +131,7 @@ namespace OpeAgencia2.Operaciones
             oBulto.BLT_CODIGO_BARRA = txtCodigoBarra.Text;
             oBulto.BLT_DESPA_SUPLIDOR = DateTime.Now;
             oBulto.BLT_ENTREGAR = false;
-            oBulto.BLT_ESTADO_ID = 1;
+            oBulto.BLT_ESTADO_ID = 2;
             oBulto.BLT_FECHA_ENTREGADO = DateTime.Now;
             oBulto.BLT_FECHA_RECEPCION = DateTime.Now;
             oBulto.BLT_GUIA_HIJA = txtCodigoBarra.Text;
@@ -169,7 +169,7 @@ namespace OpeAgencia2.Operaciones
             oBulto.PROD_ID = Convert.ToInt32(cmbProducto.SelectedValue);
             oBulto.REMITENTE = txtRemitente.Text;
             oBulto.UBI_CODIGO = "NA";
-            oBulto.USUARIO_ID = 1; /* Usuarios */
+            oBulto.USUARIO_ID = Parametros.Parametros.UsuarioId;
             
 
             try

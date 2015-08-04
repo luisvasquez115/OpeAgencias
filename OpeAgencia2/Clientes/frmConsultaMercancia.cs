@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BO = AgenciaEF_BO;
+using System.Collections;
 
 namespace OpeAgencia2.Clientes
 {
@@ -20,6 +21,7 @@ namespace OpeAgencia2.Clientes
 
 
         private BO.DAL.UnitOfWork unitOfWork = new BO.DAL.UnitOfWork();
+        Hashtable htValores = new Hashtable();
 
 
         private void frmConsultaMercancia_Load(object sender, EventArgs e)
@@ -30,14 +32,14 @@ namespace OpeAgencia2.Clientes
         private void btnConsultar_Click(object sender, EventArgs e)
         {
              
+                var oEmpresa = unitOfWork.SucursalesRepository.Get(xy=>xy.SUC_ID == Parametros.Parametros.SucursalActual).FirstOrDefault();
 
-          
-                var  oBultos = from p in unitOfWork.BultosRepository.GetByNumeroEPS(txtEPS.Text,txtGuiaMadre.Text,txtCodigoBarra.Text,txtTracking.Text,cmbEstado.SelectedIndex)
+                var oBultos = from p in unitOfWork.BultosRepository.GetByNumeroEPS(txtEPS.Text, txtGuiaMadre.Text, txtCodigoBarra.Text, txtTracking.Text, cmbEstado.SelectedIndex, oEmpresa.Empresas.COM_CODIGO)
                                   select new {p.BLT_NUMERO,p.Clientes.CTE_NUMERO_EPS,p.MAN_GUIA, p.BLT_CODIGO_BARRA,p.BLT_TRACKING_NUMBER,
                                       p.Productos.PRO_CODIGO,p.BLT_PESO, p.BLT_PIEZAS, p.REMITENTE, p.DESTINATARIO, p.BLT_ESTADO_ID};
 
-
-                
+                 
+           
                 dg.DataSource = oBultos.ToList();
                 dg.Columns[0].Visible = false;
             
@@ -81,7 +83,60 @@ namespace OpeAgencia2.Clientes
 
             oFrom.ShowDialog();
 
+       
+        }
+
+        private void dg_SelectionChanged(object sender, EventArgs e)
+        {
+            Calculartotal();
+        }
+
+        void Calculartotal()
+        {
+
+
+          int iPaq = 0;
+            decimal dMonto = 0;
         
+            htValores.Clear();
+            dgResumen.Rows.Clear();
+
+            for (int i = 0; i < dg.Rows.Count; i++)
+            {
+                if (dg.Rows[i].Selected == true)
+                {
+                    iPaq++;
+                    //dMonto += Math.Round(Convert.ToDecimal(dg.Rows[i].Cells[5].Value), 2);
+                    BuscarValores(Convert.ToInt32(dg.Rows[i].Cells[0].Value));
+                }
+            }
+  
+      
+            foreach(var item in htValores.Keys)
+            {
+                dgResumen.Rows.Add(item, string.Format("{0:0,0.00}", htValores[item]));
+                dMonto += Convert.ToDecimal(htValores[item]);
+            }
+
+         
+
+            this.txtPaq.Text = iPaq.ToString();
+            txtMontoTotal.Text = string.Format("{0:0,0.00}", dMonto);
+           
+        }
+
+        void BuscarValores(int bltNumero)
+        {
+            var loBultosVal = from p in  unitOfWork.BultosValoresRepository.Get(filter: xy => xy.BLT_NUMERO == bltNumero)
+                            select new {Cargo = p.CargosProducto.Cargos.CAR_CODIGO + '-' + p.CargosProducto.Cargos.CAR_DESCRIPCION, Monto = p.BVA_MONTO_LOCAL};
+
+            foreach (var cargo in loBultosVal)
+            {
+                if (htValores[cargo.Cargo] == null)
+                    htValores.Add(cargo.Cargo, cargo.Monto);
+                else
+                    htValores[cargo.Cargo] = Convert.ToDecimal(htValores[cargo.Cargo]) + cargo.Monto;
+            }
 
         }
 

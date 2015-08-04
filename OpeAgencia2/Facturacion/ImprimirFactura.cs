@@ -122,6 +122,44 @@ namespace OpeAgencia2.Facturacion
         }
 
 
+        public void ImprimirNoVenta(int iReciboId, BO.DAL.dsDatos.DatosPagoDataTable oDatosPago, bool pbImpreso = false)
+        {
+            bool bError = false;
+            // dsFacturaBindingSource.DataSource = CargarDataSet();
+            BO.DAL.dsFactura.FACTURASDataTable dtFatura = new BO.DAL.dsFactura.FACTURASDataTable();
+            // DataTable dt = new DataTable();
+            dtFatura = CargarDataSetFiscal(iReciboId);
+            //dt.TableName = "FACTURAS";
+            BO.Models.Terminal oTerm = new BO.Models.Terminal();
+
+            oTerm = unitOfWork.TerminalRepository.GetByID(Parametros.ParametrosSucursal.TermFiscalId);
+
+            Printer oPrinter = new Printer(oTerm);
+
+            oPrinter.SetInvoiceData(dtFatura, oDatosPago, !pbImpreso, 1);
+
+            oPrinter.PrintNoFiscalReceipt();
+
+           /* if (bError == false)
+            {
+                var oRecibos = unitOfWork.RecibosRepository.GetByID(iReciboId);
+                oRecibos.IMPRESO = true;
+                unitOfWork.RecibosRepository.Update(oRecibos);
+                unitOfWork.Save();
+            }
+            else
+            {
+                MessageBox.Show("Ha ocurrido un error en la Impresión del recibo, favor revisar la conexión ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            */
+
+            //dsFacturas.Tables.Add(dt);
+
+
+
+        }
+
+
         public void ImprimirComprobate(int piMovCaja)
         {
 

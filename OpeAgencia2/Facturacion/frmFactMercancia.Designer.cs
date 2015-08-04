@@ -52,6 +52,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtPaq = new System.Windows.Forms.TextBox();
             this.lblPaquetes = new System.Windows.Forms.Label();
+            this.TabResumen = new System.Windows.Forms.TabPage();
+            this.dgResumen = new System.Windows.Forms.DataGridView();
+            this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtMontoNoVenta = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabDetalle.SuspendLayout();
@@ -64,6 +70,8 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorr)).BeginInit();
             this.groupBox3.SuspendLayout();
+            this.TabResumen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgResumen)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -172,6 +180,7 @@
             // 
             this.tabDetalle.Controls.Add(this.tabPaq);
             this.tabDetalle.Controls.Add(this.tabCorr);
+            this.tabDetalle.Controls.Add(this.TabResumen);
             this.tabDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabDetalle.Location = new System.Drawing.Point(3, 16);
             this.tabDetalle.Name = "tabDetalle";
@@ -261,6 +270,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtMontoNoVenta);
+            this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.btnFacturar);
             this.groupBox3.Controls.Add(this.btnCancelar);
             this.groupBox3.Controls.Add(this.txtMontoTotal);
@@ -296,7 +307,7 @@
             // txtMontoTotal
             // 
             this.txtMontoTotal.Enabled = false;
-            this.txtMontoTotal.Location = new System.Drawing.Point(241, 20);
+            this.txtMontoTotal.Location = new System.Drawing.Point(121, 36);
             this.txtMontoTotal.Name = "txtMontoTotal";
             this.txtMontoTotal.Size = new System.Drawing.Size(100, 20);
             this.txtMontoTotal.TabIndex = 3;
@@ -304,7 +315,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(195, 20);
+            this.label3.Location = new System.Drawing.Point(124, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 2;
@@ -313,7 +324,7 @@
             // txtPaq
             // 
             this.txtPaq.Enabled = false;
-            this.txtPaq.Location = new System.Drawing.Point(73, 20);
+            this.txtPaq.Location = new System.Drawing.Point(15, 35);
             this.txtPaq.Name = "txtPaq";
             this.txtPaq.Size = new System.Drawing.Size(100, 20);
             this.txtPaq.TabIndex = 1;
@@ -326,6 +337,65 @@
             this.lblPaquetes.Size = new System.Drawing.Size(55, 13);
             this.lblPaquetes.TabIndex = 0;
             this.lblPaquetes.Text = "Paquetes:";
+            // 
+            // TabResumen
+            // 
+            this.TabResumen.Controls.Add(this.dgResumen);
+            this.TabResumen.Location = new System.Drawing.Point(4, 22);
+            this.TabResumen.Name = "TabResumen";
+            this.TabResumen.Padding = new System.Windows.Forms.Padding(3);
+            this.TabResumen.Size = new System.Drawing.Size(546, 268);
+            this.TabResumen.TabIndex = 2;
+            this.TabResumen.Text = "Resumen";
+            this.TabResumen.UseVisualStyleBackColor = true;
+            // 
+            // dgResumen
+            // 
+            this.dgResumen.AllowUserToAddRows = false;
+            this.dgResumen.AllowUserToDeleteRows = false;
+            this.dgResumen.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgResumen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgResumen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Cargo,
+            this.Valor});
+            this.dgResumen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgResumen.Location = new System.Drawing.Point(3, 3);
+            this.dgResumen.Name = "dgResumen";
+            this.dgResumen.ReadOnly = true;
+            this.dgResumen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgResumen.Size = new System.Drawing.Size(540, 262);
+            this.dgResumen.TabIndex = 1;
+            // 
+            // Cargo
+            // 
+            this.Cargo.HeaderText = "Cargo";
+            this.Cargo.Name = "Cargo";
+            this.Cargo.ReadOnly = true;
+            this.Cargo.Width = 60;
+            // 
+            // Valor
+            // 
+            this.Valor.HeaderText = "Valor";
+            this.Valor.Name = "Valor";
+            this.Valor.ReadOnly = true;
+            this.Valor.Width = 56;
+            // 
+            // txtMontoNoVenta
+            // 
+            this.txtMontoNoVenta.Enabled = false;
+            this.txtMontoNoVenta.Location = new System.Drawing.Point(227, 36);
+            this.txtMontoNoVenta.Name = "txtMontoNoVenta";
+            this.txtMontoNoVenta.Size = new System.Drawing.Size(100, 20);
+            this.txtMontoNoVenta.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(230, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Monto No venta:";
             // 
             // frmFactMercancia
             // 
@@ -352,6 +422,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgCorr)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.TabResumen.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgResumen)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -382,5 +454,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox cmbTipoFact;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TabPage TabResumen;
+        private System.Windows.Forms.DataGridView dgResumen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cargo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
+        private System.Windows.Forms.TextBox txtMontoNoVenta;
+        private System.Windows.Forms.Label label5;
     }
 }
