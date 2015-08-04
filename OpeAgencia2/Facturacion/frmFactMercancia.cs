@@ -269,6 +269,7 @@ namespace OpeAgencia2.Facturacion
 
         private void btnFacturar_Click(object sender, EventArgs e)
         {
+            /*Prueba*/
             if (dMontoVenta > 0)
                  FacturarVenta();
             
