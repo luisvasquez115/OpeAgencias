@@ -357,9 +357,6 @@ namespace OpeAgencia2.Facturacion
                     ImprimirFactura oImpFact = new ImprimirFactura();
                     oImpFact.Imprimir(oFact.FacturaGenerada, DatosPago);
 
-
-
-
                   
                 }
 
