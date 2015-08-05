@@ -81,8 +81,44 @@ namespace OpeAgencia2
 
                 BuscaTerminalFiscal();
 
+
+             //   ActivatoolStrip1();
             }
         }
+
+
+        void ActivatoolStrip1()
+        {
+
+            for (int i = 0; i < toolStrip1.Items.Count; i++)
+            {
+                string sTag = toolStrip1.Items[i].Tag.ToString() ;
+
+                var eTag = mUsuariosOpciones
+                           .Where(p => p.OPC_NAME!=null &&  p.OPC_FORM.Contains(sTag))
+                           .Single()
+                           .OPC_ID;
+                           
+
+                           
+                            
+                if (eTag != null)
+                {
+                    toolStrip1.Items[i].Enabled = true;
+                }
+                else
+                    toolStrip1.Items[i].Enabled = false;
+
+
+
+
+
+            }
+
+        }
+
+      
+
 
         void CargarOpciones()
         {
@@ -341,7 +377,7 @@ namespace OpeAgencia2
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            Clientes.frmClientes x = new Clientes.frmClientes();
+            Clientes.frmConsultaClientes x = new Clientes.frmConsultaClientes();
             x.MdiParent = this;
             x.Show();
         }
