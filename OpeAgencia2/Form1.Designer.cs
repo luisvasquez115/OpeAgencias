@@ -188,6 +188,7 @@
             this.movimientosDeCajaToolStripMenuItem.Enabled = false;
             this.movimientosDeCajaToolStripMenuItem.Name = "movimientosDeCajaToolStripMenuItem";
             this.movimientosDeCajaToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.movimientosDeCajaToolStripMenuItem.Tag = "frmMovCaja";
             this.movimientosDeCajaToolStripMenuItem.Text = "Movimientos de caja";
             this.movimientosDeCajaToolStripMenuItem.Click += new System.EventHandler(this.movimientosDeCajaToolStripMenuItem_Click);
             // 
@@ -196,6 +197,7 @@
             this.listadoDeTransaccionesToolStripMenuItem.Enabled = false;
             this.listadoDeTransaccionesToolStripMenuItem.Name = "listadoDeTransaccionesToolStripMenuItem";
             this.listadoDeTransaccionesToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.listadoDeTransaccionesToolStripMenuItem.Tag = "ConsultaOperaciones";
             this.listadoDeTransaccionesToolStripMenuItem.Text = "Listado de transacciones";
             this.listadoDeTransaccionesToolStripMenuItem.Click += new System.EventHandler(this.listadoDeTransaccionesToolStripMenuItem_Click);
             // 

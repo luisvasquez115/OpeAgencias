@@ -82,7 +82,7 @@ namespace OpeAgencia2
                 BuscaTerminalFiscal();
 
 
-             //   ActivatoolStrip1();
+                ActivatoolStrip1();
             }
         }
 
@@ -92,31 +92,66 @@ namespace OpeAgencia2
 
             for (int i = 0; i < toolStrip1.Items.Count; i++)
             {
+                if (toolStrip1.Items[i].Tag == null)
+                    continue;
+
                 string sTag = toolStrip1.Items[i].Tag.ToString() ;
 
                 var eTag = mUsuariosOpciones
-                           .Where(p => p.OPC_NAME!=null &&  p.OPC_FORM.Contains(sTag))
-                           .Single()
-                           .OPC_ID;
+                           .Where(p => p.OPC_FORM != null && p.OPC_FORM.Contains(sTag))
+                           .FirstOrDefault();
+                          
                            
 
-                           
-                            
-                if (eTag != null)
+                          
+                if (eTag !=  null )
                 {
                     toolStrip1.Items[i].Enabled = true;
                 }
                 else
                     toolStrip1.Items[i].Enabled = false;
 
-
-
-
-
             }
+
+          
+
+            foreach(ToolStripDropDownItem oItem in toolStripSplitButton1.DropDownItems)
+            {
+                ActivaSubcontros(oItem);
+            }
+             foreach(ToolStripDropDownItem oItem in toolStripSplitButton2.DropDownItems)
+            {
+                ActivaSubcontros(oItem);
+            }
+           
+
 
         }
 
+        void ActivaSubcontros(ToolStripDropDownItem oItem)
+        {
+
+            if (oItem.Tag ==null)
+                return;
+
+            string sTag = oItem.Tag.ToString();
+
+            var eTag = mUsuariosOpciones
+                       .Where(p => p.OPC_FORM != null && p.OPC_FORM.Contains(sTag))
+                       .FirstOrDefault();
+                      
+
+
+
+
+            if (eTag != null)
+            {
+                oItem.Enabled = true;
+            }
+            else
+                oItem.Enabled = false;
+
+        }
       
 
 
