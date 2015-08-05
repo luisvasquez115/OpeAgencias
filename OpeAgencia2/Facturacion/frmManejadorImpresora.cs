@@ -146,10 +146,10 @@ namespace OpeAgencia2.Facturacion
 
         private void GenerarDocumento(int tipo)
         {
-            ImprimirFactura imprimirFactura = new ImprimirFactura();
-            var stuff = txtFactura.Text.Split('-');
-            oFactura = imprimirFactura.CargarDataSetFiscal(Convert.ToInt32(stuff[2]));
-            oDatosPago = unitOfWork.DatosPagoRepository.Get(filter: s => s.)
+            //ImprimirFactura imprimirFactura = new ImprimirFactura();
+            //var stuff = txtFactura.Text.Split('-');
+            //oFactura = imprimirFactura.CargarDataSetFiscal(Convert.ToInt32(stuff[2]));
+            //oDatosPago = unitOfWork.DatosPagoRepository.Get(filter: s => s.)
             //oPrinter.SetInvoiceData()
             //factura.AddFACTURASRow()
             //BO.DAL.dsFactura.FACTURASRow factura = new BO.DAL.dsFactura.FACTURASRow();
