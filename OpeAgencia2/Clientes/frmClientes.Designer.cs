@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.usrbntMant1 = new OpeAgencia2.usrbntMant();
             this.tabMant = new System.Windows.Forms.TabControl();
             this.tabConsulta = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.btnFind = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtApellidoBuscar = new System.Windows.Forms.TextBox();
+            this.txtNombreBuscar = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtFindEPS = new System.Windows.Forms.TextBox();
@@ -43,6 +44,9 @@
             this.tabRegistro = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.txtCTE_EMAIL = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label26 = new System.Windows.Forms.Label();
             this.txtDiasCredito = new System.Windows.Forms.NumericUpDown();
@@ -138,10 +142,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.txtCTE_NOMBRE_COMPANIA = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.label43 = new System.Windows.Forms.Label();
-            this.txtCTE_EMAIL = new System.Windows.Forms.TextBox();
-            this.usrbntMant1 = new OpeAgencia2.usrbntMant();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -156,6 +156,7 @@
             this.tabRegistro.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiasCredito)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -168,7 +169,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaCorte)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -188,6 +188,15 @@
             this.splitContainer1.Size = new System.Drawing.Size(745, 602);
             this.splitContainer1.SplitterDistance = 38;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // usrbntMant1
+            // 
+            this.usrbntMant1.bAdiciona = false;
+            this.usrbntMant1.bExito = false;
+            this.usrbntMant1.Location = new System.Drawing.Point(0, 3);
+            this.usrbntMant1.Name = "usrbntMant1";
+            this.usrbntMant1.Size = new System.Drawing.Size(479, 28);
+            this.usrbntMant1.TabIndex = 1;
             // 
             // tabMant
             // 
@@ -222,8 +231,8 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.Controls.Add(this.btnFind);
-            this.splitContainer2.Panel1.Controls.Add(this.textBox3);
-            this.splitContainer2.Panel1.Controls.Add(this.textBox2);
+            this.splitContainer2.Panel1.Controls.Add(this.txtApellidoBuscar);
+            this.splitContainer2.Panel1.Controls.Add(this.txtNombreBuscar);
             this.splitContainer2.Panel1.Controls.Add(this.label3);
             this.splitContainer2.Panel1.Controls.Add(this.label2);
             this.splitContainer2.Panel1.Controls.Add(this.txtFindEPS);
@@ -238,7 +247,6 @@
             // 
             // btnFind
             // 
-//            this.btnFind.Image = global::OpeAgencia2.Properties.Resources.btnBusqueda_Image;
             this.btnFind.Location = new System.Drawing.Point(693, 13);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(24, 23);
@@ -246,21 +254,22 @@
             this.btnFind.UseVisualStyleBackColor = true;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
-            // textBox3
+            // txtApellidoBuscar
             // 
-            this.textBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox3.Location = new System.Drawing.Point(461, 16);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(216, 20);
-            this.textBox3.TabIndex = 5;
+            this.txtApellidoBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtApellidoBuscar.Location = new System.Drawing.Point(461, 16);
+            this.txtApellidoBuscar.Name = "txtApellidoBuscar";
+            this.txtApellidoBuscar.Size = new System.Drawing.Size(216, 20);
+            this.txtApellidoBuscar.TabIndex = 5;
             // 
-            // textBox2
+            // txtNombreBuscar
             // 
-            this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox2.Location = new System.Drawing.Point(214, 16);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(178, 20);
-            this.textBox2.TabIndex = 4;
+            this.txtNombreBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNombreBuscar.Location = new System.Drawing.Point(214, 16);
+            this.txtNombreBuscar.Name = "txtNombreBuscar";
+            this.txtNombreBuscar.Size = new System.Drawing.Size(178, 20);
+            this.txtNombreBuscar.TabIndex = 4;
+            this.txtNombreBuscar.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label3
             // 
@@ -347,6 +356,34 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Generales";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.label43);
+            this.groupBox8.Controls.Add(this.txtCTE_EMAIL);
+            this.groupBox8.Location = new System.Drawing.Point(8, 460);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(690, 33);
+            this.groupBox8.TabIndex = 21;
+            this.groupBox8.TabStop = false;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(40, 16);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(35, 13);
+            this.label43.TabIndex = 18;
+            this.label43.Text = "Email:";
+            // 
+            // txtCTE_EMAIL
+            // 
+            this.txtCTE_EMAIL.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCTE_EMAIL.Location = new System.Drawing.Point(79, 12);
+            this.txtCTE_EMAIL.Name = "txtCTE_EMAIL";
+            this.txtCTE_EMAIL.Size = new System.Drawing.Size(596, 20);
+            this.txtCTE_EMAIL.TabIndex = 17;
+            this.txtCTE_EMAIL.Tag = "CTE_EMAIL";
             // 
             // groupBox6
             // 
@@ -1340,43 +1377,6 @@
             this.label27.TabIndex = 16;
             this.label27.Text = "Empresa:";
             // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.label43);
-            this.groupBox8.Controls.Add(this.txtCTE_EMAIL);
-            this.groupBox8.Location = new System.Drawing.Point(8, 460);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(690, 33);
-            this.groupBox8.TabIndex = 21;
-            this.groupBox8.TabStop = false;
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(40, 16);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(35, 13);
-            this.label43.TabIndex = 18;
-            this.label43.Text = "Email:";
-            // 
-            // txtCTE_EMAIL
-            // 
-            this.txtCTE_EMAIL.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCTE_EMAIL.Location = new System.Drawing.Point(79, 12);
-            this.txtCTE_EMAIL.Name = "txtCTE_EMAIL";
-            this.txtCTE_EMAIL.Size = new System.Drawing.Size(596, 20);
-            this.txtCTE_EMAIL.TabIndex = 17;
-            this.txtCTE_EMAIL.Tag = "CTE_EMAIL";
-            // 
-            // usrbntMant1
-            // 
-            this.usrbntMant1.bAdiciona = false;
-            this.usrbntMant1.bExito = false;
-            this.usrbntMant1.Location = new System.Drawing.Point(0, 3);
-            this.usrbntMant1.Name = "usrbntMant1";
-            this.usrbntMant1.Size = new System.Drawing.Size(479, 28);
-            this.usrbntMant1.TabIndex = 1;
-            // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1401,6 +1401,8 @@
             this.tabRegistro.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiasCredito)).EndInit();
@@ -1420,8 +1422,6 @@
             this.tabPage3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1432,8 +1432,8 @@
         private usrbntMant usrbntMant1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Button btnFind;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtApellidoBuscar;
+        private System.Windows.Forms.TextBox txtNombreBuscar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFindEPS;

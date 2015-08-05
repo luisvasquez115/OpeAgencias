@@ -109,6 +109,12 @@
     <Compile Include="Clientes\frmClientes.Designer.cs">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clientes\frmConsultaClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmConsultaClientes.Designer.cs">
+      <DependentUpon>frmConsultaClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clientes\frmConsultaMercancia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,12 +168,6 @@
     </Compile>
     <Compile Include="Facturacion\frmFactMercancia.Designer.cs">
       <DependentUpon>frmFactMercancia.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion\frmFacturar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion\frmFacturar.Designer.cs">
-      <DependentUpon>frmFacturar.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\frmImpFactura.cs">
       <SubType>Form</SubType>
@@ -441,6 +441,9 @@
     <EmbeddedResource Include="Clientes\frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\frmConsultaClientes.resx">
+      <DependentUpon>frmConsultaClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Clientes\frmConsultaMercancia.resx">
       <DependentUpon>frmConsultaMercancia.cs</DependentUpon>
     </EmbeddedResource>
@@ -467,9 +470,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\frmFactMercancia.resx">
       <DependentUpon>frmFactMercancia.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion\frmFacturar.resx">
-      <DependentUpon>frmFacturar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\frmImpFactura.resx">
       <DependentUpon>frmImpFactura.cs</DependentUpon>

@@ -238,7 +238,7 @@ namespace OpeAgencia2.Precios
             try
             {
 
-                unitOfWork.ProductosRepository.Delete(iId);
+                unitOfWork.CargosValoresRepository.Delete(iId);
                 unitOfWork.Save();
                 MessageBox.Show("Datos Actualizados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 usrbntMant1.bExito = true;

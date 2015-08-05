@@ -258,7 +258,7 @@ namespace OpeAgencia2.Facturacion
             }*/
 
             AddItems();
-             AddPayments();
+            AddPayments();
 
             _invoice = new Invoice
             {
