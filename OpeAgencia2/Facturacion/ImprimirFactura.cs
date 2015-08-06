@@ -12,7 +12,7 @@ using Microsoft.Reporting.WinForms;
 using System.IO;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
-
+using clsUtils;
 
 
 
@@ -333,11 +333,11 @@ namespace OpeAgencia2.Facturacion
                     oFactRow.RNC = Bultos.Clientes.CTE_RNC;
                 else
                 {
-                    if (Bultos.Clientes.CTE_CEDULA.TrimEnd() == "")
-                        oFactRow.RNC = Bultos.Clientes.CTE_RNC;
+                    if (Bultos.Clientes.CTE_CEDULA.TrimEnd() == "" || Bultos.Clientes.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd()=="")
+                        oFactRow.RNC = Bultos.Clientes.CTE_RNC.KeepOnlyNumbers();
                     else
                     {
-                        oFactRow.RNC = Bultos.Clientes.CTE_CEDULA;
+                        oFactRow.RNC = Bultos.Clientes.CTE_CEDULA.KeepOnlyNumbers();
                     }
 
                 }

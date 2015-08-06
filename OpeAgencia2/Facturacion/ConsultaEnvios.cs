@@ -239,7 +239,7 @@ namespace OpeAgencia2.Facturacion
                
 
                 ImprimirFactura oImpFact = new ImprimirFactura();
-                oImpFact.Imprimir(iReciboId, oPagos, bImpreso);
+                oImpFact.Imprimir(iReciboId, oPagos);
 
             }
 

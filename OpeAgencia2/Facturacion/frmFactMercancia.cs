@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BO = AgenciaEF_BO;
 using System.Collections;
+using clsUtils;
 
 namespace OpeAgencia2.Facturacion
 {
@@ -106,11 +107,19 @@ namespace OpeAgencia2.Facturacion
                 if (oCliente.CTE_CREDITO == true)
                 {
                     cmbTipoFact.Enabled = true;
+                    cmbTipoFact.SelectedIndex = 1;
                 }
                 else
                 {
                     cmbTipoFact.Enabled = false;
                 }
+                //
+                if (oCliente.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd() ==""   && oCliente.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd() == "")
+                {
+                    MessageBox.Show("Este cliente no tienen un documento de identificación válido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    return;
+                }
+
             }
             else
             {
@@ -121,6 +130,7 @@ namespace OpeAgencia2.Facturacion
                 lblNombres.Text = "";
                 dgPaq.DataSource = null;
                 dgCorr.DataSource = null;
+                btnFacturar.Enabled = false;
             }
 
         }
@@ -165,6 +175,7 @@ namespace OpeAgencia2.Facturacion
                     dMontoCorr = dMontoCorr + Convert.ToDecimal(dgCorr.Rows[i].Cells[2].Value);
             }
 
+            dMontoVenta += dMontoCorr;
 
             this.txtPaq.Text = iPaq.ToString();
             txtMontoTotal.Text = string.Format("{0:0,0.00}", dMontoVenta);
@@ -296,7 +307,7 @@ namespace OpeAgencia2.Facturacion
 
             if (!bCredito)
             {
-                frmDatosPago x = new frmDatosPago(dMontoVenta + dMontoNoVenta);
+                frmDatosPago x = new frmDatosPago(dMontoVenta);
                 x.StartPosition = FormStartPosition.CenterParent;
                 x.ShowDialog();
                 dMontoEfectivo = x.MontoEfectivo;
@@ -356,9 +367,6 @@ namespace OpeAgencia2.Facturacion
                     //ImprimirFactura(oFact.FacturaGenerada);
                     ImprimirFactura oImpFact = new ImprimirFactura();
                     oImpFact.Imprimir(oFact.FacturaGenerada, DatosPago);
-
-
-
 
                   
                 }

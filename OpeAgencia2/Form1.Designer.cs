@@ -35,10 +35,10 @@
             this.lblSucursal = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerClose = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnClientes = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnConsultaPaquetes = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.paquetesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enviosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -106,33 +106,37 @@
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // btnClientes
+            // 
+            this.btnClientes.Enabled = false;
+            this.btnClientes.Image = global::OpeAgencia2.Properties.Resources.Profile;
+            this.btnClientes.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Size = new System.Drawing.Size(69, 22);
+            this.btnClientes.Tag = "frmConsultaClientes";
+            this.btnClientes.Text = "Clientes";
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // btnClientes
-            // 
-            this.btnClientes.Image = global::OpeAgencia2.Properties.Resources.Profile;
-            this.btnClientes.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(69, 22);
-            this.btnClientes.Text = "Clientes";
-            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
-            // 
             // btnConsultaPaquetes
             // 
+            this.btnConsultaPaquetes.Enabled = false;
             this.btnConsultaPaquetes.Image = global::OpeAgencia2.Properties.Resources.wherehouse;
             this.btnConsultaPaquetes.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnConsultaPaquetes.Name = "btnConsultaPaquetes";
             this.btnConsultaPaquetes.Size = new System.Drawing.Size(75, 22);
+            this.btnConsultaPaquetes.Tag = "frmConsultaMercancia";
             this.btnConsultaPaquetes.Text = "Paquetes";
             this.btnConsultaPaquetes.Click += new System.EventHandler(this.btnConsultaPaquetes_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripSplitButton1
             // 
@@ -147,15 +151,19 @@
             // 
             // paquetesToolStripMenuItem
             // 
+            this.paquetesToolStripMenuItem.Enabled = false;
             this.paquetesToolStripMenuItem.Name = "paquetesToolStripMenuItem";
             this.paquetesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.paquetesToolStripMenuItem.Tag = "frmFactMercancia";
             this.paquetesToolStripMenuItem.Text = "Paquetes";
             this.paquetesToolStripMenuItem.Click += new System.EventHandler(this.paquetesToolStripMenuItem_Click);
             // 
             // enviosToolStripMenuItem
             // 
+            this.enviosToolStripMenuItem.Enabled = false;
             this.enviosToolStripMenuItem.Name = "enviosToolStripMenuItem";
             this.enviosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.enviosToolStripMenuItem.Tag = "frmFactEnvios";
             this.enviosToolStripMenuItem.Text = "Envios";
             this.enviosToolStripMenuItem.Click += new System.EventHandler(this.enviosToolStripMenuItem_Click);
             // 
@@ -177,15 +185,19 @@
             // 
             // movimientosDeCajaToolStripMenuItem
             // 
+            this.movimientosDeCajaToolStripMenuItem.Enabled = false;
             this.movimientosDeCajaToolStripMenuItem.Name = "movimientosDeCajaToolStripMenuItem";
             this.movimientosDeCajaToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.movimientosDeCajaToolStripMenuItem.Tag = "frmMovCaja";
             this.movimientosDeCajaToolStripMenuItem.Text = "Movimientos de caja";
             this.movimientosDeCajaToolStripMenuItem.Click += new System.EventHandler(this.movimientosDeCajaToolStripMenuItem_Click);
             // 
             // listadoDeTransaccionesToolStripMenuItem
             // 
+            this.listadoDeTransaccionesToolStripMenuItem.Enabled = false;
             this.listadoDeTransaccionesToolStripMenuItem.Name = "listadoDeTransaccionesToolStripMenuItem";
             this.listadoDeTransaccionesToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.listadoDeTransaccionesToolStripMenuItem.Tag = "ConsultaOperaciones";
             this.listadoDeTransaccionesToolStripMenuItem.Text = "Listado de transacciones";
             this.listadoDeTransaccionesToolStripMenuItem.Click += new System.EventHandler(this.listadoDeTransaccionesToolStripMenuItem_Click);
             // 
