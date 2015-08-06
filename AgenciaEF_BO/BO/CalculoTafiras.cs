@@ -141,7 +141,7 @@ namespace AgenciaEF_BO.BO
 
             List<BultosValores> lBultosVal = new List<BultosValores>();
 
-            var cargosExits = unitOfWork.CargosProductoRepository.Get(filter: s => s.PROD_ID == iProductoId && s.Cargos.CAR_BASE_ID == 25 && s.Cargos.CAR_ESTADO == true); /*tipo cargos*/
+            var cargosExits = unitOfWork.CargosProductoRepository.Get(filter: s => s.PROD_ID == iProductoId && (s.Cargos.CAR_BASE_ID == 25 || s.Cargos.CAR_BASE_ID==27) && s.Cargos.CAR_ESTADO == true); /*tipo cargos*/
 
             // var cargosProd = unitOfWork.CargosProductoRepository.GetByID(iCargoProd);
 
@@ -152,8 +152,18 @@ namespace AgenciaEF_BO.BO
 
                 oBultosVal.CARGO_PROD_ID = cargo.CARGO_PROD_ID;
                 oBultosVal.BVA_TASA = cargo.TasaCambio.FACTOR_CONV;
-                oBultosVal.BVA_MONTO = dPeso;
-                oBultosVal.BVA_MONTO_APLICAR = BuscarMontoAplicar(cargo.CARGO_PROD_ID, dPeso, iNumeroEps);
+                if (cargo.Cargos.CAR_BASE_ID==27)
+                {
+                    oBultosVal.BVA_MONTO = iPiezas;
+                    oBultosVal.BVA_MONTO_APLICAR = BuscarMontoAplicar(cargo.CARGO_PROD_ID, iPiezas, iNumeroEps);
+
+                }
+                else
+                {
+                    oBultosVal.BVA_MONTO = dPeso;
+                    oBultosVal.BVA_MONTO_APLICAR = BuscarMontoAplicar(cargo.CARGO_PROD_ID, dPeso, iNumeroEps);
+                }
+               
 
 
                 if (cargo.Cargos.CAR_FIJO_MULTIPLICAR == "F")

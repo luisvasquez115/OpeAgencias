@@ -11,10 +11,11 @@ namespace AgenciaEF_BO.Models
     [Table("USUARIOS")]
     public class Usuarios
     {
-        public Usuarios()
+       /* public Usuarios()
         {
             UsuarioSucursal = new List<UsuarioSucursal>();
         }
+        */
 
         [Key]
         public int USUARIO_ID { set;get;}

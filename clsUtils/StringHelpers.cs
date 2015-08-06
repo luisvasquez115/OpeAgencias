@@ -83,6 +83,19 @@ namespace clsUtils
             return res;
         }
 
+        public static string PutBlankSpaces(this string phrase, int length, char position, bool countphrase = true)
+        {
+            var blankSpaces = countphrase ? length - phrase.Length : length;
+            for (var i = 1; i <= blankSpaces; i++)
+            {
+                if (position.Equals('R'))
+                    phrase += " ";
+                else
+                    phrase = " " + phrase;
+            }
+            return phrase;
+        }
+
         public static string ToTipoFactura(this string tipo)
         {
             string tipoFactura = string.Empty;

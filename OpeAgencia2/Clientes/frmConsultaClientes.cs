@@ -11,32 +11,24 @@ using BO = AgenciaEF_BO;
 
 namespace OpeAgencia2.Clientes
 {
-    public partial class frmClientes : Form
+    public partial class frmConsultaClientes : Form
     {
-        public frmClientes()
+        public frmConsultaClientes()
         {
             InitializeComponent();
         }
-
-        int _Id;
+         int _Id;
         private BO.DAL.UnitOfWork unitOfWork = new BO.DAL.UnitOfWork();
 
 
-        private void frmClientes_Load(object sender, EventArgs e)
+        private void frmConsultaClientes_Load(object sender, EventArgs e)
         {
-
-            this.usrbntMant1.ButtonClickAdd += new EventHandler(btnAdd_Click);
-            this.usrbntMant1.ButtonClickDel += new EventHandler(btnDel_Click);
-            this.usrbntMant1.ButtonClickMod += new EventHandler(btnMod_Click);
-            this.usrbntMant1.ButtonClickSalir += new EventHandler(btnSal_Click);
-            this.usrbntMant1.ButtonClickSave += new EventHandler(btnSav_Click);
-            this.usrbntMant1.ButtonClickUndo += new EventHandler(btnUn_Click);
-
-            CargarCombo();
+          
+          CargarCombo();
 
             CargarDatosIniciales();
 
-            ManejarEstado(false);
+            ManejarEstado(true);
 
 
         }
@@ -283,213 +275,6 @@ namespace OpeAgencia2.Clientes
 
         #endregion
 
-
-
-
-        #region "botones"
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            //MessageBox.Show("Agregando");
-            tabMant.SelectedIndex = 1;
-           // textCargoId.Text = "";
-            LimpiarCampos();
-            ManejarEstado(true);
-            textCTE_NUMERO_EPS.Enabled = true;
-
-        }
-        private void btnDel_Click(object sender, EventArgs e)
-        {
-            DeleteData();
-            CargarDatosIniciales();
-        }
-        private void btnMod_Click(object sender, EventArgs e)
-        {
-            // MessageBox.Show("Modificar");
-            Modificar();
-            ManejarEstado(true);
-        }
-        private void btnSal_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            /// MessageBox.Show("Salir");
-        }
-        private void btnSav_Click(object sender, EventArgs e)
-        {
-
-            usrbntMant1.bExito = false;
-
-            if (SalvarDatos())
-            {
-                usrbntMant1.bExito = true;
-                ManejarEstado(false);
-                CargarDatosIniciales();
-            }
-        }
-        private void btnUn_Click(object sender, EventArgs e)
-        {
-            // MessageBox.Show("Deshacer");
-            ManejarEstado(false);
-            tabMant.SelectedIndex = 0;
-        }
-
-        #endregion
-
-        void DeleteData()
-        {
-
-
-            //int iId = Convert.ToInt32(this.textCargoId.Text);
-
-            //var opciones = unitOfWork.SucursalesRepository.GetByID(iId);
-
-            try
-            {
-
-                unitOfWork.CargosRepository.Delete(_Id);
-                unitOfWork.Save();
-                MessageBox.Show("Datos Actualizados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                usrbntMant1.bExito = true;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
-
-
-        }
-
-        bool SalvarDatos()
-        {
-            int iId = -1;
-            bool bRetorno = false;
-
-            //CompaniasRecord oCom = new CompaniasRecord();
-
-
-            BO.Models.Clientes oCom;
-
-
-            if (usrbntMant1.bAdiciona == false)
-            {
-                //iId = Convert.ToInt32(this.textCargoId.Text);
-                oCom = unitOfWork.ClientesRepository.GetByID(_Id);
-            }
-            else
-            {
-                oCom = new BO.Models.Clientes();
-            }
-
-
-            MoverDatos(oCom, false);
-            /*
-            oCom.CAR_BASE_ID = Convert.ToInt32(this.cmbCAR_BASE.SelectedValue.ToString());
-            oCom.CAR_CODIGO = txtCodigo.Text;
-            oCom.CAR_DESCRIPCION = txtCAR_DESCRIPCION.Text;
-            oCom.CAR_DIRECTO_TABLA = cmbCarDirectoTabla.Text.Substring(0, 1);
-            oCom.CAR_ESTADO = chkEstado.Checked;
-            oCom.CAR_FIJO_MULTIPLICAR = this.cmbCarFijoMultiplicar.Text.Substring(0, 1);
-            oCom.CAR_ITBIS = this.chkItebis.Checked;
-
-            oCom.CAR_MINIMO_FACTURAR = txtMinimoFacturar.Value;
-
-            oCom.CAR_RED_ENTEROS = chkRedondearEnteros.Checked;
-            oCom.CAR_REDONDEAR = chkRedondear.Checked;
-            oCom.CAR_SUMAR = chkSumar.Checked;
-            oCom.CAR_TIPO = this.cmbTipoId.Text.Substring(0, 1);
-            oCom.CAR_TOPE_MAXIMO = this.cmbCAR_TOPE_MAXIMO.Text.Substring(0, 1);
-            //oCom.CARGO_ID = textCargoId.Text;
-            *.
-             */
-            try
-            {
-                if (usrbntMant1.bAdiciona == false)
-                    unitOfWork.ClientesRepository.Update(oCom);
-                else
-                    unitOfWork.ClientesRepository.Insert(oCom);
-
-                unitOfWork.Save();
-                bRetorno = true;
-                usrbntMant1.bExito = true;
-
-            }
-            catch (System.Data.Entity.Validation.DbEntityValidationException e)
-            {
-                foreach (var eve in e.EntityValidationErrors)
-                {
-                    string s = "";
-                    /*
-                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
-                    */
-
-
-                    foreach (var ve in eve.ValidationErrors)
-                    {
-                        s += ve.ErrorMessage + "\n";
-                        /*Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
-                            ve.PropertyName, ve.ErrorMessage);*/
-                    }
-                    MessageBox.Show("Existen los siguientes errores:" + s, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                //throw;
-            }
-            catch (DataException ex)
-            {
-
-                throw ex;
-            }
-
-
-            return bRetorno;
-
-        }
-
-        public void Modificar()
-        {
-
-            try
-            {
-                _Id = Convert.ToInt32(dg.CurrentRow.Cells[0].Value);
-
-            }
-            catch
-            {
-                _Id = -1;
-            }
-            if (_Id != -1)
-            {
-                tabControl1.SelectedIndex = 0;
-
-            }
-            ConsultarDatos(_Id);
-
-        }
-
-
-        void ConsultarDatos(int Id)
-        {
-            unitOfWork = new BO.DAL.UnitOfWork();
-            var Prod = unitOfWork.ClientesRepository.GetByID(Id);
-
-            MoverDatos(Prod,true);
-        }
-
-        void MoverDatos(BO.Models.Clientes MyComp,bool pbConsulta)
-        {
-            //else if(ctr.Tag == MyComp.COM_DESCRIPCION)
-            foreach (TabPage mPage in tabControl1.TabPages)
-            {
-                foreach (Control ctr in mPage.Controls)
-                {
-                    ProcesaSubControles(ctr, ref MyComp, pbConsulta);
-                    
-
-
-                }
-            }
-        }
 
         void ProcesaSubControles(Control pControl, ref BO.Models.Clientes MyComp, bool pbConsulta)
         {
@@ -955,6 +740,31 @@ namespace OpeAgencia2.Clientes
 
         }
 
+        void ConsultarDatos(int Id)
+        {
+            unitOfWork = new BO.DAL.UnitOfWork();
+            var Prod = unitOfWork.ClientesRepository.GetByID(Id);
+
+            MoverDatos(Prod, true);
+        }
+
+        void MoverDatos(BO.Models.Clientes MyComp, bool pbConsulta)
+        {
+            //else if(ctr.Tag == MyComp.COM_DESCRIPCION)
+            foreach (TabPage mPage in tabControl1.TabPages)
+            {
+                foreach (Control ctr in mPage.Controls)
+                {
+                    ProcesaSubControles(ctr, ref MyComp, pbConsulta);
+
+
+
+                }
+            }
+        }
+
+   
+
 
 
 
@@ -1055,10 +865,16 @@ namespace OpeAgencia2.Clientes
 
         }
 
+        private void btnFind_Click_1(object sender, EventArgs e)
+        {
+            CargarDatosIniciales();
+        }
+
       
 
        
 
        
+    
     }
 }

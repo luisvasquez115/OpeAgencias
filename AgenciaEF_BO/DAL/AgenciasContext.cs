@@ -27,6 +27,7 @@ namespace AgenciaEF_BO.DAL
         public DbSet<GruposTipos> GruposTipos { get; set; }
         public DbSet<GruposEstados> GruposEstados { get; set; }
         public DbSet<GruposCodigos> GruposCodigos { get; set; }
+        public DbSet<vw_usuario_opciones> vwUsuarioOpciones { set; get; }
         //
         public DbSet<Estados> Estados { get; set; }
         public DbSet<Tipos> Tipos { get; set; }

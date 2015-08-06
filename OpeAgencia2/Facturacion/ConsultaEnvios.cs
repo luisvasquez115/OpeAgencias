@@ -175,9 +175,76 @@ namespace OpeAgencia2.Facturacion
 
            // MessageBox.Show("Anulación realizada exitosamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //ImprimirFactura(oFact.FacturaGenerada);
-            ImprimirFactura oImpFact = new ImprimirFactura();
-            oImpFact.Imprimir(iReciboId);
 
+            var Recibos = unitOfWork.RecibosRepository.GetByID(iReciboId);
+
+            if (Recibos != null)
+            {
+                BO.DAL.dsDatos.DatosPagoDataTable oPagos = new BO.DAL.dsDatos.DatosPagoDataTable();
+
+                bool bImpreso = Recibos.IMPRESO;
+
+                if (bImpreso == false)
+                {
+                   DialogResult oResult =  MessageBox.Show("Este recibo no se ha impreso fiscalmente, desea imprimirlo ahora?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                   if (oResult == System.Windows.Forms.DialogResult.No)
+                       return;
+                }
+                else
+                {
+                    DialogResult oResult = MessageBox.Show("Este recibo ya fué impreso fiscalmente, no es posible reimprimir?", "Information", MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
+                    return;
+                  
+                }
+
+                var PagosRecibos = unitOfWork.PagosRecibosRepository.Get(xy => xy.RECIBO_ID == iReciboId).FirstOrDefault();
+
+                var pagos = unitOfWork.PagosRepository.GetByID(PagosRecibos.PAGO_ID);
+
+                var DatosPagos = unitOfWork.DatosPagoRepository.Get(xy => xy.PAGO_ID == pagos.PAGO_ID);
+
+                foreach(var datosPago in DatosPagos)
+                {
+
+                    BO.DAL.dsDatos.DatosPagoRow oRow = oPagos.NewDatosPagoRow();
+                    oRow.Banco = datosPago.BANCO_ID;
+                    oRow.BancoDesc = "";
+                    oRow.Devolucion = 0;
+                    oRow.Fecha = DateTime.Now;
+                    oRow.Importe = datosPago.IMPORTE;
+                    oRow.MontoEfectivo = pagos.MONTO_EFECTIVO;
+                    oRow.Numero = 0;
+                    oRow.TipoPago = pagos.TIPO_ID;
+                    oRow.TipoPagoDesc = "";
+
+                    oPagos.Rows.Add(oRow);
+                    
+
+                }
+                if (DatosPagos==null)
+                {
+                    BO.DAL.dsDatos.DatosPagoRow oRow = oPagos.NewDatosPagoRow();
+                    oRow.Banco = -1;
+                    oRow.BancoDesc = "";
+                    oRow.Devolucion = 0;
+                    oRow.Fecha = DateTime.Now;
+                    oRow.Importe = pagos.IMP_PAGO;
+                    oRow.MontoEfectivo = pagos.MONTO_EFECTIVO;
+                    oRow.Numero = 99;
+                    oRow.TipoPago = -1;
+                    oRow.TipoPagoDesc = "";
+                    
+                    oPagos.Rows.Add(oRow);
+                }
+               
+
+                ImprimirFactura oImpFact = new ImprimirFactura();
+                oImpFact.Imprimir(iReciboId, oPagos);
+
+            }
+
+
+            
 
         }
 

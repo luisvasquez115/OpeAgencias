@@ -1,6 +1,6 @@
 ﻿namespace OpeAgencia2.Clientes
 {
-    partial class frmClientes
+    partial class frmConsultaClientes
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.usrbntMant1 = new OpeAgencia2.usrbntMant();
             this.tabMant = new System.Windows.Forms.TabControl();
             this.tabConsulta = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -142,10 +140,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.txtCTE_NOMBRE_COMPANIA = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
             this.tabMant.SuspendLayout();
             this.tabConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -171,33 +165,6 @@
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.usrbntMant1);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.tabMant);
-            this.splitContainer1.Size = new System.Drawing.Size(745, 602);
-            this.splitContainer1.SplitterDistance = 38;
-            this.splitContainer1.TabIndex = 0;
-            // 
-            // usrbntMant1
-            // 
-            this.usrbntMant1.bAdiciona = false;
-            this.usrbntMant1.bExito = false;
-            this.usrbntMant1.Location = new System.Drawing.Point(0, 3);
-            this.usrbntMant1.Name = "usrbntMant1";
-            this.usrbntMant1.Size = new System.Drawing.Size(479, 28);
-            this.usrbntMant1.TabIndex = 1;
-            // 
             // tabMant
             // 
             this.tabMant.Controls.Add(this.tabConsulta);
@@ -206,8 +173,8 @@
             this.tabMant.Location = new System.Drawing.Point(0, 0);
             this.tabMant.Name = "tabMant";
             this.tabMant.SelectedIndex = 0;
-            this.tabMant.Size = new System.Drawing.Size(745, 560);
-            this.tabMant.TabIndex = 1;
+            this.tabMant.Size = new System.Drawing.Size(738, 527);
+            this.tabMant.TabIndex = 2;
             this.tabMant.SelectedIndexChanged += new System.EventHandler(this.tabMant_SelectedIndexChanged);
             // 
             // tabConsulta
@@ -216,7 +183,7 @@
             this.tabConsulta.Location = new System.Drawing.Point(4, 22);
             this.tabConsulta.Name = "tabConsulta";
             this.tabConsulta.Padding = new System.Windows.Forms.Padding(3);
-            this.tabConsulta.Size = new System.Drawing.Size(737, 534);
+            this.tabConsulta.Size = new System.Drawing.Size(730, 501);
             this.tabConsulta.TabIndex = 0;
             this.tabConsulta.Text = "Consulta";
             this.tabConsulta.UseVisualStyleBackColor = true;
@@ -241,8 +208,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.dg);
-            this.splitContainer2.Size = new System.Drawing.Size(731, 528);
-            this.splitContainer2.SplitterDistance = 43;
+            this.splitContainer2.Size = new System.Drawing.Size(724, 495);
+            this.splitContainer2.SplitterDistance = 40;
             this.splitContainer2.TabIndex = 0;
             // 
             // btnFind
@@ -252,7 +219,7 @@
             this.btnFind.Size = new System.Drawing.Size(24, 23);
             this.btnFind.TabIndex = 6;
             this.btnFind.UseVisualStyleBackColor = true;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click_1);
             // 
             // txtApellidoBuscar
             // 
@@ -269,7 +236,6 @@
             this.txtNombreBuscar.Name = "txtNombreBuscar";
             this.txtNombreBuscar.Size = new System.Drawing.Size(178, 20);
             this.txtNombreBuscar.TabIndex = 4;
-            this.txtNombreBuscar.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label3
             // 
@@ -315,7 +281,7 @@
             this.dg.Location = new System.Drawing.Point(0, 0);
             this.dg.Name = "dg";
             this.dg.ReadOnly = true;
-            this.dg.Size = new System.Drawing.Size(731, 481);
+            this.dg.Size = new System.Drawing.Size(724, 451);
             this.dg.TabIndex = 0;
             // 
             // tabRegistro
@@ -495,7 +461,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Generales";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtCTE_FECHA_VENCIMIENTO
             // 
@@ -529,7 +494,6 @@
             this.txtCTE_FECHA_NACIMIENTO.Size = new System.Drawing.Size(200, 20);
             this.txtCTE_FECHA_NACIMIENTO.TabIndex = 8;
             this.txtCTE_FECHA_NACIMIENTO.Tag = "CTE_FECHA_NACIMIENTO";
-            this.txtCTE_FECHA_NACIMIENTO.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label21
             // 
@@ -630,7 +594,6 @@
             this.txtCTE_NOMBRE.Size = new System.Drawing.Size(268, 20);
             this.txtCTE_NOMBRE.TabIndex = 3;
             this.txtCTE_NOMBRE.Tag = "CTE_NOMBRE";
-            this.txtCTE_NOMBRE.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
             // label10
             // 
@@ -640,7 +603,6 @@
             this.label10.Size = new System.Drawing.Size(52, 13);
             this.label10.TabIndex = 14;
             this.label10.Text = "Nombres:";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // textBox5
             // 
@@ -962,7 +924,6 @@
             this.label7.Size = new System.Drawing.Size(43, 13);
             this.label7.TabIndex = 8;
             this.label7.Text = "Cédula:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label9
             // 
@@ -972,7 +933,6 @@
             this.label9.Size = new System.Drawing.Size(33, 13);
             this.label9.TabIndex = 12;
             this.label9.Text = "RNC:";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // txtCTE_RNC
             // 
@@ -982,7 +942,6 @@
             this.txtCTE_RNC.Size = new System.Drawing.Size(100, 20);
             this.txtCTE_RNC.TabIndex = 1;
             this.txtCTE_RNC.Tag = "CTE_RNC";
-            this.txtCTE_RNC.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // txtCTE_PASAPORTE
             // 
@@ -992,7 +951,6 @@
             this.txtCTE_PASAPORTE.Size = new System.Drawing.Size(100, 20);
             this.txtCTE_PASAPORTE.TabIndex = 2;
             this.txtCTE_PASAPORTE.Tag = "CTE_PASAPORTE";
-            this.txtCTE_PASAPORTE.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // label8
             // 
@@ -1011,7 +969,6 @@
             this.txtCTE_CEDULA.Size = new System.Drawing.Size(100, 20);
             this.txtCTE_CEDULA.TabIndex = 0;
             this.txtCTE_CEDULA.Tag = "CTE_CEDULA";
-            this.txtCTE_CEDULA.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // tabPage2
             // 
@@ -1152,7 +1109,6 @@
             this.label25.Size = new System.Drawing.Size(61, 13);
             this.label25.TabIndex = 12;
             this.label25.Text = "Tipo Fiscal:";
-            this.label25.Click += new System.EventHandler(this.label25_Click);
             // 
             // cmbTIPO_MENSAJERIA_ID
             // 
@@ -1172,7 +1128,6 @@
             this.label24.Size = new System.Drawing.Size(61, 13);
             this.label24.TabIndex = 10;
             this.label24.Text = "Mensajeria:";
-            this.label24.Click += new System.EventHandler(this.label24_Click);
             // 
             // cmbCTE_RESPRESENTANTE_ID
             // 
@@ -1192,7 +1147,6 @@
             this.label23.Size = new System.Drawing.Size(42, 13);
             this.label23.TabIndex = 8;
             this.label23.Text = "Asesor:";
-            this.label23.Click += new System.EventHandler(this.label23_Click);
             // 
             // cmbCTE_SUC_ID
             // 
@@ -1203,7 +1157,6 @@
             this.cmbCTE_SUC_ID.Size = new System.Drawing.Size(253, 21);
             this.cmbCTE_SUC_ID.TabIndex = 0;
             this.cmbCTE_SUC_ID.Tag = "CTE_SUC_ID";
-            this.cmbCTE_SUC_ID.SelectedIndexChanged += new System.EventHandler(this.cmbCTE_SUC_ID_SelectedIndexChanged);
             // 
             // label22
             // 
@@ -1213,7 +1166,6 @@
             this.label22.Size = new System.Drawing.Size(51, 13);
             this.label22.TabIndex = 6;
             this.label22.Text = "Sucursal:";
-            this.label22.Click += new System.EventHandler(this.label22_Click);
             // 
             // tabPage3
             // 
@@ -1249,7 +1201,6 @@
             this.groupBox5.TabIndex = 17;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Otras informaciones";
-            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
             // label39
             // 
@@ -1377,19 +1328,15 @@
             this.label27.TabIndex = 16;
             this.label27.Text = "Empresa:";
             // 
-            // frmClientes
+            // frmConsultaClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 602);
-            this.Controls.Add(this.splitContainer1);
-            this.Name = "frmClientes";
-            this.Text = "frmClientes";
-            this.Load += new System.EventHandler(this.frmClientes_Load);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.ClientSize = new System.Drawing.Size(738, 527);
+            this.Controls.Add(this.tabMant);
+            this.Name = "frmConsultaClientes";
+            this.Text = "frmConsultaClientes";
+            this.Load += new System.EventHandler(this.frmConsultaClientes_Load);
             this.tabMant.ResumeLayout(false);
             this.tabConsulta.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
@@ -1428,8 +1375,8 @@
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private usrbntMant usrbntMant1;
+        private System.Windows.Forms.TabControl tabMant;
+        private System.Windows.Forms.TabPage tabConsulta;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.TextBox txtApellidoBuscar;
@@ -1438,20 +1385,38 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFindEPS;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tabMant;
-        private System.Windows.Forms.TabPage tabConsulta;
+        private System.Windows.Forms.DataGridView dg;
         private System.Windows.Forms.TabPage tabRegistro;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.TextBox txtCTE_EMAIL;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.NumericUpDown txtDiasCredito;
+        private System.Windows.Forms.TextBox TextCTE_BALANCE;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.CheckBox chkCredito;
+        private System.Windows.Forms.TextBox textCTE_LIMITE_CREDITO;
+        private System.Windows.Forms.Label label37;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DateTimePicker txtCTE_FECHA_VENCIMIENTO;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.DateTimePicker txtCTE_FECHA_INGRESO;
+        private System.Windows.Forms.DateTimePicker txtCTE_FECHA_NACIMIENTO;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox cmbCOD_PAIS;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtCTE_DIRECCION_CASA;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtCTE_DIRECCION_OFICINA;
+        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtCTE_APELLIDO;
         private System.Windows.Forms.TextBox txtCTE_NOMBRE;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtCTE_RNC;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtCTE_PASAPORTE;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtCTE_CEDULA;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbCTE_TIPO_ID;
@@ -1469,23 +1434,35 @@
         private System.Windows.Forms.TextBox txtCelular;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtCTE_TELEFONO_CASA;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.NumericUpDown textCTE_CHEQUES_DEV;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.CheckBox chkExonerado;
+        private System.Windows.Forms.CheckBox chkEnviarEmail;
+        private System.Windows.Forms.CheckBox chkEnviarFax;
+        private System.Windows.Forms.CheckBox chkPagoCheque;
+        private System.Windows.Forms.CheckBox chkPagoTarjeta;
+        private System.Windows.Forms.CheckBox chkLlamarVoice;
+        private System.Windows.Forms.CheckBox chkCTE_JUNK_MAIL;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.ComboBox cmbCTE_ESTADO_ID;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DateTimePicker txtCTE_FECHA_NACIMIENTO;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.ComboBox cmbCOD_PAIS;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtCTE_DIRECCION_CASA;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtCTE_DIRECCION_OFICINA;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DateTimePicker txtCTE_FECHA_INGRESO;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox txtCargo;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox txtCTE_NOMBRE_COMPANIA;
-        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtCTE_RNC;
+        private System.Windows.Forms.TextBox txtCTE_PASAPORTE;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtCTE_CEDULA;
+        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.ComboBox cmbCTE_MANEJO_OPERACIONAL;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.NumericUpDown txtDiaCorte;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.ComboBox cmbCFG_METODO_TARIFA;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.ComboBox cmbCOD_TARIFA;
+        private System.Windows.Forms.Label label31;
         private System.Windows.Forms.ComboBox cmbCTE_TIPO_FISCAL;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.ComboBox cmbTIPO_MENSAJERIA_ID;
@@ -1494,53 +1471,21 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ComboBox cmbCTE_SUC_ID;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.TextBox txtCTE_LIBRAS_GRATIS;
+        private System.Windows.Forms.TextBox txtCTE_MENSAJE_PIE;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox txtCTE_LIBRAS_ACUMULADAS;
+        private System.Windows.Forms.TextBox txtCTE_COBRADOR;
+        private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TextBox txtCTE_CODIGO_VOICE;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.ComboBox cmbCOD_TARIFA;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.TextBox txtCTE_COBRADOR;
-        private System.Windows.Forms.TextBox txtCTE_LIBRAS_GRATIS;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.TextBox txtCTE_LIBRAS_ACUMULADAS;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.TextBox textCTE_LIMITE_CREDITO;
-        private System.Windows.Forms.ComboBox cmbCTE_ESTADO_ID;
-        private System.Windows.Forms.ComboBox cmbCFG_METODO_TARIFA;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.TextBox txtCTE_MENSAJE_PIE;
-        private System.Windows.Forms.DateTimePicker txtCTE_FECHA_VENCIMIENTO;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.CheckBox chkEnviarEmail;
-        private System.Windows.Forms.CheckBox chkEnviarFax;
-        private System.Windows.Forms.CheckBox chkPagoCheque;
-        private System.Windows.Forms.CheckBox chkPagoTarjeta;
-        private System.Windows.Forms.CheckBox chkLlamarVoice;
-        private System.Windows.Forms.CheckBox chkCTE_JUNK_MAIL;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.NumericUpDown txtDiaCorte;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.CheckBox chkExonerado;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox TextCTE_BALANCE;
-        private System.Windows.Forms.CheckBox chkCredito;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.NumericUpDown txtDiasCredito;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.NumericUpDown textCTE_CHEQUES_DEV;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.DataGridView dg;
-        private System.Windows.Forms.ComboBox cmbCTE_MANEJO_OPERACIONAL;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.TextBox txtCTE_EMAIL;
+        private System.Windows.Forms.TextBox txtCargo;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox txtCTE_NOMBRE_COMPANIA;
+        private System.Windows.Forms.Label label27;
     }
 }

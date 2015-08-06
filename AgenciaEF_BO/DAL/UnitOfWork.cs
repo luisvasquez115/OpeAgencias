@@ -83,6 +83,21 @@ namespace AgenciaEF_BO.DAL
         private TerminalRepository terminalRepository;
 
         //
+        private vwUsuarioOpcionesRepository vwusuarioOpcionesRepository;
+
+        public vwUsuarioOpcionesRepository vwUsuarioOpcionesRepository
+        {
+            get
+            {
+
+                if (this.vwusuarioOpcionesRepository == null)
+                {
+                    this.vwusuarioOpcionesRepository = new vwUsuarioOpcionesRepository(context);
+                }
+                return vwusuarioOpcionesRepository;
+            }
+        }
+
 
         public TerminalRepository TerminalRepository
         {

@@ -67,6 +67,7 @@ namespace AgenciaEF_BO.BO
                 RecAnul.CTE_ID = recibo.CTE_ID;
                 RecAnul.COUNTER_ID = iUsuarioId;
                 RecAnul.NUM_FISCAL = FindNextNCF_ANUL();
+                RecAnul.IMPRESO = false;
 
                 unitOfWork.RecibosRepository.Insert(RecAnul);
 
@@ -202,6 +203,7 @@ namespace AgenciaEF_BO.BO
             oRecibos.USER_CREA = "NA";
             oRecibos.USER_MODIFICA = "NA";
             oRecibos.REC_CREDITO = true;
+            oRecibos.IMPRESO = false;
 
             foreach (int iCargoVario in pCargVar)
             {
@@ -422,14 +424,6 @@ namespace AgenciaEF_BO.BO
 
             }
 
-          
-          
-
-          
-
-
-           
-
 
                 //Datos pago
             foreach (DataRow dr in pDatosPago.Rows)
@@ -548,6 +542,7 @@ namespace AgenciaEF_BO.BO
                 oRecibos.USER_CREA = sUsuario;
                 oRecibos.USER_MODIFICA = sUsuario;
                 oRecibos.REC_CREDITO = bCredito;
+                oRecibos.IMPRESO = false;
                               
  
                 foreach(object s in pBultos)
@@ -660,6 +655,7 @@ namespace AgenciaEF_BO.BO
                     oPagos.MOVCAJA_ID = oCaja.MOVCAJA_ID;
                     oPagos.SUC_ID = iSucId;
                     oPagos.TIPO_ID = 48; /*efectivo*/
+                    oPagos.MONTO_EFECTIVO = Convert.ToDecimal(pDatosPago.Rows[0]["MontoEfectivo"]);
 
                     if (pDatosPago.Rows.Count > 0)
                         unitOfWork.PagosRepository.Insert(oPagos);
@@ -676,6 +672,7 @@ namespace AgenciaEF_BO.BO
                         oDatosPagos.IMPORTE = Convert.ToDecimal(dr["Importe"]);
                         oDatosPagos.PAGO_ID = oPagos.PAGO_ID;
                         oDatosPagos.NUMERO = dr["Numero"].ToString();
+                        oPagos.MONTO_EFECTIVO = 0;
 
                         unitOfWork.DatosPagoRepository.Insert(oDatosPagos);
                         }
@@ -750,6 +747,244 @@ namespace AgenciaEF_BO.BO
         }
 
 
+        //x.FormaPago, x.MontoEfectivo, x.MontoOtros, x.Devolucion, x.DatosPago, 
+        public bool CrearFacturaNoVenta(decimal dMontoEfectivo, decimal dMontoOtros, decimal dDevolucion, DAL.dsDatos.DatosPagoDataTable pDatosPago,
+                  int iCteId, int iTipoFiscal, int iSucId, int iUsuarioId, ArrayList pBultos, dsDatos.CorrespondenciaDataTable pTableCorr, decimal pdMontoFacturado, bool bCredito)
+        {
+            bool bExiste = false;
+            bool bRetorno = true;
+            Recibos oRecibos = new Recibos();
+            decimal MontoFact = 0; ;
+            decimal MontoItebis = 0;
+            decimal dTasaItbis = 0;
+            decimal dMontoGrabado = 0;
+            string sUsuario = "";
+
+            sUsuario = unitOfWork.UsuariosRepository.GetByID(iUsuarioId).NOMBRES.TrimEnd() + " " + unitOfWork.UsuariosRepository.GetByID(iUsuarioId).APELLIDOS.TrimEnd();
+
+           
+                //Si funciona la correspondencia, 
+
+                oRecibos.COUNTER_ID = iUsuarioId;
+                oRecibos.CTE_ID = iCteId;
+                oRecibos.ESTADO_ID = 14;   //Cobrado
+                oRecibos.F_COBRO = DateTime.Now; //Hay que ver si es de credito.
+                oRecibos.F_VCTO = DateTime.Now;  //Depende del cliente para la fecha del vencimiento.
+                oRecibos.FECHA = DateTime.Now;
+                oRecibos.FECHA_CREA = DateTime.Now;
+                oRecibos.FECHA_MODIF = DateTime.Now;
+                oRecibos.IMPORTE_CTA = pdMontoFacturado;
+                oRecibos.IMPORTE_TOTAL = pdMontoFacturado;
+                oRecibos.NUM_FISCAL = "NA"; //Numero Fiscal
+                oRecibos.NUM_REC = -1;
+                oRecibos.RECIBO_ID_ANUL = -1;
+                oRecibos.SUC_ID = iSucId;
+                oRecibos.TIP_FISCAL = -1;
+                oRecibos.TIPO_REC_ID = 62; //FT06  NO VENTA.
+                oRecibos.USER_CREA = sUsuario;
+                oRecibos.USER_MODIFICA = sUsuario;
+                oRecibos.REC_CREDITO = bCredito;
+                oRecibos.IMPRESO = false;
+
+
+                foreach (object s in pBultos)
+                {
+
+                    int iBltNumero = Convert.ToInt32(s);
+
+
+                    var sQueryValores = unitOfWork.BultosValoresRepository.Get(filter: a => a.BLT_NUMERO == iBltNumero && a.CargosProducto.Cargos.CAR_NCF == false && a.CargosProducto.Cargos.CAR_CODIGO != "999");
+                    foreach (var sQry in sQueryValores)
+                    {
+                        bExiste = true;
+
+                        RecibosDet oRecDet = new RecibosDet();
+                        oRecDet.BLT_NUMERO = iBltNumero;
+                        oRecDet.RECIBO_ID = oRecibos.RECIBO_ID;
+                        oRecDet.CARGO_ID = unitOfWork.CargosProductoRepository.GetByID(sQry.CARGO_PROD_ID).CARGO_ID;
+
+                        oRecDet.MONTO_LOCAL = sQry.BVA_MONTO_LOCAL;
+                      
+                        oRecDet.MONTO_ITBIS = 0;
+                        oRecDet.MONTO_TOTAL = sQry.BVA_MONTO_LOCAL;
+                       
+
+                        MontoFact += oRecDet.MONTO_TOTAL;
+                        MontoItebis += oRecDet.MONTO_ITBIS;
+
+                        unitOfWork.RecibosDetRepository.Insert(oRecDet);
+                        var sQueryButos = unitOfWork.BultosRepository.GetByID(iBltNumero); //Entregado al cliente;
+                        sQueryButos.BLT_ESTADO_ID = 5;//Entregado al cliente
+                        sQueryButos.BLT_FECHA_ENTREGADO = DateTime.Now;
+                        unitOfWork.BultosRepository.Update(sQueryButos);
+
+                    }
+
+
+                }
+
+                if (bExiste == true)
+                {
+                    oRecibos.IMPORTE_ITEBIS = MontoItebis;
+                    oRecibos.ITBIS = dTasaItbis;
+                    oRecibos.IMPORTE_GRAVADO = dMontoGrabado;
+                    //oRecibos.IMPORTE_TOTAL = MontoFact + MontoItebis;
+
+                    oRecibos.USER_CREA = sUsuario;
+                    oRecibos.USER_MODIFICA = sUsuario;
+
+                    //BUSCA COMPROVANTE FISCAL.
+                    //oRecibos.NUM_FISCAL
+                    var oClientes = unitOfWork.ClientesRepository.GetByID(oRecibos.CTE_ID);
+
+                    oRecibos.TIP_FISCAL = 0;
+                    oRecibos.NUM_FISCAL = " ";
+
+
+                    if (bCredito)
+                    {
+                        oRecibos.ESTADO_ID = 13;   //Facturado
+                        oRecibos.IMPORTE_CTA = 0;
+                        oRecibos.F_VCTO = oRecibos.F_VCTO.AddDays(Convert.ToDouble(oClientes.CTE_DIAS_CREDITOS)).Date;
+                    }
+                    else
+                        oRecibos.IMPORTE_CTA = oRecibos.IMPORTE_TOTAL;
+
+
+                    unitOfWork.RecibosRepository.Insert(oRecibos);
+                    //
+                    //registrar el movimiento de caja
+                    MovCaja oCaja = new MovCaja();
+                    oCaja.FPAGO_ID = -1;
+                    oCaja.FECHA = DateTime.Now;
+                    oCaja.CTE_ID = iCteId;
+                    oCaja.COUNTER_ID = iUsuarioId;
+                    oCaja.IMPORTE = pdMontoFacturado;
+                    oCaja.SUC_ID = iSucId;
+                   
+                    oCaja.TIP_MOV = 63;// "MV007"  NO VENTA;
+                  
+
+                    MovCajaRecibos oCajaRec = new MovCajaRecibos();
+                    oCajaRec.MOVCAJA_ID = oCaja.MOVCAJA_ID;
+                    oCajaRec.RECIBO_ID = oRecibos.RECIBO_ID;
+
+
+                    unitOfWork.MovCajaRepository.Insert(oCaja);
+
+                    unitOfWork.MovCajaRecibosRepository.Insert(oCajaRec);
+
+                    Pagos oPagos = new Pagos();
+
+                    if (!bCredito)
+                    {                 //Datos pago
+
+
+                        oPagos.CTE_ID = iCteId;
+                        oPagos.COUNTER_ID = oCaja.COUNTER_ID;
+                        oPagos.ESTADO_ID = 14;
+                        /*
+                         * 14  COBRADO
+                            15  ANULADO
+                         */
+                        oPagos.F_PAGO = oCaja.FECHA;
+                        oPagos.IMP_PAGO = pdMontoFacturado;
+                        oPagos.MOVCAJA_ID = oCaja.MOVCAJA_ID;
+                        oPagos.SUC_ID = iSucId;
+                        oPagos.TIPO_ID = 48; /*efectivo*/
+                        oPagos.MONTO_EFECTIVO = Convert.ToDecimal(pDatosPago.Rows[0]["MontoEfectivo"]);
+
+                        if (pDatosPago.Rows.Count > 0)
+                            unitOfWork.PagosRepository.Insert(oPagos);
+
+                        foreach (DataRow dr in pDatosPago.Rows)
+                        {
+                            if (Convert.ToInt32(dr["TipoPago"]) != -1)
+                            {
+                                oPagos.TIPO_ID = Convert.ToInt32(pDatosPago.Rows[0]["TipoPago"]);
+
+                                DatosPagos oDatosPagos = new DatosPagos();
+                                oDatosPagos.BANCO_ID = Convert.ToInt32(dr["Banco"]);
+                                oDatosPagos.FECHA_VENC = Convert.ToDateTime(dr["Fecha"]);
+                                oDatosPagos.IMPORTE = Convert.ToDecimal(dr["Importe"]);
+                                oDatosPagos.PAGO_ID = oPagos.PAGO_ID;
+                                oDatosPagos.NUMERO = dr["Numero"].ToString();
+                                oPagos.MONTO_EFECTIVO = 0;
+
+                                unitOfWork.DatosPagoRepository.Insert(oDatosPagos);
+                            }
+                        }
+
+
+
+                        PagosRecibos oPagosRec = new PagosRecibos();
+                        oPagosRec.PAGO_ID = oPagos.PAGO_ID;
+                        oPagosRec.RECIBO_ID = oRecibos.RECIBO_ID;
+
+
+
+                        unitOfWork.PagosRecibosRepository.Insert(oPagosRec);
+
+
+                    }
+                    else
+                    {
+                        oClientes.CTE_BALANCE_DISPONIBLE = oClientes.CTE_BALANCE_DISPONIBLE - oRecibos.IMPORTE_TOTAL;
+                        unitOfWork.ClientesRepository.Update(oClientes);
+
+                    }
+
+                    //
+
+                    try
+                    {
+                        unitOfWork.Save();
+                        FacturaGenerada = oRecibos.RECIBO_ID;
+
+
+                    }
+
+                    catch (System.Data.Entity.Validation.DbEntityValidationException e)
+                    {
+                        foreach (var eve in e.EntityValidationErrors)
+                        {
+                            string s = "";
+                            /*
+                            Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                                eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                            */
+
+
+                            foreach (var ve in eve.ValidationErrors)
+                            {
+                                s += ve.ErrorMessage + "\n";
+                                /*Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                                    ve.PropertyName, ve.ErrorMessage);*/
+                            }
+                            // MessageBox.Show("Existen los siguientes errores:" + s, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            throw e;
+                        }
+                        //throw;
+                    }
+                    catch (DataException ex)
+                    {
+
+                        throw ex;
+                    }
+
+
+
+
+                }
+                else 
+                    bRetorno = true;
+                
+            return bRetorno;
+        }
+
+
+
+
 
         //x.FormaPago, x.MontoEfectivo, x.MontoOtros, x.Devolucion, x.DatosPago, 
         public bool CrearFacturaEnvio(decimal dMontoEfectivo, decimal dMontoOtros, decimal dDevolucion, DAL.dsDatos.DatosPagoDataTable pDatosPago,
@@ -799,6 +1034,7 @@ namespace AgenciaEF_BO.BO
                 oRecibos.USER_CREA = sUsuario;
                 oRecibos.USER_MODIFICA = sUsuario;
                 oRecibos.REC_CREDITO = bCredito;
+                oRecibos.IMPRESO = false;
 
 
 
@@ -908,6 +1144,8 @@ namespace AgenciaEF_BO.BO
                     oPagos.MOVCAJA_ID = oCaja.MOVCAJA_ID;
                     oPagos.SUC_ID = iSucId;
                     oPagos.TIPO_ID = 48; /*efectivo*/
+                    oPagos.MONTO_EFECTIVO = Convert.ToDecimal(pDatosPago.Rows[0]["MontoEfectivo"]);
+
 
                     if (pDatosPago.Rows.Count > 0)
                         unitOfWork.PagosRepository.Insert(oPagos);
@@ -925,6 +1163,8 @@ namespace AgenciaEF_BO.BO
                             oDatosPagos.IMPORTE = Convert.ToDecimal(dr["Importe"]);
                             oDatosPagos.PAGO_ID = oPagos.PAGO_ID;
                             oDatosPagos.NUMERO = dr["Numero"].ToString();
+                            oPagos.MONTO_EFECTIVO = 0;
+
 
                             unitOfWork.DatosPagoRepository.Insert(oDatosPagos);
                         }

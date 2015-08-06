@@ -41,6 +41,8 @@ namespace AgenciaEF_BO.Models
         [Required]
         public int CTE_ID { set; get; }
 
+        public decimal MONTO_EFECTIVO { set; get; }
+
         public virtual MovCaja MovCaja { set; get; }
 
         public virtual Clientes Clientes { set; get; }

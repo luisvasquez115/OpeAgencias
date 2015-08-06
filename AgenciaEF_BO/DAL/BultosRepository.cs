@@ -17,7 +17,7 @@ namespace AgenciaEF_BO.DAL
 
         }
 
-        public IEnumerable<Bultos> GetByNumeroEPS(string psNumeroEPS, string psGuiaMadre, string sCodigoBarra,string sTracking, int piEstado)
+        public IEnumerable<Bultos> GetByNumeroEPS(string psNumeroEPS, string psGuiaMadre, string sCodigoBarra,string sTracking, int piEstado, int piComCodigo)
         {
             //Bultos oBultos = new Bultos();
             //Productos.PRO_TIPO_ID = 31
@@ -76,8 +76,12 @@ namespace AgenciaEF_BO.DAL
                     sCadena += "BLT_ESTADO_ID  == 6";
 
                     break;
-            }   
+            }
 
+            if (sCadena != "")
+                sCadena += " && ";
+
+            sCadena += "Sucursales.Empresas.COM_CODIGO  == " + piComCodigo.ToString();
                
       
 

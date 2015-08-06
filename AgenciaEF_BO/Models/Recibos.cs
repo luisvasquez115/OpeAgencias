@@ -58,7 +58,7 @@ namespace AgenciaEF_BO.Models
         [Required]
         public int TIP_FISCAL { set; get; }
 
-        [Required]
+       
         [MaxLength(19)]
         public string NUM_FISCAL { set; get; }
 
@@ -93,6 +93,8 @@ namespace AgenciaEF_BO.Models
         public virtual Clientes Clientes { set; get; }
 
         public virtual Estados Estados { set; get; }
+
+        public bool IMPRESO { set; get; }
 
 
      

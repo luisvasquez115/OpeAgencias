@@ -139,11 +139,6 @@ namespace OpeAgencia2.Facturacion
             p.Start();
         }
 
-        private void cbFiltrarPor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cbFiltrarPor.Enabled = txtDesde.Enabled = txtHasta.Enabled = (cbFiltrarPor.SelectedIndex == 2);
-        }
-
         private void GenerarDocumento(int tipo)
         {
             //ImprimirFactura imprimirFactura = new ImprimirFactura();
@@ -243,6 +238,11 @@ namespace OpeAgencia2.Facturacion
             //    _printer.Print(this);
             //else
             //    _printer.PrintNoFiscalReceipt(this);
+        }
+
+        private void cbTipoReporte_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gbFiltro.Enabled = cbTipoReporte.SelectedIndex == 2;
         }
     }
 }

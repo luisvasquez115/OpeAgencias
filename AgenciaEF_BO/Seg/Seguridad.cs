@@ -23,11 +23,11 @@ namespace AgenciaEF_BO.Seg
             bool bRetorno = false;
             piUsuarioId = -1;
 
-            var sQry = unitOfWork.UsuariosRepository.Get(filter: s => s.USER_NAME == psUserName && s.CLAVE == sClave).FirstOrDefault();
+            var sQry = unitOfWork.UsuariosRepository.Get(filter: s => s.USER_NAME == psUserName).FirstOrDefault();
 
             if (sQry == null)
                 bRetorno = false;
-            else if (sQry.USUARIO_ID > 0)
+            else if (sQry.USUARIO_ID > 0 && sQry.CLAVE == sClave)
             {
                 piUsuarioId = sQry.USUARIO_ID;
                 bRetorno = true;

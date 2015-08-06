@@ -16,6 +16,7 @@ namespace AgenciaEF_BO.Models
         [Key]
         public int BULTO_ENV_ID { set; get; }
 
+
         [Required]
         public int BLT_NUMERO { set; get; }
 

@@ -145,15 +145,25 @@ namespace OpeAgencia2.Parametros
                 sEncabezadoFactura2 = sQury2.VALOR1 + "\n";
                 sEncabezadoFactura2 += sQury2.VALOR2;
             }
+            else
+            {
+                sEncabezadoFactura2 = "NO PARAMETRIZADO" + "\n";
+                sEncabezadoFactura2 +="NO PARAMETRIZADO";
+
+            }
 
             var sQury3 = unitOfWork.ParametrosSucursalRepository.Get(filter: s => s.SUC_ID == mIdSucursal && s.PARAMETRO == "ENCABEZADO_FACT3").FirstOrDefault();
 
-            if (sQury != null)
+            if (sQury3 != null)
             {
                 sEncabezadoFactura3 = sQury3.VALOR1 + "\n";
                 sEncabezadoFactura3 += sQury3.VALOR2;
             }
-
+            else
+            {
+                sEncabezadoFactura3 = "NO PARAMETRIZADO\n";
+                sEncabezadoFactura3 += "NO PARAMETRIZADO\n";
+            }
 
         }
         
