@@ -27,6 +27,7 @@ namespace OpeAgencia2.Facturacion
         private int _numeroCopias;
         private readonly Terminal _terminal;
         private bool _isinvoiceCxc;
+        private decimal _MontoTotalFactura;
         //private CxcDetalle _cxcDetials;
 
 
@@ -98,6 +99,7 @@ namespace OpeAgencia2.Facturacion
 
                 items.Add(itemsBulto);
                 dSubTotal += oRow.MONTO_TOTAL;
+                _MontoTotalFactura += oRow.MONTO_TOTAL;
 
                 sDescAdicional = new[]{
                           "Servicio-" + oRow.PRODUCTO.Trim() + "-",
@@ -156,6 +158,7 @@ namespace OpeAgencia2.Facturacion
 
                    items.Add(itemsBulto);
                    dSubTotal += oRow.MONTO_TOTAL;
+                   _MontoTotalFactura += oRow.MONTO_TOTAL;
 
                }
                 
@@ -192,7 +195,7 @@ namespace OpeAgencia2.Facturacion
                 payments.Add(new Payment
                 {
                     PaymentMethod = PaymentMethods.OwnCard,
-                    Value = Convert.ToDecimal(_factura.Rows[0]["MONTO_TOTAL"]),
+                    Value = _MontoTotalFactura,
                     PaymentType = PaymentTypes.Payment
                 });
             else

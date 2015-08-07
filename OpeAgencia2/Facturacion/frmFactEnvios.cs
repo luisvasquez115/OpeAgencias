@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BO = AgenciaEF_BO;
+using clsUtils;
 
 namespace OpeAgencia2.Facturacion
 {
@@ -88,6 +89,19 @@ namespace OpeAgencia2.Facturacion
                 lblNombres.Text = oCliente.CTE_NOMBRE + " " + oCliente.CTE_APELLIDO;
                 dFechaVenc.Value = oCliente.CTE_FECHA_VENCIMIENTO;
                 cmbTipoFact.SelectedIndex = 0;
+
+
+                if (oCliente.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd() == "" && oCliente.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd() == "" && oCliente.CTE_PASAPORTE.ToString().TrimEnd() == "")
+                {
+                    MessageBox.Show("Este cliente no tienen un documento de identificación válido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    btnFacturar.Enabled = false;
+                    return;
+                }
+                else
+                { btnFacturar.Enabled = true; }
+
+
+
           
                 if (oCliente.CTE_CREDITO == true)
                 {

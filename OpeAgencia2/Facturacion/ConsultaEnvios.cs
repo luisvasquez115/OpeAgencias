@@ -252,5 +252,17 @@ namespace OpeAgencia2.Facturacion
         {
 
         }
+
+        private void verEnPantallaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            int iReciboId = -1;
+
+            iReciboId = Convert.ToInt32(dgDatos[0, dgDatos.CurrentCell.RowIndex].Value);
+
+            ImprimirFactura oImpFact = new ImprimirFactura();
+            oImpFact.Imprimir(iReciboId);
+
+        }
     }
 }

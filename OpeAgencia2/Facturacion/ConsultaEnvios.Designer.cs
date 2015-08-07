@@ -44,6 +44,7 @@
             this.reImprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.anularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.verEnPantallaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDatos)).BeginInit();
@@ -170,21 +171,22 @@
             // 
             this.cmOpciones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reImprimirToolStripMenuItem,
-            this.anularToolStripMenuItem});
+            this.anularToolStripMenuItem,
+            this.verEnPantallaToolStripMenuItem});
             this.cmOpciones.Name = "cmOpciones";
-            this.cmOpciones.Size = new System.Drawing.Size(139, 48);
+            this.cmOpciones.Size = new System.Drawing.Size(153, 92);
             // 
             // reImprimirToolStripMenuItem
             // 
             this.reImprimirToolStripMenuItem.Name = "reImprimirToolStripMenuItem";
-            this.reImprimirToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.reImprimirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.reImprimirToolStripMenuItem.Text = "Re-Imprimir";
             this.reImprimirToolStripMenuItem.Click += new System.EventHandler(this.reImprimirToolStripMenuItem_Click);
             // 
             // anularToolStripMenuItem
             // 
             this.anularToolStripMenuItem.Name = "anularToolStripMenuItem";
-            this.anularToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.anularToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.anularToolStripMenuItem.Text = "Anular";
             this.anularToolStripMenuItem.Click += new System.EventHandler(this.anularToolStripMenuItem_Click);
             // 
@@ -205,6 +207,13 @@
             this.splitContainer1.Size = new System.Drawing.Size(695, 556);
             this.splitContainer1.SplitterDistance = 122;
             this.splitContainer1.TabIndex = 2;
+            // 
+            // verEnPantallaToolStripMenuItem
+            // 
+            this.verEnPantallaToolStripMenuItem.Name = "verEnPantallaToolStripMenuItem";
+            this.verEnPantallaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.verEnPantallaToolStripMenuItem.Text = "Ver en pantalla";
+            this.verEnPantallaToolStripMenuItem.Click += new System.EventHandler(this.verEnPantallaToolStripMenuItem_Click);
             // 
             // ConsultaOperaciones
             // 
@@ -245,5 +254,6 @@
         private System.Windows.Forms.ContextMenuStrip cmOpciones;
         private System.Windows.Forms.ToolStripMenuItem reImprimirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem anularToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verEnPantallaToolStripMenuItem;
     }
 }

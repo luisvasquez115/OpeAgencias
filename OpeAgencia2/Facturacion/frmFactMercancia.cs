@@ -114,11 +114,14 @@ namespace OpeAgencia2.Facturacion
                     cmbTipoFact.Enabled = false;
                 }
                 //
-                if (oCliente.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd() ==""   && oCliente.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd() == "")
+                if (oCliente.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd() ==""   && oCliente.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd() == "" && oCliente.CTE_PASAPORTE.ToString().TrimEnd() =="")
                 {
                     MessageBox.Show("Este cliente no tienen un documento de identificación válido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    btnFacturar.Enabled = false;
                     return;
                 }
+                else
+                  {btnFacturar.Enabled = true; }
 
             }
             else
@@ -284,9 +287,10 @@ namespace OpeAgencia2.Facturacion
             if (dMontoVenta > 0)
                  FacturarVenta();
             
+            /*
             if (dMontoNoVenta>0)
                  FacturarNoVenta();
-
+            */
             LimpiarPantalla();
         }
 
@@ -298,7 +302,16 @@ namespace OpeAgencia2.Facturacion
             decimal dMontoEfectivo = 0;
             decimal dMontoOtros = 0;
             decimal dDevolucion = 0;
+
+            decimal dMontoEfectivoNoventa = 0;
+            decimal dMontoOtrosNoVenta = 0;
+
+            decimal dMontoEfectivoVenta = 0;
+            decimal dMontoOtrosVenta = 0;
+
             BO.DAL.dsDatos.DatosPagoDataTable DatosPago = new BO.DAL.dsDatos.DatosPagoDataTable();
+            BO.DAL.dsDatos.DatosPagoDataTable DatosPagoNoVenta = new BO.DAL.dsDatos.DatosPagoDataTable();
+            BO.DAL.dsDatos.DatosPagoDataTable DatosPagoVenta = new BO.DAL.dsDatos.DatosPagoDataTable();
 
             if (cmbTipoFact.SelectedIndex == 1)
                 bCredito = true;
@@ -307,7 +320,7 @@ namespace OpeAgencia2.Facturacion
 
             if (!bCredito)
             {
-                frmDatosPago x = new frmDatosPago(dMontoVenta);
+                frmDatosPago x = new frmDatosPago(dMontoVenta+dMontoNoVenta);
                 x.StartPosition = FormStartPosition.CenterParent;
                 x.ShowDialog();
                 dMontoEfectivo = x.MontoEfectivo;
@@ -340,119 +353,184 @@ namespace OpeAgencia2.Facturacion
             }
             else
             {
-                bPagado = false;
-
-            }
-
-            if ((bCredito == true) || (bPagado == true))
-            {
-                if (bCredito)
-                {
-                //VALIDO  QUE EL CLIENTE TENGA BALANCE
-                if (oCliente.CTE_BALANCE_DISPONIBLE - Convert.ToDecimal(txtMontoTotal.Text) < 0)
-                {
-                    MessageBox.Show("El balance disponible del cliente es de: " + oCliente.CTE_BALANCE_DISPONIBLE.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    return;
-                }
-                }//Aqui tengo que ver si el cliente esta suspendido
-
-                BultosAFacturar(ref oBltNumeros);
-                BO.BO.Facturar oFact = new BO.BO.Facturar();
-                if (oFact.CrearFactura(dMontoEfectivo, dMontoOtros, dDevolucion, DatosPago,
-                                   oCliente.CTE_ID, oCliente.CTE_TIPO_FISCAL, Parametros.Parametros.SucursalActual,
-                                   Parametros.Parametros.UsuarioId, oBltNumeros,
-                                   oTableCorr, Convert.ToDecimal(txtMontoTotal.Text), bCredito))
-                {//Todo anduvo bien. Entonces Imprimo y limpio la pantalla.
-
-                    //ImprimirFactura(oFact.FacturaGenerada);
-                    ImprimirFactura oImpFact = new ImprimirFactura();
-                    oImpFact.Imprimir(oFact.FacturaGenerada, DatosPago);
-
-                  
-                }
-
-            }
-        }
-
-
-        void FacturarNoVenta()
-        {
-            ArrayList oBltNumeros = new ArrayList();
-            bool bCredito, bPagado = false;
-            decimal dMontoEfectivo = 0;
-            decimal dMontoOtros = 0;
-            decimal dDevolucion = 0;
-            BO.DAL.dsDatos.DatosPagoDataTable DatosPago = new BO.DAL.dsDatos.DatosPagoDataTable();
-
-            if (cmbTipoFact.SelectedIndex == 1)
-                bCredito = true;
-            else
-                bCredito = false;
-
-            if (!bCredito)
-            {
-                frmDatosPago x = new frmDatosPago(Math.Round(dMontoNoVenta, 2));
-                x.StartPosition = FormStartPosition.CenterParent;
-                x.ShowDialog();
-                dMontoEfectivo = x.MontoEfectivo;
-                dMontoOtros = x.MontoOtros;
-                dDevolucion = x.Devolucion;
-                DatosPago = x.DatosPago;
-                if (x.DialogResult == System.Windows.Forms.DialogResult.OK)
-                    bPagado = true;
-
-                if (DatosPago.Rows.Count == 0)
-                {
-                    BO.DAL.dsDatos.DatosPagoRow oRow = DatosPago.NewDatosPagoRow();
-                    oRow.Banco = -1;
-                    oRow.BancoDesc = "";
-                    oRow.Devolucion = dDevolucion;
-                    oRow.Fecha = DateTime.Now;
-                    oRow.Importe = dMontoNoVenta;
-                    oRow.MontoEfectivo = dMontoEfectivo;
-                    oRow.Numero = 99;
-                    oRow.TipoPago = -1;
-                    oRow.TipoPagoDesc = "";
-                    DatosPago.Rows.Add(oRow);
-
-                }
-
-
-            }
-            else
-            {
-                bPagado = false;
-
-            }
-
-            if ((bCredito == true) || (bPagado == true))
-            {
-                if (bCredito)
-                {
+              
                     //VALIDO  QUE EL CLIENTE TENGA BALANCE
                     if (oCliente.CTE_BALANCE_DISPONIBLE - Convert.ToDecimal(txtMontoTotal.Text) < 0)
                     {
                         MessageBox.Show("El balance disponible del cliente es de: " + oCliente.CTE_BALANCE_DISPONIBLE.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                         return;
                     }
+
+                bPagado = false;
+
+            }
+            /*Tengo que hacer doble desglose*/
+            if (dMontoNoVenta > 0)
+            {
+               
+                if (bCredito==false)
+                    RetornaDatosPagos(DatosPago, ref DatosPagoNoVenta, dMontoNoVenta, ref dMontoEfectivoNoventa, ref dMontoOtrosNoVenta);
+
+                FacturarNoVenta(DatosPagoNoVenta, bCredito, dMontoNoVenta, dMontoEfectivoNoventa, dMontoOtrosNoVenta);
+            }
+            if (dMontoVenta >0)
+            {
+
+                dMontoEfectivoVenta = dMontoEfectivo - dMontoEfectivoNoventa;
+
+                if (!bCredito)
+                {
+                  
+                    if (bCredito == false)
+                        RetornaDatosPagos(DatosPago, ref DatosPagoVenta, dMontoVenta, ref dMontoEfectivoVenta, ref dMontoOtrosVenta);
+
+                }
+
+                if ((bCredito == true) || (bPagado == true))
+                {
+
                 }//Aqui tengo que ver si el cliente esta suspendido
 
                 BultosAFacturar(ref oBltNumeros);
                 BO.BO.Facturar oFact = new BO.BO.Facturar();
-                if (oFact.CrearFacturaNoVenta(dMontoEfectivo, dMontoOtros, dDevolucion, DatosPago,
+                if (oFact.CrearFactura(dMontoEfectivoVenta, dMontoOtrosVenta, dDevolucion, DatosPagoVenta,
                                    oCliente.CTE_ID, oCliente.CTE_TIPO_FISCAL, Parametros.Parametros.SucursalActual,
                                    Parametros.Parametros.UsuarioId, oBltNumeros,
-                                   oTableCorr, dMontoNoVenta, bCredito))
+                                   oTableCorr, dMontoVenta, bCredito))
                 {//Todo anduvo bien. Entonces Imprimo y limpio la pantalla.
 
                     //ImprimirFactura(oFact.FacturaGenerada);
                     ImprimirFactura oImpFact = new ImprimirFactura();
-                    oImpFact.ImprimirNoVenta(oFact.FacturaGenerada, DatosPago);
+                    oImpFact.Imprimir(oFact.FacturaGenerada, DatosPago);
 
 
                 }
 
             }
+
+
+         
+            
+
+    
+        }
+
+
+        void RetornaDatosPagos(BO.DAL.dsDatos.DatosPagoDataTable DatosPago, ref BO.DAL.dsDatos.DatosPagoDataTable newDatosPago, decimal dMonto, ref  decimal dMontoEfectvo, ref decimal dMontoOtros)
+        {
+
+            decimal dMontoRestante = 0;
+
+            
+            foreach(BO.DAL.dsDatos.DatosPagoRow  dr in DatosPago.OrderBy(p=>p.TipoPago))
+            {
+                /*Pago Efect*/
+                if(dr.TipoPago == -1)
+                {
+                    if (dr.MontoEfectivo >= dMonto)
+                    {
+                        dMontoEfectvo = dMonto;
+                        BO.DAL.dsDatos.DatosPagoRow oNewRow = newDatosPago.NewDatosPagoRow();
+
+                        oNewRow.MontoEfectivo = dMonto;
+                        oNewRow.Importe = dMonto;
+                        oNewRow.Numero = dr.Numero;
+                        oNewRow.TipoPago = dr.TipoPago;
+                        oNewRow.TipoPagoDesc = dr.TipoPagoDesc;
+                        oNewRow.Fecha = dr.Fecha;
+                        oNewRow.Devolucion = 0;
+                        oNewRow.Banco = dr.Banco;
+                        oNewRow.BancoDesc = dr.BancoDesc;
+                        newDatosPago.Rows.Add(oNewRow);
+                        break;
+
+                    }
+                    else
+                    {
+                        dMontoEfectvo = dr.MontoEfectivo; 
+
+                        BO.DAL.dsDatos.DatosPagoRow oNewRow = newDatosPago.NewDatosPagoRow();
+                        
+                        oNewRow.MontoEfectivo = dr.MontoEfectivo;
+                        oNewRow.Importe = dr.MontoEfectivo;
+                        oNewRow.Numero = dr.Numero;
+                        oNewRow.TipoPago = dr.TipoPago;
+                        oNewRow.TipoPagoDesc = dr.TipoPagoDesc;
+                        oNewRow.Fecha = dr.Fecha;
+                        oNewRow.Devolucion = 0;
+                        oNewRow.Banco = dr.Banco;
+                        oNewRow.BancoDesc = dr.BancoDesc;
+                        newDatosPago.Rows.Add(oNewRow);
+                        dMontoRestante = dMonto - dr.MontoEfectivo;
+
+                    }
+
+
+
+
+                }
+                else
+                {
+                    dMontoOtros = dMonto;
+
+                    BO.DAL.dsDatos.DatosPagoRow oNewRow = newDatosPago.NewDatosPagoRow();
+
+                    oNewRow.MontoEfectivo = 0;
+                    oNewRow.Importe = dMonto;
+                    oNewRow.Numero = dr.Numero;
+                    oNewRow.TipoPago = dr.TipoPago;
+                    oNewRow.TipoPagoDesc = dr.TipoPagoDesc;
+                    oNewRow.Fecha = dr.Fecha;
+                    oNewRow.Devolucion = 0;
+                    oNewRow.Banco = dr.Banco;
+                    oNewRow.BancoDesc = dr.BancoDesc;
+                    newDatosPago.Rows.Add(oNewRow);
+                    break;
+
+                }
+
+
+
+            }
+       
+        }
+
+
+
+        void FacturarNoVenta(BO.DAL.dsDatos.DatosPagoDataTable DatosPago, bool bCredito, decimal dMontoNoVenta, decimal dMontoEfectivo,  decimal dMontoOtros)
+        {
+            ArrayList oBltNumeros = new ArrayList();
+           
+        
+            decimal dDevolucion = 0;
+          
+
+            if (bCredito)
+            {
+                //VALIDO  QUE EL CLIENTE TENGA BALANCE
+                if (oCliente.CTE_BALANCE_DISPONIBLE - Convert.ToDecimal(txtMontoTotal.Text) < 0)
+                {
+                    MessageBox.Show("El balance disponible del cliente es de: " + oCliente.CTE_BALANCE_DISPONIBLE.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    return;
+                }
+            }//Aqui tengo que ver si el cliente esta suspendido
+
+            BultosAFacturar(ref oBltNumeros);
+            BO.BO.Facturar oFact = new BO.BO.Facturar();
+            if (oFact.CrearFacturaNoVenta(dMontoEfectivo, dMontoOtros, dDevolucion, DatosPago,
+                                oCliente.CTE_ID, oCliente.CTE_TIPO_FISCAL, Parametros.Parametros.SucursalActual,
+                                Parametros.Parametros.UsuarioId, oBltNumeros,
+                                oTableCorr, dMontoNoVenta, bCredito))
+            {//Todo anduvo bien. Entonces Imprimo y limpio la pantalla.
+
+                //ImprimirFactura(oFact.FacturaGenerada);
+                ImprimirFactura oImpFact = new ImprimirFactura();
+                oImpFact.ImprimirNoVenta(oFact.FacturaGenerada, DatosPago);
+
+
+            }
+
+            
         }
 
         void BultosAFacturar(ref ArrayList pBtlNumeros)

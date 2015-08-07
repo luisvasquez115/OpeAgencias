@@ -78,8 +78,12 @@ namespace OpeAgencia2.Facturacion
              -----
             */
 
-            Export(report);
-            Print();
+            frmReportViewer x = new frmReportViewer(report);
+
+            x.ShowDialog();
+
+            //Export(report);
+            //Print();
           
         }
 
@@ -329,18 +333,13 @@ namespace OpeAgencia2.Facturacion
                 oFactRow.REC_TIPO_DESC = oTipoDoc.TIPO_DESCR;
                 oFactRow.REMITENTE = Bultos.REMITENTE;
 
-                if (Bultos.Clientes.CTE_CEDULA == null)
-                    oFactRow.RNC = Bultos.Clientes.CTE_RNC;
+                if (Bultos.Clientes.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd() == "")
+                    oFactRow.RNC = Bultos.Clientes.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd();
+                else if (Bultos.Clientes.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd() == "")
+                    oFactRow.RNC = Bultos.Clientes.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd();
                 else
-                {
-                    if (Bultos.Clientes.CTE_CEDULA.TrimEnd() == "" || Bultos.Clientes.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd()=="")
-                        oFactRow.RNC = Bultos.Clientes.CTE_RNC.KeepOnlyNumbers();
-                    else
-                    {
-                        oFactRow.RNC = Bultos.Clientes.CTE_CEDULA.KeepOnlyNumbers();
-                    }
+                    oFactRow.RNC = Bultos.Clientes.CTE_PASAPORTE.ToString().TrimEnd();
 
-                }
 
                 if (iBltNumero != Bultos.BLT_NUMERO)
                 {
