@@ -42,7 +42,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbFiltro = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -63,7 +63,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbFiltro.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -194,7 +194,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.groupBox1);
+            this.tabPage2.Controls.Add(this.gbFiltro);
             this.tabPage2.Controls.Add(this.btnCancelar);
             this.tabPage2.Controls.Add(this.btnGenerar);
             this.tabPage2.Controls.Add(this.label7);
@@ -208,20 +208,20 @@
             this.tabPage2.Text = "Reportes";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // gbFiltro
             // 
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.txtHasta);
-            this.groupBox1.Controls.Add(this.txtDesde);
-            this.groupBox1.Controls.Add(this.cbFiltrarPor);
-            this.groupBox1.Location = new System.Drawing.Point(20, 46);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(423, 97);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Filtro";
+            this.gbFiltro.Controls.Add(this.label10);
+            this.gbFiltro.Controls.Add(this.label9);
+            this.gbFiltro.Controls.Add(this.label8);
+            this.gbFiltro.Controls.Add(this.txtHasta);
+            this.gbFiltro.Controls.Add(this.txtDesde);
+            this.gbFiltro.Controls.Add(this.cbFiltrarPor);
+            this.gbFiltro.Location = new System.Drawing.Point(20, 46);
+            this.gbFiltro.Name = "gbFiltro";
+            this.gbFiltro.Size = new System.Drawing.Size(423, 97);
+            this.gbFiltro.TabIndex = 12;
+            this.gbFiltro.TabStop = false;
+            this.gbFiltro.Text = "Filtro";
             // 
             // label10
             // 
@@ -274,7 +274,6 @@
             this.cbFiltrarPor.Name = "cbFiltrarPor";
             this.cbFiltrarPor.Size = new System.Drawing.Size(143, 21);
             this.cbFiltrarPor.TabIndex = 10;
-            this.cbFiltrarPor.SelectedIndexChanged += new System.EventHandler(this.cbFiltrarPor_SelectedIndexChanged);
             // 
             // btnCancelar
             // 
@@ -316,6 +315,7 @@
             this.cbTipoReporte.Name = "cbTipoReporte";
             this.cbTipoReporte.Size = new System.Drawing.Size(246, 21);
             this.cbTipoReporte.TabIndex = 2;
+            this.cbTipoReporte.SelectedIndexChanged += new System.EventHandler(this.cbTipoReporte_SelectedIndexChanged);
             // 
             // btnAbrirLibroVentas
             // 
@@ -403,8 +403,8 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbFiltro.ResumeLayout(false);
+            this.gbFiltro.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
@@ -434,7 +434,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox cbOperacion;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbFiltro;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;

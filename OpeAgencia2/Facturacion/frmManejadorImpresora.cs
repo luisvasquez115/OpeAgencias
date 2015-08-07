@@ -139,16 +139,11 @@ namespace OpeAgencia2.Facturacion
             p.Start();
         }
 
-        private void cbFiltrarPor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cbFiltrarPor.Enabled = txtDesde.Enabled = txtHasta.Enabled = (cbFiltrarPor.SelectedIndex == 2);
-        }
-
         private void GenerarDocumento(int tipo)
         {
             //ImprimirFactura imprimirFactura = new ImprimirFactura();
-           // var stuff = txtFactura.Text.Split('-');
-          //  oFactura = imprimirFactura.CargarDataSetFiscal(Convert.ToInt32(stuff[2]));
+            //var stuff = txtFactura.Text.Split('-');
+            //oFactura = imprimirFactura.CargarDataSetFiscal(Convert.ToInt32(stuff[2]));
             //oDatosPago = unitOfWork.DatosPagoRepository.Get(filter: s => s.)
             //oPrinter.SetInvoiceData()
             //factura.AddFACTURASRow()
@@ -243,6 +238,11 @@ namespace OpeAgencia2.Facturacion
             //    _printer.Print(this);
             //else
             //    _printer.PrintNoFiscalReceipt(this);
+        }
+
+        private void cbTipoReporte_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gbFiltro.Enabled = cbTipoReporte.SelectedIndex == 2;
         }
     }
 }

@@ -117,8 +117,6 @@ namespace OpeAgencia2.Facturacion
             {
                 MessageBox.Show("Ha ocurrido un error en la Impresión del recibo, favor revisar la conexión ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
             //dsFacturas.Tables.Add(dt);
 
 
