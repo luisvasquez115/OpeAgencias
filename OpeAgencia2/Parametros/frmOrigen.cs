@@ -176,14 +176,11 @@ namespace OpeAgencia2.Parametros
             }
 
 
-            oCom.ORI_ESTADO = this.txtORI_CODIGO.Text.ToString();
-            oCom.ORI_EQUIVALENTE = this.txtORI_EQUIVALENTE.Text.ToString();
-            oCom.ORI_EMS_GROUP = this.txtORI_EMS_GROUP.Text.ToString().TrimEnd();
-            oCom.ORI_APP_GROUP = this.txtORI_APP_GROUP.Text.ToString().TrimEnd();
+            oCom.ORI_CODIGO = this.txtORI_CODIGO.Text.ToString();
+          
             oCom.ORI_DESCRIPCION = this.txtDESCR.Text.ToString().TrimEnd();
-            oCom.ORI_COURIER_GROUP = this.txtORI_COURIER_GROUP.Text.ToString().TrimEnd();
-            oCom.ORI_CORREO_INT = this.txtORI_CORREO_INT.Text.ToString().TrimEnd();
-            oCom.ORI_CODIGO = this.txtORI_CODIGO.Text.ToString().TrimEnd();
+
+            oCom.ORI_ESTADO = cmbEstado.Text;
 
 
 
@@ -278,29 +275,15 @@ namespace OpeAgencia2.Parametros
                     case "ORI_ESTADO":
                         ctr.Text = MyComp.ORI_ESTADO.ToString();
                         break;
-                    case "ORI_EQUIVALENTE":
-                        ctr.Text = MyComp.ORI_EQUIVALENTE.ToString();
-                        break;
-                    case "ORI_EMS_GROUP":
-                        ctr.Text = MyComp.ORI_EMS_GROUP.ToString();
-                        break;
+                
                     case "ORI_DESCRIPCION":
                         ctr.Text = MyComp.ORI_DESCRIPCION.ToString();
                         break;
-                    case "ORI_COURIER_GROUP":
-                        ctr.Text = MyComp.ORI_COURIER_GROUP.ToString();
-                        break;
-                    case "ORI_CORREO_INT":
-                        ctr.Text = MyComp.ORI_CORREO_INT.ToString();
-                        break;
+                  
                     case "ORI_CODIGO":
                         ctr.Text = MyComp.ORI_CODIGO.ToString();
                         break;
-                    case "ORI_APP_GROUP":
-                        ctr.Text = (MyComp.ORI_APP_GROUP == null ? " " : MyComp.ORI_APP_GROUP.ToString() );
-                        break;
-
-
+                
 
                 }
 

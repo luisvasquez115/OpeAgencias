@@ -76,10 +76,17 @@ namespace OpeAgencia2.Precios
             string sLinea;
 
             string[] aLineas;
+            sLinea = sr.ReadLine();
+
             while (sr.EndOfStream == false)
             {
                 sLinea = sr.ReadLine();
-                sLinea = sr.ReadLine();
+                
+                if (sLinea == null)
+                    break;
+
+              
+             
                 aLineas = sLinea.Split(',');
 
                 BO.Models.TarifaEnvio oEnv = new BO.Models.TarifaEnvio();

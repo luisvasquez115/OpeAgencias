@@ -89,6 +89,8 @@ namespace OpeAgencia2.Facturacion
                 txtPeso.Minimum = oProducto.PESO_MIN;
 
                 ComboCargos();
+                CargarOrigen();
+            
             
         }
 
@@ -102,10 +104,11 @@ namespace OpeAgencia2.Facturacion
 
         void CargarCombos()
         {
-            CargarOrigen();
+           
             CargarProductos();
             CargarPaises();
             CargarCargosSelect();
+            CargarOrigen();
         }
 
         void CargarProductos()
@@ -124,7 +127,9 @@ namespace OpeAgencia2.Facturacion
 
         void CargarOrigen()
         {
-            var oOrigen = from p in unitOfWork.TarifaEnvioZonaRepository.Get()
+           
+
+            var oOrigen = from p in unitOfWork.TarifaEnvioZonaRepository.Get(xy => xy.Envios.Productos.PROD_ID == iProductoId)
                           select new { Id = p.Origen.ORI_ID, Nombre = p.Origen.ORI_CODIGO + "-" + p.Origen.ORI_DESCRIPCION };
 
              /*

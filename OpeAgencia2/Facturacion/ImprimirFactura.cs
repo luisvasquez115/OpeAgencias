@@ -331,9 +331,9 @@ namespace OpeAgencia2.Facturacion
                 oFactRow.REC_TIPO_DESC = oTipoDoc.TIPO_DESCR;
                 oFactRow.REMITENTE = Bultos.REMITENTE;
 
-                if (Bultos.Clientes.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd() == "")
+                if (Bultos.Clientes.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd() != "")
                     oFactRow.RNC = Bultos.Clientes.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd();
-                else if (Bultos.Clientes.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd() == "")
+                else if (Bultos.Clientes.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd() != "")
                     oFactRow.RNC = Bultos.Clientes.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd();
                 else
                     oFactRow.RNC = Bultos.Clientes.CTE_PASAPORTE.ToString().TrimEnd();
@@ -377,6 +377,9 @@ namespace OpeAgencia2.Facturacion
                 oFactRow.MONTO_TOTAL = oRecDet.MONTO_TOTAL;
                 oFactRow.TASA_ITBIS = oRecDet.Cargos.ITBIS;
                 oFactRow.USUARIO = oRecibo.USER_CREA;
+                if (oRecibo.TIPO_REC_ID == 5)
+                    oFactRow.TIPO_FISCAL = 3; //Hay que buscar otra manera. Esto es para la anulacion qu esta por fuera del cliente.
+                else
                 oFactRow.TIPO_FISCAL = unitOfWork.NumeroFicalRepository.Get(xy => xy.TIPO_ID == Bultos.Clientes.CTE_TIPO_FISCAL).FirstOrDefault().TIPO_FISCAL;
 
                 

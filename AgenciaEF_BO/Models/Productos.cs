@@ -56,5 +56,7 @@ namespace AgenciaEF_BO.Models
 
         public virtual Suplidores Suplidores { set; get; }
 
+        public virtual Tipos Tipos { set; get; }
+
     }
 }
