@@ -35,7 +35,7 @@ namespace OpeAgencia2.Facturacion
 
             if (Parametros.ParametrosSucursal.TermFiscalId == -1)
             {
-                MessageBox.Show("Esta unida no tiene configurada impresora fiscal", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Esta unidad no tiene configurada una impresora fiscal", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
             CargarCorrespondencia();
@@ -132,9 +132,7 @@ namespace OpeAgencia2.Facturacion
                     btnFacturar.Enabled = false;
                     return;
                 }
-                else
-                  {btnFacturar.Enabled = true; }
-
+                btnFacturar.Enabled = true;
             }
             else
             {

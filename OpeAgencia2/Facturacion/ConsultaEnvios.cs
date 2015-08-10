@@ -175,7 +175,7 @@ namespace OpeAgencia2.Facturacion
 
            // MessageBox.Show("Anulación realizada exitosamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //ImprimirFactura(oFact.FacturaGenerada);
-
+            unitOfWork = new BO.DAL.UnitOfWork();
             var Recibos = unitOfWork.RecibosRepository.GetByID(iReciboId);
 
             if (Recibos != null)
@@ -192,7 +192,7 @@ namespace OpeAgencia2.Facturacion
                 }
                 else
                 {
-                    DialogResult oResult = MessageBox.Show("Este recibo ya fué impreso fiscalmente, no es posible reimprimir?", "Information", MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
+                    DialogResult oResult = MessageBox.Show("Este recibo ya fue impreso fiscalmente, no es posible reimprimir", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
                     return;
                   
                 }
@@ -221,7 +221,7 @@ namespace OpeAgencia2.Facturacion
                     
 
                 }
-                if (DatosPagos==null)
+                if (DatosPagos==null || DatosPagos.Any() == false)
                 {
                     BO.DAL.dsDatos.DatosPagoRow oRow = oPagos.NewDatosPagoRow();
                     oRow.Banco = -1;

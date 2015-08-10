@@ -76,7 +76,7 @@ namespace OpeAgencia2.Facturacion
 
 
             ibltnumero =  Convert.ToInt32(_factura.Rows[0]["BLT_NUMERO"]);
-            int i = 0;
+            int i = 0, j = 0;
             decimal dSubTotal = 0;
             foreach (BO.DAL.dsFactura.FACTURASRow oRow in (BO.DAL.dsFactura.FACTURASDataTable)_factura)
             {
@@ -134,14 +134,14 @@ namespace OpeAgencia2.Facturacion
 
                  items.Add(new Item
                 {
-                    AditionalDescriptions = aditionalDescriptions,
+                    AditionalDescriptions = sDescAdicional,
                     Description = "0.00",
                     Price = 0,
                     Rate = 0,
                     Quantity = 1,
                     Type = ItemTypes.SalesItem
                 });
-
+                 j++;
                    ibltnumero = oRow.BLT_NUMERO;
                    dSubTotal = 0;
 
@@ -149,6 +149,7 @@ namespace OpeAgencia2.Facturacion
                    var itemsBulto =
                     new Item
                     {
+                        //AditionalDescriptions = aditionalDescriptions,
                         Description = oRow.CODIGO,
                         Quantity = 1,
                         Rate = oRow.TASA_ITBIS,
