@@ -236,10 +236,21 @@ namespace OpeAgencia2.Facturacion
                     
                     oPagos.Rows.Add(oRow);
                 }
-               
 
-                ImprimirFactura oImpFact = new ImprimirFactura();
-                oImpFact.Imprimir(iReciboId, oPagos);
+                if (Recibos.TIPO_REC_ID == 62)  //No venta
+                {
+                    ImprimirFactura oImpFact = new ImprimirFactura();
+                    oImpFact.ImprimirNoVenta(iReciboId, oPagos);
+
+                }
+                else
+                {
+                    ImprimirFactura oImpFact = new ImprimirFactura();
+                    oImpFact.Imprimir(iReciboId, oPagos);
+
+                }
+
+              
 
             }
 
