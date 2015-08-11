@@ -595,9 +595,7 @@
     <EmbeddedResource Include="Reportes\CuandreCaja.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\rEstadoCuenta1.rdlc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rEstadoCuenta1.rdlc" />
     <EmbeddedResource Include="Reportes\rReciboIngreso.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
