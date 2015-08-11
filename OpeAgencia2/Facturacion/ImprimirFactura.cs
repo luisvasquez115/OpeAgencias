@@ -13,6 +13,7 @@ using System.IO;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
 using clsUtils;
+using ImpresoraFiscal;
 
 
 
@@ -90,7 +91,8 @@ namespace OpeAgencia2.Facturacion
 
         public void Imprimir(int iReciboId, BO.DAL.dsDatos.DatosPagoDataTable oDatosPago, bool pbImpreso = false )
         {
-             bool bError = false;
+            //bool bError = false;
+            PrinterResponses response;
             // dsFacturaBindingSource.DataSource = CargarDataSet();
             BO.DAL.dsFactura.FACTURASDataTable dtFatura = new BO.DAL.dsFactura.FACTURASDataTable();
            // DataTable dt = new DataTable();
@@ -104,9 +106,9 @@ namespace OpeAgencia2.Facturacion
 
             oPrinter.SetInvoiceData(dtFatura, oDatosPago, !pbImpreso,1);
 
-            bError = oPrinter.Print();
+            response = oPrinter.Print();
 
-            if (bError == false)
+            if (response == PrinterResponses.Success)
             {
                 var oRecibos = unitOfWork.RecibosRepository.GetByID(iReciboId);
                 oRecibos.IMPRESO = true;
@@ -115,7 +117,8 @@ namespace OpeAgencia2.Facturacion
             }
             else
             {
-                MessageBox.Show("Ha ocurrido un error en la Impresión del recibo, favor revisar la conexión ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Printer.GetPrinterReturnMessage(response), "Aviso", MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error);
             }
             //dsFacturas.Tables.Add(dt);
 
@@ -331,14 +334,22 @@ namespace OpeAgencia2.Facturacion
                 oFactRow.REC_TIPO_DESC = oTipoDoc.TIPO_DESCR;
                 oFactRow.REMITENTE = Bultos.REMITENTE;
 
-                if (Bultos.Clientes.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd() != "")
-                    oFactRow.RNC = Bultos.Clientes.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd();
-                else if (Bultos.Clientes.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd() != "")
-                    oFactRow.RNC = Bultos.Clientes.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd();
+                if (Bultos.Clientes.CTE_TIPO_FISCAL == 44)      //Empresa
+                {
+                    if (Bultos.Clientes.CTE_RNC.KeepOnlyNumbers().TrimEnd() != string.Empty)
+                        oFactRow.RNC = Bultos.Clientes.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd();
+                    else
+                        oFactRow.RNC = Bultos.Clientes.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd();
+                }
                 else
-                    oFactRow.RNC = Bultos.Clientes.CTE_PASAPORTE.ToString().TrimEnd();
-
-
+                {
+                    if (Bultos.Clientes.CTE_CEDULA.KeepOnlyNumbers().Trim() != string.Empty)
+                        oFactRow.RNC = Bultos.Clientes.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd();
+                    else if (Bultos.Clientes.CTE_PASAPORTE.Trim() != string.Empty)
+                        oFactRow.RNC = Bultos.Clientes.CTE_PASAPORTE;
+                    else
+                        oFactRow.RNC = Bultos.Clientes.CTE_RNC;
+                }
                 if (iBltNumero != Bultos.BLT_NUMERO)
                 {
                     var BultosValores = unitOfWork.BultosValoresRepository.Get(filter: xy => xy.BLT_NUMERO == oRecDet.BLT_NUMERO && xy.CargosProducto.Cargos.CAR_CODIGO == "010").FirstOrDefault();

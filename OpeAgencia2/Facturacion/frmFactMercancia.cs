@@ -114,7 +114,8 @@ namespace OpeAgencia2.Facturacion
                     cmbTipoFact.Enabled = false;
                 }
                 //
-                if (oCliente.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd() ==""   && oCliente.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd() == "" && oCliente.CTE_PASAPORTE.ToString().TrimEnd() =="")
+                var ctePasaporte = oCliente.CTE_PASAPORTE ?? "";
+                if (oCliente.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd() == "" && oCliente.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd() == "" && ctePasaporte.TrimEnd() == "")
                 {
                     if (oCliente.CTE_TIPO_FISCAL != 47) //DIFETENTE DE PERSONA FISICA
                     {
