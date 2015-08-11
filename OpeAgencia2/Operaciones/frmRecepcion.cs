@@ -54,7 +54,7 @@ namespace OpeAgencia2.Operaciones
 
         void CombosProductos()
         {
-            var Productos = from p in unitOfWork.ProductosRepository.Get()
+            var Productos = from p in unitOfWork.ProductosRepository.Get(filter:xy=>xy.Tipos.TIPO_CODIGO=="R")
                             select new { Id = p.PROD_ID, Nombre = p.PRO_CODIGO + "-->" + p.PRO_DESCRIPCION };
 
 
@@ -585,6 +585,7 @@ namespace OpeAgencia2.Operaciones
         {
             LimpiarCampos();
             this.txtCodigoBarra.Enabled = true;
+            
         }
 
         private void cmbProducto_SelectedIndexChanged(object sender, EventArgs e)

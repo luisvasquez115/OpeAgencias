@@ -388,6 +388,9 @@ namespace OpeAgencia2.Facturacion
                 oFactRow.MONTO_TOTAL = oRecDet.MONTO_TOTAL;
                 oFactRow.TASA_ITBIS = oRecDet.Cargos.ITBIS;
                 oFactRow.USUARIO = oRecibo.USER_CREA;
+                if (oRecibo.TIPO_REC_ID == 5)
+                    oFactRow.TIPO_FISCAL = 3; //Hay que buscar otra manera. Esto es para la anulacion qu esta por fuera del cliente.
+                else
                 oFactRow.TIPO_FISCAL = unitOfWork.NumeroFicalRepository.Get(xy => xy.TIPO_ID == Bultos.Clientes.CTE_TIPO_FISCAL).FirstOrDefault().TIPO_FISCAL;
 
                 

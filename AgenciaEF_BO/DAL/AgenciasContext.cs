@@ -107,6 +107,11 @@ namespace AgenciaEF_BO.DAL
           .WithMany(d => d.MovCaja)
           .HasForeignKey(c => c.COUNTER_ID);
 
+            modelBuilder.Entity<Productos>()
+                .HasRequired(c => c.Tipos)
+                .WithMany(d => d.Productos)
+                .HasForeignKey(c => c.PRO_TIPO_ID);
+
 
            
             try

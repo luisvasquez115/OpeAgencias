@@ -34,24 +34,14 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dg = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.txtORI_EMS_GROUP = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.txtORI_CODIGO = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtDESCR = new System.Windows.Forms.TextBox();
             this.lblDesc = new System.Windows.Forms.Label();
             this.textORI_ID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtORI_APP_GROUP = new System.Windows.Forms.TextBox();
-            this.txtORI_COURIER_GROUP = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtORI_EQUIVALENTE = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtORI_CORREO_INT = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -127,18 +117,8 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.txtORI_CORREO_INT);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.txtORI_EQUIVALENTE);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.txtORI_COURIER_GROUP);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.txtORI_APP_GROUP);
-            this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.cmbEstado);
-            this.tabPage2.Controls.Add(this.txtORI_EMS_GROUP);
-            this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.txtORI_CODIGO);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.txtDESCR);
@@ -153,22 +133,27 @@
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // txtORI_EMS_GROUP
+            // label3
             // 
-            this.txtORI_EMS_GROUP.Location = new System.Drawing.Point(90, 88);
-            this.txtORI_EMS_GROUP.Name = "txtORI_EMS_GROUP";
-            this.txtORI_EMS_GROUP.Size = new System.Drawing.Size(100, 20);
-            this.txtORI_EMS_GROUP.TabIndex = 19;
-            this.txtORI_EMS_GROUP.Tag = "ORI_EMS_GROUP";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 191);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Estado:";
             // 
-            // label2
+            // cmbEstado
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 96);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 13);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Grupo EMS";
+            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Items.AddRange(new object[] {
+            "A",
+            "I"});
+            this.cmbEstado.Location = new System.Drawing.Point(88, 188);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(132, 21);
+            this.cmbEstado.TabIndex = 20;
+            this.cmbEstado.Tag = "ORI_ESTADO";
             // 
             // txtORI_CODIGO
             // 
@@ -189,7 +174,7 @@
             // 
             // txtDESCR
             // 
-            this.txtDESCR.Location = new System.Drawing.Point(88, 227);
+            this.txtDESCR.Location = new System.Drawing.Point(88, 99);
             this.txtDESCR.Multiline = true;
             this.txtDESCR.Name = "txtDESCR";
             this.txtDESCR.Size = new System.Drawing.Size(261, 67);
@@ -199,7 +184,7 @@
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(13, 227);
+            this.lblDesc.Location = new System.Drawing.Point(13, 99);
             this.lblDesc.Name = "lblDesc";
             this.lblDesc.Size = new System.Drawing.Size(63, 13);
             this.lblDesc.TabIndex = 2;
@@ -222,96 +207,6 @@
             this.label1.Size = new System.Drawing.Size(19, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Id:";
-            // 
-            // cmbEstado
-            // 
-            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Items.AddRange(new object[] {
-            "A",
-            "I"});
-            this.cmbEstado.Location = new System.Drawing.Point(88, 300);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(132, 21);
-            this.cmbEstado.TabIndex = 20;
-            this.cmbEstado.Tag = "ORI_ESTADO";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 303);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Estado:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 119);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 13);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Grupo APP";
-            // 
-            // txtORI_APP_GROUP
-            // 
-            this.txtORI_APP_GROUP.Location = new System.Drawing.Point(90, 114);
-            this.txtORI_APP_GROUP.Name = "txtORI_APP_GROUP";
-            this.txtORI_APP_GROUP.Size = new System.Drawing.Size(100, 20);
-            this.txtORI_APP_GROUP.TabIndex = 23;
-            this.txtORI_APP_GROUP.Tag = "ORI_APP_GROUP";
-            // 
-            // txtORI_COURIER_GROUP
-            // 
-            this.txtORI_COURIER_GROUP.Location = new System.Drawing.Point(90, 140);
-            this.txtORI_COURIER_GROUP.Name = "txtORI_COURIER_GROUP";
-            this.txtORI_COURIER_GROUP.Size = new System.Drawing.Size(100, 20);
-            this.txtORI_COURIER_GROUP.TabIndex = 25;
-            this.txtORI_COURIER_GROUP.Tag = "ORI_COURIER_GROUP";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 148);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 13);
-            this.label5.TabIndex = 24;
-            this.label5.Text = "Grupo Courier";
-            // 
-            // txtORI_EQUIVALENTE
-            // 
-            this.txtORI_EQUIVALENTE.Location = new System.Drawing.Point(90, 171);
-            this.txtORI_EQUIVALENTE.Name = "txtORI_EQUIVALENTE";
-            this.txtORI_EQUIVALENTE.Size = new System.Drawing.Size(100, 20);
-            this.txtORI_EQUIVALENTE.TabIndex = 27;
-            this.txtORI_EQUIVALENTE.Tag = "ORI_EQUIVALENTE";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 174);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
-            this.label6.TabIndex = 26;
-            this.label6.Text = "Equivalente";
-            // 
-            // txtORI_CORREO_INT
-            // 
-            this.txtORI_CORREO_INT.Location = new System.Drawing.Point(89, 197);
-            this.txtORI_CORREO_INT.Name = "txtORI_CORREO_INT";
-            this.txtORI_CORREO_INT.Size = new System.Drawing.Size(100, 20);
-            this.txtORI_CORREO_INT.TabIndex = 29;
-            this.txtORI_CORREO_INT.Tag = "ORI_CORREO_INT";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(11, 200);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 13);
-            this.label7.TabIndex = 28;
-            this.label7.Text = "Correo INT";
             // 
             // frmOrigen
             // 
@@ -343,8 +238,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dg;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox txtORI_EMS_GROUP;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtORI_CODIGO;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtDESCR;
@@ -353,13 +246,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbEstado;
-        private System.Windows.Forms.TextBox txtORI_EQUIVALENTE;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtORI_COURIER_GROUP;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtORI_APP_GROUP;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtORI_CORREO_INT;
-        private System.Windows.Forms.Label label7;
     }
 }

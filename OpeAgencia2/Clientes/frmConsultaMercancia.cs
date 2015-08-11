@@ -36,7 +36,7 @@ namespace OpeAgencia2.Clientes
 
                 var oBultos = from p in unitOfWork.BultosRepository.GetByNumeroEPS(txtEPS.Text, txtGuiaMadre.Text, txtCodigoBarra.Text, txtTracking.Text, cmbEstado.SelectedIndex, oEmpresa.Empresas.COM_CODIGO)
                                   select new {p.BLT_NUMERO,p.Clientes.CTE_NUMERO_EPS,p.MAN_GUIA, p.BLT_CODIGO_BARRA,p.BLT_TRACKING_NUMBER,
-                                      p.Productos.PRO_CODIGO,p.BLT_PESO, p.BLT_PIEZAS, p.REMITENTE, p.DESTINATARIO, p.BLT_ESTADO_ID};
+                                      p.Productos.PRO_CODIGO,p.BLT_PESO, p.BLT_PIEZAS, p.REMITENTE, p.DESTINATARIO};
 
                  
            

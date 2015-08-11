@@ -17,14 +17,15 @@ namespace AgenciaEF_BO.Models
         [Key]
         public int ORI_ID { set; get; }
 
+        [Required]
         public string ORI_CODIGO { set; get; }
+
+        [MaxLength(40)]
+        [Required]
         public string ORI_DESCRIPCION { set; get; }
+
         public string ORI_ESTADO { set; get; }
-        public string ORI_EMS_GROUP { set; get; }
-        public string ORI_APP_GROUP { set; get; }
-        public string ORI_COURIER_GROUP { set; get; }
-        public string ORI_EQUIVALENTE { set; get; }
-        public string ORI_CORREO_INT { set; get; }
+       
 
 
     }
