@@ -28,6 +28,8 @@ namespace AgenciaEF_BO.DAL {
         
         private MOVCAJADataTable tableMOVCAJA;
         
+        private EstadoCuentaDataTable tableEstadoCuenta;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -61,6 +63,9 @@ namespace AgenciaEF_BO.DAL {
                 }
                 if ((ds.Tables["MOVCAJA"] != null)) {
                     base.Tables.Add(new MOVCAJADataTable(ds.Tables["MOVCAJA"]));
+                }
+                if ((ds.Tables["EstadoCuenta"] != null)) {
+                    base.Tables.Add(new EstadoCuentaDataTable(ds.Tables["EstadoCuenta"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -97,6 +102,16 @@ namespace AgenciaEF_BO.DAL {
         public MOVCAJADataTable MOVCAJA {
             get {
                 return this.tableMOVCAJA;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public EstadoCuentaDataTable EstadoCuenta {
+            get {
+                return this.tableEstadoCuenta;
             }
         }
         
@@ -173,6 +188,9 @@ namespace AgenciaEF_BO.DAL {
                 if ((ds.Tables["MOVCAJA"] != null)) {
                     base.Tables.Add(new MOVCAJADataTable(ds.Tables["MOVCAJA"]));
                 }
+                if ((ds.Tables["EstadoCuenta"] != null)) {
+                    base.Tables.Add(new EstadoCuentaDataTable(ds.Tables["EstadoCuenta"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -218,6 +236,12 @@ namespace AgenciaEF_BO.DAL {
                     this.tableMOVCAJA.InitVars();
                 }
             }
+            this.tableEstadoCuenta = ((EstadoCuentaDataTable)(base.Tables["EstadoCuenta"]));
+            if ((initTable == true)) {
+                if ((this.tableEstadoCuenta != null)) {
+                    this.tableEstadoCuenta.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -232,6 +256,8 @@ namespace AgenciaEF_BO.DAL {
             base.Tables.Add(this.tableFACTURAS);
             this.tableMOVCAJA = new MOVCAJADataTable();
             base.Tables.Add(this.tableMOVCAJA);
+            this.tableEstadoCuenta = new EstadoCuentaDataTable();
+            base.Tables.Add(this.tableEstadoCuenta);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -243,6 +269,12 @@ namespace AgenciaEF_BO.DAL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeMOVCAJA() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeEstadoCuenta() {
             return false;
         }
         
@@ -306,6 +338,9 @@ namespace AgenciaEF_BO.DAL {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void MOVCAJARowChangeEventHandler(object sender, MOVCAJARowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void EstadoCuentaRowChangeEventHandler(object sender, EstadoCuentaRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1591,6 +1626,479 @@ namespace AgenciaEF_BO.DAL {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "MOVCAJADataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class EstadoCuentaDataTable : global::System.Data.TypedTableBase<EstadoCuentaRow> {
+            
+            private global::System.Data.DataColumn columnREC_ID;
+            
+            private global::System.Data.DataColumn columnREC_TIPO;
+            
+            private global::System.Data.DataColumn columnREC_FECHA;
+            
+            private global::System.Data.DataColumn columnFECHA_VENCE;
+            
+            private global::System.Data.DataColumn columnDIAS;
+            
+            private global::System.Data.DataColumn columnDESC;
+            
+            private global::System.Data.DataColumn columnIMPORTE;
+            
+            private global::System.Data.DataColumn columnPAGOS;
+            
+            private global::System.Data.DataColumn columnBALANCE;
+            
+            private global::System.Data.DataColumn columnCUENTACLI;
+            
+            private global::System.Data.DataColumn columnDIRECCION1;
+            
+            private global::System.Data.DataColumn columnDIRECCION2;
+            
+            private global::System.Data.DataColumn columnRNC;
+            
+            private global::System.Data.DataColumn columnF_ULT_PAGO;
+            
+            private global::System.Data.DataColumn columnMONTO_ULT_PAGO;
+            
+            private global::System.Data.DataColumn columnCTE_NUMERO_EPS;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public EstadoCuentaDataTable() {
+                this.TableName = "EstadoCuenta";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal EstadoCuentaDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected EstadoCuentaDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn REC_IDColumn {
+                get {
+                    return this.columnREC_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn REC_TIPOColumn {
+                get {
+                    return this.columnREC_TIPO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn REC_FECHAColumn {
+                get {
+                    return this.columnREC_FECHA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FECHA_VENCEColumn {
+                get {
+                    return this.columnFECHA_VENCE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DIASColumn {
+                get {
+                    return this.columnDIAS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DESCColumn {
+                get {
+                    return this.columnDESC;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IMPORTEColumn {
+                get {
+                    return this.columnIMPORTE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PAGOSColumn {
+                get {
+                    return this.columnPAGOS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BALANCEColumn {
+                get {
+                    return this.columnBALANCE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CUENTACLIColumn {
+                get {
+                    return this.columnCUENTACLI;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DIRECCION1Column {
+                get {
+                    return this.columnDIRECCION1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DIRECCION2Column {
+                get {
+                    return this.columnDIRECCION2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RNCColumn {
+                get {
+                    return this.columnRNC;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn F_ULT_PAGOColumn {
+                get {
+                    return this.columnF_ULT_PAGO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MONTO_ULT_PAGOColumn {
+                get {
+                    return this.columnMONTO_ULT_PAGO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CTE_NUMERO_EPSColumn {
+                get {
+                    return this.columnCTE_NUMERO_EPS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public EstadoCuentaRow this[int index] {
+                get {
+                    return ((EstadoCuentaRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event EstadoCuentaRowChangeEventHandler EstadoCuentaRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event EstadoCuentaRowChangeEventHandler EstadoCuentaRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event EstadoCuentaRowChangeEventHandler EstadoCuentaRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event EstadoCuentaRowChangeEventHandler EstadoCuentaRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddEstadoCuentaRow(EstadoCuentaRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public EstadoCuentaRow AddEstadoCuentaRow(
+                        int REC_ID, 
+                        string REC_TIPO, 
+                        System.DateTime REC_FECHA, 
+                        System.DateTime FECHA_VENCE, 
+                        int DIAS, 
+                        string DESC, 
+                        decimal IMPORTE, 
+                        decimal PAGOS, 
+                        decimal BALANCE, 
+                        string CUENTACLI, 
+                        string DIRECCION1, 
+                        string DIRECCION2, 
+                        string RNC, 
+                        System.DateTime F_ULT_PAGO, 
+                        decimal MONTO_ULT_PAGO, 
+                        string CTE_NUMERO_EPS) {
+                EstadoCuentaRow rowEstadoCuentaRow = ((EstadoCuentaRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        REC_ID,
+                        REC_TIPO,
+                        REC_FECHA,
+                        FECHA_VENCE,
+                        DIAS,
+                        DESC,
+                        IMPORTE,
+                        PAGOS,
+                        BALANCE,
+                        CUENTACLI,
+                        DIRECCION1,
+                        DIRECCION2,
+                        RNC,
+                        F_ULT_PAGO,
+                        MONTO_ULT_PAGO,
+                        CTE_NUMERO_EPS};
+                rowEstadoCuentaRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowEstadoCuentaRow);
+                return rowEstadoCuentaRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                EstadoCuentaDataTable cln = ((EstadoCuentaDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new EstadoCuentaDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnREC_ID = base.Columns["REC_ID"];
+                this.columnREC_TIPO = base.Columns["REC_TIPO"];
+                this.columnREC_FECHA = base.Columns["REC_FECHA"];
+                this.columnFECHA_VENCE = base.Columns["FECHA_VENCE"];
+                this.columnDIAS = base.Columns["DIAS"];
+                this.columnDESC = base.Columns["DESC"];
+                this.columnIMPORTE = base.Columns["IMPORTE"];
+                this.columnPAGOS = base.Columns["PAGOS"];
+                this.columnBALANCE = base.Columns["BALANCE"];
+                this.columnCUENTACLI = base.Columns["CUENTACLI"];
+                this.columnDIRECCION1 = base.Columns["DIRECCION1"];
+                this.columnDIRECCION2 = base.Columns["DIRECCION2"];
+                this.columnRNC = base.Columns["RNC"];
+                this.columnF_ULT_PAGO = base.Columns["F_ULT_PAGO"];
+                this.columnMONTO_ULT_PAGO = base.Columns["MONTO_ULT_PAGO"];
+                this.columnCTE_NUMERO_EPS = base.Columns["CTE_NUMERO_EPS"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnREC_ID = new global::System.Data.DataColumn("REC_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnREC_ID);
+                this.columnREC_TIPO = new global::System.Data.DataColumn("REC_TIPO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnREC_TIPO);
+                this.columnREC_FECHA = new global::System.Data.DataColumn("REC_FECHA", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnREC_FECHA);
+                this.columnFECHA_VENCE = new global::System.Data.DataColumn("FECHA_VENCE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFECHA_VENCE);
+                this.columnDIAS = new global::System.Data.DataColumn("DIAS", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDIAS);
+                this.columnDESC = new global::System.Data.DataColumn("DESC", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDESC);
+                this.columnIMPORTE = new global::System.Data.DataColumn("IMPORTE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIMPORTE);
+                this.columnPAGOS = new global::System.Data.DataColumn("PAGOS", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPAGOS);
+                this.columnBALANCE = new global::System.Data.DataColumn("BALANCE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBALANCE);
+                this.columnCUENTACLI = new global::System.Data.DataColumn("CUENTACLI", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCUENTACLI);
+                this.columnDIRECCION1 = new global::System.Data.DataColumn("DIRECCION1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDIRECCION1);
+                this.columnDIRECCION2 = new global::System.Data.DataColumn("DIRECCION2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDIRECCION2);
+                this.columnRNC = new global::System.Data.DataColumn("RNC", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRNC);
+                this.columnF_ULT_PAGO = new global::System.Data.DataColumn("F_ULT_PAGO", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnF_ULT_PAGO);
+                this.columnMONTO_ULT_PAGO = new global::System.Data.DataColumn("MONTO_ULT_PAGO", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMONTO_ULT_PAGO);
+                this.columnCTE_NUMERO_EPS = new global::System.Data.DataColumn("CTE_NUMERO_EPS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCTE_NUMERO_EPS);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public EstadoCuentaRow NewEstadoCuentaRow() {
+                return ((EstadoCuentaRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new EstadoCuentaRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(EstadoCuentaRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.EstadoCuentaRowChanged != null)) {
+                    this.EstadoCuentaRowChanged(this, new EstadoCuentaRowChangeEvent(((EstadoCuentaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.EstadoCuentaRowChanging != null)) {
+                    this.EstadoCuentaRowChanging(this, new EstadoCuentaRowChangeEvent(((EstadoCuentaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.EstadoCuentaRowDeleted != null)) {
+                    this.EstadoCuentaRowDeleted(this, new EstadoCuentaRowChangeEvent(((EstadoCuentaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.EstadoCuentaRowDeleting != null)) {
+                    this.EstadoCuentaRowDeleting(this, new EstadoCuentaRowChangeEvent(((EstadoCuentaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveEstadoCuentaRow(EstadoCuentaRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsFactura ds = new dsFactura();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "EstadoCuentaDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -3134,6 +3642,469 @@ namespace AgenciaEF_BO.DAL {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class EstadoCuentaRow : global::System.Data.DataRow {
+            
+            private EstadoCuentaDataTable tableEstadoCuenta;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal EstadoCuentaRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableEstadoCuenta = ((EstadoCuentaDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int REC_ID {
+                get {
+                    try {
+                        return ((int)(this[this.tableEstadoCuenta.REC_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'REC_ID\' in table \'EstadoCuenta\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadoCuenta.REC_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string REC_TIPO {
+                get {
+                    try {
+                        return ((string)(this[this.tableEstadoCuenta.REC_TIPOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'REC_TIPO\' in table \'EstadoCuenta\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadoCuenta.REC_TIPOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime REC_FECHA {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableEstadoCuenta.REC_FECHAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'REC_FECHA\' in table \'EstadoCuenta\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadoCuenta.REC_FECHAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime FECHA_VENCE {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableEstadoCuenta.FECHA_VENCEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FECHA_VENCE\' in table \'EstadoCuenta\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadoCuenta.FECHA_VENCEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int DIAS {
+                get {
+                    try {
+                        return ((int)(this[this.tableEstadoCuenta.DIASColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DIAS\' in table \'EstadoCuenta\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadoCuenta.DIASColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DESC {
+                get {
+                    try {
+                        return ((string)(this[this.tableEstadoCuenta.DESCColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DESC\' in table \'EstadoCuenta\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadoCuenta.DESCColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal IMPORTE {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableEstadoCuenta.IMPORTEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IMPORTE\' in table \'EstadoCuenta\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadoCuenta.IMPORTEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal PAGOS {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableEstadoCuenta.PAGOSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PAGOS\' in table \'EstadoCuenta\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadoCuenta.PAGOSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal BALANCE {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableEstadoCuenta.BALANCEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BALANCE\' in table \'EstadoCuenta\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadoCuenta.BALANCEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CUENTACLI {
+                get {
+                    try {
+                        return ((string)(this[this.tableEstadoCuenta.CUENTACLIColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CUENTACLI\' in table \'EstadoCuenta\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadoCuenta.CUENTACLIColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DIRECCION1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableEstadoCuenta.DIRECCION1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DIRECCION1\' in table \'EstadoCuenta\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadoCuenta.DIRECCION1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DIRECCION2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableEstadoCuenta.DIRECCION2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DIRECCION2\' in table \'EstadoCuenta\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadoCuenta.DIRECCION2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string RNC {
+                get {
+                    try {
+                        return ((string)(this[this.tableEstadoCuenta.RNCColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RNC\' in table \'EstadoCuenta\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadoCuenta.RNCColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime F_ULT_PAGO {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableEstadoCuenta.F_ULT_PAGOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'F_ULT_PAGO\' in table \'EstadoCuenta\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadoCuenta.F_ULT_PAGOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal MONTO_ULT_PAGO {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableEstadoCuenta.MONTO_ULT_PAGOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MONTO_ULT_PAGO\' in table \'EstadoCuenta\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadoCuenta.MONTO_ULT_PAGOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CTE_NUMERO_EPS {
+                get {
+                    try {
+                        return ((string)(this[this.tableEstadoCuenta.CTE_NUMERO_EPSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CTE_NUMERO_EPS\' in table \'EstadoCuenta\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadoCuenta.CTE_NUMERO_EPSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsREC_IDNull() {
+                return this.IsNull(this.tableEstadoCuenta.REC_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetREC_IDNull() {
+                this[this.tableEstadoCuenta.REC_IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsREC_TIPONull() {
+                return this.IsNull(this.tableEstadoCuenta.REC_TIPOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetREC_TIPONull() {
+                this[this.tableEstadoCuenta.REC_TIPOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsREC_FECHANull() {
+                return this.IsNull(this.tableEstadoCuenta.REC_FECHAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetREC_FECHANull() {
+                this[this.tableEstadoCuenta.REC_FECHAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFECHA_VENCENull() {
+                return this.IsNull(this.tableEstadoCuenta.FECHA_VENCEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFECHA_VENCENull() {
+                this[this.tableEstadoCuenta.FECHA_VENCEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDIASNull() {
+                return this.IsNull(this.tableEstadoCuenta.DIASColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDIASNull() {
+                this[this.tableEstadoCuenta.DIASColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDESCNull() {
+                return this.IsNull(this.tableEstadoCuenta.DESCColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDESCNull() {
+                this[this.tableEstadoCuenta.DESCColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIMPORTENull() {
+                return this.IsNull(this.tableEstadoCuenta.IMPORTEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIMPORTENull() {
+                this[this.tableEstadoCuenta.IMPORTEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPAGOSNull() {
+                return this.IsNull(this.tableEstadoCuenta.PAGOSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPAGOSNull() {
+                this[this.tableEstadoCuenta.PAGOSColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBALANCENull() {
+                return this.IsNull(this.tableEstadoCuenta.BALANCEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBALANCENull() {
+                this[this.tableEstadoCuenta.BALANCEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCUENTACLINull() {
+                return this.IsNull(this.tableEstadoCuenta.CUENTACLIColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCUENTACLINull() {
+                this[this.tableEstadoCuenta.CUENTACLIColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDIRECCION1Null() {
+                return this.IsNull(this.tableEstadoCuenta.DIRECCION1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDIRECCION1Null() {
+                this[this.tableEstadoCuenta.DIRECCION1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDIRECCION2Null() {
+                return this.IsNull(this.tableEstadoCuenta.DIRECCION2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDIRECCION2Null() {
+                this[this.tableEstadoCuenta.DIRECCION2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRNCNull() {
+                return this.IsNull(this.tableEstadoCuenta.RNCColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRNCNull() {
+                this[this.tableEstadoCuenta.RNCColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsF_ULT_PAGONull() {
+                return this.IsNull(this.tableEstadoCuenta.F_ULT_PAGOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetF_ULT_PAGONull() {
+                this[this.tableEstadoCuenta.F_ULT_PAGOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMONTO_ULT_PAGONull() {
+                return this.IsNull(this.tableEstadoCuenta.MONTO_ULT_PAGOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMONTO_ULT_PAGONull() {
+                this[this.tableEstadoCuenta.MONTO_ULT_PAGOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCTE_NUMERO_EPSNull() {
+                return this.IsNull(this.tableEstadoCuenta.CTE_NUMERO_EPSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCTE_NUMERO_EPSNull() {
+                this[this.tableEstadoCuenta.CTE_NUMERO_EPSColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -3187,6 +4158,40 @@ namespace AgenciaEF_BO.DAL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public MOVCAJARow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class EstadoCuentaRowChangeEvent : global::System.EventArgs {
+            
+            private EstadoCuentaRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public EstadoCuentaRowChangeEvent(EstadoCuentaRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public EstadoCuentaRow Row {
                 get {
                     return this.eventRow;
                 }
