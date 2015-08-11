@@ -299,7 +299,7 @@ namespace OpeAgencia2.Facturacion
             };
         }
 
-        private static string GetPrinterReturnMessage(PrinterResponses printerResponse)
+        public static string GetPrinterReturnMessage(PrinterResponses printerResponse)
         {
             var message = string.Empty;
             switch (printerResponse)
@@ -314,7 +314,7 @@ namespace OpeAgencia2.Facturacion
                     message = "Error abriendo comprobante fiscal";
                     break;
                 case PrinterResponses.AddingItemsError:
-                    message = "Error agregando items al comprobante fiscal";
+                    message = "Error agregando ítems al comprobante fiscal";
                     break;
                 case PrinterResponses.AddingPaymentsError:
                     message = "Error agregando el/los pagos comprobante fiscal";
@@ -329,11 +329,10 @@ namespace OpeAgencia2.Facturacion
                     message = "Error cerrando el  comprobante fiscal";
                     break;
                 case PrinterResponses.CancellingFiscalReceiptError:
-                    message = @"Se ha producido un error generando el comprobante,
-                     Debe volver a conectar la corriente para cancelar el comprobante,
-                    Presione OK cuando este conecteda";
+                    message = @"Se ha producido un error generando el comprobante,\n" +
+                              @"Debe volver a conectar la corriente para cancelar el comprobante,\n" +
+                              @"Presione OK cuando este conecteda";
                     break;
-
             }
             return message;
         }
@@ -603,8 +602,6 @@ namespace OpeAgencia2.Facturacion
         public void PrintNoFiscalReceipt()
         {
             GenerateLinesNoFiscalInvoice();
-
-            
            /* if (_factura.DocCodigo.StartsWith("FT", StringComparison.OrdinalIgnoreCase) ||
                 _factura.DocCodigo.StartsWith("NC", StringComparison.OrdinalIgnoreCase))
                 GenerateLinesNoFiscalInvoice();
@@ -616,40 +613,50 @@ namespace OpeAgencia2.Facturacion
                 var result = _fiscalPrinterWrapper.PrintNoFiscalReceipt(_linesNoFiscalReceipt, !_isReimpresion);
                 //errores.MostrarMensaje(GetPrinterReturnMessage(result));  
             }
-
-            
         }
 
-        public bool Print()
+        public PrinterResponses Print()
         {
-            bool bError = false;
-
             SetFiscalPrinterData();
-            var result = _fiscalPrinterWrapper.Print(_invoice, (uint)_numeroCopias, !_isReimpresion);
-            if (result == PrinterResponses.CancellingFiscalReceiptError)
+            var response = _fiscalPrinterWrapper.Print(_invoice, (uint)_numeroCopias, !_isReimpresion);
+            if (response == PrinterResponses.CancellingFiscalReceiptError)
             {
-
-                bError = true;
-
                 //errores.MostrarMensaje(GetPrinterReturnMessage(result), true);
                 CancelLastFiscalReceipt();
             }
-            if (result == PrinterResponses.OpeningFiscalReceiptError)
+            if (response == PrinterResponses.OpeningFiscalReceiptError)
             {
-               
-
                 var resultError = _fiscalPrinterWrapper.Print(_invoice, (uint)_numeroCopias, !_isReimpresion);
-                if (resultError != PrinterResponses.Success)
-                    bError = true;
-                 //errores.MostrarMensaje(GetPrinterReturnMessage(resultError));
+                //errores.MostrarMensaje(GetPrinterReturnMessage(resultError));
             }
-            else if (result != PrinterResponses.Success)
-                bError = true;
             //errores.MostrarMensaje(GetPrinterReturnMessage(result));
-
             Disconnect();
-
-            return bError;
+            return response;
         }
+
+        //public bool Print()
+        //{
+        //    bool bError = false;
+        //    SetFiscalPrinterData();
+        //    var result = _fiscalPrinterWrapper.Print(_invoice, (uint)_numeroCopias, !_isReimpresion);
+        //    if (result == PrinterResponses.CancellingFiscalReceiptError)
+        //    {
+        //        bError = true;
+        //        //errores.MostrarMensaje(GetPrinterReturnMessage(result), true);
+        //        CancelLastFiscalReceipt();
+        //    }
+        //    if (result == PrinterResponses.OpeningFiscalReceiptError)
+        //    {
+        //        var resultError = _fiscalPrinterWrapper.Print(_invoice, (uint)_numeroCopias, !_isReimpresion);
+        //        if (resultError != PrinterResponses.Success)
+        //            bError = true;
+        //         //errores.MostrarMensaje(GetPrinterReturnMessage(resultError));
+        //    }
+        //    else if (result != PrinterResponses.Success)
+        //        bError = true;
+        //    //errores.MostrarMensaje(GetPrinterReturnMessage(result));
+        //    Disconnect();
+        //    return bError;
+        //}
     }
 }

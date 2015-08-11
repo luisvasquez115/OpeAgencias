@@ -114,7 +114,8 @@ namespace OpeAgencia2.Facturacion
                     cmbTipoFact.Enabled = false;
                 }
                 //
-                if (oCliente.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd() ==""   && oCliente.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd() == "" && oCliente.CTE_PASAPORTE.ToString().TrimEnd() =="")
+                var ctePasaporte = oCliente.CTE_PASAPORTE ?? "";
+                if (oCliente.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd() == "" && oCliente.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd() == "" && ctePasaporte.TrimEnd() == "")
                 {
                     MessageBox.Show("Este cliente no tienen un documento de identificación válido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     btnFacturar.Enabled = false;
