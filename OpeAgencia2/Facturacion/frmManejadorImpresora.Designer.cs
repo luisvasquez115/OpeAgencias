@@ -168,7 +168,7 @@
             this.tabControl1.Location = new System.Drawing.Point(2, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(472, 214);
+            this.tabControl1.Size = new System.Drawing.Size(442, 214);
             this.tabControl1.TabIndex = 11;
             // 
             // tabPage1
@@ -187,7 +187,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(464, 188);
+            this.tabPage1.Size = new System.Drawing.Size(434, 188);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -203,7 +203,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(464, 188);
+            this.tabPage2.Size = new System.Drawing.Size(434, 188);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Reportes";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -216,7 +216,7 @@
             this.gbFiltro.Controls.Add(this.txtHasta);
             this.gbFiltro.Controls.Add(this.txtDesde);
             this.gbFiltro.Controls.Add(this.cbFiltrarPor);
-            this.gbFiltro.Location = new System.Drawing.Point(20, 46);
+            this.gbFiltro.Location = new System.Drawing.Point(6, 46);
             this.gbFiltro.Name = "gbFiltro";
             this.gbFiltro.Size = new System.Drawing.Size(423, 97);
             this.gbFiltro.TabIndex = 12;
@@ -277,7 +277,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(133, 149);
+            this.btnCancelar.Location = new System.Drawing.Point(119, 149);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(107, 23);
             this.btnCancelar.TabIndex = 11;
@@ -286,7 +286,7 @@
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(20, 149);
+            this.btnGenerar.Location = new System.Drawing.Point(6, 149);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(107, 23);
             this.btnGenerar.TabIndex = 10;
@@ -319,7 +319,7 @@
             // 
             // btnAbrirLibroVentas
             // 
-            this.btnAbrirLibroVentas.Location = new System.Drawing.Point(278, 149);
+            this.btnAbrirLibroVentas.Location = new System.Drawing.Point(249, 149);
             this.btnAbrirLibroVentas.Name = "btnAbrirLibroVentas";
             this.btnAbrirLibroVentas.Size = new System.Drawing.Size(180, 23);
             this.btnAbrirLibroVentas.TabIndex = 1;
@@ -335,7 +335,7 @@
             this.tabPage3.Controls.Add(this.button1);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(464, 188);
+            this.tabPage3.Size = new System.Drawing.Size(434, 188);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Transacciones";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -345,36 +345,36 @@
             this.cbOperacion.FormattingEnabled = true;
             this.cbOperacion.Items.AddRange(new object[] {
             "Imprimir último comprobante",
-            "Generar comprobante fiscal",
-            "Cancelar último comprobante",
-            "Generar comprobante No Venta"});
-            this.cbOperacion.Location = new System.Drawing.Point(83, 46);
+            "Cancelar último comprobante"});
+            this.cbOperacion.Location = new System.Drawing.Point(116, 69);
             this.cbOperacion.Name = "cbOperacion";
-            this.cbOperacion.Size = new System.Drawing.Size(229, 21);
+            this.cbOperacion.Size = new System.Drawing.Size(241, 21);
             this.cbOperacion.TabIndex = 5;
             this.cbOperacion.SelectedIndexChanged += new System.EventHandler(this.cbOperacion_SelectedIndexChanged);
             // 
             // txtFactura
             // 
-            this.txtFactura.Location = new System.Drawing.Point(82, 79);
+            this.txtFactura.Location = new System.Drawing.Point(116, 43);
             this.txtFactura.Mask = "aaaa-aaa-########";
             this.txtFactura.Name = "txtFactura";
             this.txtFactura.Size = new System.Drawing.Size(158, 20);
             this.txtFactura.TabIndex = 4;
+            this.txtFactura.Visible = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(30, 82);
+            this.label6.Location = new System.Drawing.Point(64, 46);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 13);
             this.label6.TabIndex = 3;
             this.label6.Text = "Factura:";
+            this.label6.Visible = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 46);
+            this.label5.Location = new System.Drawing.Point(50, 69);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 13);
             this.label5.TabIndex = 2;
@@ -382,7 +382,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(18, 152);
+            this.button1.Location = new System.Drawing.Point(180, 147);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -394,7 +394,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 217);
+            this.ClientSize = new System.Drawing.Size(445, 217);
             this.Controls.Add(this.tabControl1);
             this.Name = "frmManejadorImpresora";
             this.Text = "frmManejadorImpresora";

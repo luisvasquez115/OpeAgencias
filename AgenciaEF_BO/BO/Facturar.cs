@@ -53,8 +53,8 @@ namespace AgenciaEF_BO.BO
                 RecAnul.SUC_ID = recibo.SUC_ID;
                 RecAnul.TIP_FISCAL = recibo.TIP_FISCAL;
                 RecAnul.TIPO_REC_ID = 5;  //Anulaciones
-                RecAnul.USER_CREA = "Usuario";
-                RecAnul.USER_MODIFICA = "Usario";
+                RecAnul.USER_CREA = recibo.USER_CREA;
+                RecAnul.USER_MODIFICA = recibo.USER_MODIFICA;
                 RecAnul.IMPORTE_TOTAL = recibo.IMPORTE_TOTAL;
                 RecAnul.IMPORTE_ITEBIS = recibo.IMPORTE_ITEBIS;
                 RecAnul.IMPORTE_CTA = recibo.IMPORTE_CTA;

@@ -48,29 +48,29 @@ namespace OpeAgencia2.Clientes
 
         private void dg_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            for (int i = 0; i < dg.RowCount ; i++)
-            {
-                if (dg.Rows[i].Cells[10].Value.ToString() == "1")
-                {
-                    dg.Rows[i].DefaultCellStyle.BackColor = Color.Red ;
-                    dg.Rows[i].DefaultCellStyle.ForeColor  = Color.White;
-                }
-                if (dg.Rows[i].Cells[10].Value.ToString() == "2")
-                {
-                    dg.Rows[i].DefaultCellStyle.BackColor = Color.Green;
-                    dg.Rows[i].DefaultCellStyle.ForeColor = Color.White;
-                }
-                if (dg.Rows[i].Cells[10].Value.ToString() == "6")
-                {
-                    dg.Rows[i].DefaultCellStyle.BackColor = Color.LightYellow;
-                    dg.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
-                }
-                if (dg.Rows[i].Cells[10].Value.ToString() == "5")
-                {
-                    dg.Rows[i].DefaultCellStyle.BackColor = Color.LightSteelBlue;
-                    dg.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
-                }
-            }
+            //for (int i = 0; i < dg.RowCount ; i++)
+            //{
+            //    if (dg.Rows[i].Cells[10].Value.ToString() == "1")
+            //    {
+            //        dg.Rows[i].DefaultCellStyle.BackColor = Color.Red ;
+            //        dg.Rows[i].DefaultCellStyle.ForeColor  = Color.White;
+            //    }
+            //    if (dg.Rows[i].Cells[10].Value.ToString() == "2")
+            //    {
+            //        dg.Rows[i].DefaultCellStyle.BackColor = Color.Green;
+            //        dg.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+            //    }
+            //    if (dg.Rows[i].Cells[10].Value.ToString() == "6")
+            //    {
+            //        dg.Rows[i].DefaultCellStyle.BackColor = Color.LightYellow;
+            //        dg.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
+            //    }
+            //    if (dg.Rows[i].Cells[10].Value.ToString() == "5")
+            //    {
+            //        dg.Rows[i].DefaultCellStyle.BackColor = Color.LightSteelBlue;
+            //        dg.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
+            //    }
+            //}
         }
 
         private void dg_CellContentClick(object sender, DataGridViewCellEventArgs e)

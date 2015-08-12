@@ -17,6 +17,7 @@ namespace OpeAgencia2
         public Form1()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
         }
 
         int iModId = 1;

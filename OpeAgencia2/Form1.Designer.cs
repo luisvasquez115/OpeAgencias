@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
@@ -153,7 +154,7 @@
             // 
             this.paquetesToolStripMenuItem.Enabled = false;
             this.paquetesToolStripMenuItem.Name = "paquetesToolStripMenuItem";
-            this.paquetesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.paquetesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.paquetesToolStripMenuItem.Tag = "frmFactMercancia";
             this.paquetesToolStripMenuItem.Text = "Paquetes";
             this.paquetesToolStripMenuItem.Click += new System.EventHandler(this.paquetesToolStripMenuItem_Click);
@@ -162,7 +163,7 @@
             // 
             this.enviosToolStripMenuItem.Enabled = false;
             this.enviosToolStripMenuItem.Name = "enviosToolStripMenuItem";
-            this.enviosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.enviosToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.enviosToolStripMenuItem.Tag = "frmFactEnvios";
             this.enviosToolStripMenuItem.Text = "Envios";
             this.enviosToolStripMenuItem.Click += new System.EventHandler(this.enviosToolStripMenuItem_Click);
@@ -223,6 +224,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
