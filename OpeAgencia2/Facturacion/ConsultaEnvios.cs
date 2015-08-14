@@ -82,10 +82,19 @@ namespace OpeAgencia2.Facturacion
                 var sQuery = from p in unitOfWork.RecibosRepository.Get(filter: s => s.FECHA >= dFechaIni && s.FECHA < dFechaFin && s.COUNTER_ID == iCounterId
                                        )
                              orderby p.FECHA descending
-                             select new { Id = p.RECIBO_ID, p.COUNTER_ID, Tipo = p.Tipos.TIPO_CODIGO + " " + p.Tipos.TIPO_NOMBRE, p.Clientes.CTE_NUMERO_EPS, NCF = p.NUM_FISCAL, Importe = p.IMPORTE_TOTAL, Estado = p.Estados.ESTADO_NOMBRE };
+                             select new { Id = p.RECIBO_ID, p.COUNTER_ID, Tipo = p.Tipos.TIPO_CODIGO + " " + p.Tipos.TIPO_NOMBRE, p.Clientes.CTE_NUMERO_EPS, NCF = p.NUM_FISCAL, Importe = p.IMPORTE_TOTAL, Estado = p.Estados.ESTADO_NOMBRE , ImpresoFiscal = p.IMPRESO};
 
 
-                dgDatos.DataSource = sQuery.ToList();
+                if (chkNoImpresos.Checked == true)
+                {
+                    var Query2 = sQuery.Where(xy => xy.ImpresoFiscal == false);
+                    dgDatos.DataSource = Query2.ToList();
+
+                }
+                else
+                {
+                    dgDatos.DataSource = sQuery.ToList();
+                }
             
             }
             else
@@ -94,12 +103,26 @@ namespace OpeAgencia2.Facturacion
                 var sQuery = from p in unitOfWork.RecibosRepository.Get(filter: s => s.FECHA >= dFechaIni && s.FECHA < dFechaFin && s.Clientes.CTE_NUMERO_EPS == txtEPS.Text && s.COUNTER_ID == iCounterId
                                      )
                              orderby p.FECHA descending
-                             select new { Id = p.RECIBO_ID, p.COUNTER_ID, Tipo = p.Tipos.TIPO_CODIGO + " " + p.Tipos.TIPO_NOMBRE, p.Clientes.CTE_NUMERO_EPS, NCF = p.NUM_FISCAL, Importe = p.IMPORTE_TOTAL, Estado = p.Estados.ESTADO_NOMBRE };
+                             select new { Id = p.RECIBO_ID, p.COUNTER_ID, Tipo = p.Tipos.TIPO_CODIGO + " " + p.Tipos.TIPO_NOMBRE, p.Clientes.CTE_NUMERO_EPS, NCF = p.NUM_FISCAL, Importe = p.IMPORTE_TOTAL, Estado = p.Estados.ESTADO_NOMBRE,  ImpresoFiscal = p.IMPRESO };
 
 
-                dgDatos.DataSource = sQuery.ToList();
+
+                if (chkNoImpresos.Checked == true)
+                {
+                    var Query2 = sQuery.Where(xy => xy.ImpresoFiscal == false);
+                    dgDatos.DataSource = Query2.ToList();
+
+                }
+                else
+                {
+                    dgDatos.DataSource = sQuery.ToList();
+                }
+
+              
 
             }
+
+          
            
                       
                   
