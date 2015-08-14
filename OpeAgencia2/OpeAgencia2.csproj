@@ -20,7 +20,7 @@
     <SccProvider>
     </SccProvider>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\EPSINTAG\Ope Agencias\</PublishUrl>
+    <PublishUrl>\\romanaserver\eps\OpeAgencias2\Ejecutable producción\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -32,7 +32,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>12</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -135,6 +135,10 @@
     <Reference Include="System.Xml">
       <Private>True</Private>
     </Reference>
+    <Reference Include="VmaxCom, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Sistema_Operaciones_v2\SistemaOperaciones\SistemaOperaciones.Cliente\bin\x86\Debug\VmaxCom.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clientes\frmClientes.cs">
@@ -172,6 +176,12 @@
     </Compile>
     <Compile Include="Creditos\frmCredito.Designer.cs">
       <DependentUpon>frmCredito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Creditos\frmEstadoCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Creditos\frmEstadoCuenta.Designer.cs">
+      <DependentUpon>frmEstadoCuenta.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\ConsultaEnvios.cs">
       <SubType>Form</SubType>
@@ -749,6 +759,7 @@
   <ItemGroup>
     <Content Include="EPSINTL.ico" />
     <Content Include="Images\EncabezadoFactura.gif" />
+    <Content Include="vmaxfpi.dll" />
     <None Include="Images\facturar.ico" />
     <None Include="Images\wherehouse.png" />
   </ItemGroup>
