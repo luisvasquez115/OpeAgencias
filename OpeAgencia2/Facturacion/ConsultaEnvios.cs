@@ -198,43 +198,49 @@ namespace OpeAgencia2.Facturacion
                 }
 
                 var PagosRecibos = unitOfWork.PagosRecibosRepository.Get(xy => xy.RECIBO_ID == iReciboId).FirstOrDefault();
-
-                var pagos = unitOfWork.PagosRepository.GetByID(PagosRecibos.PAGO_ID);
-
-                var DatosPagos = unitOfWork.DatosPagoRepository.Get(xy => xy.PAGO_ID == pagos.PAGO_ID);
-
-                foreach(var datosPago in DatosPagos)
+                if (PagosRecibos != null)
                 {
 
-                    BO.DAL.dsDatos.DatosPagoRow oRow = oPagos.NewDatosPagoRow();
-                    oRow.Banco = datosPago.BANCO_ID;
-                    oRow.BancoDesc = "";
-                    oRow.Devolucion = 0;
-                    oRow.Fecha = DateTime.Now;
-                    oRow.Importe = datosPago.IMPORTE;
-                    oRow.MontoEfectivo = pagos.MONTO_EFECTIVO;
-                    oRow.Numero = 0;
-                    oRow.TipoPago = pagos.TIPO_ID;
-                    oRow.TipoPagoDesc = "";
+                var pagos = unitOfWork.PagosRepository.Get(filter: xy => xy.PAGO_ID == PagosRecibos.PAGO_ID).FirstOrDefault();
 
-                    oPagos.Rows.Add(oRow);
-                    
+                
 
-                }
-                if (DatosPagos==null || DatosPagos.Any() == false)
-                {
-                    BO.DAL.dsDatos.DatosPagoRow oRow = oPagos.NewDatosPagoRow();
-                    oRow.Banco = -1;
-                    oRow.BancoDesc = "";
-                    oRow.Devolucion = 0;
-                    oRow.Fecha = DateTime.Now;
-                    oRow.Importe = pagos.IMP_PAGO;
-                    oRow.MontoEfectivo = pagos.MONTO_EFECTIVO;
-                    oRow.Numero = 99;
-                    oRow.TipoPago = -1;
-                    oRow.TipoPagoDesc = "";
-                    
-                    oPagos.Rows.Add(oRow);
+
+                    var DatosPagos = unitOfWork.DatosPagoRepository.Get(xy => xy.PAGO_ID == pagos.PAGO_ID);
+
+                    foreach (var datosPago in DatosPagos)
+                    {
+
+                        BO.DAL.dsDatos.DatosPagoRow oRow = oPagos.NewDatosPagoRow();
+                        oRow.Banco = datosPago.BANCO_ID;
+                        oRow.BancoDesc = "";
+                        oRow.Devolucion = 0;
+                        oRow.Fecha = DateTime.Now;
+                        oRow.Importe = datosPago.IMPORTE;
+                        oRow.MontoEfectivo = pagos.MONTO_EFECTIVO;
+                        oRow.Numero = 0;
+                        oRow.TipoPago = pagos.TIPO_ID;
+                        oRow.TipoPagoDesc = "";
+
+                        oPagos.Rows.Add(oRow);
+
+
+                    }
+                    if (DatosPagos == null || DatosPagos.Any() == false)
+                    {
+                        BO.DAL.dsDatos.DatosPagoRow oRow = oPagos.NewDatosPagoRow();
+                        oRow.Banco = -1;
+                        oRow.BancoDesc = "";
+                        oRow.Devolucion = 0;
+                        oRow.Fecha = DateTime.Now;
+                        oRow.Importe = pagos.IMP_PAGO;
+                        oRow.MontoEfectivo = pagos.MONTO_EFECTIVO;
+                        oRow.Numero = 99;
+                        oRow.TipoPago = -1;
+                        oRow.TipoPagoDesc = "";
+
+                        oPagos.Rows.Add(oRow);
+                    }
                 }
 
                 if (Recibos.TIPO_REC_ID == 62)  //No venta
