@@ -145,6 +145,8 @@ namespace AgenciaEF_BO.BO
 
             // var cargosProd = unitOfWork.CargosProductoRepository.GetByID(iCargoProd);
 
+            var Clientes = unitOfWork.ClientesRepository.GetByID(iNumeroEps);
+
 
             foreach (var cargo in cargosExits)
             {
@@ -196,6 +198,10 @@ namespace AgenciaEF_BO.BO
             //Actualiza Itebis
             decimal dMontoItebis = 0;
 
+            if (Clientes.CTE_TIPO_FISCAL == 45)
+                return lBultosVal;
+
+
             var QrycargosProd = unitOfWork.CargosProductoRepository.Get(filter: s => s.Cargos.CAR_CODIGO == "999").FirstOrDefault();
             
             if (QrycargosProd != null)
@@ -224,11 +230,6 @@ namespace AgenciaEF_BO.BO
                     lBultosVal.Add(oBultosVal); 
 
                 }
-
-
-
-
-
 
 
             }

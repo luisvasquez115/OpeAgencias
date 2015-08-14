@@ -583,6 +583,12 @@ namespace OpeAgencia2.Operaciones
 
             var QrycargosProd = unitOfWork.CargosProductoRepository.Get(filter: s => s.Cargos.CAR_CODIGO == "999").FirstOrDefault();
 
+            //No se le pone itbis
+            if (unitOfWork.BultosRepository.Get(filter: s => s.BLT_NUMERO == pEquivalencia.BLT_NUMERO_LOCAL).FirstOrDefault().Clientes.CTE_TIPO_FISCAL == 45)
+            {
+                return;
+            };
+
             if (QrycargosProd != null)
             {
 
@@ -594,6 +600,8 @@ namespace OpeAgencia2.Operaciones
 
                     }
                 }
+
+
 
                 if (dMontoItebis > 0)
                 {
