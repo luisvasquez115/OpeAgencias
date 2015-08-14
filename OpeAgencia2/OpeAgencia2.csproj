@@ -722,6 +722,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config.txt" />
     <Content Include="Images\EncabezadoFactura.gif" />
     <None Include="Images\facturar.ico" />
     <None Include="Images\wherehouse.png" />
