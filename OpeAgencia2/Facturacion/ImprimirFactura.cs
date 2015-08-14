@@ -334,7 +334,7 @@ namespace OpeAgencia2.Facturacion
                 oFactRow.REC_TIPO_DESC = oTipoDoc.TIPO_DESCR;
                 oFactRow.REMITENTE = Bultos.REMITENTE;
 
-                if (Bultos.Clientes.CTE_TIPO_FISCAL == 44)      //Empresa
+                if (Bultos.Clientes.CTE_TIPO_FISCAL == 44 || Bultos.Clientes.CTE_TIPO_FISCAL == 45)      //Empresa
                 {
                     if (Bultos.Clientes.CTE_RNC.KeepOnlyNumbers().TrimEnd() != string.Empty)
                         oFactRow.RNC = Bultos.Clientes.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd();

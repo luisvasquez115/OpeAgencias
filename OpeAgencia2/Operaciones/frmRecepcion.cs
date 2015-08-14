@@ -239,6 +239,13 @@ namespace OpeAgencia2.Operaciones
             decimal dMontoItebis = 0;
 
 
+            //No se le pone itbis
+            if (unitOfWork.BultosRepository.Get(filter: s => s.BLT_NUMERO == piBltNumero).FirstOrDefault().Clientes.CTE_TIPO_FISCAL == 45)
+            {
+                return;
+            };
+
+
             var QrycargosProd = unitOfWork.CargosProductoRepository.Get(filter: s => s.Cargos.CAR_CODIGO == "999").FirstOrDefault();
 
             if (QrycargosProd != null)
@@ -369,6 +376,12 @@ namespace OpeAgencia2.Operaciones
 
                 if (sqlBultos != null)
                 {
+                    if (sqlBultos.BLT_ESTADO_ID == 5 || sqlBultos.BLT_ESTADO_ID ==6)
+                    {
+                        MessageBox.Show("Este paquete ya fué entregado, o está fuera de inventario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        LimpiarCampos();
+                        return;
+                    }
                     _Id = sqlBultos.BLT_NUMERO;
                     BuscarDatos(sqlBultos);
                 }

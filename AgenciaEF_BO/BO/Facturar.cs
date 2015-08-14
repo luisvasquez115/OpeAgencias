@@ -179,6 +179,8 @@ namespace AgenciaEF_BO.BO
         {
             bool bRetorno = true;
 
+            var oCliente = unitOfWork.ClientesRepository.GetByID(iCteId);
+
             Recibos oRecibos = new Recibos();
 
             decimal MontoFact = 0; ;
@@ -215,7 +217,7 @@ namespace AgenciaEF_BO.BO
                 oRecDet.RECIBO_ID = oRecibos.RECIBO_ID;
                 oRecDet.CARGO_ID = sQry.Cargos.CARGO_ID;
                 oRecDet.MONTO_LOCAL = sQry.IMPORTE;
-                if (sQry.Cargos.CAR_ITBIS == true && sQry.Cargos.ITBIS > 0)
+                if (sQry.Cargos.CAR_ITBIS == true && sQry.Cargos.ITBIS > 0 && oCliente.CTE_TIPO_FISCAL != 45)
                 {
                     oRecDet.MONTO_ITBIS = Math.Round((sQry.IMPORTE * sQry.Cargos.ITBIS) / 100, 2);
                     oRecDet.MONTO_TOTAL = sQry.IMPORTE + oRecDet.MONTO_ITBIS;
@@ -513,6 +515,8 @@ namespace AgenciaEF_BO.BO
 
             sUsuario = unitOfWork.UsuariosRepository.GetByID(iUsuarioId).NOMBRES.TrimEnd() + " " + unitOfWork.UsuariosRepository.GetByID(iUsuarioId).APELLIDOS.TrimEnd();
 
+            var oCliente = unitOfWork.ClientesRepository.GetByID(iCteId);
+
             //1. CrearLos bultos de la mensajeria.
             if (pTableCorr.Rows.Count > 0)
             {
@@ -560,7 +564,7 @@ namespace AgenciaEF_BO.BO
                         oRecDet.CARGO_ID = unitOfWork.CargosProductoRepository.GetByID(sQry.CARGO_PROD_ID).CARGO_ID;
                         
                         oRecDet.MONTO_LOCAL = sQry.BVA_MONTO_LOCAL;
-                        if (sQry.CargosProducto.Cargos.CAR_ITBIS == true && sQry.CargosProducto.Cargos.ITBIS > 0)
+                        if (sQry.CargosProducto.Cargos.CAR_ITBIS == true && sQry.CargosProducto.Cargos.ITBIS > 0 && oCliente.CTE_TIPO_FISCAL != 45) //zona franca
                         {
                             oRecDet.MONTO_ITBIS = Math.Round((sQry.BVA_MONTO_LOCAL * sQry.CargosProducto.Cargos.ITBIS) / 100, 2);
                             oRecDet.MONTO_TOTAL = sQry.BVA_MONTO_LOCAL + oRecDet.MONTO_ITBIS;
@@ -1005,6 +1009,7 @@ namespace AgenciaEF_BO.BO
 
             sUsuario = unitOfWork.UsuariosRepository.GetByID(iUsuarioId).NOMBRES.TrimEnd() + " " + unitOfWork.UsuariosRepository.GetByID(iUsuarioId).APELLIDOS.TrimEnd();
 
+            var oCliente = unitOfWork.ClientesRepository.GetByID(iCteId);
 
                        
             //bRetornoCorr = RegistroCorrespondencia(iCteId, iSucId, pTableCorr, iUsuarioId, ref pBultos);
@@ -1053,7 +1058,7 @@ namespace AgenciaEF_BO.BO
                         oRecDet.CARGO_ID = unitOfWork.CargosProductoRepository.GetByID(sQry.CARGO_PROD_ID).CARGO_ID;
 
                         oRecDet.MONTO_LOCAL = sQry.BVA_MONTO_LOCAL;
-                        if (sQry.CargosProducto.Cargos.CAR_ITBIS == true && sQry.CargosProducto.Cargos.ITBIS > 0)
+                        if (sQry.CargosProducto.Cargos.CAR_ITBIS == true && sQry.CargosProducto.Cargos.ITBIS > 0 && oCliente.CTE_TIPO_FISCAL != 45)
                         {
                             oRecDet.MONTO_ITBIS = Math.Round((sQry.BVA_MONTO_LOCAL * sQry.CargosProducto.Cargos.ITBIS) / 100, 2);
                             oRecDet.MONTO_TOTAL = sQry.BVA_MONTO_LOCAL + oRecDet.MONTO_ITBIS;
