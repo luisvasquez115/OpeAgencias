@@ -78,8 +78,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MyGeneration.dOOdads_2005">
       <HintPath>..\..\..\..\..\..\MyDoodas\doodas\bin\Debug\MyGeneration.dOOdads_2005.dll</HintPath>
     </Reference>
@@ -630,6 +634,9 @@
     <EmbeddedResource Include="usrbntMant.resx">
       <DependentUpon>usrbntMant.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="OpeAgencia2_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\AgenciaEF_BO.DAL.dsFactura+EstadoCuentaDataTable.datasource" />
@@ -653,11 +660,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\wsAgencias\wsAgencias.wsdl" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\plus_16.png" />
