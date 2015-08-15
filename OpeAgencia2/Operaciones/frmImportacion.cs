@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using BO = AgenciaEF_BO;
+using System.Linq;
 
 namespace OpeAgencia2.Operaciones
 {
@@ -162,9 +163,6 @@ namespace OpeAgencia2.Operaciones
                     chkBultos.SetItemChecked(i, true);
                     bRetorno = true;
                 }
-
-
-
             }
             return bRetorno;
         }
@@ -208,17 +206,20 @@ namespace OpeAgencia2.Operaciones
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error cargando registros a base de datos local " + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error cargando registros a base de datos local " + ex.Message + " \n" +
+                    ex.InnerException != null ? ex.InnerException.InnerException != null ? 
+                    ex.InnerException.InnerException.Message : "" : "", 
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
             if (sErrores.Length > 0)
             {
-                MessageBox.Show("Datos cargados con  Errores"  , "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Datos cargados con  Errores", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Form oForm = new Form();
                 TextBox oText = new TextBox();
-                oText.Name ="txtError";
-                oText.Multiline =true;
+                oText.Name = "txtError";
+                oText.Multiline = true;
                 oForm.Controls.Add(oText);
                 oText.Dock = DockStyle.Fill;
                 oText.Text = sErrores.ToString();
@@ -227,10 +228,10 @@ namespace OpeAgencia2.Operaciones
             }
             else
             {
-                MessageBox.Show("Datos cargados con exito" , "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Datos cargados con exito", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            
+
 
         }
 
@@ -605,7 +606,7 @@ namespace OpeAgencia2.Operaciones
 
                 if (dMontoItebis > 0)
                 {
-                    
+
 
                     AgenciaEF_BO.Models.BultosValores oBultosValores;
 
@@ -632,13 +633,13 @@ namespace OpeAgencia2.Operaciones
 
                     }
 
-                    
+
 
                 }
             }
 
-           
-                            
+
+
 
 
 
@@ -717,8 +718,22 @@ namespace OpeAgencia2.Operaciones
 
         }
 
+        private void TextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (TextBox1.Text != "")
+                {
 
-
-
+                    if (SeleccionarEnLista(TextBox1.Text.TrimEnd()) == false)
+                    {
+                        MessageBox.Show("Este Codigo no esta en el manifiesto ..> " + TextBox1.Text.TrimEnd(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                   
+                    TextBox1.Text = "";
+                    TextBox1.Select();
+                }
+            }
+        }
     }
 }
