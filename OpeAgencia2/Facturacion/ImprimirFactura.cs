@@ -345,8 +345,8 @@ namespace OpeAgencia2.Facturacion
                 {
                     if (Bultos.Clientes.CTE_CEDULA.KeepOnlyNumbers().Trim() != string.Empty)
                         oFactRow.RNC = Bultos.Clientes.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd();
-                    else if (Bultos.Clientes.CTE_PASAPORTE.Trim() != string.Empty)
-                        oFactRow.RNC = Bultos.Clientes.CTE_PASAPORTE;
+                    //else if (Bultos.Clientes.CTE_PASAPORTE.Trim() != string.Empty)
+                    //    oFactRow.RNC = Bultos.Clientes.CTE_PASAPORTE;
                     else
                         oFactRow.RNC = Bultos.Clientes.CTE_RNC;
                 }

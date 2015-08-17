@@ -45,7 +45,7 @@
             this.anularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verEnPantallaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.cbImpresasFiscalmente = new System.Windows.Forms.CheckBox();
+            this.chkNoImpresos = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDatos)).BeginInit();
@@ -58,7 +58,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cbImpresasFiscalmente);
+            this.groupBox1.Controls.Add(this.chkNoImpresos);
             this.groupBox1.Controls.Add(this.cmbCounter);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnPrint);
@@ -217,15 +217,15 @@
             this.splitContainer1.SplitterDistance = 122;
             this.splitContainer1.TabIndex = 2;
             // 
-            // checkBox1
+            // chkNoImpresos
             // 
-            this.cbImpresasFiscalmente.AutoSize = true;
-            this.cbImpresasFiscalmente.Location = new System.Drawing.Point(286, 63);
-            this.cbImpresasFiscalmente.Name = "checkBox1";
-            this.cbImpresasFiscalmente.Size = new System.Drawing.Size(195, 17);
-            this.cbImpresasFiscalmente.TabIndex = 8;
-            this.cbImpresasFiscalmente.Text = "Incluir facturas impresas fiscalmente";
-            this.cbImpresasFiscalmente.UseVisualStyleBackColor = true;
+            this.chkNoImpresos.AutoSize = true;
+            this.chkNoImpresos.Location = new System.Drawing.Point(286, 58);
+            this.chkNoImpresos.Name = "chkNoImpresos";
+            this.chkNoImpresos.Size = new System.Drawing.Size(140, 17);
+            this.chkNoImpresos.TabIndex = 8;
+            this.chkNoImpresos.Text = "No impresos fiscalmente";
+            this.chkNoImpresos.UseVisualStyleBackColor = true;
             // 
             // ConsultaOperaciones
             // 
@@ -267,6 +267,6 @@
         private System.Windows.Forms.ToolStripMenuItem reImprimirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem anularToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verEnPantallaToolStripMenuItem;
-        private System.Windows.Forms.CheckBox cbImpresasFiscalmente;
+        private System.Windows.Forms.CheckBox chkNoImpresos;
     }
 }

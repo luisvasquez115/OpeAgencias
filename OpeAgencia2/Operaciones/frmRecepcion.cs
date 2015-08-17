@@ -772,6 +772,40 @@ namespace OpeAgencia2.Operaciones
                // CarcularUnidades();
         }
 
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EliminarCargo();
+        }
+
+
+        public void EliminarCargo()
+        {
+
+            int iCargoProductoId = -1;
+
+            try
+            {
+               // iCargoProductoId = Convert.ToInt32(dgCargos[0, dgCargos.CurrentCell.RowIndex].Value);
+                iCargoProductoId =dgCargos.CurrentCell.RowIndex;
+
+            }
+            catch(Exception ex)
+            {
+                iCargoProductoId = -1;
+            }
+
+
+            if (iCargoProductoId!= -1)
+            {
+                oCargos.Rows.RemoveAt(iCargoProductoId);
+
+                //oCargos.Rows.Remove(dr);
+                oCargos.AcceptChanges();
+            }
+
+
+
+        }
 
 
     }

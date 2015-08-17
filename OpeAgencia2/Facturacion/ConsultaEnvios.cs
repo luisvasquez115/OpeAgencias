@@ -67,9 +67,6 @@ namespace OpeAgencia2.Facturacion
             DateTime dFechaIni;
             DateTime dFechaFin;
             int iCounterId = -1;
-
-
-
             dFechaIni = txtFecha.Value.Date;
             dFechaFin = txtFecha.Value.Date.AddDays(1);
 
@@ -77,86 +74,36 @@ namespace OpeAgencia2.Facturacion
 
             if (txtEPS.Text == "")
             {
-                if (cbImpresasFiscalmente.Checked)
+                var sQuery = from p in unitOfWork.RecibosRepository.Get(filter: s => s.FECHA >= dFechaIni &&
+                    s.FECHA < dFechaFin && s.COUNTER_ID == iCounterId)
+                             orderby p.FECHA descending
+                             select new { Id = p.RECIBO_ID, p.COUNTER_ID, Tipo = p.Tipos.TIPO_CODIGO + " " + p.Tipos.TIPO_NOMBRE, p.Clientes.CTE_NUMERO_EPS, NCF = p.NUM_FISCAL, Importe = p.IMPORTE_TOTAL, Estado = p.Estados.ESTADO_NOMBRE, ImpresoFiscal = p.IMPRESO };
+                if (chkNoImpresos.Checked == true)
                 {
-                    var sQuery = from p in unitOfWork.RecibosRepository.Get(filter: s => s.FECHA >= dFechaIni &&
-                        s.FECHA < dFechaFin && s.COUNTER_ID == iCounterId)
-                                 orderby p.FECHA descending
-                                 select new
-                                 {
-                                     Id = p.RECIBO_ID,
-                                     p.COUNTER_ID,
-                                     Tipo = p.Tipos.TIPO_CODIGO + " " +
-                                         p.Tipos.TIPO_NOMBRE,
-                                     p.Clientes.CTE_NUMERO_EPS,
-                                     NCF = p.NUM_FISCAL,
-                                     Importe = p.IMPORTE_TOTAL,
-                                     Estado = p.Estados.ESTADO_NOMBRE
-                                 };
-                    dgDatos.DataSource = sQuery.ToList();
+                    var Query2 = sQuery.Where(xy => xy.ImpresoFiscal == false);
+                    dgDatos.DataSource = Query2.ToList();
                 }
                 else
                 {
-                    var sQuery = from p in unitOfWork.RecibosRepository.Get(filter: s => s.FECHA >= dFechaIni &&
-                        s.FECHA < dFechaFin && s.COUNTER_ID == iCounterId && s.IMPRESO == false)
-                                 orderby p.FECHA
-                                     descending
-                                 select new
-                                 {
-                                     Id = p.RECIBO_ID,
-                                     p.COUNTER_ID,
-                                     Tipo = p.Tipos.TIPO_CODIGO + " " +
-                                         p.Tipos.TIPO_NOMBRE,
-                                     p.Clientes.CTE_NUMERO_EPS,
-                                     NCF = p.NUM_FISCAL,
-                                     Importe = p.IMPORTE_TOTAL,
-                                     Estado = p.Estados.ESTADO_NOMBRE
-                                 };
                     dgDatos.DataSource = sQuery.ToList();
                 }
             }
             else
             {
-                if (cbImpresasFiscalmente.Checked)
+                var sQuery = from p in unitOfWork.RecibosRepository.Get(filter: s => s.FECHA >= dFechaIni && s.FECHA < dFechaFin && s.Clientes.CTE_NUMERO_EPS == txtEPS.Text && s.COUNTER_ID == iCounterId
+                                     )
+                             orderby p.FECHA descending
+                             select new { Id = p.RECIBO_ID, p.COUNTER_ID, Tipo = p.Tipos.TIPO_CODIGO + " " + p.Tipos.TIPO_NOMBRE, p.Clientes.CTE_NUMERO_EPS, NCF = p.NUM_FISCAL, Importe = p.IMPORTE_TOTAL, Estado = p.Estados.ESTADO_NOMBRE, ImpresoFiscal = p.IMPRESO };
+                if (chkNoImpresos.Checked == true)
                 {
-                    var sQuery = from p in unitOfWork.RecibosRepository.Get(filter: s => s.FECHA >= dFechaIni &&
-                        s.FECHA < dFechaFin && s.Clientes.CTE_NUMERO_EPS == txtEPS.Text && s.COUNTER_ID == iCounterId)
-                                 orderby p.FECHA descending
-                                 select new
-                                 {
-                                     Id = p.RECIBO_ID,
-                                     p.COUNTER_ID,
-                                     Tipo = p.Tipos.TIPO_CODIGO + " " + p.Tipos.TIPO_NOMBRE,
-                                     p.Clientes.CTE_NUMERO_EPS,
-                                     NCF = p.NUM_FISCAL,
-                                     Importe = p.IMPORTE_TOTAL,
-                                     Estado = p.Estados.ESTADO_NOMBRE
-                                 };
-                    dgDatos.DataSource = sQuery.ToList();
+                    var Query2 = sQuery.Where(xy => xy.ImpresoFiscal == false);
+                    dgDatos.DataSource = Query2.ToList();
                 }
                 else
                 {
-                    var sQuery = from p in unitOfWork.RecibosRepository.Get(filter: s => s.FECHA >= dFechaIni &&
-                        s.FECHA < dFechaFin && s.Clientes.CTE_NUMERO_EPS == txtEPS.Text && s.COUNTER_ID == iCounterId
-                        && s.IMPRESO == false)
-                                 orderby p.FECHA descending
-                                 select new
-                                 {
-                                     Id = p.RECIBO_ID,
-                                     p.COUNTER_ID,
-                                     Tipo = p.Tipos.TIPO_CODIGO + " " + p.Tipos.TIPO_NOMBRE,
-                                     p.Clientes.CTE_NUMERO_EPS,
-                                     NCF = p.NUM_FISCAL,
-                                     Importe = p.IMPORTE_TOTAL,
-                                     Estado = p.Estados.ESTADO_NOMBRE
-                                 };
                     dgDatos.DataSource = sQuery.ToList();
                 }
             }
-
-
-
-
         }
 
         private void dgDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -249,67 +196,52 @@ namespace OpeAgencia2.Facturacion
                     return;
 
                 }
-
                 var PagosRecibos = unitOfWork.PagosRecibosRepository.Get(xy => xy.RECIBO_ID == iReciboId).FirstOrDefault();
-
-                var pagos = unitOfWork.PagosRepository.GetByID(PagosRecibos.PAGO_ID);
-
-                var DatosPagos = unitOfWork.DatosPagoRepository.Get(xy => xy.PAGO_ID == pagos.PAGO_ID);
-
-                foreach (var datosPago in DatosPagos)
+                if (PagosRecibos != null)
                 {
-
-                    BO.DAL.dsDatos.DatosPagoRow oRow = oPagos.NewDatosPagoRow();
-                    oRow.Banco = datosPago.BANCO_ID;
-                    oRow.BancoDesc = "";
-                    oRow.Devolucion = 0;
-                    oRow.Fecha = DateTime.Now;
-                    oRow.Importe = datosPago.IMPORTE;
-                    oRow.MontoEfectivo = pagos.MONTO_EFECTIVO;
-                    oRow.Numero = 0;
-                    oRow.TipoPago = pagos.TIPO_ID;
-                    oRow.TipoPagoDesc = "";
-
-                    oPagos.Rows.Add(oRow);
-
-
-                }
-                if (DatosPagos == null || DatosPagos.Any() == false)
-                {
-                    BO.DAL.dsDatos.DatosPagoRow oRow = oPagos.NewDatosPagoRow();
-                    oRow.Banco = -1;
-                    oRow.BancoDesc = "";
-                    oRow.Devolucion = 0;
-                    oRow.Fecha = DateTime.Now;
-                    oRow.Importe = pagos.IMP_PAGO;
-                    oRow.MontoEfectivo = pagos.MONTO_EFECTIVO;
-                    oRow.Numero = 99;
-                    oRow.TipoPago = -1;
-                    oRow.TipoPagoDesc = "";
-
-                    oPagos.Rows.Add(oRow);
+                    var pagos = unitOfWork.PagosRepository.Get(filter: xy => xy.PAGO_ID == PagosRecibos.PAGO_ID).FirstOrDefault();
+                    var DatosPagos = unitOfWork.DatosPagoRepository.Get(xy => xy.PAGO_ID == pagos.PAGO_ID);
+                    foreach (var datosPago in DatosPagos)
+                    {
+                        BO.DAL.dsDatos.DatosPagoRow oRow = oPagos.NewDatosPagoRow();
+                        oRow.Banco = datosPago.BANCO_ID;
+                        oRow.BancoDesc = "";
+                        oRow.Devolucion = 0;
+                        oRow.Fecha = DateTime.Now;
+                        oRow.Importe = datosPago.IMPORTE;
+                        oRow.MontoEfectivo = pagos.MONTO_EFECTIVO;
+                        oRow.Numero = 0;
+                        oRow.TipoPago = pagos.TIPO_ID;
+                        oRow.TipoPagoDesc = "";
+                        oPagos.Rows.Add(oRow);
+                    }
+                    if (DatosPagos == null || DatosPagos.Any() == false)
+                    {
+                        BO.DAL.dsDatos.DatosPagoRow oRow = oPagos.NewDatosPagoRow();
+                        oRow.Banco = -1;
+                        oRow.BancoDesc = "";
+                        oRow.Devolucion = 0;
+                        oRow.Fecha = DateTime.Now;
+                        oRow.Importe = pagos.IMP_PAGO;
+                        oRow.MontoEfectivo = pagos.MONTO_EFECTIVO;
+                        oRow.Numero = 99;
+                        oRow.TipoPago = -1;
+                        oRow.TipoPagoDesc = "";
+                        oPagos.Rows.Add(oRow);
+                    }
                 }
 
                 if (Recibos.TIPO_REC_ID == 62)  //No venta
                 {
                     ImprimirFactura oImpFact = new ImprimirFactura();
                     oImpFact.ImprimirNoVenta(iReciboId, oPagos);
-
                 }
                 else
                 {
                     ImprimirFactura oImpFact = new ImprimirFactura();
                     oImpFact.Imprimir(iReciboId, oPagos);
-
                 }
-
-
-
             }
-
-
-
-
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
