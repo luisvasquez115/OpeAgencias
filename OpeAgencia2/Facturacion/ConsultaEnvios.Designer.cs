@@ -43,8 +43,9 @@
             this.cmOpciones = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.reImprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.anularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.verEnPantallaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.cbImpresasFiscalmente = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDatos)).BeginInit();
@@ -57,6 +58,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbImpresasFiscalmente);
             this.groupBox1.Controls.Add(this.cmbCounter);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnPrint);
@@ -174,7 +176,7 @@
             this.anularToolStripMenuItem,
             this.verEnPantallaToolStripMenuItem});
             this.cmOpciones.Name = "cmOpciones";
-            this.cmOpciones.Size = new System.Drawing.Size(153, 92);
+            this.cmOpciones.Size = new System.Drawing.Size(153, 70);
             // 
             // reImprimirToolStripMenuItem
             // 
@@ -189,6 +191,13 @@
             this.anularToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.anularToolStripMenuItem.Text = "Anular";
             this.anularToolStripMenuItem.Click += new System.EventHandler(this.anularToolStripMenuItem_Click);
+            // 
+            // verEnPantallaToolStripMenuItem
+            // 
+            this.verEnPantallaToolStripMenuItem.Name = "verEnPantallaToolStripMenuItem";
+            this.verEnPantallaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.verEnPantallaToolStripMenuItem.Text = "Ver en pantalla";
+            this.verEnPantallaToolStripMenuItem.Click += new System.EventHandler(this.verEnPantallaToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 
@@ -208,12 +217,15 @@
             this.splitContainer1.SplitterDistance = 122;
             this.splitContainer1.TabIndex = 2;
             // 
-            // verEnPantallaToolStripMenuItem
+            // checkBox1
             // 
-            this.verEnPantallaToolStripMenuItem.Name = "verEnPantallaToolStripMenuItem";
-            this.verEnPantallaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.verEnPantallaToolStripMenuItem.Text = "Ver en pantalla";
-            this.verEnPantallaToolStripMenuItem.Click += new System.EventHandler(this.verEnPantallaToolStripMenuItem_Click);
+            this.cbImpresasFiscalmente.AutoSize = true;
+            this.cbImpresasFiscalmente.Location = new System.Drawing.Point(286, 63);
+            this.cbImpresasFiscalmente.Name = "checkBox1";
+            this.cbImpresasFiscalmente.Size = new System.Drawing.Size(195, 17);
+            this.cbImpresasFiscalmente.TabIndex = 8;
+            this.cbImpresasFiscalmente.Text = "Incluir facturas impresas fiscalmente";
+            this.cbImpresasFiscalmente.UseVisualStyleBackColor = true;
             // 
             // ConsultaOperaciones
             // 
@@ -255,5 +267,6 @@
         private System.Windows.Forms.ToolStripMenuItem reImprimirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem anularToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verEnPantallaToolStripMenuItem;
+        private System.Windows.Forms.CheckBox cbImpresasFiscalmente;
     }
 }
