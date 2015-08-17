@@ -86,6 +86,7 @@ namespace AgenciaEF_BO.DAL
 
         public DbSet<Terminal> Terminal { set; get; }
 
+        public DbSet<vw_cuadre_caja> vwCuadreCaja { set; get; }
      
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

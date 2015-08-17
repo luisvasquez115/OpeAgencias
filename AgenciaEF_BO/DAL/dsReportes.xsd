@@ -3,8 +3,40 @@
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-        <Connections />
-        <Tables />
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="dbAgenciaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="dbAgenciaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AgenciaEF_BO.Properties.Settings.GlobalReference.Default.dbAgenciaConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VW_CUADRE_CAJATableAdapter" GeneratorDataComponentClassName="VW_CUADRE_CAJATableAdapter" Name="VW_CUADRE_CAJA" UserDataComponentName="VW_CUADRE_CAJATableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dbAgenciaConnectionString (Settings)" DbObjectName="dbAgencia.dbo.VW_CUADRE_CAJA" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT MOVCAJA_ID, TIP_MOV, TIPO_DESCR, COUNTER_ID, CAJERO, SUC_ID, IMPORTE, RECIBO_ID, NUM_FISCAL, RECIBO, TIPO_REC_DESC, CTE_ID, CTE_NUMERO_EPS, REC_CREDITO FROM dbo.VW_CUADRE_CAJA</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MOVCAJA_ID" DataSetColumn="MOVCAJA_ID" />
+              <Mapping SourceColumn="TIP_MOV" DataSetColumn="TIP_MOV" />
+              <Mapping SourceColumn="TIPO_DESCR" DataSetColumn="TIPO_DESCR" />
+              <Mapping SourceColumn="COUNTER_ID" DataSetColumn="COUNTER_ID" />
+              <Mapping SourceColumn="CAJERO" DataSetColumn="CAJERO" />
+              <Mapping SourceColumn="SUC_ID" DataSetColumn="SUC_ID" />
+              <Mapping SourceColumn="IMPORTE" DataSetColumn="IMPORTE" />
+              <Mapping SourceColumn="RECIBO_ID" DataSetColumn="RECIBO_ID" />
+              <Mapping SourceColumn="NUM_FISCAL" DataSetColumn="NUM_FISCAL" />
+              <Mapping SourceColumn="RECIBO" DataSetColumn="RECIBO" />
+              <Mapping SourceColumn="TIPO_REC_DESC" DataSetColumn="TIPO_REC_DESC" />
+              <Mapping SourceColumn="CTE_ID" DataSetColumn="CTE_ID" />
+              <Mapping SourceColumn="CTE_NUMERO_EPS" DataSetColumn="CTE_NUMERO_EPS" />
+              <Mapping SourceColumn="REC_CREDITO" DataSetColumn="REC_CREDITO" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
         <Sources />
       </DataSource>
     </xs:appinfo>
@@ -12,7 +44,7 @@
   <xs:element name="dsReportes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsReportes" msprop:Generator_UserDSName="dsReportes">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="CuadreCaja" msprop:Generator_TableClassName="CuadreCajaDataTable" msprop:Generator_TableVarName="tableCuadreCaja" msprop:Generator_RowChangedName="CuadreCajaRowChanged" msprop:Generator_TablePropName="CuadreCaja" msprop:Generator_RowDeletingName="CuadreCajaRowDeleting" msprop:Generator_RowChangingName="CuadreCajaRowChanging" msprop:Generator_RowEvHandlerName="CuadreCajaRowChangeEventHandler" msprop:Generator_RowDeletedName="CuadreCajaRowDeleted" msprop:Generator_RowClassName="CuadreCajaRow" msprop:Generator_UserTableName="CuadreCaja" msprop:Generator_RowEvArgName="CuadreCajaRowChangeEvent">
+        <xs:element name="CuadreCaja" msprop:Generator_TableClassName="CuadreCajaDataTable" msprop:Generator_TableVarName="tableCuadreCaja" msprop:Generator_TablePropName="CuadreCaja" msprop:Generator_RowDeletingName="CuadreCajaRowDeleting" msprop:Generator_RowChangingName="CuadreCajaRowChanging" msprop:Generator_RowEvHandlerName="CuadreCajaRowChangeEventHandler" msprop:Generator_RowDeletedName="CuadreCajaRowDeleted" msprop:Generator_UserTableName="CuadreCaja" msprop:Generator_RowChangedName="CuadreCajaRowChanged" msprop:Generator_RowEvArgName="CuadreCajaRowChangeEvent" msprop:Generator_RowClassName="CuadreCajaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" minOccurs="0" />
@@ -25,7 +57,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="FacturaFecha" msprop:Generator_TableClassName="FacturaFechaDataTable" msprop:Generator_TableVarName="tableFacturaFecha" msprop:Generator_TablePropName="FacturaFecha" msprop:Generator_RowDeletingName="FacturaFechaRowDeleting" msprop:Generator_RowChangingName="FacturaFechaRowChanging" msprop:Generator_RowEvHandlerName="FacturaFechaRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturaFechaRowDeleted" msprop:Generator_UserTableName="FacturaFecha" msprop:Generator_RowChangedName="FacturaFechaRowChanged" msprop:Generator_RowEvArgName="FacturaFechaRowChangeEvent" msprop:Generator_RowClassName="FacturaFechaRow">
+        <xs:element name="FacturaFecha" msprop:Generator_TableClassName="FacturaFechaDataTable" msprop:Generator_TableVarName="tableFacturaFecha" msprop:Generator_RowChangedName="FacturaFechaRowChanged" msprop:Generator_TablePropName="FacturaFecha" msprop:Generator_RowDeletingName="FacturaFechaRowDeleting" msprop:Generator_RowChangingName="FacturaFechaRowChanging" msprop:Generator_RowEvHandlerName="FacturaFechaRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturaFechaRowDeleted" msprop:Generator_RowClassName="FacturaFechaRow" msprop:Generator_UserTableName="FacturaFecha" msprop:Generator_RowEvArgName="FacturaFechaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
@@ -37,6 +69,62 @@
               <xs:element name="MontoFact" msprop:Generator_ColumnVarNameInTable="columnMontoFact" msprop:Generator_ColumnPropNameInRow="MontoFact" msprop:Generator_ColumnPropNameInTable="MontoFactColumn" msprop:Generator_UserColumnName="MontoFact" type="xs:decimal" minOccurs="0" />
               <xs:element name="Usuario" msprop:Generator_ColumnVarNameInTable="columnUsuario" msprop:Generator_ColumnPropNameInRow="Usuario" msprop:Generator_ColumnPropNameInTable="UsuarioColumn" msprop:Generator_UserColumnName="Usuario" type="xs:string" minOccurs="0" />
               <xs:element name="NCF" msprop:Generator_ColumnVarNameInTable="columnNCF" msprop:Generator_ColumnPropNameInRow="NCF" msprop:Generator_ColumnPropNameInTable="NCFColumn" msprop:Generator_UserColumnName="NCF" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VW_CUADRE_CAJA" msprop:Generator_TableClassName="VW_CUADRE_CAJADataTable" msprop:Generator_TableVarName="tableVW_CUADRE_CAJA" msprop:Generator_TablePropName="VW_CUADRE_CAJA" msprop:Generator_RowDeletingName="VW_CUADRE_CAJARowDeleting" msprop:Generator_RowChangingName="VW_CUADRE_CAJARowChanging" msprop:Generator_RowEvHandlerName="VW_CUADRE_CAJARowChangeEventHandler" msprop:Generator_RowDeletedName="VW_CUADRE_CAJARowDeleted" msprop:Generator_UserTableName="VW_CUADRE_CAJA" msprop:Generator_RowChangedName="VW_CUADRE_CAJARowChanged" msprop:Generator_RowEvArgName="VW_CUADRE_CAJARowChangeEvent" msprop:Generator_RowClassName="VW_CUADRE_CAJARow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MOVCAJA_ID" msprop:Generator_ColumnVarNameInTable="columnMOVCAJA_ID" msprop:Generator_ColumnPropNameInRow="MOVCAJA_ID" msprop:Generator_ColumnPropNameInTable="MOVCAJA_IDColumn" msprop:Generator_UserColumnName="MOVCAJA_ID" type="xs:int" />
+              <xs:element name="TIP_MOV" msprop:Generator_ColumnVarNameInTable="columnTIP_MOV" msprop:Generator_ColumnPropNameInRow="TIP_MOV" msprop:Generator_ColumnPropNameInTable="TIP_MOVColumn" msprop:Generator_UserColumnName="TIP_MOV" type="xs:int" />
+              <xs:element name="TIPO_DESCR" msprop:Generator_ColumnVarNameInTable="columnTIPO_DESCR" msprop:Generator_ColumnPropNameInRow="TIPO_DESCR" msprop:Generator_ColumnPropNameInTable="TIPO_DESCRColumn" msprop:Generator_UserColumnName="TIPO_DESCR">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COUNTER_ID" msprop:Generator_ColumnVarNameInTable="columnCOUNTER_ID" msprop:Generator_ColumnPropNameInRow="COUNTER_ID" msprop:Generator_ColumnPropNameInTable="COUNTER_IDColumn" msprop:Generator_UserColumnName="COUNTER_ID" type="xs:int" />
+              <xs:element name="CAJERO" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCAJERO" msprop:Generator_ColumnPropNameInRow="CAJERO" msprop:Generator_ColumnPropNameInTable="CAJEROColumn" msprop:Generator_UserColumnName="CAJERO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="121" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SUC_ID" msprop:Generator_ColumnVarNameInTable="columnSUC_ID" msprop:Generator_ColumnPropNameInRow="SUC_ID" msprop:Generator_ColumnPropNameInTable="SUC_IDColumn" msprop:Generator_UserColumnName="SUC_ID" type="xs:int" />
+              <xs:element name="IMPORTE" msprop:Generator_ColumnVarNameInTable="columnIMPORTE" msprop:Generator_ColumnPropNameInRow="IMPORTE" msprop:Generator_ColumnPropNameInTable="IMPORTEColumn" msprop:Generator_UserColumnName="IMPORTE" type="xs:decimal" />
+              <xs:element name="RECIBO_ID" msprop:Generator_ColumnVarNameInTable="columnRECIBO_ID" msprop:Generator_ColumnPropNameInRow="RECIBO_ID" msprop:Generator_ColumnPropNameInTable="RECIBO_IDColumn" msprop:Generator_UserColumnName="RECIBO_ID" type="xs:int" />
+              <xs:element name="NUM_FISCAL" msprop:Generator_ColumnVarNameInTable="columnNUM_FISCAL" msprop:Generator_ColumnPropNameInRow="NUM_FISCAL" msprop:Generator_ColumnPropNameInTable="NUM_FISCALColumn" msprop:Generator_UserColumnName="NUM_FISCAL">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="19" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RECIBO" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRECIBO" msprop:Generator_ColumnPropNameInRow="RECIBO" msprop:Generator_ColumnPropNameInTable="RECIBOColumn" msprop:Generator_UserColumnName="RECIBO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="41" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIPO_REC_DESC" msprop:Generator_ColumnVarNameInTable="columnTIPO_REC_DESC" msprop:Generator_ColumnPropNameInRow="TIPO_REC_DESC" msprop:Generator_ColumnPropNameInTable="TIPO_REC_DESCColumn" msprop:Generator_UserColumnName="TIPO_REC_DESC">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CTE_ID" msprop:Generator_ColumnVarNameInTable="columnCTE_ID" msprop:Generator_ColumnPropNameInRow="CTE_ID" msprop:Generator_ColumnPropNameInTable="CTE_IDColumn" msprop:Generator_UserColumnName="CTE_ID" type="xs:int" />
+              <xs:element name="CTE_NUMERO_EPS" msprop:Generator_ColumnVarNameInTable="columnCTE_NUMERO_EPS" msprop:Generator_ColumnPropNameInRow="CTE_NUMERO_EPS" msprop:Generator_ColumnPropNameInTable="CTE_NUMERO_EPSColumn" msprop:Generator_UserColumnName="CTE_NUMERO_EPS">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="REC_CREDITO" msprop:Generator_ColumnVarNameInTable="columnREC_CREDITO" msprop:Generator_ColumnPropNameInRow="REC_CREDITO" msprop:Generator_ColumnPropNameInTable="REC_CREDITOColumn" msprop:Generator_UserColumnName="REC_CREDITO" type="xs:boolean" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
