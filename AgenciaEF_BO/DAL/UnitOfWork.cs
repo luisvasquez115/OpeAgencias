@@ -85,6 +85,23 @@ namespace AgenciaEF_BO.DAL
         //
         private vwUsuarioOpcionesRepository vwusuarioOpcionesRepository;
 
+
+        private vwCuadreCajaRepository vwcuadreCajaRepository;
+
+        public vwCuadreCajaRepository vwCuadreCajaRepository
+        {
+            get
+            {
+
+                if (this.vwcuadreCajaRepository == null)
+                {
+                    this.vwcuadreCajaRepository = new vwCuadreCajaRepository(context);
+                }
+                return vwcuadreCajaRepository;
+            }
+        }
+
+
         public vwUsuarioOpcionesRepository vwUsuarioOpcionesRepository
         {
             get

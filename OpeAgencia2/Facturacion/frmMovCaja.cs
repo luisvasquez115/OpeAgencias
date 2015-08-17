@@ -97,35 +97,44 @@ namespace OpeAgencia2.Facturacion
 
             iCounterId = Convert.ToInt32(cmbCounter.SelectedValue);
 
-            var sQuery = from p in unitOfWork.MovCajaRepository.Get(filter: s => s.FECHA >= dFechaIni && s.FECHA < dFechaFin && s.COUNTER_ID == iCounterId
-                                     )
-                         orderby p.FECHA descending
-                         select new { Id = p.MOVCAJA_ID, Fecha = p.FECHA, Counter =p.Usuarios.NOMBRES +" "+ p.Usuarios.APELLIDOS,Tipo = p.Tipos.TIPO_CODIGO ,Descr =  p.Tipos.TIPO_NOMBRE, p.Clientes.CTE_NUMERO_EPS, Importe = p.IMPORTE };
+            var sQuery = unitOfWork.vwCuadreCajaRepository.Get(filter: s => s.FECHA >= dFechaIni && s.FECHA < dFechaFin && s.COUNTER_ID == iCounterId);
+                       
 
-            BO.DAL.dsReportes.CuadreCajaDataTable oTable = new BO.DAL.dsReportes.CuadreCajaDataTable();
+            BO.DAL.dsReportes.VW_CUADRE_CAJADataTable oTable = new BO.DAL.dsReportes.VW_CUADRE_CAJADataTable();
 
             foreach (var oQuery in sQuery)
             {
-                BO.DAL.dsReportes.CuadreCajaRow oFactRow = oTable.NewCuadreCajaRow();
+                BO.DAL.dsReportes.VW_CUADRE_CAJARow oFactRow = oTable.NewVW_CUADRE_CAJARow();
 
-                oFactRow.Descr = oQuery.Descr;
-                oFactRow.EPS = oQuery.CTE_NUMERO_EPS;
-                oFactRow.Tipo = oQuery.Tipo;
-                oFactRow.Fecha = oQuery.Fecha;
-                oFactRow.Id = oQuery.Id;
-                oFactRow.Importe = oQuery.Importe;
-                oFactRow.Counter = oQuery.Counter.ToString();
+          
+
+                oFactRow.CAJERO = oQuery.CAJERO;
+                oFactRow.COUNTER_ID = oQuery.COUNTER_ID;
+                oFactRow.CTE_ID = oQuery.CTE_ID;
+                oFactRow.CTE_NUMERO_EPS = oQuery.CTE_NUMERO_EPS;
+                oFactRow.IMPORTE = oQuery.IMPORTE;
+                oFactRow.MOVCAJA_ID = oQuery.MOVCAJA_ID;
+                oFactRow.NUM_FISCAL = oQuery.NUM_FISCAL;
+                oFactRow.REC_CREDITO = oQuery.REC_CREDITO;
+                oFactRow.RECIBO = oQuery.RECIBO;
+                oFactRow.RECIBO_ID = oQuery.RECIBO_ID;
+                oFactRow.SUC_ID = oQuery.SUC_ID;
+                oFactRow.TIP_MOV = oQuery.TIP_MOV;
+                oFactRow.TIPO_DESCR = oQuery.TIPO_DESCR;
+                oFactRow.TIPO_REC_DESC = oQuery.TIPO_REC_DESC;
+             
+
 
                 oTable.Rows.Add(oFactRow);
 
             }
 
-            oTable.TableName = "CuadreCaja";
+            oTable.TableName = "VW_CUADRE_CAJA";
       
            // string sPath = @".\Reportes\CuandreCaja.rdlc";
-            string sPath = "OpeAgencia2.Reportes.CuandreCaja.rdlc";
+            string sPath = "OpeAgencia2.Reportes.rCuadreCaja2.rdlc";
 
-            frmReportViewer x = new frmReportViewer(sPath,oTable);
+            frmReportViewer x = new frmReportViewer(sPath,oTable,"Reporte de Movimientos de Caja -" + txtFecha.Value.Date.ToShortDateString());
 
             x.ShowDialog();
 
