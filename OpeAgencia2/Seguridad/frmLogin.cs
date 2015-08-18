@@ -31,7 +31,6 @@ namespace OpeAgencia2.Seguridad
             {
                 Parametros.Parametros.UsuarioSucursalActual = Convert.ToInt32(cmbSucursal.SelectedValue);
                 Parametros.Parametros.NombreSucActual = cmbSucursal.Text;
-
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 this.Close();
             }
@@ -40,62 +39,43 @@ namespace OpeAgencia2.Seguridad
             {
                 Parametros.Parametros.UsuarioId = iUsuarioId;
                 Parametros.Parametros.UserName = txtUsuario.Text;
-                
-
                 Parametros.Parametros.UsuarioSucursal = oSeg.SucursalUsuarios(iUsuarioId);
-
                 bAutenticado = true;
-
-              
-
                 if (Parametros.Parametros.UsuarioSucursal.Count > 1)
                 {
                     var sQry = from p in Parametros.Parametros.UsuarioSucursal
                                  select new {p.USR_SUC_ID, p.Sucursales.SUC_DESCRIPCION};
-
                     cmbSucursal.DataSource =  sQry.ToList();
                     cmbSucursal.DisplayMember = "SUC_DESCRIPCION";
                     cmbSucursal.ValueMember = "USR_SUC_ID";
-
                     cmbSucursal.Visible = true;
                     lblSucursal.Visible = true;
-
                     grbBotones.Location = new Point(grbBotones.Location.X, grbBotones.Location.Y + 25); 
-
                 }
                 else
                 {
                     Parametros.Parametros.SucursalActual = Parametros.Parametros.UsuarioSucursal.FirstOrDefault().Sucursales.SUC_ID;
                     Parametros.Parametros.UsuarioSucursalActual = Parametros.Parametros.UsuarioSucursal.FirstOrDefault().USR_SUC_ID;
                     Parametros.Parametros.NombreSucActual = Parametros.Parametros.UsuarioSucursal.FirstOrDefault().Sucursales.SUC_DESCRIPCION;
-
                     this.DialogResult = System.Windows.Forms.DialogResult.OK;
                     this.Close();
                 }
-
-               
-
             }
             else
             {
-                //MessageBox.Show("Acceso negado");
+                MessageBox.Show("Usuario o contraseña incorrecta. Intente nuevamente", "Datos incorrectos", MessageBoxButtons.OK, 
+                    MessageBoxIcon.Exclamation);
                 txtClave.Text = "";
                 iCount++;
-
             }
-
             if (iCount > 2)
             {
                 this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
                 this.Close();
             }
-
         }
-
-
        
         //
-
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -108,7 +88,20 @@ namespace OpeAgencia2.Seguridad
             grbBotones.Location= new Point(grbBotones.Location.X, grbBotones.Location.Y -25); 
         }
 
+        private void txtClave_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnAceptar.PerformClick();
+            }
+        }
 
-        
+        private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                txtClave.Focus();
+            }
+        }        
     }
 }

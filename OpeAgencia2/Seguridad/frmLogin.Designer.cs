@@ -67,6 +67,7 @@
             this.txtUsuario.Size = new System.Drawing.Size(188, 20);
             this.txtUsuario.TabIndex = 2;
             this.txtUsuario.Text = "Manfredo";
+            this.txtUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyDown);
             // 
             // txtClave
             // 
@@ -75,6 +76,7 @@
             this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(188, 20);
             this.txtClave.TabIndex = 3;
+            this.txtClave.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtClave_KeyDown);
             // 
             // groupBox1
             // 

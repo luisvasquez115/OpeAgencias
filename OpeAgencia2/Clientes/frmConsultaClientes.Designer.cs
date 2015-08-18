@@ -228,6 +228,8 @@
             this.txtApellidoBuscar.Name = "txtApellidoBuscar";
             this.txtApellidoBuscar.Size = new System.Drawing.Size(216, 20);
             this.txtApellidoBuscar.TabIndex = 5;
+            this.txtApellidoBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFindEPS_KeyDown);
+            this.txtApellidoBuscar.Leave += new System.EventHandler(this.txtFindEPS_Leave);
             // 
             // txtNombreBuscar
             // 
@@ -236,6 +238,8 @@
             this.txtNombreBuscar.Name = "txtNombreBuscar";
             this.txtNombreBuscar.Size = new System.Drawing.Size(178, 20);
             this.txtNombreBuscar.TabIndex = 4;
+            this.txtNombreBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFindEPS_KeyDown);
+            this.txtNombreBuscar.Leave += new System.EventHandler(this.txtFindEPS_Leave);
             // 
             // label3
             // 
@@ -262,6 +266,8 @@
             this.txtFindEPS.Name = "txtFindEPS";
             this.txtFindEPS.Size = new System.Drawing.Size(100, 20);
             this.txtFindEPS.TabIndex = 1;
+            this.txtFindEPS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFindEPS_KeyDown);
+            this.txtFindEPS.Leave += new System.EventHandler(this.txtFindEPS_Leave);
             // 
             // label1
             // 
@@ -290,7 +296,7 @@
             this.tabRegistro.Location = new System.Drawing.Point(4, 22);
             this.tabRegistro.Name = "tabRegistro";
             this.tabRegistro.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRegistro.Size = new System.Drawing.Size(737, 534);
+            this.tabRegistro.Size = new System.Drawing.Size(730, 501);
             this.tabRegistro.TabIndex = 1;
             this.tabRegistro.Text = "Mantenimiento";
             this.tabRegistro.UseVisualStyleBackColor = true;
@@ -304,7 +310,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(731, 528);
+            this.tabControl1.Size = new System.Drawing.Size(724, 495);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -318,7 +324,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(723, 502);
+            this.tabPage1.Size = new System.Drawing.Size(716, 469);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Generales";
             this.tabPage1.UseVisualStyleBackColor = true;

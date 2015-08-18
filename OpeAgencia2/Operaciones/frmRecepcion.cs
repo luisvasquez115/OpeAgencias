@@ -222,9 +222,6 @@ namespace OpeAgencia2.Operaciones
                 unitOfWork.Dispose();
                 throw ex;
             }
-
-
-
         }
 
         /// <summary>
