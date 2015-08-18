@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.usrbntMant1 = new OpeAgencia2.usrbntMant();
             this.tabMant = new System.Windows.Forms.TabControl();
             this.tabConsulta = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -142,6 +141,7 @@
             this.label28 = new System.Windows.Forms.Label();
             this.txtCTE_NOMBRE_COMPANIA = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
+            this.usrbntMant1 = new OpeAgencia2.usrbntMant();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -188,15 +188,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(745, 602);
             this.splitContainer1.SplitterDistance = 38;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // usrbntMant1
-            // 
-            this.usrbntMant1.bAdiciona = false;
-            this.usrbntMant1.bExito = false;
-            this.usrbntMant1.Location = new System.Drawing.Point(0, 3);
-            this.usrbntMant1.Name = "usrbntMant1";
-            this.usrbntMant1.Size = new System.Drawing.Size(479, 28);
-            this.usrbntMant1.TabIndex = 1;
             // 
             // tabMant
             // 
@@ -261,6 +252,8 @@
             this.txtApellidoBuscar.Name = "txtApellidoBuscar";
             this.txtApellidoBuscar.Size = new System.Drawing.Size(216, 20);
             this.txtApellidoBuscar.TabIndex = 5;
+            this.txtApellidoBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFindEPS_KeyDown);
+            this.txtApellidoBuscar.Leave += new System.EventHandler(this.txtFindEPS_Leave);
             // 
             // txtNombreBuscar
             // 
@@ -269,7 +262,8 @@
             this.txtNombreBuscar.Name = "txtNombreBuscar";
             this.txtNombreBuscar.Size = new System.Drawing.Size(178, 20);
             this.txtNombreBuscar.TabIndex = 4;
-            this.txtNombreBuscar.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.txtNombreBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFindEPS_KeyDown);
+            this.txtNombreBuscar.Leave += new System.EventHandler(this.txtFindEPS_Leave);
             // 
             // label3
             // 
@@ -296,6 +290,8 @@
             this.txtFindEPS.Name = "txtFindEPS";
             this.txtFindEPS.Size = new System.Drawing.Size(100, 20);
             this.txtFindEPS.TabIndex = 1;
+            this.txtFindEPS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFindEPS_KeyDown);
+            this.txtFindEPS.Leave += new System.EventHandler(this.txtFindEPS_Leave);
             // 
             // label1
             // 
@@ -495,7 +491,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Generales";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtCTE_FECHA_VENCIMIENTO
             // 
@@ -529,7 +524,6 @@
             this.txtCTE_FECHA_NACIMIENTO.Size = new System.Drawing.Size(200, 20);
             this.txtCTE_FECHA_NACIMIENTO.TabIndex = 8;
             this.txtCTE_FECHA_NACIMIENTO.Tag = "CTE_FECHA_NACIMIENTO";
-            this.txtCTE_FECHA_NACIMIENTO.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label21
             // 
@@ -630,7 +624,6 @@
             this.txtCTE_NOMBRE.Size = new System.Drawing.Size(268, 20);
             this.txtCTE_NOMBRE.TabIndex = 3;
             this.txtCTE_NOMBRE.Tag = "CTE_NOMBRE";
-            this.txtCTE_NOMBRE.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
             // label10
             // 
@@ -640,7 +633,6 @@
             this.label10.Size = new System.Drawing.Size(52, 13);
             this.label10.TabIndex = 14;
             this.label10.Text = "Nombres:";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // textBox5
             // 
@@ -962,7 +954,6 @@
             this.label7.Size = new System.Drawing.Size(43, 13);
             this.label7.TabIndex = 8;
             this.label7.Text = "Cédula:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label9
             // 
@@ -972,7 +963,6 @@
             this.label9.Size = new System.Drawing.Size(33, 13);
             this.label9.TabIndex = 12;
             this.label9.Text = "RNC:";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // txtCTE_RNC
             // 
@@ -982,7 +972,6 @@
             this.txtCTE_RNC.Size = new System.Drawing.Size(100, 20);
             this.txtCTE_RNC.TabIndex = 1;
             this.txtCTE_RNC.Tag = "CTE_RNC";
-            this.txtCTE_RNC.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // txtCTE_PASAPORTE
             // 
@@ -992,7 +981,6 @@
             this.txtCTE_PASAPORTE.Size = new System.Drawing.Size(100, 20);
             this.txtCTE_PASAPORTE.TabIndex = 2;
             this.txtCTE_PASAPORTE.Tag = "CTE_PASAPORTE";
-            this.txtCTE_PASAPORTE.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // label8
             // 
@@ -1011,7 +999,6 @@
             this.txtCTE_CEDULA.Size = new System.Drawing.Size(100, 20);
             this.txtCTE_CEDULA.TabIndex = 0;
             this.txtCTE_CEDULA.Tag = "CTE_CEDULA";
-            this.txtCTE_CEDULA.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // tabPage2
             // 
@@ -1152,7 +1139,6 @@
             this.label25.Size = new System.Drawing.Size(61, 13);
             this.label25.TabIndex = 12;
             this.label25.Text = "Tipo Fiscal:";
-            this.label25.Click += new System.EventHandler(this.label25_Click);
             // 
             // cmbTIPO_MENSAJERIA_ID
             // 
@@ -1172,7 +1158,6 @@
             this.label24.Size = new System.Drawing.Size(61, 13);
             this.label24.TabIndex = 10;
             this.label24.Text = "Mensajeria:";
-            this.label24.Click += new System.EventHandler(this.label24_Click);
             // 
             // cmbCTE_RESPRESENTANTE_ID
             // 
@@ -1192,7 +1177,6 @@
             this.label23.Size = new System.Drawing.Size(42, 13);
             this.label23.TabIndex = 8;
             this.label23.Text = "Asesor:";
-            this.label23.Click += new System.EventHandler(this.label23_Click);
             // 
             // cmbCTE_SUC_ID
             // 
@@ -1213,7 +1197,6 @@
             this.label22.Size = new System.Drawing.Size(51, 13);
             this.label22.TabIndex = 6;
             this.label22.Text = "Sucursal:";
-            this.label22.Click += new System.EventHandler(this.label22_Click);
             // 
             // tabPage3
             // 
@@ -1249,7 +1232,6 @@
             this.groupBox5.TabIndex = 17;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Otras informaciones";
-            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
             // label39
             // 
@@ -1376,6 +1358,15 @@
             this.label27.Size = new System.Drawing.Size(51, 13);
             this.label27.TabIndex = 16;
             this.label27.Text = "Empresa:";
+            // 
+            // usrbntMant1
+            // 
+            this.usrbntMant1.bAdiciona = false;
+            this.usrbntMant1.bExito = false;
+            this.usrbntMant1.Location = new System.Drawing.Point(0, 3);
+            this.usrbntMant1.Name = "usrbntMant1";
+            this.usrbntMant1.Size = new System.Drawing.Size(479, 28);
+            this.usrbntMant1.TabIndex = 1;
             // 
             // frmClientes
             // 

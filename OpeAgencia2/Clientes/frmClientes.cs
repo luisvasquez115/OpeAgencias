@@ -726,7 +726,6 @@ namespace OpeAgencia2.Clientes
                                 else
                                     MyComp.CTE_LIMITE_CREDITO = Convert.ToDecimal(((TextBox)ctr).Text);
                             }
-                               
                             break;
                         case "CTE_BALANCE_DISPONIBLE":
                       
@@ -739,10 +738,7 @@ namespace OpeAgencia2.Clientes
                                   else
                                       MyComp.CTE_BALANCE_DISPONIBLE = Convert.ToDecimal(((TextBox)ctr).Text);
                               }
-                             
                             break;
-
-
                         case "CTE_SUC_ID":
                             if(pbConsulta)
                                 ((ComboBox)ctr).SelectedValue = MyComp.CTE_SUC_ID;
@@ -760,7 +756,6 @@ namespace OpeAgencia2.Clientes
                                  ((ComboBox)ctr).SelectedValue = MyComp.TIPO_MENSAJERIA_ID;
                             else
                                  MyComp.TIPO_MENSAJERIA_ID = Convert.ToInt32(((ComboBox)ctr).SelectedValue);
-
                             break;
                         case "CTE_TIPO_FISCAL":
                             if(pbConsulta)
@@ -773,37 +768,31 @@ namespace OpeAgencia2.Clientes
                                 ((ComboBox)ctr).SelectedValue = MyComp.COD_TARIFA;
                             else
                                 MyComp.COD_TARIFA = Convert.ToInt32( ((ComboBox)ctr).SelectedValue );
-
                             break;
                         case "CFG_METODO_TARIFA":
                             if(pbConsulta)
                             ((ComboBox)ctr).SelectedIndex = MyComp.CFG_METODO_TARIFA;
                             else
                                 MyComp.CFG_METODO_TARIFA = ((ComboBox)ctr).SelectedIndex;
-
                             break;
                         case "CTE_DIA_CORTE":
                             if(pbConsulta)
                                ((NumericUpDown)ctr).Value = MyComp.CTE_DIA_CORTE;
                             else
                                  MyComp.CTE_DIA_CORTE = Convert.ToInt32( ((NumericUpDown)ctr).Value );
-
                             break;
                         case "CTE_NOMBRE_COMPANIA":
                             if(pbConsulta)
                                  ((TextBox)ctr).Text = MyComp.CTE_NOMBRE_COMPANIA;
                             else
                                  MyComp.CTE_NOMBRE_COMPANIA = ((TextBox)ctr).Text ;
-
                             break;
                         case "CTE_CARGO":
                             if(pbConsulta)
                                 ((TextBox)ctr).Text = MyComp.CTE_CARGO;
                             else
                                 MyComp.CTE_CARGO =  ((TextBox)ctr).Text;
-
                             break;
-
                         case "CTE_COBRADOR":
                             if(pbConsulta)
                                 ((TextBox)ctr).Text = MyComp.CTE_COBRADOR;
@@ -816,7 +805,6 @@ namespace OpeAgencia2.Clientes
                             else
                                 MyComp.CTE_CODIGO_VOICE = MyComp.CTE_CODIGO_VOICE;
                             break;
-
                         case "CTE_LIBRAS_GRATIS":
                             if(pbConsulta)
                                ((TextBox)ctr).Text = MyComp.CTE_LIBRAS_GRATIS.ToString();
@@ -826,9 +814,7 @@ namespace OpeAgencia2.Clientes
                                 else
                                       MyComp.CTE_LIBRAS_GRATIS =  Convert.ToDecimal(((TextBox)ctr).Text) ;
                             }
-                                
                             break;
-
                         case "CTE_LIBRAS_ACUMULADAS":
                             if(pbConsulta)
                                ((TextBox)ctr).Text = MyComp.CTE_LIBRAS_ACUMULADAS.ToString();
@@ -838,12 +824,8 @@ namespace OpeAgencia2.Clientes
                                      MyComp.CTE_LIBRAS_ACUMULADAS = 0;
                                 else
                                     MyComp.CTE_LIBRAS_ACUMULADAS = Convert.ToDecimal(((TextBox)ctr).Text);
-                       
                             }
-                               
-
                             break;
-
                         case "CTE_MENSAJE_PIE":
                             if(pbConsulta)
                                  ((TextBox)ctr).Text = MyComp.CTE_MENSAJE_PIE;
@@ -855,7 +837,6 @@ namespace OpeAgencia2.Clientes
                                   ((ComboBox)ctr).SelectedIndex = MyComp.CTE_MANEJO_OPERACIONAL;
                             else
                                 MyComp.CTE_MANEJO_OPERACIONAL =  ((ComboBox)ctr).SelectedIndex;
-
                             break;
                         case "CTE_EMAIL":
                             if (pbConsulta)
@@ -863,7 +844,6 @@ namespace OpeAgencia2.Clientes
                             else
                                 MyComp.CTE_EMAIL = ((TextBox)ctr).Text;
                             break;
-
                     }
               }
         }
@@ -873,9 +853,7 @@ namespace OpeAgencia2.Clientes
             foreach (Control ctr in tabControl1.Controls)
             {
                 ManejaEstados(ctr, bEstado);
-
             }
-
         }
 
         void ManejaEstados(Control oControl, bool bEstado)
@@ -889,8 +867,6 @@ namespace OpeAgencia2.Clientes
                         ctr.Enabled = false;
                     else
                         ctr.Enabled = bEstado;
-
-
                 }
                 if (ctr.Controls.Count > 0)
                     ManejaEstados( ctr,  bEstado);
@@ -904,7 +880,6 @@ namespace OpeAgencia2.Clientes
             foreach (Control ctr in tabPage2.Controls)
             {
                 LimpiarCampos(ctr);
-
             }
         }
 
@@ -916,7 +891,6 @@ namespace OpeAgencia2.Clientes
                 {
                     if (ctr.Name.Substring(0, 3) == "txt")
                         ctr.Text = "";
-
                 }
                 else if (ctr.GetType().Name == "ComboBox")
                     ((ComboBox)ctr).SelectedValue = -1;
@@ -924,7 +898,6 @@ namespace OpeAgencia2.Clientes
                     ((CheckBox)ctr).Checked = false;
                 else if (ctr.GetType().Name == "NumericUpDown")
                     ((NumericUpDown)ctr).Value = 0;
-
                 if (ctr.Controls.Count > 0)
                     LimpiarCampos(ctr);
             }
@@ -938,7 +911,6 @@ namespace OpeAgencia2.Clientes
                 {
                     _Id = Convert.ToInt32(dg.CurrentRow.Cells[0].Value);
                     ConsultarDatos(_Id);
-
                 }
                 catch (Exception ex)
                 {
@@ -949,116 +921,24 @@ namespace OpeAgencia2.Clientes
                 {
                     tabControl1.SelectedIndex = 0;
                     //tabMant.SelectedTab = tabPage2;
-
                 }
             }
-
         }
-
-
-
-
 
         private void btnFind_Click(object sender, EventArgs e)
         {
             CargarDatosIniciales();
         }
 
-
-        private void label7_Click(object sender, EventArgs e)
+        private void txtFindEPS_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if(e.KeyCode == Keys.Enter)
+                CargarDatosIniciales();
         }
 
-        private void textBox6_TextChanged(object sender, EventArgs e)
+        private void txtFindEPS_Leave(object sender, EventArgs e)
         {
-
+            CargarDatosIniciales();
         }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox5_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label22_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label23_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label24_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label25_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label26_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label30_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox6_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-      
-
-       
-
-       
     }
 }
