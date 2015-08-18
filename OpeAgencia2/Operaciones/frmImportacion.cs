@@ -386,33 +386,22 @@ namespace OpeAgencia2.Operaciones
                 sErrores.AppendLine("Cliente no Existe: " + oRow["CTE_NUMERO_EPS"].ToString());
                 return bRetorno;
             }
-
-
-
-
-
             //  oRow["PRO_CODIGO"]
             //    oRow["SUP_CODIGO"]
             //ORI_CODIGO
             /* */
+            //var weii = oRow["ORI_CODIGO"].ToString().TrimEnd() + oRow["SUP_CODIGO"].ToString().TrimEnd() +
+            //    oRow["PRO_CODIGO"].ToString().TrimEnd();
             var oProd = unitOfWork.ProductosRepository.ProdIdFromCode(oRow["ORI_CODIGO"].ToString().TrimEnd(),
                                                                                 oRow["SUP_CODIGO"].ToString().TrimEnd(),
                                                                                  oRow["PRO_CODIGO"].ToString().TrimEnd()).FirstOrDefault();
-
             oBultos.PROD_ID = oProd.PROD_ID;
-
             oBultos.MAN_MANIFIESTO = oRow["MAN_MANIFIESTO"].ToString();
             oBultos.BLT_GUIA_HIJA = oRow["BLT_GUIA_HIJA"].ToString();
             oBultos.BLT_CODIGO_BARRA = oRow["BLT_CODIGO_BARRA"].ToString();
-
-
-
             sOrigen = oRow["BLT_DESTINO"].ToString();
-
             if (sOrigen.TrimEnd() == "")
                 sOrigen = "SDQ";
-
-
             var sQryDst = unitOfWork.OrigenRepository.Get(filter: s => s.ORI_CODIGO == sOrigen).FirstOrDefault();
 
             oBultos.DEST_ID = sQryDst.ORI_ID;
