@@ -97,7 +97,7 @@ namespace OpeAgencia2.Facturacion
 
             iCounterId = Convert.ToInt32(cmbCounter.SelectedValue);
 
-            var sQuery = unitOfWork.vwCuadreCajaRepository.Get(filter: s => s.FECHA >= dFechaIni && s.FECHA < dFechaFin && s.COUNTER_ID == iCounterId);
+            var sQuery = unitOfWork.vwCuadreCajaRepository.Get(filter: s => s.FECHA == dFechaIni && s.COUNTER_ID == iCounterId);
                        
 
             BO.DAL.dsReportes.VW_CUADRE_CAJADataTable oTable = new BO.DAL.dsReportes.VW_CUADRE_CAJADataTable();

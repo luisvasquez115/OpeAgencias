@@ -90,6 +90,7 @@ namespace OpeAgencia2.Facturacion
 
                 ComboCargos();
                 CargarOrigen();
+                CargarCargosSelect();
             
             
         }
@@ -193,16 +194,18 @@ namespace OpeAgencia2.Facturacion
 
         void CargarCargosSelect()
         {
+            oCargosSelect.Rows.Clear();
 
             var cargosExits = from p in unitOfWork.CargosProductoRepository.Get(filter: s => s.PROD_ID == iProductoId && s.Cargos.CAR_BASE_ID != 29 && s.Cargos.CAR_TIPO=="C" && s.Cargos.CAR_ESTADO == true) /*tipo cargos*/
                               select new { Id = p.CARGO_PROD_ID, Nombre = p.Cargos.CAR_CODIGO + "-->" + p.Cargos.CAR_DESCRIPCION + "(" + p.TasaCambio.TASA_CODIGO + ")" };
 
 
+            int i = 0;
 
             foreach(var oVar in cargosExits)
             {
                 DataRow dr = oCargosSelect.NewRow();
-                dr["ID"] = -1;
+                dr["ID"] = i;
                 dr["Selected"] = false;
                 dr["CARGO_PROD_ID"] = oVar.Id;
                 dr["Desc"] = oVar.Nombre;
@@ -213,6 +216,7 @@ namespace OpeAgencia2.Facturacion
              
 
                 oCargosSelect.Rows.Add(dr);
+                i++;
 
             }
 
