@@ -30,14 +30,14 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblEpsHasta = new System.Windows.Forms.Label();
+            this.lblEps = new System.Windows.Forms.Label();
+            this.txtEpsHasta = new System.Windows.Forms.TextBox();
+            this.txtEpsDesde = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtEpsDesde = new System.Windows.Forms.TextBox();
-            this.txtEpsHasta = new System.Windows.Forms.TextBox();
-            this.lblEps = new System.Windows.Forms.Label();
-            this.lblEpsHasta = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +65,58 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
+            // lblEpsHasta
+            // 
+            this.lblEpsHasta.AutoSize = true;
+            this.lblEpsHasta.Location = new System.Drawing.Point(80, 92);
+            this.lblEpsHasta.Name = "lblEpsHasta";
+            this.lblEpsHasta.Size = new System.Drawing.Size(35, 13);
+            this.lblEpsHasta.TabIndex = 5;
+            this.lblEpsHasta.Text = "label5";
+            // 
+            // lblEps
+            // 
+            this.lblEps.AutoSize = true;
+            this.lblEps.Location = new System.Drawing.Point(77, 43);
+            this.lblEps.Name = "lblEps";
+            this.lblEps.Size = new System.Drawing.Size(28, 13);
+            this.lblEps.TabIndex = 4;
+            this.lblEps.Text = "EPS";
+            // 
+            // txtEpsHasta
+            // 
+            this.txtEpsHasta.Location = new System.Drawing.Point(77, 65);
+            this.txtEpsHasta.Name = "txtEpsHasta";
+            this.txtEpsHasta.Size = new System.Drawing.Size(100, 20);
+            this.txtEpsHasta.TabIndex = 3;
+            this.txtEpsHasta.Leave += new System.EventHandler(this.txtEpsHasta_Leave);
+            // 
+            // txtEpsDesde
+            // 
+            this.txtEpsDesde.Location = new System.Drawing.Point(77, 16);
+            this.txtEpsDesde.Name = "txtEpsDesde";
+            this.txtEpsDesde.Size = new System.Drawing.Size(100, 20);
+            this.txtEpsDesde.TabIndex = 2;
+            this.txtEpsDesde.Leave += new System.EventHandler(this.txtEpsDesde_Leave);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Hasta EPS:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Desde EPS:";
+            // 
             // btnGenerar
             // 
             this.btnGenerar.Location = new System.Drawing.Point(167, 199);
@@ -84,58 +136,6 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Desde EPS:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 68);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Hasta EPS:";
-            // 
-            // txtEpsDesde
-            // 
-            this.txtEpsDesde.Location = new System.Drawing.Point(77, 16);
-            this.txtEpsDesde.Name = "txtEpsDesde";
-            this.txtEpsDesde.Size = new System.Drawing.Size(100, 20);
-            this.txtEpsDesde.TabIndex = 2;
-            this.txtEpsDesde.Leave += new System.EventHandler(this.txtEpsDesde_Leave);
-            // 
-            // txtEpsHasta
-            // 
-            this.txtEpsHasta.Location = new System.Drawing.Point(77, 65);
-            this.txtEpsHasta.Name = "txtEpsHasta";
-            this.txtEpsHasta.Size = new System.Drawing.Size(100, 20);
-            this.txtEpsHasta.TabIndex = 3;
-            this.txtEpsHasta.Leave += new System.EventHandler(this.txtEpsHasta_Leave);
-            // 
-            // lblEps
-            // 
-            this.lblEps.AutoSize = true;
-            this.lblEps.Location = new System.Drawing.Point(77, 43);
-            this.lblEps.Name = "lblEps";
-            this.lblEps.Size = new System.Drawing.Size(28, 13);
-            this.lblEps.TabIndex = 4;
-            this.lblEps.Text = "EPS";
-            // 
-            // lblEpsHasta
-            // 
-            this.lblEpsHasta.AutoSize = true;
-            this.lblEpsHasta.Location = new System.Drawing.Point(80, 92);
-            this.lblEpsHasta.Name = "lblEpsHasta";
-            this.lblEpsHasta.Size = new System.Drawing.Size(35, 13);
-            this.lblEpsHasta.TabIndex = 5;
-            this.lblEpsHasta.Text = "label5";
-            // 
             // frmEstadoCuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,6 +146,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Name = "frmEstadoCuenta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEstadoCuenta";
             this.Load += new System.EventHandler(this.frmEstadoCuenta_Load);
             this.groupBox1.ResumeLayout(false);

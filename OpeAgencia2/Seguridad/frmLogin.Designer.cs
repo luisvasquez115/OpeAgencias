@@ -132,6 +132,7 @@
             this.cmbSucursal.Size = new System.Drawing.Size(188, 21);
             this.cmbSucursal.TabIndex = 7;
             this.cmbSucursal.Visible = false;
+            this.cmbSucursal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbSucursal_KeyDown);
             // 
             // lblSucursal
             // 

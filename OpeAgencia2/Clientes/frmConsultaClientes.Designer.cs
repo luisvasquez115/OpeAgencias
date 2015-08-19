@@ -461,6 +461,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.textCTE_NUMERO_EPS);
             this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(9, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(361, 341);
@@ -982,7 +983,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(723, 502);
+            this.tabPage2.Size = new System.Drawing.Size(716, 469);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Asignaciones";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1179,7 +1180,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(723, 502);
+            this.tabPage3.Size = new System.Drawing.Size(716, 469);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Otras Informaciones";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1203,7 +1204,7 @@
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(3, 3);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(717, 496);
+            this.groupBox5.Size = new System.Drawing.Size(710, 463);
             this.groupBox5.TabIndex = 17;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Otras informaciones";
@@ -1341,6 +1342,7 @@
             this.ClientSize = new System.Drawing.Size(738, 527);
             this.Controls.Add(this.tabMant);
             this.Name = "frmConsultaClientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmConsultaClientes";
             this.Load += new System.EventHandler(this.frmConsultaClientes_Load);
             this.tabMant.ResumeLayout(false);

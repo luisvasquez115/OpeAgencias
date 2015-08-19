@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.usrbntMant1 = new OpeAgencia2.usrbntMant();
             this.tabMant = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dg = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtFactor = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtDescr = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -44,8 +46,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textCargoId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtFactor = new System.Windows.Forms.TextBox();
-            this.usrbntMant1 = new OpeAgencia2.usrbntMant();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -70,9 +70,18 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabMant);
-            this.splitContainer1.Size = new System.Drawing.Size(492, 328);
-            this.splitContainer1.SplitterDistance = 28;
+            this.splitContainer1.Size = new System.Drawing.Size(492, 281);
+            this.splitContainer1.SplitterDistance = 25;
             this.splitContainer1.TabIndex = 4;
+            // 
+            // usrbntMant1
+            // 
+            this.usrbntMant1.bAdiciona = false;
+            this.usrbntMant1.bExito = false;
+            this.usrbntMant1.Location = new System.Drawing.Point(6, 4);
+            this.usrbntMant1.Name = "usrbntMant1";
+            this.usrbntMant1.Size = new System.Drawing.Size(479, 28);
+            this.usrbntMant1.TabIndex = 0;
             // 
             // tabMant
             // 
@@ -82,7 +91,7 @@
             this.tabMant.Location = new System.Drawing.Point(0, 0);
             this.tabMant.Name = "tabMant";
             this.tabMant.SelectedIndex = 0;
-            this.tabMant.Size = new System.Drawing.Size(492, 296);
+            this.tabMant.Size = new System.Drawing.Size(492, 252);
             this.tabMant.TabIndex = 0;
             this.tabMant.SelectedIndexChanged += new System.EventHandler(this.tabMant_SelectedIndexChanged);
             // 
@@ -92,7 +101,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(484, 270);
+            this.tabPage1.Size = new System.Drawing.Size(484, 226);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Consulta";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -107,7 +116,7 @@
             this.dg.Location = new System.Drawing.Point(3, 3);
             this.dg.Name = "dg";
             this.dg.ReadOnly = true;
-            this.dg.Size = new System.Drawing.Size(478, 264);
+            this.dg.Size = new System.Drawing.Size(478, 220);
             this.dg.TabIndex = 0;
             // 
             // tabPage2
@@ -127,15 +136,26 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(484, 270);
+            this.tabPage2.Size = new System.Drawing.Size(484, 226);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // txtFactor
+            // 
+            this.txtFactor.Location = new System.Drawing.Point(145, 165);
+            this.txtFactor.Name = "txtFactor";
+            this.txtFactor.Size = new System.Drawing.Size(132, 20);
+            this.txtFactor.TabIndex = 40;
+            this.txtFactor.Tag = "FACTOR_CONV";
+            this.txtFactor.TextChanged += new System.EventHandler(this.txtFactor_TextChanged);
+            this.txtFactor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFactor_KeyPress);
+            this.txtFactor.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(14, 211);
+            this.label12.Location = new System.Drawing.Point(99, 168);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(40, 13);
             this.label12.TabIndex = 39;
@@ -144,7 +164,7 @@
             // txtDescr
             // 
             this.txtDescr.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescr.Location = new System.Drawing.Point(113, 80);
+            this.txtDescr.Location = new System.Drawing.Point(145, 54);
             this.txtDescr.Multiline = true;
             this.txtDescr.Name = "txtDescr";
             this.txtDescr.Size = new System.Drawing.Size(261, 51);
@@ -154,11 +174,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 83);
+            this.label6.Location = new System.Drawing.Point(73, 57);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
+            this.label6.Size = new System.Drawing.Size(66, 13);
             this.label6.TabIndex = 27;
-            this.label6.Text = "Descripción";
+            this.label6.Text = "Descripción:";
             // 
             // cmbMonedaConv
             // 
@@ -167,7 +187,7 @@
             this.cmbMonedaConv.Items.AddRange(new object[] {
             "Directo",
             "Tabla"});
-            this.cmbMonedaConv.Location = new System.Drawing.Point(113, 164);
+            this.cmbMonedaConv.Location = new System.Drawing.Point(145, 138);
             this.cmbMonedaConv.Name = "cmbMonedaConv";
             this.cmbMonedaConv.Size = new System.Drawing.Size(261, 21);
             this.cmbMonedaConv.TabIndex = 22;
@@ -176,7 +196,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 164);
+            this.label3.Location = new System.Drawing.Point(59, 141);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 13);
             this.label3.TabIndex = 21;
@@ -189,7 +209,7 @@
             this.cmbMonedaBase.Items.AddRange(new object[] {
             "UNIDAD",
             "CARGO"});
-            this.cmbMonedaBase.Location = new System.Drawing.Point(113, 137);
+            this.cmbMonedaBase.Location = new System.Drawing.Point(145, 111);
             this.cmbMonedaBase.Name = "cmbMonedaBase";
             this.cmbMonedaBase.Size = new System.Drawing.Size(261, 21);
             this.cmbMonedaBase.TabIndex = 19;
@@ -198,7 +218,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 137);
+            this.label2.Location = new System.Drawing.Point(70, 114);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 13);
             this.label2.TabIndex = 18;
@@ -207,7 +227,7 @@
             // txtCodigo
             // 
             this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodigo.Location = new System.Drawing.Point(113, 47);
+            this.txtCodigo.Location = new System.Drawing.Point(145, 28);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 20);
             this.txtCodigo.TabIndex = 17;
@@ -216,7 +236,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(14, 47);
+            this.label8.Location = new System.Drawing.Point(96, 31);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(43, 13);
             this.label8.TabIndex = 16;
@@ -225,49 +245,32 @@
             // textCargoId
             // 
             this.textCargoId.Enabled = false;
-            this.textCargoId.Location = new System.Drawing.Point(113, 14);
+            this.textCargoId.Location = new System.Drawing.Point(367, 19);
             this.textCargoId.Name = "textCargoId";
             this.textCargoId.Size = new System.Drawing.Size(100, 20);
             this.textCargoId.TabIndex = 1;
             this.textCargoId.Tag = "TASA_ID";
+            this.textCargoId.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 14);
+            this.label1.Location = new System.Drawing.Point(315, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tasa Id:";
-            // 
-            // txtFactor
-            // 
-            this.txtFactor.Location = new System.Drawing.Point(113, 204);
-            this.txtFactor.Name = "txtFactor";
-            this.txtFactor.Size = new System.Drawing.Size(132, 20);
-            this.txtFactor.TabIndex = 40;
-            this.txtFactor.Tag = "FACTOR_CONV";
-            this.txtFactor.TextChanged += new System.EventHandler(this.txtFactor_TextChanged);
-            this.txtFactor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFactor_KeyPress);
-            this.txtFactor.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
-            // 
-            // usrbntMant1
-            // 
-            this.usrbntMant1.bAdiciona = false;
-            this.usrbntMant1.bExito = false;
-            this.usrbntMant1.Location = new System.Drawing.Point(6, 4);
-            this.usrbntMant1.Name = "usrbntMant1";
-            this.usrbntMant1.Size = new System.Drawing.Size(479, 28);
-            this.usrbntMant1.TabIndex = 0;
+            this.label1.Visible = false;
             // 
             // frmTasaCambio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 328);
+            this.ClientSize = new System.Drawing.Size(492, 281);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmTasaCambio";
-            this.Text = "frmTasaCambio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tasa de cambio";
             this.Load += new System.EventHandler(this.frmTasaCambio_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

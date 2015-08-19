@@ -50,16 +50,16 @@
             this.groupBox1.Controls.Add(this.cmbZona);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cmbOrigen);
-            this.groupBox1.Location = new System.Drawing.Point(12, 82);
+            this.groupBox1.Location = new System.Drawing.Point(12, 65);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(401, 154);
+            this.groupBox1.Size = new System.Drawing.Size(385, 119);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(213, 103);
+            this.btnCancel.Location = new System.Drawing.Point(213, 83);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 7;
@@ -69,7 +69,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(294, 103);
+            this.btnSave.Location = new System.Drawing.Point(294, 83);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 6;
@@ -80,7 +80,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 68);
+            this.label3.Location = new System.Drawing.Point(24, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 5;
@@ -99,15 +99,15 @@
             "F",
             "G",
             "H"});
-            this.cmbZona.Location = new System.Drawing.Point(82, 65);
+            this.cmbZona.Location = new System.Drawing.Point(65, 46);
             this.cmbZona.Name = "cmbZona";
-            this.cmbZona.Size = new System.Drawing.Size(287, 21);
+            this.cmbZona.Size = new System.Drawing.Size(304, 21);
             this.cmbZona.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 31);
+            this.label2.Location = new System.Drawing.Point(18, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 3;
@@ -117,25 +117,25 @@
             // 
             this.cmbOrigen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOrigen.FormattingEnabled = true;
-            this.cmbOrigen.Location = new System.Drawing.Point(82, 28);
+            this.cmbOrigen.Location = new System.Drawing.Point(65, 19);
             this.cmbOrigen.Name = "cmbOrigen";
-            this.cmbOrigen.Size = new System.Drawing.Size(287, 21);
+            this.cmbOrigen.Size = new System.Drawing.Size(304, 21);
             this.cmbOrigen.TabIndex = 2;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.cmbProducto);
-            this.groupBox2.Location = new System.Drawing.Point(12, 25);
+            this.groupBox2.Location = new System.Drawing.Point(12, 8);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(403, 51);
+            this.groupBox2.Size = new System.Drawing.Size(385, 51);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 19);
+            this.label1.Location = new System.Drawing.Point(11, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 1;
@@ -146,7 +146,7 @@
             this.cmbProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProducto.Enabled = false;
             this.cmbProducto.FormattingEnabled = true;
-            this.cmbProducto.Location = new System.Drawing.Point(72, 16);
+            this.cmbProducto.Location = new System.Drawing.Point(65, 19);
             this.cmbProducto.Name = "cmbProducto";
             this.cmbProducto.Size = new System.Drawing.Size(304, 21);
             this.cmbProducto.TabIndex = 0;
@@ -155,11 +155,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(443, 262);
+            this.ClientSize = new System.Drawing.Size(409, 192);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmZonaEnvioEdit";
-            this.Text = "frmZonaEnvioEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Editar zona envío";
             this.Load += new System.EventHandler(this.frmZonaEnvioEdit_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

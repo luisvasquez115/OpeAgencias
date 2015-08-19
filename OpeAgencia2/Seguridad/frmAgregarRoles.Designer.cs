@@ -184,7 +184,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmAgregarRoles";
-            this.Text = "frmAgregarRoles";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Agregar roles";
             this.Load += new System.EventHandler(this.frmAgregarRoles_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

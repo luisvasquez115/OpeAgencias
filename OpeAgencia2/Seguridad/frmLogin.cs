@@ -50,7 +50,8 @@ namespace OpeAgencia2.Seguridad
                     cmbSucursal.ValueMember = "USR_SUC_ID";
                     cmbSucursal.Visible = true;
                     lblSucursal.Visible = true;
-                    grbBotones.Location = new Point(grbBotones.Location.X, grbBotones.Location.Y + 25); 
+                    grbBotones.Location = new Point(grbBotones.Location.X, grbBotones.Location.Y + 25);
+                    cmbSucursal.Focus();
                 }
                 else
                 {
@@ -70,6 +71,8 @@ namespace OpeAgencia2.Seguridad
             }
             if (iCount > 2)
             {
+                MessageBox.Show("Ha intentado acceder erróneamente 3 veces. Contacte al administrador del sistema",
+                    "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
                 this.Close();
             }
@@ -102,6 +105,12 @@ namespace OpeAgencia2.Seguridad
             {
                 txtClave.Focus();
             }
+        }
+
+        private void cmbSucursal_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+                btnAceptar.PerformClick();
         }        
     }
 }

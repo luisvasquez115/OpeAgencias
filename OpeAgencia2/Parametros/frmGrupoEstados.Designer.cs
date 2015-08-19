@@ -66,8 +66,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabMant);
-            this.splitContainer1.Size = new System.Drawing.Size(571, 374);
-            this.splitContainer1.SplitterDistance = 33;
+            this.splitContainer1.Size = new System.Drawing.Size(571, 323);
+            this.splitContainer1.SplitterDistance = 28;
             this.splitContainer1.TabIndex = 3;
             // 
             // usrbntMant1
@@ -87,7 +87,7 @@
             this.tabMant.Location = new System.Drawing.Point(0, 0);
             this.tabMant.Name = "tabMant";
             this.tabMant.SelectedIndex = 0;
-            this.tabMant.Size = new System.Drawing.Size(571, 337);
+            this.tabMant.Size = new System.Drawing.Size(571, 291);
             this.tabMant.TabIndex = 0;
             this.tabMant.SelectedIndexChanged += new System.EventHandler(this.tabMant_SelectedIndexChanged);
             // 
@@ -97,7 +97,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(563, 311);
+            this.tabPage1.Size = new System.Drawing.Size(563, 265);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Consulta";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -112,7 +112,7 @@
             this.dg.Location = new System.Drawing.Point(3, 3);
             this.dg.Name = "dg";
             this.dg.ReadOnly = true;
-            this.dg.Size = new System.Drawing.Size(557, 305);
+            this.dg.Size = new System.Drawing.Size(557, 259);
             this.dg.TabIndex = 0;
             // 
             // tabPage2
@@ -128,14 +128,14 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(563, 311);
+            this.tabPage2.Size = new System.Drawing.Size(563, 265);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(88, 96);
+            this.txtNombre.Location = new System.Drawing.Point(172, 90);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(261, 20);
             this.txtNombre.TabIndex = 19;
@@ -144,15 +144,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 96);
+            this.label2.Location = new System.Drawing.Point(119, 93);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 18;
-            this.label2.Text = "Nombre";
+            this.label2.Text = "Nombre:";
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(88, 60);
+            this.txtCodigo.Location = new System.Drawing.Point(172, 54);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(261, 20);
             this.txtCodigo.TabIndex = 17;
@@ -161,7 +161,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 60);
+            this.label8.Location = new System.Drawing.Point(123, 57);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(43, 13);
             this.label8.TabIndex = 16;
@@ -169,7 +169,7 @@
             // 
             // txtDESCR
             // 
-            this.txtDESCR.Location = new System.Drawing.Point(88, 135);
+            this.txtDESCR.Location = new System.Drawing.Point(172, 129);
             this.txtDESCR.Multiline = true;
             this.txtDESCR.Name = "txtDESCR";
             this.txtDESCR.Size = new System.Drawing.Size(261, 67);
@@ -179,11 +179,11 @@
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(13, 135);
+            this.lblDesc.Location = new System.Drawing.Point(100, 132);
             this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(63, 13);
+            this.lblDesc.Size = new System.Drawing.Size(66, 13);
             this.lblDesc.TabIndex = 2;
-            this.lblDesc.Text = "Descripción";
+            this.lblDesc.Text = "Descripción:";
             // 
             // textGRUPO_ESTADO_ID
             // 
@@ -193,24 +193,27 @@
             this.textGRUPO_ESTADO_ID.Size = new System.Drawing.Size(100, 20);
             this.textGRUPO_ESTADO_ID.TabIndex = 1;
             this.textGRUPO_ESTADO_ID.Tag = "GRUPO_EST_ID";
+            this.textGRUPO_ESTADO_ID.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 27);
+            this.label1.Location = new System.Drawing.Point(63, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(19, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Id:";
+            this.label1.Visible = false;
             // 
             // frmGrupoEstados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 374);
+            this.ClientSize = new System.Drawing.Size(571, 323);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmGrupoEstados";
-            this.Text = "frmGrupoEstados";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Grupo Estados";
             this.Load += new System.EventHandler(this.frmGrupoEstados_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

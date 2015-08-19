@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.usrbntMant1 = new OpeAgencia2.usrbntMant();
             this.tabMant = new System.Windows.Forms.TabControl();
             this.tabConsulta = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -141,7 +142,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.txtCTE_NOMBRE_COMPANIA = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.usrbntMant1 = new OpeAgencia2.usrbntMant();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -188,6 +188,15 @@
             this.splitContainer1.Size = new System.Drawing.Size(745, 602);
             this.splitContainer1.SplitterDistance = 38;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // usrbntMant1
+            // 
+            this.usrbntMant1.bAdiciona = false;
+            this.usrbntMant1.bExito = false;
+            this.usrbntMant1.Location = new System.Drawing.Point(0, 3);
+            this.usrbntMant1.Name = "usrbntMant1";
+            this.usrbntMant1.Size = new System.Drawing.Size(479, 28);
+            this.usrbntMant1.TabIndex = 1;
             // 
             // tabMant
             // 
@@ -1359,15 +1368,6 @@
             this.label27.TabIndex = 16;
             this.label27.Text = "Empresa:";
             // 
-            // usrbntMant1
-            // 
-            this.usrbntMant1.bAdiciona = false;
-            this.usrbntMant1.bExito = false;
-            this.usrbntMant1.Location = new System.Drawing.Point(0, 3);
-            this.usrbntMant1.Name = "usrbntMant1";
-            this.usrbntMant1.Size = new System.Drawing.Size(479, 28);
-            this.usrbntMant1.TabIndex = 1;
-            // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1375,6 +1375,7 @@
             this.ClientSize = new System.Drawing.Size(745, 602);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmClientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmClientes";
             this.Load += new System.EventHandler(this.frmClientes_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);

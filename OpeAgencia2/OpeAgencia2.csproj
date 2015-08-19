@@ -479,6 +479,9 @@
     <EmbeddedResource Include="Creditos\frmCredito.resx">
       <DependentUpon>frmCredito.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Creditos\frmEstadoCuenta.resx">
+      <DependentUpon>frmEstadoCuenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\ConsultaEnvios.resx">
       <DependentUpon>ConsultaEnvios.cs</DependentUpon>
     </EmbeddedResource>

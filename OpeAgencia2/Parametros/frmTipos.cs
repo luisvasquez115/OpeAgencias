@@ -329,7 +329,6 @@ namespace OpeAgencia2.Parametros
                 {
                     _Id = Convert.ToInt32(dg.CurrentRow.Cells[0].Value);
                     ConsultarDatos(_Id);
-
                 }
                 catch
                 {
@@ -338,14 +337,8 @@ namespace OpeAgencia2.Parametros
                 if (_Id != -1)
                 {
                     tabMant.SelectedTab = tabPage2;
-
                 }
             }
-
         }
-
-       
-
-
     }
 }

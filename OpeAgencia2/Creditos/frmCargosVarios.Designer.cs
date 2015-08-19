@@ -263,14 +263,14 @@
             // facturarToolStripMenuItem
             // 
             this.facturarToolStripMenuItem.Name = "facturarToolStripMenuItem";
-            this.facturarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.facturarToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.facturarToolStripMenuItem.Text = "Facturar";
             this.facturarToolStripMenuItem.Click += new System.EventHandler(this.facturarToolStripMenuItem_Click);
             // 
             // anularToolStripMenuItem
             // 
             this.anularToolStripMenuItem.Name = "anularToolStripMenuItem";
-            this.anularToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.anularToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.anularToolStripMenuItem.Text = "Anular";
             // 
             // frmCargosVarios
@@ -280,6 +280,7 @@
             this.ClientSize = new System.Drawing.Size(551, 438);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmCargosVarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCargosVarios";
             this.Load += new System.EventHandler(this.frmCargosVarios_Load);
             this.groupBox1.ResumeLayout(false);

@@ -39,7 +39,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 47);
+            this.label1.Location = new System.Drawing.Point(23, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 0;
@@ -50,7 +50,7 @@
             this.cmbUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUsuario.Enabled = false;
             this.cmbUsuario.FormattingEnabled = true;
-            this.cmbUsuario.Location = new System.Drawing.Point(69, 47);
+            this.cmbUsuario.Location = new System.Drawing.Point(75, 17);
             this.cmbUsuario.Name = "cmbUsuario";
             this.cmbUsuario.Size = new System.Drawing.Size(281, 21);
             this.cmbUsuario.TabIndex = 20;
@@ -59,7 +59,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 84);
+            this.label2.Location = new System.Drawing.Point(18, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 13);
             this.label2.TabIndex = 21;
@@ -69,7 +69,7 @@
             // 
             this.cmbSucursal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSucursal.FormattingEnabled = true;
-            this.cmbSucursal.Location = new System.Drawing.Point(69, 84);
+            this.cmbSucursal.Location = new System.Drawing.Point(75, 44);
             this.cmbSucursal.Name = "cmbSucursal";
             this.cmbSucursal.Size = new System.Drawing.Size(281, 21);
             this.cmbSucursal.TabIndex = 22;
@@ -77,7 +77,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(179, 123);
+            this.btnAceptar.Location = new System.Drawing.Point(102, 71);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 23;
@@ -87,7 +87,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(275, 123);
+            this.btnCancelar.Location = new System.Drawing.Point(198, 71);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 24;
@@ -98,7 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(367, 166);
+            this.ClientSize = new System.Drawing.Size(364, 107);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.cmbSucursal);
@@ -106,7 +106,8 @@
             this.Controls.Add(this.cmbUsuario);
             this.Controls.Add(this.label1);
             this.Name = "frmAddSucursal";
-            this.Text = "frmAddSucursal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Añadir sucursal";
             this.Load += new System.EventHandler(this.frmAddSucursal_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

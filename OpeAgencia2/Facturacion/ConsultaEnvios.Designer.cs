@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkNoImpresos = new System.Windows.Forms.CheckBox();
             this.cmbCounter = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -45,7 +46,6 @@
             this.anularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verEnPantallaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.chkNoImpresos = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDatos)).BeginInit();
@@ -73,6 +73,16 @@
             this.groupBox1.Size = new System.Drawing.Size(695, 122);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // chkNoImpresos
+            // 
+            this.chkNoImpresos.AutoSize = true;
+            this.chkNoImpresos.Location = new System.Drawing.Point(286, 58);
+            this.chkNoImpresos.Name = "chkNoImpresos";
+            this.chkNoImpresos.Size = new System.Drawing.Size(140, 17);
+            this.chkNoImpresos.TabIndex = 8;
+            this.chkNoImpresos.Text = "No impresos fiscalmente";
+            this.chkNoImpresos.UseVisualStyleBackColor = true;
             // 
             // cmbCounter
             // 
@@ -217,16 +227,6 @@
             this.splitContainer1.SplitterDistance = 122;
             this.splitContainer1.TabIndex = 2;
             // 
-            // chkNoImpresos
-            // 
-            this.chkNoImpresos.AutoSize = true;
-            this.chkNoImpresos.Location = new System.Drawing.Point(286, 58);
-            this.chkNoImpresos.Name = "chkNoImpresos";
-            this.chkNoImpresos.Size = new System.Drawing.Size(140, 17);
-            this.chkNoImpresos.TabIndex = 8;
-            this.chkNoImpresos.Text = "No impresos fiscalmente";
-            this.chkNoImpresos.UseVisualStyleBackColor = true;
-            // 
             // ConsultaOperaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,6 +234,7 @@
             this.ClientSize = new System.Drawing.Size(695, 556);
             this.Controls.Add(this.splitContainer1);
             this.Name = "ConsultaOperaciones";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta de operaciones";
             this.Load += new System.EventHandler(this.ConsultaEnvios_Load);
             this.groupBox1.ResumeLayout(false);

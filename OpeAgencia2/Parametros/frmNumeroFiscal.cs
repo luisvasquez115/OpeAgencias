@@ -22,7 +22,6 @@ namespace OpeAgencia2.Parametros
         int _iSucId;
         private BO.DAL.UnitOfWork unitOfWork = new BO.DAL.UnitOfWork();
 
-
         private void frmNumeroFiscal_Load(object sender, EventArgs e)
         {
             this.usrbntMant1.ButtonClickAdd += new EventHandler(btnAdd_Click);
@@ -31,60 +30,41 @@ namespace OpeAgencia2.Parametros
             this.usrbntMant1.ButtonClickSalir += new EventHandler(btnSal_Click);
             this.usrbntMant1.ButtonClickSave += new EventHandler(btnSav_Click);
             this.usrbntMant1.ButtonClickUndo += new EventHandler(btnUn_Click);
-
             _iSucId = -1;
-
             CargarCombos();
             ComboTipoFiscalCliente();
         }
-
 
         protected void CargarCombos()
         {
             var Sucursal = from p in unitOfWork.SucursalesRepository.Get()
                            select new { Id = p.SUC_ID, Nombre = p.SUC_CODIGO + "-->" + p.SUC_DESCRIPCION };
-
-
             cmbSucursal.DisplayMember = "Nombre";
             cmbSucursal.ValueMember = "Id";
-
             cmbSucursal.DataSource = Sucursal.ToList();
-
             cmbSucursal.SelectedIndex = 0;
-
             _iSucId = Convert.ToInt32(cmbSucursal.SelectedValue);
         }
-
 
         void ComboTipoFiscalCliente()
         {
             var sup = from p in unitOfWork.TiposRepository.GetByGroupCode("TFCLI")
-                      select new { Id = p.TIPO_ID, Nombre = p.TIPO_CODIGO + "-->" + p.TIPO_NOMBRE }
-                         ;
-
+                      select new { Id = p.TIPO_ID, Nombre = p.TIPO_CODIGO + "-->" + p.TIPO_NOMBRE };
             //
             this.cmbTipoId.ValueMember = "Id";
             cmbTipoId.DisplayMember = "Nombre";
             //
             cmbTipoId.DataSource = sup.ToList();
-
             cmbTipoId.SelectedValue = -1;
-
         }
-      
 
         protected void CargarDatosIniciales(int piGrupoId)
         {
-
             var grupos = from p in unitOfWork.NumeroFicalRepository.Get(filter: s => s.SUC_ID == piGrupoId)
-                         select new { Id = p.NCF_ID, Nombre = p.tipos.TIPO_DESCR, p.PREFIJO, p.SECUENCIA, p.MAX_SECUENCIA };
-
-
-
+                select new { Id = p.NCF_ID, Nombre = p.tipos.TIPO_DESCR, p.PREFIJO, p.SECUENCIA, p.MAX_SECUENCIA };
             dg.DataSource = grupos.ToList();
             tabMant.SelectedIndex = 0;
         }
-
 
         void ManejarEstado(bool bEstado)
         {
@@ -94,10 +74,8 @@ namespace OpeAgencia2.Parametros
                 {
                     if (ctr.Name.Substring(0, 3) == "txt")
                         ctr.Enabled = bEstado;
-
                 }
             }
-
         }
 
         void LimpiarCampos()
@@ -108,52 +86,35 @@ namespace OpeAgencia2.Parametros
                 {
                     if (ctr.Name.Substring(0, 3) == "txt")
                         ctr.Text = "";
-
                 }
             }
         }
 
-
-
         #region "CRUD"
-
 
         void DeleteData()
         {
-
             int iId = Convert.ToInt32(this.text_Id.Text);
-
             var codigo = unitOfWork.NumeroFicalRepository.GetByID(iId);
-
             try
             {
                 unitOfWork.NumeroFicalRepository.Delete(codigo);
                 unitOfWork.Save();
                 MessageBox.Show("Datos Actualizados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 usrbntMant1.bExito = true;
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
-
-
-
-
         }
 
         bool SalvarDatos()
         {
             int iId = -1;
             bool bRetorno = false;
-
             //CompaniasRecord oCom = new CompaniasRecord();
-
-
             BO.Models.NumeroFiscal oCom;
-
-
             if (usrbntMant1.bAdiciona == false)
             {
                 iId = Convert.ToInt32(this.text_Id.Text);
@@ -163,28 +124,21 @@ namespace OpeAgencia2.Parametros
             {
                 oCom = new BO.Models.NumeroFiscal();
             }
-
-
             oCom.TIPO_ID = Convert.ToInt32(this.cmbTipoId.SelectedValue);
             oCom.PREFIJO = txtPrefijo.Text;
             oCom.SECUENCIA = txtSecuencia.IntValue;
             oCom.MAX_SECUENCIA = txtMaximo.IntValue;
-           
             oCom.SUC_ID = Convert.ToInt32(cmbSucursal.SelectedValue);
             oCom.TIPO_FISCAL = Convert.ToInt32(txtTIPO_FISCAL.Value);
-
-
             try
             {
                 if (usrbntMant1.bAdiciona == false)
                     unitOfWork.NumeroFicalRepository.Update(oCom);
                 else
                     unitOfWork.NumeroFicalRepository.Insert(oCom);
-
                 unitOfWork.Save();
                 bRetorno = true;
                 usrbntMant1.bExito = true;
-
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException e)
             {
@@ -195,8 +149,6 @@ namespace OpeAgencia2.Parametros
                     Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
                         eve.Entry.Entity.GetType().Name, eve.Entry.State);
                     */
-
-
                     foreach (var ve in eve.ValidationErrors)
                     {
                         s += ve.ErrorMessage + "\n";
@@ -209,24 +161,16 @@ namespace OpeAgencia2.Parametros
             }
             catch (DataException ex)
             {
-
                 throw ex;
             }
-
-
             return bRetorno;
-
         }
-
-
 
         public void Modificar()
         {
-
             try
             {
                 _Id = Convert.ToInt32(dg.CurrentRow.Cells[0].Value);
-
             }
             catch
             {
@@ -235,18 +179,14 @@ namespace OpeAgencia2.Parametros
             if (_Id != -1)
             {
                 tabMant.SelectedTab = tabPage2;
-
             }
             ConsultarDatos(_Id);
-
         }
 
         void ConsultarDatos(int Id)
         {
             var codigos = unitOfWork.NumeroFicalRepository.GetByID(Id);
-
             MoverDatos(codigos);
-
         }
 
         void MoverDatos(BO.Models.NumeroFiscal MyComp)
@@ -256,8 +196,6 @@ namespace OpeAgencia2.Parametros
             {
                 if (ctr.Tag == null)
                     continue;
-
-
                 switch (ctr.Tag.ToString())
                 {
                     case "NCF_ID":
@@ -270,29 +208,19 @@ namespace OpeAgencia2.Parametros
                         ctr.Text = MyComp.PREFIJO.ToString();
                         break;
                     case "SECUENCIA":
-
                         ((clsUtils.NumericTextBox)ctr).IntValue = MyComp.SECUENCIA;
                         break;
                     case "MAX_SECUENCIA":
-
                         ((clsUtils.NumericTextBox)ctr).IntValue = MyComp.MAX_SECUENCIA;
-                       
                         break;
                     case "TIPO_FISCAL":
                           ((NumericUpDown)ctr).Value = MyComp.TIPO_FISCAL;
-
                         break;
-
-
                 }
-
-
             }
         }
 
         #endregion
-
-
 
         #region "botones"
 
@@ -342,7 +270,6 @@ namespace OpeAgencia2.Parametros
 
         #endregion
 
-
         private void tabMant_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabMant.SelectedIndex == 1)
@@ -351,7 +278,6 @@ namespace OpeAgencia2.Parametros
                 {
                     _Id = Convert.ToInt32(dg.CurrentRow.Cells[0].Value);
                     ConsultarDatos(_Id);
-
                 }
                 catch
                 {
@@ -360,24 +286,14 @@ namespace OpeAgencia2.Parametros
                 if (_Id != -1)
                 {
                     tabMant.SelectedTab = tabPage2;
-
                 }
             }
-
-        }
-
-        private void cmbSucursal_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
         }
 
         private void cmbSucursal_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             int iSucId = Convert.ToInt32(cmbSucursal.SelectedValue);
-
             CargarDatosIniciales(iSucId);
         }
-
-        
     }
 }

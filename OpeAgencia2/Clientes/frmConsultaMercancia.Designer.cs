@@ -32,6 +32,10 @@
             this.tabGenerales = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtMontoTotal = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtPaq = new System.Windows.Forms.TextBox();
+            this.lblPaquetes = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
@@ -44,20 +48,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtEPS = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dg = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dgResumen = new System.Windows.Forms.DataGridView();
+            this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabTransacc = new System.Windows.Forms.TabPage();
             this.tabReclamo = new System.Windows.Forms.TabPage();
             this.tabAudit = new System.Windows.Forms.TabPage();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dgResumen = new System.Windows.Forms.DataGridView();
-            this.txtMontoTotal = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtPaq = new System.Windows.Forms.TextBox();
-            this.lblPaquetes = new System.Windows.Forms.Label();
-            this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabGenerales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -65,9 +65,9 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dg)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dg)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgResumen)).BeginInit();
             this.SuspendLayout();
@@ -138,6 +138,40 @@
             this.groupBox1.Size = new System.Drawing.Size(685, 142);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // txtMontoTotal
+            // 
+            this.txtMontoTotal.Enabled = false;
+            this.txtMontoTotal.Location = new System.Drawing.Point(279, 116);
+            this.txtMontoTotal.Name = "txtMontoTotal";
+            this.txtMontoTotal.Size = new System.Drawing.Size(100, 20);
+            this.txtMontoTotal.TabIndex = 15;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(233, 116);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(40, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Monto:";
+            // 
+            // txtPaq
+            // 
+            this.txtPaq.Enabled = false;
+            this.txtPaq.Location = new System.Drawing.Point(111, 116);
+            this.txtPaq.Name = "txtPaq";
+            this.txtPaq.Size = new System.Drawing.Size(100, 20);
+            this.txtPaq.TabIndex = 13;
+            // 
+            // lblPaquetes
+            // 
+            this.lblPaquetes.AutoSize = true;
+            this.lblPaquetes.Location = new System.Drawing.Point(50, 116);
+            this.lblPaquetes.Name = "lblPaquetes";
+            this.lblPaquetes.Size = new System.Drawing.Size(55, 13);
+            this.lblPaquetes.TabIndex = 12;
+            this.lblPaquetes.Text = "Paquetes:";
             // 
             // btnLimpiar
             // 
@@ -244,52 +278,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "EPS:";
             // 
-            // dg
-            // 
-            this.dg.AllowUserToAddRows = false;
-            this.dg.AllowUserToDeleteRows = false;
-            this.dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dg.Location = new System.Drawing.Point(3, 3);
-            this.dg.Name = "dg";
-            this.dg.ReadOnly = true;
-            this.dg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dg.Size = new System.Drawing.Size(671, 278);
-            this.dg.TabIndex = 0;
-            this.dg.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_CellContentClick);
-            this.dg.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dg_DataBindingComplete);
-            this.dg.SelectionChanged += new System.EventHandler(this.dg_SelectionChanged);
-            // 
-            // tabTransacc
-            // 
-            this.tabTransacc.Location = new System.Drawing.Point(4, 22);
-            this.tabTransacc.Name = "tabTransacc";
-            this.tabTransacc.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTransacc.Size = new System.Drawing.Size(670, 462);
-            this.tabTransacc.TabIndex = 1;
-            this.tabTransacc.Text = "Transacciones";
-            this.tabTransacc.UseVisualStyleBackColor = true;
-            // 
-            // tabReclamo
-            // 
-            this.tabReclamo.Location = new System.Drawing.Point(4, 22);
-            this.tabReclamo.Name = "tabReclamo";
-            this.tabReclamo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabReclamo.Size = new System.Drawing.Size(670, 462);
-            this.tabReclamo.TabIndex = 2;
-            this.tabReclamo.Text = "Reclamaciones";
-            this.tabReclamo.UseVisualStyleBackColor = true;
-            // 
-            // tabAudit
-            // 
-            this.tabAudit.Location = new System.Drawing.Point(4, 22);
-            this.tabAudit.Name = "tabAudit";
-            this.tabAudit.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAudit.Size = new System.Drawing.Size(670, 462);
-            this.tabAudit.TabIndex = 3;
-            this.tabAudit.Text = "Auditoria";
-            this.tabAudit.UseVisualStyleBackColor = true;
-            // 
             // tabControl2
             // 
             this.tabControl2.Controls.Add(this.tabPage1);
@@ -311,6 +299,22 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Consulta";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dg
+            // 
+            this.dg.AllowUserToAddRows = false;
+            this.dg.AllowUserToDeleteRows = false;
+            this.dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dg.Location = new System.Drawing.Point(3, 3);
+            this.dg.Name = "dg";
+            this.dg.ReadOnly = true;
+            this.dg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dg.Size = new System.Drawing.Size(671, 278);
+            this.dg.TabIndex = 0;
+            this.dg.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_CellContentClick);
+            this.dg.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dg_DataBindingComplete);
+            this.dg.SelectionChanged += new System.EventHandler(this.dg_SelectionChanged);
             // 
             // tabPage2
             // 
@@ -338,40 +342,6 @@
             this.dgResumen.Size = new System.Drawing.Size(671, 278);
             this.dgResumen.TabIndex = 1;
             // 
-            // txtMontoTotal
-            // 
-            this.txtMontoTotal.Enabled = false;
-            this.txtMontoTotal.Location = new System.Drawing.Point(279, 116);
-            this.txtMontoTotal.Name = "txtMontoTotal";
-            this.txtMontoTotal.Size = new System.Drawing.Size(100, 20);
-            this.txtMontoTotal.TabIndex = 15;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(233, 116);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 13);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Monto:";
-            // 
-            // txtPaq
-            // 
-            this.txtPaq.Enabled = false;
-            this.txtPaq.Location = new System.Drawing.Point(111, 116);
-            this.txtPaq.Name = "txtPaq";
-            this.txtPaq.Size = new System.Drawing.Size(100, 20);
-            this.txtPaq.TabIndex = 13;
-            // 
-            // lblPaquetes
-            // 
-            this.lblPaquetes.AutoSize = true;
-            this.lblPaquetes.Location = new System.Drawing.Point(50, 116);
-            this.lblPaquetes.Name = "lblPaquetes";
-            this.lblPaquetes.Size = new System.Drawing.Size(55, 13);
-            this.lblPaquetes.TabIndex = 12;
-            this.lblPaquetes.Text = "Paquetes:";
-            // 
             // Cargo
             // 
             this.Cargo.HeaderText = "Cargo";
@@ -384,6 +354,36 @@
             this.Monto.Name = "Monto";
             this.Monto.ReadOnly = true;
             // 
+            // tabTransacc
+            // 
+            this.tabTransacc.Location = new System.Drawing.Point(4, 22);
+            this.tabTransacc.Name = "tabTransacc";
+            this.tabTransacc.Padding = new System.Windows.Forms.Padding(3);
+            this.tabTransacc.Size = new System.Drawing.Size(691, 462);
+            this.tabTransacc.TabIndex = 1;
+            this.tabTransacc.Text = "Transacciones";
+            this.tabTransacc.UseVisualStyleBackColor = true;
+            // 
+            // tabReclamo
+            // 
+            this.tabReclamo.Location = new System.Drawing.Point(4, 22);
+            this.tabReclamo.Name = "tabReclamo";
+            this.tabReclamo.Padding = new System.Windows.Forms.Padding(3);
+            this.tabReclamo.Size = new System.Drawing.Size(691, 462);
+            this.tabReclamo.TabIndex = 2;
+            this.tabReclamo.Text = "Reclamaciones";
+            this.tabReclamo.UseVisualStyleBackColor = true;
+            // 
+            // tabAudit
+            // 
+            this.tabAudit.Location = new System.Drawing.Point(4, 22);
+            this.tabAudit.Name = "tabAudit";
+            this.tabAudit.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAudit.Size = new System.Drawing.Size(691, 462);
+            this.tabAudit.TabIndex = 3;
+            this.tabAudit.Text = "Auditoria";
+            this.tabAudit.UseVisualStyleBackColor = true;
+            // 
             // frmConsultaMercancia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,6 +391,7 @@
             this.ClientSize = new System.Drawing.Size(699, 488);
             this.Controls.Add(this.tabControl1);
             this.Name = "frmConsultaMercancia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmConsultaMercancia";
             this.Load += new System.EventHandler(this.frmConsultaMercancia_Load);
             this.tabControl1.ResumeLayout(false);
@@ -401,9 +402,9 @@
             this.splitContainer1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dg)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dg)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgResumen)).EndInit();
             this.ResumeLayout(false);

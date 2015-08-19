@@ -136,19 +136,11 @@ namespace OpeAgencia2.Precios
             try
             {
                 unitOfWork.Save();
-
             }
             catch(Exception ex)
             {
                 throw ex;
             }
-
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void btnCargarTarifas_Click(object sender, EventArgs e)
@@ -156,8 +148,5 @@ namespace OpeAgencia2.Precios
             frmCargarTarifaCourier x = new frmCargarTarifaCourier(_Id);
             x.ShowDialog();
         }
-
-
-
     }
 }

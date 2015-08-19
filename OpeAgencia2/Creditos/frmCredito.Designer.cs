@@ -33,6 +33,8 @@
             this.txtEPS = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.TextCTE_BALANCE = new clsUtils.NumericTextBox();
+            this.textCTE_LIMITE_CREDITO = new clsUtils.NumericTextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.txtDiasCredito = new System.Windows.Forms.NumericUpDown();
             this.label30 = new System.Windows.Forms.Label();
@@ -40,8 +42,6 @@
             this.label37 = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.textCTE_LIMITE_CREDITO = new clsUtils.NumericTextBox();
-            this.TextCTE_BALANCE = new clsUtils.NumericTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiasCredito)).BeginInit();
@@ -100,6 +100,34 @@
             this.groupBox6.TabIndex = 21;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Crédito";
+            // 
+            // TextCTE_BALANCE
+            // 
+            this.TextCTE_BALANCE.AllowSpace = false;
+            this.TextCTE_BALANCE.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.TextCTE_BALANCE.IntValue = 0;
+            this.TextCTE_BALANCE.Location = new System.Drawing.Point(109, 94);
+            this.TextCTE_BALANCE.Name = "TextCTE_BALANCE";
+            this.TextCTE_BALANCE.Size = new System.Drawing.Size(172, 21);
+            this.TextCTE_BALANCE.TabIndex = 29;
+            // 
+            // textCTE_LIMITE_CREDITO
+            // 
+            this.textCTE_LIMITE_CREDITO.AllowSpace = false;
+            this.textCTE_LIMITE_CREDITO.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.textCTE_LIMITE_CREDITO.IntValue = 0;
+            this.textCTE_LIMITE_CREDITO.Location = new System.Drawing.Point(109, 66);
+            this.textCTE_LIMITE_CREDITO.Name = "textCTE_LIMITE_CREDITO";
+            this.textCTE_LIMITE_CREDITO.Size = new System.Drawing.Size(172, 21);
+            this.textCTE_LIMITE_CREDITO.TabIndex = 28;
             // 
             // label26
             // 
@@ -167,34 +195,6 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // textCTE_LIMITE_CREDITO
-            // 
-            this.textCTE_LIMITE_CREDITO.AllowSpace = false;
-            this.textCTE_LIMITE_CREDITO.DecimalValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.textCTE_LIMITE_CREDITO.IntValue = 0;
-            this.textCTE_LIMITE_CREDITO.Location = new System.Drawing.Point(109, 66);
-            this.textCTE_LIMITE_CREDITO.Name = "textCTE_LIMITE_CREDITO";
-            this.textCTE_LIMITE_CREDITO.Size = new System.Drawing.Size(172, 21);
-            this.textCTE_LIMITE_CREDITO.TabIndex = 28;
-            // 
-            // TextCTE_BALANCE
-            // 
-            this.TextCTE_BALANCE.AllowSpace = false;
-            this.TextCTE_BALANCE.DecimalValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.TextCTE_BALANCE.IntValue = 0;
-            this.TextCTE_BALANCE.Location = new System.Drawing.Point(109, 94);
-            this.TextCTE_BALANCE.Name = "TextCTE_BALANCE";
-            this.TextCTE_BALANCE.Size = new System.Drawing.Size(172, 21);
-            this.TextCTE_BALANCE.TabIndex = 29;
-            // 
             // frmCredito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,6 +205,7 @@
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmCredito";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCredito";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

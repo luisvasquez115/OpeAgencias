@@ -54,7 +54,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(400, 126);
+            this.groupBox1.Size = new System.Drawing.Size(400, 106);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -62,7 +62,7 @@
             // 
             this.cmbModulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbModulo.FormattingEnabled = true;
-            this.cmbModulo.Location = new System.Drawing.Point(73, 92);
+            this.cmbModulo.Location = new System.Drawing.Point(73, 70);
             this.cmbModulo.Name = "cmbModulo";
             this.cmbModulo.Size = new System.Drawing.Size(308, 21);
             this.cmbModulo.TabIndex = 5;
@@ -70,17 +70,17 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 95);
+            this.label3.Location = new System.Drawing.Point(22, 73);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Modulo:";
+            this.label3.Text = "Módulo:";
             // 
             // cmbSucursal
             // 
             this.cmbSucursal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSucursal.FormattingEnabled = true;
-            this.cmbSucursal.Location = new System.Drawing.Point(73, 58);
+            this.cmbSucursal.Location = new System.Drawing.Point(73, 42);
             this.cmbSucursal.Name = "cmbSucursal";
             this.cmbSucursal.Size = new System.Drawing.Size(308, 21);
             this.cmbSucursal.TabIndex = 3;
@@ -89,7 +89,7 @@
             // 
             this.cmbUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUsuario.FormattingEnabled = true;
-            this.cmbUsuario.Location = new System.Drawing.Point(73, 26);
+            this.cmbUsuario.Location = new System.Drawing.Point(73, 15);
             this.cmbUsuario.Name = "cmbUsuario";
             this.cmbUsuario.Size = new System.Drawing.Size(308, 21);
             this.cmbUsuario.TabIndex = 2;
@@ -98,7 +98,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 58);
+            this.label2.Location = new System.Drawing.Point(16, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 13);
             this.label2.TabIndex = 1;
@@ -107,7 +107,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 26);
+            this.label1.Location = new System.Drawing.Point(21, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 0;
@@ -116,16 +116,16 @@
             // treeView1
             // 
             this.treeView1.CheckBoxes = true;
-            this.treeView1.Location = new System.Drawing.Point(12, 161);
+            this.treeView1.Location = new System.Drawing.Point(12, 124);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(239, 422);
+            this.treeView1.Size = new System.Drawing.Size(258, 422);
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterCheck);
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(19, 63);
+            this.btnActualizar.Location = new System.Drawing.Point(21, 48);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(96, 23);
             this.btnActualizar.TabIndex = 2;
@@ -135,7 +135,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(19, 102);
+            this.btnCancelar.Location = new System.Drawing.Point(21, 77);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(96, 23);
             this.btnCancelar.TabIndex = 3;
@@ -147,15 +147,15 @@
             this.groupBox2.Controls.Add(this.btnBuscar);
             this.groupBox2.Controls.Add(this.btnCancelar);
             this.groupBox2.Controls.Add(this.btnActualizar);
-            this.groupBox2.Location = new System.Drawing.Point(257, 161);
+            this.groupBox2.Location = new System.Drawing.Point(276, 124);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(155, 146);
+            this.groupBox2.Size = new System.Drawing.Size(136, 119);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(19, 19);
+            this.btnBuscar.Location = new System.Drawing.Point(21, 19);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(96, 23);
             this.btnBuscar.TabIndex = 4;
@@ -167,12 +167,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 605);
+            this.ClientSize = new System.Drawing.Size(439, 554);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmAccesoUsuarioSucursal";
-            this.Text = "frmAccesoUsuarioSucursal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Opciones del usuario";
             this.Load += new System.EventHandler(this.frmAccesoUsuarioSucursal_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

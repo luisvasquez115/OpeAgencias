@@ -191,7 +191,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(88, 96);
+            this.txtNombre.Location = new System.Drawing.Point(179, 97);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(261, 20);
             this.txtNombre.TabIndex = 19;
@@ -200,7 +200,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 96);
+            this.label2.Location = new System.Drawing.Point(129, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 18;
@@ -208,7 +208,7 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(88, 60);
+            this.txtCodigo.Location = new System.Drawing.Point(179, 71);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(261, 20);
             this.txtCodigo.TabIndex = 17;
@@ -217,7 +217,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 60);
+            this.label8.Location = new System.Drawing.Point(130, 74);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(43, 13);
             this.label8.TabIndex = 16;
@@ -225,7 +225,7 @@
             // 
             // txtDESCR
             // 
-            this.txtDESCR.Location = new System.Drawing.Point(88, 135);
+            this.txtDESCR.Location = new System.Drawing.Point(179, 123);
             this.txtDESCR.Multiline = true;
             this.txtDESCR.Name = "txtDESCR";
             this.txtDESCR.Size = new System.Drawing.Size(261, 67);
@@ -235,7 +235,7 @@
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(13, 135);
+            this.lblDesc.Location = new System.Drawing.Point(110, 126);
             this.lblDesc.Name = "lblDesc";
             this.lblDesc.Size = new System.Drawing.Size(63, 13);
             this.lblDesc.TabIndex = 2;
@@ -249,6 +249,7 @@
             this.textGRUPO_TIPO_ID.Size = new System.Drawing.Size(100, 20);
             this.textGRUPO_TIPO_ID.TabIndex = 1;
             this.textGRUPO_TIPO_ID.Tag = "TIPO_ID";
+            this.textGRUPO_TIPO_ID.Visible = false;
             // 
             // label1
             // 
@@ -258,6 +259,7 @@
             this.label1.Size = new System.Drawing.Size(19, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Id:";
+            this.label1.Visible = false;
             // 
             // frmTipos
             // 
@@ -266,7 +268,8 @@
             this.ClientSize = new System.Drawing.Size(561, 362);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmTipos";
-            this.Text = "frmTipos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tipos";
             this.Load += new System.EventHandler(this.frmCodigos_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

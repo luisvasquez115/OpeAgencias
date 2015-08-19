@@ -460,6 +460,7 @@
             this.ClientSize = new System.Drawing.Size(875, 463);
             this.Controls.Add(this.tabControl1);
             this.Name = "frmDatosPago";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDatosPago";
             this.Load += new System.EventHandler(this.frmDatosPago_Load);
             this.groupBox1.ResumeLayout(false);

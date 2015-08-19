@@ -47,15 +47,15 @@
             this.groupBox2.Controls.Add(this.btnBuscar);
             this.groupBox2.Controls.Add(this.btnCancelar);
             this.groupBox2.Controls.Add(this.btnActualizar);
-            this.groupBox2.Location = new System.Drawing.Point(257, 161);
+            this.groupBox2.Location = new System.Drawing.Point(257, 101);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(155, 146);
+            this.groupBox2.Size = new System.Drawing.Size(155, 115);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(19, 19);
+            this.btnBuscar.Location = new System.Drawing.Point(31, 19);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(96, 23);
             this.btnBuscar.TabIndex = 4;
@@ -65,7 +65,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(19, 102);
+            this.btnCancelar.Location = new System.Drawing.Point(31, 77);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(96, 23);
             this.btnCancelar.TabIndex = 3;
@@ -74,7 +74,7 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(19, 63);
+            this.btnActualizar.Location = new System.Drawing.Point(31, 48);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(96, 23);
             this.btnActualizar.TabIndex = 2;
@@ -85,7 +85,7 @@
             // treeView1
             // 
             this.treeView1.CheckBoxes = true;
-            this.treeView1.Location = new System.Drawing.Point(12, 161);
+            this.treeView1.Location = new System.Drawing.Point(12, 101);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(239, 422);
             this.treeView1.TabIndex = 6;
@@ -99,7 +99,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(400, 126);
+            this.groupBox1.Size = new System.Drawing.Size(400, 83);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
@@ -108,7 +108,7 @@
             this.cmbModulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbModulo.Enabled = false;
             this.cmbModulo.FormattingEnabled = true;
-            this.cmbModulo.Location = new System.Drawing.Point(73, 53);
+            this.cmbModulo.Location = new System.Drawing.Point(73, 46);
             this.cmbModulo.Name = "cmbModulo";
             this.cmbModulo.Size = new System.Drawing.Size(308, 21);
             this.cmbModulo.TabIndex = 5;
@@ -116,18 +116,18 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 56);
+            this.label3.Location = new System.Drawing.Point(22, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Modulo:";
+            this.label3.Text = "Módulo:";
             // 
             // cmbRole
             // 
             this.cmbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRole.Enabled = false;
             this.cmbRole.FormattingEnabled = true;
-            this.cmbRole.Location = new System.Drawing.Point(73, 26);
+            this.cmbRole.Location = new System.Drawing.Point(73, 19);
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.Size = new System.Drawing.Size(308, 21);
             this.cmbRole.TabIndex = 2;
@@ -135,22 +135,23 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 26);
+            this.label1.Location = new System.Drawing.Point(41, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.Size = new System.Drawing.Size(26, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Role:";
+            this.label1.Text = "Rol:";
             // 
             // frmAccesoRoles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(436, 596);
+            this.ClientSize = new System.Drawing.Size(422, 530);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmAccesoRoles";
-            this.Text = "frmAccesoRoles";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Opciones de los roles";
             this.Load += new System.EventHandler(this.frmAccesoRoles_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

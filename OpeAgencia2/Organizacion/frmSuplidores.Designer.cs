@@ -68,8 +68,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabMant);
-            this.splitContainer1.Size = new System.Drawing.Size(573, 434);
-            this.splitContainer1.SplitterDistance = 39;
+            this.splitContainer1.Size = new System.Drawing.Size(573, 286);
+            this.splitContainer1.SplitterDistance = 33;
             this.splitContainer1.TabIndex = 1;
             // 
             // usrbntMant1
@@ -89,7 +89,7 @@
             this.tabMant.Location = new System.Drawing.Point(0, 0);
             this.tabMant.Name = "tabMant";
             this.tabMant.SelectedIndex = 0;
-            this.tabMant.Size = new System.Drawing.Size(573, 391);
+            this.tabMant.Size = new System.Drawing.Size(573, 249);
             this.tabMant.TabIndex = 0;
             this.tabMant.SelectedIndexChanged += new System.EventHandler(this.tabMant_SelectedIndexChanged);
             // 
@@ -99,7 +99,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(565, 365);
+            this.tabPage1.Size = new System.Drawing.Size(565, 231);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Consulta";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -114,7 +114,7 @@
             this.dg.Location = new System.Drawing.Point(3, 3);
             this.dg.Name = "dg";
             this.dg.ReadOnly = true;
-            this.dg.Size = new System.Drawing.Size(559, 359);
+            this.dg.Size = new System.Drawing.Size(559, 225);
             this.dg.TabIndex = 0;
             // 
             // tabPage2
@@ -132,7 +132,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(565, 365);
+            this.tabPage2.Size = new System.Drawing.Size(565, 223);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -140,7 +140,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 173);
+            this.label3.Location = new System.Drawing.Point(127, 136);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 21;
@@ -149,11 +149,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 129);
+            this.label2.Location = new System.Drawing.Point(129, 109);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 20;
-            this.label2.Text = "Orígen:";
+            this.label2.Text = "Origen:";
             // 
             // cmbEstado
             // 
@@ -162,7 +162,7 @@
             this.cmbEstado.Items.AddRange(new object[] {
             "A",
             "I"});
-            this.cmbEstado.Location = new System.Drawing.Point(88, 170);
+            this.cmbEstado.Location = new System.Drawing.Point(178, 133);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(261, 21);
             this.cmbEstado.TabIndex = 19;
@@ -172,7 +172,7 @@
             // 
             this.cmbOrigen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOrigen.FormattingEnabled = true;
-            this.cmbOrigen.Location = new System.Drawing.Point(88, 129);
+            this.cmbOrigen.Location = new System.Drawing.Point(178, 106);
             this.cmbOrigen.Name = "cmbOrigen";
             this.cmbOrigen.Size = new System.Drawing.Size(261, 21);
             this.cmbOrigen.TabIndex = 18;
@@ -180,7 +180,7 @@
             // 
             // txtNombreCorto
             // 
-            this.txtNombreCorto.Location = new System.Drawing.Point(88, 60);
+            this.txtNombreCorto.Location = new System.Drawing.Point(178, 54);
             this.txtNombreCorto.Name = "txtNombreCorto";
             this.txtNombreCorto.Size = new System.Drawing.Size(261, 20);
             this.txtNombreCorto.TabIndex = 17;
@@ -189,7 +189,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 60);
+            this.label8.Location = new System.Drawing.Point(129, 57);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(43, 13);
             this.label8.TabIndex = 16;
@@ -197,7 +197,7 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(88, 91);
+            this.txtCodigo.Location = new System.Drawing.Point(178, 80);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(261, 20);
             this.txtCodigo.TabIndex = 3;
@@ -206,38 +206,41 @@
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(13, 91);
+            this.lblDesc.Location = new System.Drawing.Point(106, 83);
             this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(63, 13);
+            this.lblDesc.Size = new System.Drawing.Size(66, 13);
             this.lblDesc.TabIndex = 2;
-            this.lblDesc.Text = "Descripción";
+            this.lblDesc.Text = "Descripción:";
             // 
             // textId
             // 
             this.textId.Enabled = false;
-            this.textId.Location = new System.Drawing.Point(88, 27);
+            this.textId.Location = new System.Drawing.Point(129, 15);
             this.textId.Name = "textId";
             this.textId.Size = new System.Drawing.Size(100, 20);
             this.textId.TabIndex = 1;
             this.textId.Tag = "SUP_ID";
+            this.textId.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 27);
+            this.label1.Location = new System.Drawing.Point(54, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(19, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Id:";
+            this.label1.Visible = false;
             // 
             // frmSuplidores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 434);
+            this.ClientSize = new System.Drawing.Size(573, 286);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmSuplidores";
-            this.Text = "frmSuplidores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Suplidores";
             this.Load += new System.EventHandler(this.frmSuplidores_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

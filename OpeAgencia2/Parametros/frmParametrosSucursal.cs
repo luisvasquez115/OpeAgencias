@@ -347,12 +347,7 @@ namespace OpeAgencia2.Parametros
         private void cmbSucursal_SelectedIndexChanged(object sender, EventArgs e)
         {
             int iSucId = Convert.ToInt32(cmbSucursal.SelectedValue);
-
             CargarDatosIniciales(iSucId);
         }
-
-   
-
-
     }
 }

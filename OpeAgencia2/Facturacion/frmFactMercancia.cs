@@ -44,36 +44,14 @@ namespace OpeAgencia2.Facturacion
 
          void  CargarCorrespondencia()
         {
-
             oTableCorr = new BO.DAL.dsDatos.CorrespondenciaDataTable();
             dgCorr.DataSource = oTableCorr;
             dgCorr.Columns[0].Visible = false;
             dgCorr.Columns[3].Visible = false;
-            
-
         }
-
-
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabCargos_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-
+        
         void BuscarPaquetes(int iCteId)
         {
-
             var oBultos = from p in unitOfWork.VW_BultosValoresRepository.Get(filter: s => s.CTE_ID == iCteId && s.BLT_ESTADO_ID == 2)
                           select new
                           {
@@ -84,21 +62,13 @@ namespace OpeAgencia2.Facturacion
                               p.BLT_TRACKING_NUMBER,
                               p.MONTO
                           };
-
-
-
             this.dgPaq.DataSource = oBultos.ToList();
             this.dgPaq.Columns[0].Visible = false;
-
-           
-
         }
 
         void BuscarCliente()
         {
-
              oCliente = unitOfWork.ClientesRepository.Get(filter: s => s.CTE_NUMERO_EPS == txtEPS.Text  && s.CTE_SUC_ID == Parametros.Parametros.SucursalActual).FirstOrDefault();
-
             if (oCliente !=null)
             {
                 lblNombres.Text = oCliente.CTE_NOMBRE + " " + oCliente.CTE_APELLIDO;
@@ -125,10 +95,7 @@ namespace OpeAgencia2.Facturacion
                               btnFacturar.Enabled = false;
                               return;
                           }
-
-
                     }
-
                     MessageBox.Show("Este cliente no tienen un documento de identificación válido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     btnFacturar.Enabled = false;
                     return;
@@ -140,20 +107,17 @@ namespace OpeAgencia2.Facturacion
                 MessageBox.Show("No existe EPS", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 txtEPS.Text = "";
                 txtEPS.Focus();
-
                 lblNombres.Text = "";
                 dgPaq.DataSource = null;
                 dgCorr.DataSource = null;
                 btnFacturar.Enabled = false;
             }
-
         }
 
         private void txtEPS_Leave(object sender, EventArgs e)
         {
             if (txtEPS.Text !="")
-                   BuscarCliente();
-           
+                BuscarCliente();
         }
 
         private void dgPaq_SelectionChanged(object sender, EventArgs e)
@@ -170,7 +134,6 @@ namespace OpeAgencia2.Facturacion
             dgResumen.Rows.Clear();
             dMontoNoVenta = 0;
             dMontoVenta = 0;
-
             for (int i = 0; i < dgPaq.Rows.Count; i++)
             {
                 if (dgPaq.Rows[i].Selected == true)
@@ -183,18 +146,14 @@ namespace OpeAgencia2.Facturacion
             //
             for (int i = 0; i < this.dgCorr.Rows.Count; i++)
             {
-               
                     iPaq++;
                     dMonto += Convert.ToDecimal(dgCorr.Rows[i].Cells[2].Value);
                     dMontoCorr = dMontoCorr + Convert.ToDecimal(dgCorr.Rows[i].Cells[2].Value);
             }
-
             dMontoVenta += dMontoCorr;
-
             this.txtPaq.Text = iPaq.ToString();
             txtMontoTotal.Text = string.Format("{0:0,0.00}", dMontoVenta);
             txtMontoNoVenta.Text = string.Format("{0:0,0.00}", dMontoNoVenta);
-
             foreach( var item in htValores.Keys)
             {
                 dgResumen.Rows.Add(item, string.Format("{0:0,0.00}", htValores[item]));
@@ -203,29 +162,23 @@ namespace OpeAgencia2.Facturacion
             {
                 dgResumen.Rows.Add("Correspondencia", string.Format("{0:0,0.00}", dMontoCorr));
             }
-           
         }
 
         void BuscarValores(int bltNumero)
         {
             var loBultosVal = from p in  unitOfWork.BultosValoresRepository.Get(filter: xy => xy.BLT_NUMERO == bltNumero)
                             select new {Cargo = p.CargosProducto.Cargos.CAR_CODIGO + '-' + p.CargosProducto.Cargos.CAR_DESCRIPCION, Monto = p.BVA_MONTO_LOCAL, ncf = p.CargosProducto.Cargos.CAR_NCF, p.CargosProducto.Cargos.CAR_CODIGO};
-
             foreach (var cargo in loBultosVal)
             {
                 if (htValores[cargo.Cargo] == null)
                     htValores.Add(cargo.Cargo, cargo.Monto);
                 else
                     htValores[cargo.Cargo] = Convert.ToDecimal(htValores[cargo.Cargo]) + cargo.Monto;
-
                 if (cargo.ncf == false && cargo.CAR_CODIGO != "999")
                     dMontoNoVenta += cargo.Monto;
                 else
                     dMontoVenta += cargo.Monto;
             }
-
-
-
         }
 
         private void btnCorres_Click(object sender, EventArgs e)
@@ -240,34 +193,25 @@ namespace OpeAgencia2.Facturacion
                    RegistraCorrespondencia(x.Peso, x.Piezas);
                    ActualizaTotal();
                }
-
             }
         }
 
         void RegistraCorrespondencia(decimal pdPeso, int piPiezas)
         {
             List<BO.Models.BultosValores> oBultosValores = new List<BO.Models.BultosValores>();
-
             DataRow dr = oTableCorr.NewRow();
             dr["Producto"] = Parametros.Parametros.NomProdCorrespondencia;
             dr["ProdId"] = Parametros.Parametros.ProdCorrespondencia;
             dr["Piezas"] = piPiezas;
             dr["Peso"] = pdPeso;
             dr["Monto"] = 0;
-
             BO.BO.CalculoTafiras oTar = new BO.BO.CalculoTafiras();
-
             oBultosValores = oTar.CalcularCorrespondencia(Parametros.Parametros.ProdCorrespondencia, pdPeso, piPiezas, oCliente.CTE_ID);
-
             foreach(BO.Models.BultosValores oVal in oBultosValores)
             {
                 dr["Monto"] = Math.Round((decimal)dr["Monto"] + oVal.BVA_MONTO_LOCAL,2);
             }
-
             oTableCorr.Rows.Add(dr);
-
-
-
         }
 
         private void dgCorr_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -294,17 +238,16 @@ namespace OpeAgencia2.Facturacion
 
         private void btnFacturar_Click(object sender, EventArgs e)
         {
+            var x = Size;
             /*Prueba*/
             if (dMontoVenta > 0)
                  FacturarVenta();
-            
             /*
             if (dMontoNoVenta>0)
                  FacturarNoVenta();
             */
             LimpiarPantalla();
         }
-
 
         void FacturarVenta()
         {
@@ -313,22 +256,14 @@ namespace OpeAgencia2.Facturacion
             decimal dMontoEfectivo = 0;
             decimal dMontoOtros = 0;
             decimal dDevolucion = 0;
-
             decimal dMontoEfectivoNoventa = 0;
             decimal dMontoOtrosNoVenta = 0;
-
             decimal dMontoEfectivoVenta = 0;
             decimal dMontoOtrosVenta = 0;
-
             BO.DAL.dsDatos.DatosPagoDataTable DatosPago = new BO.DAL.dsDatos.DatosPagoDataTable();
             BO.DAL.dsDatos.DatosPagoDataTable DatosPagoNoVenta = new BO.DAL.dsDatos.DatosPagoDataTable();
             BO.DAL.dsDatos.DatosPagoDataTable DatosPagoVenta = new BO.DAL.dsDatos.DatosPagoDataTable();
-
-            if (cmbTipoFact.SelectedIndex == 1)
-                bCredito = true;
-            else
-                bCredito = false;
-
+            bCredito = cmbTipoFact.SelectedIndex == 1;
             if (!bCredito)
             {
                 frmDatosPago x = new frmDatosPago(dMontoVenta+dMontoNoVenta);
@@ -342,8 +277,6 @@ namespace OpeAgencia2.Facturacion
                     bPagado = true;
                 else
                     return;
-
-
                 if (DatosPago.Rows.Count == 0)
                 {
                     BO.DAL.dsDatos.DatosPagoRow oRow = DatosPago.NewDatosPagoRow();
@@ -357,28 +290,21 @@ namespace OpeAgencia2.Facturacion
                     oRow.TipoPago = -1;
                     oRow.TipoPagoDesc = "";
                     DatosPago.Rows.Add(oRow);
-                  
                 }
-
-
             }
             else
             {
-              
-                    //VALIDO  QUE EL CLIENTE TENGA BALANCE
-                    if (oCliente.CTE_BALANCE_DISPONIBLE - Convert.ToDecimal(txtMontoTotal.Text) < 0)
-                    {
-                        MessageBox.Show("El balance disponible del cliente es de: " + oCliente.CTE_BALANCE_DISPONIBLE.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                        return;
-                    }
-
+                //VALIDO  QUE EL CLIENTE TENGA BALANCE
+                if (oCliente.CTE_BALANCE_DISPONIBLE - Convert.ToDecimal(txtMontoTotal.Text) < 0)
+                {
+                    MessageBox.Show("El balance disponible del cliente es de: " + oCliente.CTE_BALANCE_DISPONIBLE.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    return;
+                }
                 bPagado = false;
-
             }
             /*Tengo que hacer doble desglose*/
             if (dMontoNoVenta > 0)
             {
-               
                 if (bCredito==false)
                     RetornaDatosPagos(DatosPago, ref DatosPagoNoVenta, dMontoNoVenta, ref dMontoEfectivoNoventa, ref dMontoOtrosNoVenta);
 
@@ -429,10 +355,7 @@ namespace OpeAgencia2.Facturacion
 
         void RetornaDatosPagos(BO.DAL.dsDatos.DatosPagoDataTable DatosPago, ref BO.DAL.dsDatos.DatosPagoDataTable newDatosPago, decimal dMonto, ref  decimal dMontoEfectvo, ref decimal dMontoOtros)
         {
-
             decimal dMontoRestante = 0;
-
-            
             foreach(BO.DAL.dsDatos.DatosPagoRow  dr in DatosPago.OrderBy(p=>p.TipoPago))
             {
                 /*Pago Efect*/
@@ -442,7 +365,6 @@ namespace OpeAgencia2.Facturacion
                     {
                         dMontoEfectvo = dMonto;
                         BO.DAL.dsDatos.DatosPagoRow oNewRow = newDatosPago.NewDatosPagoRow();
-
                         oNewRow.MontoEfectivo = dMonto;
                         oNewRow.Importe = dMonto;
                         oNewRow.Numero = dr.Numero;
@@ -454,14 +376,11 @@ namespace OpeAgencia2.Facturacion
                         oNewRow.BancoDesc = dr.BancoDesc;
                         newDatosPago.Rows.Add(oNewRow);
                         break;
-
                     }
                     else
                     {
                         dMontoEfectvo = dr.MontoEfectivo; 
-
                         BO.DAL.dsDatos.DatosPagoRow oNewRow = newDatosPago.NewDatosPagoRow();
-                        
                         oNewRow.MontoEfectivo = dr.MontoEfectivo;
                         oNewRow.Importe = dr.MontoEfectivo;
                         oNewRow.Numero = dr.Numero;
@@ -473,19 +392,12 @@ namespace OpeAgencia2.Facturacion
                         oNewRow.BancoDesc = dr.BancoDesc;
                         newDatosPago.Rows.Add(oNewRow);
                         dMontoRestante = dMonto - dr.MontoEfectivo;
-
                     }
-
-
-
-
                 }
                 else
                 {
                     dMontoOtros = dMonto;
-
                     BO.DAL.dsDatos.DatosPagoRow oNewRow = newDatosPago.NewDatosPagoRow();
-
                     oNewRow.MontoEfectivo = 0;
                     oNewRow.Importe = dMonto;
                     oNewRow.Numero = dr.Numero;
@@ -497,25 +409,14 @@ namespace OpeAgencia2.Facturacion
                     oNewRow.BancoDesc = dr.BancoDesc;
                     newDatosPago.Rows.Add(oNewRow);
                     break;
-
                 }
-
-
-
             }
-       
         }
-
-
 
         void FacturarNoVenta(BO.DAL.dsDatos.DatosPagoDataTable DatosPago, bool bCredito, decimal dMontoNoVenta, decimal dMontoEfectivo,  decimal dMontoOtros)
         {
             ArrayList oBltNumeros = new ArrayList();
-           
-        
             decimal dDevolucion = 0;
-          
-
             if (bCredito)
             {
                 //VALIDO  QUE EL CLIENTE TENGA BALANCE
@@ -525,7 +426,6 @@ namespace OpeAgencia2.Facturacion
                     return;
                 }
             }//Aqui tengo que ver si el cliente esta suspendido
-
             BultosAFacturar(ref oBltNumeros);
             BO.BO.Facturar oFact = new BO.BO.Facturar();
             if (oFact.CrearFacturaNoVenta(dMontoEfectivo, dMontoOtros, dDevolucion, DatosPago,
@@ -533,15 +433,10 @@ namespace OpeAgencia2.Facturacion
                                 Parametros.Parametros.UsuarioId, oBltNumeros,
                                 oTableCorr, dMontoNoVenta, bCredito))
             {//Todo anduvo bien. Entonces Imprimo y limpio la pantalla.
-
                 //ImprimirFactura(oFact.FacturaGenerada);
                 ImprimirFactura oImpFact = new ImprimirFactura();
                 oImpFact.ImprimirNoVenta(oFact.FacturaGenerada, DatosPago);
-
-
             }
-
-            
         }
 
         void BultosAFacturar(ref ArrayList pBtlNumeros)
@@ -551,9 +446,12 @@ namespace OpeAgencia2.Facturacion
                 if (dgPaq.Rows[i].Selected == true)
                        pBtlNumeros.Add(dgPaq.Rows[i].Cells[0].Value);
             }
-
         }
 
-       
+        private void txtEPS_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (txtEPS.Text != "" && e.KeyCode == Keys.Enter)
+                BuscarCliente();
+        }       
     }
 }

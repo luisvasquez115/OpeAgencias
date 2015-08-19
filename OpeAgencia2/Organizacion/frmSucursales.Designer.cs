@@ -37,6 +37,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dg = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtUbicacion = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtAlmacen = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.lblGrupo = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -44,12 +50,6 @@
             this.lblDesc = new System.Windows.Forms.Label();
             this.textID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
-            this.txtUbicacion = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtAlmacen = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -78,8 +78,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabMant);
-            this.splitContainer1.Size = new System.Drawing.Size(614, 434);
-            this.splitContainer1.SplitterDistance = 36;
+            this.splitContainer1.Size = new System.Drawing.Size(614, 343);
+            this.splitContainer1.SplitterDistance = 28;
             this.splitContainer1.TabIndex = 5;
             // 
             // usrbntMant1
@@ -99,7 +99,7 @@
             this.tabMant.Location = new System.Drawing.Point(0, 0);
             this.tabMant.Name = "tabMant";
             this.tabMant.SelectedIndex = 0;
-            this.tabMant.Size = new System.Drawing.Size(614, 394);
+            this.tabMant.Size = new System.Drawing.Size(614, 311);
             this.tabMant.TabIndex = 0;
             this.tabMant.SelectedIndexChanged += new System.EventHandler(this.tabMant_SelectedIndexChanged);
             // 
@@ -183,77 +183,49 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(606, 368);
+            this.tabPage2.Size = new System.Drawing.Size(606, 285);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // lblGrupo
+            // txtUbicacion
             // 
-            this.lblGrupo.AutoSize = true;
-            this.lblGrupo.Location = new System.Drawing.Point(389, 30);
-            this.lblGrupo.Name = "lblGrupo";
-            this.lblGrupo.Size = new System.Drawing.Size(35, 13);
-            this.lblGrupo.TabIndex = 20;
-            this.lblGrupo.Text = "label4";
+            this.txtUbicacion.Location = new System.Drawing.Point(203, 180);
+            this.txtUbicacion.Name = "txtUbicacion";
+            this.txtUbicacion.Size = new System.Drawing.Size(56, 20);
+            this.txtUbicacion.TabIndex = 27;
+            this.txtUbicacion.Tag = "BLT_UBICACION";
             // 
-            // txtCodigo
+            // label5
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(88, 64);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(261, 20);
-            this.txtCodigo.TabIndex = 17;
-            this.txtCodigo.Tag = "SUC_CODIGO";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(139, 183);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 13);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Ubicación:";
             // 
-            // label8
+            // txtAlmacen
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 64);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 13);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Código:";
+            this.txtAlmacen.Location = new System.Drawing.Point(203, 154);
+            this.txtAlmacen.Name = "txtAlmacen";
+            this.txtAlmacen.Size = new System.Drawing.Size(56, 20);
+            this.txtAlmacen.TabIndex = 25;
+            this.txtAlmacen.Tag = "ALM_CODIGO";
             // 
-            // txtDESCR
+            // label6
             // 
-            this.txtDESCR.Location = new System.Drawing.Point(88, 104);
-            this.txtDESCR.Multiline = true;
-            this.txtDESCR.Name = "txtDESCR";
-            this.txtDESCR.Size = new System.Drawing.Size(261, 67);
-            this.txtDESCR.TabIndex = 3;
-            this.txtDESCR.Tag = "SUC_DESCRIPCION";
-            // 
-            // lblDesc
-            // 
-            this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(13, 104);
-            this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(63, 13);
-            this.lblDesc.TabIndex = 2;
-            this.lblDesc.Text = "Descripción";
-            // 
-            // textID
-            // 
-            this.textID.Enabled = false;
-            this.textID.Location = new System.Drawing.Point(88, 27);
-            this.textID.Name = "textID";
-            this.textID.Size = new System.Drawing.Size(100, 20);
-            this.textID.TabIndex = 1;
-            this.textID.Tag = "SUC_ID";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(19, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Id:";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(146, 157);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 13);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "Almacén:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 293);
+            this.label4.Location = new System.Drawing.Point(154, 209);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 23;
@@ -266,54 +238,85 @@
             this.cmbEstado.Items.AddRange(new object[] {
             "A",
             "I"});
-            this.cmbEstado.Location = new System.Drawing.Point(88, 290);
+            this.cmbEstado.Location = new System.Drawing.Point(203, 206);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(261, 21);
             this.cmbEstado.TabIndex = 22;
             this.cmbEstado.Tag = "SUC_ESTADO";
             // 
-            // txtUbicacion
+            // lblGrupo
             // 
-            this.txtUbicacion.Location = new System.Drawing.Point(88, 253);
-            this.txtUbicacion.Name = "txtUbicacion";
-            this.txtUbicacion.Size = new System.Drawing.Size(56, 20);
-            this.txtUbicacion.TabIndex = 27;
-            this.txtUbicacion.Tag = "BLT_UBICACION";
+            this.lblGrupo.AutoSize = true;
+            this.lblGrupo.Location = new System.Drawing.Point(389, 30);
+            this.lblGrupo.Name = "lblGrupo";
+            this.lblGrupo.Size = new System.Drawing.Size(35, 13);
+            this.lblGrupo.TabIndex = 20;
+            this.lblGrupo.Text = "label4";
             // 
-            // label5
+            // txtCodigo
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 253);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 13);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "Ubicación:";
+            this.txtCodigo.Location = new System.Drawing.Point(203, 55);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(261, 20);
+            this.txtCodigo.TabIndex = 17;
+            this.txtCodigo.Tag = "SUC_CODIGO";
             // 
-            // txtAlmacen
+            // label8
             // 
-            this.txtAlmacen.Location = new System.Drawing.Point(88, 217);
-            this.txtAlmacen.Name = "txtAlmacen";
-            this.txtAlmacen.Size = new System.Drawing.Size(56, 20);
-            this.txtAlmacen.TabIndex = 25;
-            this.txtAlmacen.Tag = "ALM_CODIGO";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(154, 58);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(43, 13);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Código:";
             // 
-            // label6
+            // txtDESCR
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 217);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 13);
-            this.label6.TabIndex = 24;
-            this.label6.Text = "Almacén:";
+            this.txtDESCR.Location = new System.Drawing.Point(203, 81);
+            this.txtDESCR.Multiline = true;
+            this.txtDESCR.Name = "txtDESCR";
+            this.txtDESCR.Size = new System.Drawing.Size(261, 67);
+            this.txtDESCR.TabIndex = 3;
+            this.txtDESCR.Tag = "SUC_DESCRIPCION";
+            // 
+            // lblDesc
+            // 
+            this.lblDesc.AutoSize = true;
+            this.lblDesc.Location = new System.Drawing.Point(131, 84);
+            this.lblDesc.Name = "lblDesc";
+            this.lblDesc.Size = new System.Drawing.Size(66, 13);
+            this.lblDesc.TabIndex = 2;
+            this.lblDesc.Text = "Descripción:";
+            // 
+            // textID
+            // 
+            this.textID.Enabled = false;
+            this.textID.Location = new System.Drawing.Point(88, 27);
+            this.textID.Name = "textID";
+            this.textID.Size = new System.Drawing.Size(100, 20);
+            this.textID.TabIndex = 1;
+            this.textID.Tag = "SUC_ID";
+            this.textID.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(19, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Id:";
+            this.label1.Visible = false;
             // 
             // frmSucursales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(614, 434);
+            this.ClientSize = new System.Drawing.Size(614, 343);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmSucursales";
-            this.Text = "frmSucursales";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Sucursales";
             this.Load += new System.EventHandler(this.frmSucursales_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

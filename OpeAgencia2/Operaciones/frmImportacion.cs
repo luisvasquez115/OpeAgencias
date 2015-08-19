@@ -713,12 +713,10 @@ namespace OpeAgencia2.Operaciones
             {
                 if (TextBox1.Text != "")
                 {
-
                     if (SeleccionarEnLista(TextBox1.Text.TrimEnd()) == false)
                     {
                         MessageBox.Show("Este Codigo no esta en el manifiesto ..> " + TextBox1.Text.TrimEnd(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
-                   
                     TextBox1.Text = "";
                     TextBox1.Select();
                 }

@@ -80,7 +80,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(471, 332);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Productos Envios";
+            this.tabPage1.Text = "Productos Envíos";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // dgEnvios
@@ -103,7 +103,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(471, 332);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Datos Envio";
+            this.tabPage2.Text = "Datos Envío";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox1
@@ -114,7 +114,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblProducto);
-            this.groupBox1.Location = new System.Drawing.Point(8, 17);
+            this.groupBox1.Location = new System.Drawing.Point(99, 56);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(273, 231);
             this.groupBox1.TabIndex = 0;
@@ -122,7 +122,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(145, 171);
+            this.button1.Location = new System.Drawing.Point(192, 202);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
@@ -157,7 +157,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 126);
+            this.label3.Location = new System.Drawing.Point(28, 126);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 3;
@@ -166,7 +166,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 78);
+            this.label2.Location = new System.Drawing.Point(29, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 2;
@@ -175,7 +175,7 @@
             // lblProducto
             // 
             this.lblProducto.AutoSize = true;
-            this.lblProducto.Location = new System.Drawing.Point(21, 22);
+            this.lblProducto.Location = new System.Drawing.Point(29, 27);
             this.lblProducto.Name = "lblProducto";
             this.lblProducto.Size = new System.Drawing.Size(50, 13);
             this.lblProducto.TabIndex = 1;
@@ -213,7 +213,7 @@
             // 
             // btnCargarTarifas
             // 
-            this.btnCargarTarifas.Location = new System.Drawing.Point(354, 4);
+            this.btnCargarTarifas.Location = new System.Drawing.Point(385, 6);
             this.btnCargarTarifas.Name = "btnCargarTarifas";
             this.btnCargarTarifas.Size = new System.Drawing.Size(75, 23);
             this.btnCargarTarifas.TabIndex = 3;
@@ -241,7 +241,6 @@
             this.dgTarifas.ReadOnly = true;
             this.dgTarifas.Size = new System.Drawing.Size(465, 283);
             this.dgTarifas.TabIndex = 0;
-            this.dgTarifas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // frmEnvios
             // 
@@ -250,7 +249,8 @@
             this.ClientSize = new System.Drawing.Size(479, 358);
             this.Controls.Add(this.tabControl1);
             this.Name = "frmEnvios";
-            this.Text = "frmEnvios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Envíos";
             this.Load += new System.EventHandler(this.frmEnvios_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

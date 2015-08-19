@@ -66,8 +66,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabMant);
-            this.splitContainer1.Size = new System.Drawing.Size(576, 411);
-            this.splitContainer1.SplitterDistance = 36;
+            this.splitContainer1.Size = new System.Drawing.Size(576, 313);
+            this.splitContainer1.SplitterDistance = 27;
             this.splitContainer1.TabIndex = 4;
             // 
             // usrbntMant1
@@ -87,7 +87,7 @@
             this.tabMant.Location = new System.Drawing.Point(0, 0);
             this.tabMant.Name = "tabMant";
             this.tabMant.SelectedIndex = 0;
-            this.tabMant.Size = new System.Drawing.Size(576, 371);
+            this.tabMant.Size = new System.Drawing.Size(576, 282);
             this.tabMant.TabIndex = 0;
             this.tabMant.SelectedIndexChanged += new System.EventHandler(this.tabMant_SelectedIndexChanged);
             // 
@@ -97,7 +97,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(568, 345);
+            this.tabPage1.Size = new System.Drawing.Size(568, 256);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Consulta";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -112,7 +112,7 @@
             this.dg.Location = new System.Drawing.Point(3, 3);
             this.dg.Name = "dg";
             this.dg.ReadOnly = true;
-            this.dg.Size = new System.Drawing.Size(562, 339);
+            this.dg.Size = new System.Drawing.Size(562, 250);
             this.dg.TabIndex = 0;
             // 
             // tabPage2
@@ -128,7 +128,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(568, 345);
+            this.tabPage2.Size = new System.Drawing.Size(568, 256);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -136,7 +136,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 191);
+            this.label3.Location = new System.Drawing.Point(128, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 21;
@@ -149,7 +149,7 @@
             this.cmbEstado.Items.AddRange(new object[] {
             "A",
             "I"});
-            this.cmbEstado.Location = new System.Drawing.Point(88, 188);
+            this.cmbEstado.Location = new System.Drawing.Point(180, 155);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(132, 21);
             this.cmbEstado.TabIndex = 20;
@@ -157,7 +157,7 @@
             // 
             // txtORI_CODIGO
             // 
-            this.txtORI_CODIGO.Location = new System.Drawing.Point(88, 60);
+            this.txtORI_CODIGO.Location = new System.Drawing.Point(180, 56);
             this.txtORI_CODIGO.Name = "txtORI_CODIGO";
             this.txtORI_CODIGO.Size = new System.Drawing.Size(261, 20);
             this.txtORI_CODIGO.TabIndex = 17;
@@ -166,7 +166,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 60);
+            this.label8.Location = new System.Drawing.Point(128, 59);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(43, 13);
             this.label8.TabIndex = 16;
@@ -174,7 +174,7 @@
             // 
             // txtDESCR
             // 
-            this.txtDESCR.Location = new System.Drawing.Point(88, 99);
+            this.txtDESCR.Location = new System.Drawing.Point(180, 82);
             this.txtDESCR.Multiline = true;
             this.txtDESCR.Name = "txtDESCR";
             this.txtDESCR.Size = new System.Drawing.Size(261, 67);
@@ -184,38 +184,41 @@
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(13, 99);
+            this.lblDesc.Location = new System.Drawing.Point(105, 85);
             this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(63, 13);
+            this.lblDesc.Size = new System.Drawing.Size(66, 13);
             this.lblDesc.TabIndex = 2;
-            this.lblDesc.Text = "Descripción";
+            this.lblDesc.Text = "Descripción:";
             // 
             // textORI_ID
             // 
             this.textORI_ID.Enabled = false;
-            this.textORI_ID.Location = new System.Drawing.Point(88, 27);
+            this.textORI_ID.Location = new System.Drawing.Point(252, 6);
             this.textORI_ID.Name = "textORI_ID";
             this.textORI_ID.Size = new System.Drawing.Size(100, 20);
             this.textORI_ID.TabIndex = 1;
             this.textORI_ID.Tag = "ORI_ID";
+            this.textORI_ID.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 27);
+            this.label1.Location = new System.Drawing.Point(177, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(19, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Id:";
+            this.label1.Visible = false;
             // 
             // frmOrigen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 411);
+            this.ClientSize = new System.Drawing.Size(576, 313);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmOrigen";
-            this.Text = "frmOrigen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Origen";
             this.Load += new System.EventHandler(this.frmOrigen_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

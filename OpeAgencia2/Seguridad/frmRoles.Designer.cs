@@ -37,6 +37,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dg = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnOpciones = new System.Windows.Forms.Button();
+            this.chkActivo = new System.Windows.Forms.CheckBox();
             this.lblGrupo = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,8 +46,6 @@
             this.lblDesc = new System.Windows.Forms.Label();
             this.textGRUPO_TIPO_ID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.chkActivo = new System.Windows.Forms.CheckBox();
-            this.btnOpciones = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -180,6 +180,27 @@
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnOpciones
+            // 
+            this.btnOpciones.Location = new System.Drawing.Point(437, 17);
+            this.btnOpciones.Name = "btnOpciones";
+            this.btnOpciones.Size = new System.Drawing.Size(75, 23);
+            this.btnOpciones.TabIndex = 22;
+            this.btnOpciones.Text = "Opciones";
+            this.btnOpciones.UseVisualStyleBackColor = true;
+            this.btnOpciones.Click += new System.EventHandler(this.btnOpciones_Click);
+            // 
+            // chkActivo
+            // 
+            this.chkActivo.AutoSize = true;
+            this.chkActivo.Location = new System.Drawing.Point(88, 180);
+            this.chkActivo.Name = "chkActivo";
+            this.chkActivo.Size = new System.Drawing.Size(56, 17);
+            this.chkActivo.TabIndex = 21;
+            this.chkActivo.Tag = "ACTIVO";
+            this.chkActivo.Text = "Activo";
+            this.chkActivo.UseVisualStyleBackColor = true;
+            // 
             // lblGrupo
             // 
             this.lblGrupo.AutoSize = true;
@@ -242,27 +263,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Id:";
             // 
-            // chkActivo
-            // 
-            this.chkActivo.AutoSize = true;
-            this.chkActivo.Location = new System.Drawing.Point(88, 180);
-            this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(56, 17);
-            this.chkActivo.TabIndex = 21;
-            this.chkActivo.Tag = "ACTIVO";
-            this.chkActivo.Text = "Activo";
-            this.chkActivo.UseVisualStyleBackColor = true;
-            // 
-            // btnOpciones
-            // 
-            this.btnOpciones.Location = new System.Drawing.Point(437, 17);
-            this.btnOpciones.Name = "btnOpciones";
-            this.btnOpciones.Size = new System.Drawing.Size(75, 23);
-            this.btnOpciones.TabIndex = 22;
-            this.btnOpciones.Text = "Opciones";
-            this.btnOpciones.UseVisualStyleBackColor = true;
-            this.btnOpciones.Click += new System.EventHandler(this.btnOpciones_Click);
-            // 
             // frmRoles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,7 +270,8 @@
             this.ClientSize = new System.Drawing.Size(541, 437);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmRoles";
-            this.Text = "frmRoles";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Roles";
             this.Load += new System.EventHandler(this.frmRoles_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

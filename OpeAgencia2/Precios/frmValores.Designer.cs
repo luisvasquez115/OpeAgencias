@@ -46,6 +46,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dg = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtHasta = new System.Windows.Forms.TextBox();
             this.txtAdicional = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtPorcentaje = new System.Windows.Forms.TextBox();
@@ -55,7 +56,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.TextId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtHasta = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -127,7 +127,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(538, 66);
+            this.btnBuscar.Location = new System.Drawing.Point(538, 69);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 10;
@@ -286,6 +286,15 @@
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // txtHasta
+            // 
+            this.txtHasta.Enabled = false;
+            this.txtHasta.Location = new System.Drawing.Point(132, 65);
+            this.txtHasta.Name = "txtHasta";
+            this.txtHasta.Size = new System.Drawing.Size(100, 20);
+            this.txtHasta.TabIndex = 52;
+            this.txtHasta.Tag = "VAL_HASTA";
+            // 
             // txtAdicional
             // 
             this.txtAdicional.Enabled = false;
@@ -298,7 +307,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(37, 184);
+            this.label3.Location = new System.Drawing.Point(37, 180);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 50;
@@ -316,7 +325,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 147);
+            this.label2.Location = new System.Drawing.Point(37, 143);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 48;
@@ -343,7 +352,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(37, 110);
+            this.label12.Location = new System.Drawing.Point(37, 106);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(34, 13);
             this.label12.TabIndex = 39;
@@ -357,6 +366,7 @@
             this.TextId.Size = new System.Drawing.Size(100, 20);
             this.TextId.TabIndex = 1;
             this.TextId.Tag = "TABLA_VAL_ID";
+            this.TextId.Visible = false;
             // 
             // label1
             // 
@@ -366,15 +376,7 @@
             this.label1.Size = new System.Drawing.Size(19, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Id:";
-            // 
-            // txtHasta
-            // 
-            this.txtHasta.Enabled = false;
-            this.txtHasta.Location = new System.Drawing.Point(132, 65);
-            this.txtHasta.Name = "txtHasta";
-            this.txtHasta.Size = new System.Drawing.Size(100, 20);
-            this.txtHasta.TabIndex = 52;
-            this.txtHasta.Tag = "VAL_HASTA";
+            this.label1.Visible = false;
             // 
             // frmValores
             // 
@@ -383,7 +385,8 @@
             this.ClientSize = new System.Drawing.Size(625, 503);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmValores";
-            this.Text = "frmValores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Valores";
             this.Load += new System.EventHandler(this.frmValores_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

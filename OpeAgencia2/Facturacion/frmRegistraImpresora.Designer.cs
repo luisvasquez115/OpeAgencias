@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.usrbntMant1 = new OpeAgencia2.usrbntMant();
             this.tabMant = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -36,6 +37,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dg = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnSerial = new System.Windows.Forms.Button();
+            this.txtPuerto = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.lblGrupo = new System.Windows.Forms.Label();
             this.TextSerial = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,10 +47,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textTERM_ID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtPuerto = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnSerial = new System.Windows.Forms.Button();
-            this.usrbntMant1 = new OpeAgencia2.usrbntMant();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -78,6 +78,15 @@
             this.splitContainer1.Size = new System.Drawing.Size(649, 455);
             this.splitContainer1.SplitterDistance = 38;
             this.splitContainer1.TabIndex = 5;
+            // 
+            // usrbntMant1
+            // 
+            this.usrbntMant1.bAdiciona = false;
+            this.usrbntMant1.bExito = false;
+            this.usrbntMant1.Location = new System.Drawing.Point(6, 4);
+            this.usrbntMant1.Name = "usrbntMant1";
+            this.usrbntMant1.Size = new System.Drawing.Size(479, 28);
+            this.usrbntMant1.TabIndex = 0;
             // 
             // tabMant
             // 
@@ -173,6 +182,34 @@
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnSerial
+            // 
+            this.btnSerial.Location = new System.Drawing.Point(544, 94);
+            this.btnSerial.Name = "btnSerial";
+            this.btnSerial.Size = new System.Drawing.Size(24, 23);
+            this.btnSerial.TabIndex = 25;
+            this.btnSerial.Text = "...";
+            this.btnSerial.UseVisualStyleBackColor = true;
+            this.btnSerial.Click += new System.EventHandler(this.btnSerial_Click);
+            // 
+            // txtPuerto
+            // 
+            this.txtPuerto.Location = new System.Drawing.Point(88, 134);
+            this.txtPuerto.Multiline = true;
+            this.txtPuerto.Name = "txtPuerto";
+            this.txtPuerto.Size = new System.Drawing.Size(100, 23);
+            this.txtPuerto.TabIndex = 24;
+            this.txtPuerto.Tag = "PUERTO";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 134);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Puerto:";
+            // 
             // lblGrupo
             // 
             this.lblGrupo.AutoSize = true;
@@ -235,43 +272,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Id:";
             // 
-            // txtPuerto
-            // 
-            this.txtPuerto.Location = new System.Drawing.Point(88, 134);
-            this.txtPuerto.Multiline = true;
-            this.txtPuerto.Name = "txtPuerto";
-            this.txtPuerto.Size = new System.Drawing.Size(100, 23);
-            this.txtPuerto.TabIndex = 24;
-            this.txtPuerto.Tag = "PUERTO";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 134);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "Puerto:";
-            // 
-            // btnSerial
-            // 
-            this.btnSerial.Location = new System.Drawing.Point(544, 94);
-            this.btnSerial.Name = "btnSerial";
-            this.btnSerial.Size = new System.Drawing.Size(24, 23);
-            this.btnSerial.TabIndex = 25;
-            this.btnSerial.Text = "...";
-            this.btnSerial.UseVisualStyleBackColor = true;
-            this.btnSerial.Click += new System.EventHandler(this.btnSerial_Click);
-            // 
-            // usrbntMant1
-            // 
-            this.usrbntMant1.bAdiciona = false;
-            this.usrbntMant1.bExito = false;
-            this.usrbntMant1.Location = new System.Drawing.Point(6, 4);
-            this.usrbntMant1.Name = "usrbntMant1";
-            this.usrbntMant1.Size = new System.Drawing.Size(479, 28);
-            this.usrbntMant1.TabIndex = 0;
-            // 
             // frmRegistraImpresora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,6 +279,7 @@
             this.ClientSize = new System.Drawing.Size(649, 455);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmRegistraImpresora";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRegistraImpresora";
             this.Load += new System.EventHandler(this.frmRegistraImpresora_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);

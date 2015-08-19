@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblProducto = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtPath = new System.Windows.Forms.TextBox();
-            this.btnFind = new System.Windows.Forms.Button();
-            this.opfd = new System.Windows.Forms.OpenFileDialog();
-            this.btnProcesar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnProcesar = new System.Windows.Forms.Button();
+            this.btnFind = new System.Windows.Forms.Button();
+            this.txtPath = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblProducto = new System.Windows.Forms.Label();
+            this.opfd = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,54 +47,24 @@
             this.groupBox1.Controls.Add(this.txtPath);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lblProducto);
-            this.groupBox1.Location = new System.Drawing.Point(12, 21);
+            this.groupBox1.Location = new System.Drawing.Point(12, 9);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(329, 197);
+            this.groupBox1.Size = new System.Drawing.Size(329, 141);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // lblProducto
+            // btnCancelar
             // 
-            this.lblProducto.AutoSize = true;
-            this.lblProducto.Location = new System.Drawing.Point(17, 33);
-            this.lblProducto.Name = "lblProducto";
-            this.lblProducto.Size = new System.Drawing.Size(60, 13);
-            this.lblProducto.TabIndex = 0;
-            this.lblProducto.Text = "lblProducto";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 73);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Archivo:";
-            // 
-            // txtPath
-            // 
-            this.txtPath.Location = new System.Drawing.Point(20, 89);
-            this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(269, 20);
-            this.txtPath.TabIndex = 2;
-            // 
-            // btnFind
-            // 
-            this.btnFind.Location = new System.Drawing.Point(295, 87);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(28, 23);
-            this.btnFind.TabIndex = 3;
-            this.btnFind.Text = "...";
-            this.btnFind.UseVisualStyleBackColor = true;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
-            // 
-            // opfd
-            // 
-            this.opfd.FileName = "*.csv";
+            this.btnCancelar.Location = new System.Drawing.Point(133, 106);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnProcesar
             // 
-            this.btnProcesar.Location = new System.Drawing.Point(214, 131);
+            this.btnProcesar.Location = new System.Drawing.Point(214, 106);
             this.btnProcesar.Name = "btnProcesar";
             this.btnProcesar.Size = new System.Drawing.Size(75, 23);
             this.btnProcesar.TabIndex = 4;
@@ -102,23 +72,54 @@
             this.btnProcesar.UseVisualStyleBackColor = true;
             this.btnProcesar.Click += new System.EventHandler(this.btnProcesar_Click);
             // 
-            // btnCancelar
+            // btnFind
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(133, 131);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 5;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnFind.Location = new System.Drawing.Point(295, 57);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(28, 23);
+            this.btnFind.TabIndex = 3;
+            this.btnFind.Text = "...";
+            this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
+            // txtPath
+            // 
+            this.txtPath.Location = new System.Drawing.Point(20, 59);
+            this.txtPath.Name = "txtPath";
+            this.txtPath.Size = new System.Drawing.Size(269, 20);
+            this.txtPath.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Archivo:";
+            // 
+            // lblProducto
+            // 
+            this.lblProducto.AutoSize = true;
+            this.lblProducto.Location = new System.Drawing.Point(17, 16);
+            this.lblProducto.Name = "lblProducto";
+            this.lblProducto.Size = new System.Drawing.Size(60, 13);
+            this.lblProducto.TabIndex = 0;
+            this.lblProducto.Text = "lblProducto";
+            // 
+            // opfd
+            // 
+            this.opfd.FileName = "*.csv";
             // 
             // frmCargarTarifaCourier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(353, 245);
+            this.ClientSize = new System.Drawing.Size(353, 162);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmCargarTarifaCourier";
-            this.Text = "frmCargarTarifaCourier";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cargar tarifa courier";
             this.Load += new System.EventHandler(this.frmCargarTarifaCourier_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

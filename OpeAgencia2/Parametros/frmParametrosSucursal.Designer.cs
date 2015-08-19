@@ -76,8 +76,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabMant);
-            this.splitContainer1.Size = new System.Drawing.Size(582, 476);
-            this.splitContainer1.SplitterDistance = 39;
+            this.splitContainer1.Size = new System.Drawing.Size(582, 256);
+            this.splitContainer1.SplitterDistance = 26;
             this.splitContainer1.TabIndex = 6;
             // 
             // usrbntMant1
@@ -97,7 +97,7 @@
             this.tabMant.Location = new System.Drawing.Point(0, 0);
             this.tabMant.Name = "tabMant";
             this.tabMant.SelectedIndex = 0;
-            this.tabMant.Size = new System.Drawing.Size(582, 433);
+            this.tabMant.Size = new System.Drawing.Size(582, 226);
             this.tabMant.TabIndex = 0;
             this.tabMant.SelectedIndexChanged += new System.EventHandler(this.tabMant_SelectedIndexChanged);
             // 
@@ -107,7 +107,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(574, 407);
+            this.tabPage1.Size = new System.Drawing.Size(574, 200);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Consulta";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -127,15 +127,15 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.dg);
-            this.splitContainer2.Size = new System.Drawing.Size(568, 401);
-            this.splitContainer2.SplitterDistance = 52;
+            this.splitContainer2.Size = new System.Drawing.Size(568, 194);
+            this.splitContainer2.SplitterDistance = 26;
             this.splitContainer2.TabIndex = 1;
             // 
             // cmbSucursal
             // 
             this.cmbSucursal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSucursal.FormattingEnabled = true;
-            this.cmbSucursal.Location = new System.Drawing.Point(81, 10);
+            this.cmbSucursal.Location = new System.Drawing.Point(81, 3);
             this.cmbSucursal.Name = "cmbSucursal";
             this.cmbSucursal.Size = new System.Drawing.Size(448, 21);
             this.cmbSucursal.TabIndex = 1;
@@ -144,7 +144,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 13);
+            this.label3.Location = new System.Drawing.Point(24, 6);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 0;
@@ -160,7 +160,7 @@
             this.dg.Location = new System.Drawing.Point(0, 0);
             this.dg.Name = "dg";
             this.dg.ReadOnly = true;
-            this.dg.Size = new System.Drawing.Size(568, 345);
+            this.dg.Size = new System.Drawing.Size(568, 164);
             this.dg.TabIndex = 0;
             // 
             // tabPage2
@@ -179,14 +179,14 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(574, 407);
+            this.tabPage2.Size = new System.Drawing.Size(574, 191);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // txtValor3
             // 
-            this.txtValor3.Location = new System.Drawing.Point(88, 217);
+            this.txtValor3.Location = new System.Drawing.Point(169, 128);
             this.txtValor3.Name = "txtValor3";
             this.txtValor3.Size = new System.Drawing.Size(261, 20);
             this.txtValor3.TabIndex = 24;
@@ -195,15 +195,15 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 217);
+            this.label5.Location = new System.Drawing.Point(120, 131);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.Size = new System.Drawing.Size(43, 13);
             this.label5.TabIndex = 23;
-            this.label5.Text = "Valor3";
+            this.label5.Text = "Valor 3:";
             // 
             // txtValor2
             // 
-            this.txtValor2.Location = new System.Drawing.Point(88, 172);
+            this.txtValor2.Location = new System.Drawing.Point(169, 102);
             this.txtValor2.Name = "txtValor2";
             this.txtValor2.Size = new System.Drawing.Size(261, 20);
             this.txtValor2.TabIndex = 22;
@@ -212,11 +212,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 172);
+            this.label4.Location = new System.Drawing.Point(120, 105);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 21;
-            this.label4.Text = "Valor2";
+            this.label4.Text = "Valor 2:";
             // 
             // lblGrupo
             // 
@@ -229,7 +229,7 @@
             // 
             // txtValor1
             // 
-            this.txtValor1.Location = new System.Drawing.Point(88, 131);
+            this.txtValor1.Location = new System.Drawing.Point(169, 76);
             this.txtValor1.Name = "txtValor1";
             this.txtValor1.Size = new System.Drawing.Size(261, 20);
             this.txtValor1.TabIndex = 19;
@@ -238,15 +238,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 131);
+            this.label2.Location = new System.Drawing.Point(120, 79);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 18;
-            this.label2.Text = "Valor1";
+            this.label2.Text = "Valor 1:";
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(88, 95);
+            this.txtCodigo.Location = new System.Drawing.Point(169, 50);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(261, 20);
             this.txtCodigo.TabIndex = 17;
@@ -255,7 +255,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 95);
+            this.label8.Location = new System.Drawing.Point(120, 53);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(43, 13);
             this.label8.TabIndex = 16;
@@ -264,29 +264,32 @@
             // TextParametroId
             // 
             this.TextParametroId.Enabled = false;
-            this.TextParametroId.Location = new System.Drawing.Point(88, 27);
+            this.TextParametroId.Location = new System.Drawing.Point(97, 8);
             this.TextParametroId.Name = "TextParametroId";
             this.TextParametroId.Size = new System.Drawing.Size(100, 20);
             this.TextParametroId.TabIndex = 1;
             this.TextParametroId.Tag = "ID";
+            this.TextParametroId.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 27);
+            this.label1.Location = new System.Drawing.Point(22, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(19, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Id:";
+            this.label1.Visible = false;
             // 
             // frmParametrosSucursal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(582, 476);
+            this.ClientSize = new System.Drawing.Size(582, 256);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmParametrosSucursal";
-            this.Text = "frmParametrosSucursal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Parametros Sucursal";
             this.Load += new System.EventHandler(this.frmParametrosSucursal_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

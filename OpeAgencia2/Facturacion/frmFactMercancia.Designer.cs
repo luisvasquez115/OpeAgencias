@@ -45,19 +45,19 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.button1 = new System.Windows.Forms.Button();
             this.dgCorr = new System.Windows.Forms.DataGridView();
+            this.TabResumen = new System.Windows.Forms.TabPage();
+            this.dgResumen = new System.Windows.Forms.DataGridView();
+            this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtMontoNoVenta = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnFacturar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.txtMontoTotal = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtPaq = new System.Windows.Forms.TextBox();
             this.lblPaquetes = new System.Windows.Forms.Label();
-            this.TabResumen = new System.Windows.Forms.TabPage();
-            this.dgResumen = new System.Windows.Forms.DataGridView();
-            this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtMontoNoVenta = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabDetalle.SuspendLayout();
@@ -69,9 +69,9 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorr)).BeginInit();
-            this.groupBox3.SuspendLayout();
             this.TabResumen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgResumen)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -85,10 +85,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(553, 98);
+            this.groupBox1.Size = new System.Drawing.Size(726, 69);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // cmbTipoFact
             // 
@@ -98,7 +97,7 @@
             this.cmbTipoFact.Items.AddRange(new object[] {
             "Contado",
             "Crédito"});
-            this.cmbTipoFact.Location = new System.Drawing.Point(380, 58);
+            this.cmbTipoFact.Location = new System.Drawing.Point(580, 39);
             this.cmbTipoFact.Name = "cmbTipoFact";
             this.cmbTipoFact.Size = new System.Drawing.Size(121, 21);
             this.cmbTipoFact.TabIndex = 6;
@@ -106,7 +105,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(319, 58);
+            this.label4.Location = new System.Drawing.Point(519, 42);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 5;
@@ -115,7 +114,7 @@
             // dFechaVenc
             // 
             this.dFechaVenc.Enabled = false;
-            this.dFechaVenc.Location = new System.Drawing.Point(90, 52);
+            this.dFechaVenc.Location = new System.Drawing.Point(90, 39);
             this.dFechaVenc.Name = "dFechaVenc";
             this.dFechaVenc.Size = new System.Drawing.Size(200, 20);
             this.dFechaVenc.TabIndex = 4;
@@ -123,7 +122,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 52);
+            this.label2.Location = new System.Drawing.Point(13, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 3;
@@ -132,7 +131,7 @@
             // lblNombres
             // 
             this.lblNombres.AutoSize = true;
-            this.lblNombres.Location = new System.Drawing.Point(196, 28);
+            this.lblNombres.Location = new System.Drawing.Point(196, 18);
             this.lblNombres.Name = "lblNombres";
             this.lblNombres.Size = new System.Drawing.Size(55, 13);
             this.lblNombres.TabIndex = 2;
@@ -141,17 +140,17 @@
             // txtEPS
             // 
             this.txtEPS.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtEPS.Location = new System.Drawing.Point(90, 25);
+            this.txtEPS.Location = new System.Drawing.Point(90, 15);
             this.txtEPS.Name = "txtEPS";
             this.txtEPS.Size = new System.Drawing.Size(100, 20);
             this.txtEPS.TabIndex = 1;
-            this.txtEPS.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtEPS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEPS_KeyDown);
             this.txtEPS.Leave += new System.EventHandler(this.txtEPS_Leave);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 28);
+            this.label1.Location = new System.Drawing.Point(53, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 0;
@@ -169,10 +168,13 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.tabDetalle);
-            this.groupBox2.Location = new System.Drawing.Point(12, 116);
+            this.groupBox2.Location = new System.Drawing.Point(12, 87);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(560, 313);
+            this.groupBox2.Size = new System.Drawing.Size(726, 354);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
@@ -185,7 +187,7 @@
             this.tabDetalle.Location = new System.Drawing.Point(3, 16);
             this.tabDetalle.Name = "tabDetalle";
             this.tabDetalle.SelectedIndex = 0;
-            this.tabDetalle.Size = new System.Drawing.Size(554, 294);
+            this.tabDetalle.Size = new System.Drawing.Size(720, 335);
             this.tabDetalle.TabIndex = 0;
             // 
             // tabPaq
@@ -194,7 +196,7 @@
             this.tabPaq.Location = new System.Drawing.Point(4, 22);
             this.tabPaq.Name = "tabPaq";
             this.tabPaq.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPaq.Size = new System.Drawing.Size(546, 268);
+            this.tabPaq.Size = new System.Drawing.Size(712, 309);
             this.tabPaq.TabIndex = 0;
             this.tabPaq.Text = "Paquetes";
             this.tabPaq.UseVisualStyleBackColor = true;
@@ -203,14 +205,16 @@
             // 
             this.dgPaq.AllowUserToAddRows = false;
             this.dgPaq.AllowUserToDeleteRows = false;
+            this.dgPaq.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgPaq.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgPaq.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgPaq.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgPaq.Location = new System.Drawing.Point(3, 3);
             this.dgPaq.Name = "dgPaq";
             this.dgPaq.ReadOnly = true;
             this.dgPaq.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgPaq.Size = new System.Drawing.Size(540, 262);
+            this.dgPaq.Size = new System.Drawing.Size(706, 303);
             this.dgPaq.TabIndex = 0;
             this.dgPaq.SelectionChanged += new System.EventHandler(this.dgPaq_SelectionChanged);
             // 
@@ -224,7 +228,6 @@
             this.tabCorr.TabIndex = 1;
             this.tabCorr.Text = "Correspondencia";
             this.tabCorr.UseVisualStyleBackColor = true;
-            this.tabCorr.Click += new System.EventHandler(this.tabCargos_Click);
             // 
             // splitContainer1
             // 
@@ -268,76 +271,6 @@
             this.dgCorr.TabIndex = 1;
             this.dgCorr.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCorr_CellEndEdit);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.txtMontoNoVenta);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.btnFacturar);
-            this.groupBox3.Controls.Add(this.btnCancelar);
-            this.groupBox3.Controls.Add(this.txtMontoTotal);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.txtPaq);
-            this.groupBox3.Controls.Add(this.lblPaquetes);
-            this.groupBox3.Location = new System.Drawing.Point(15, 428);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(550, 61);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            // 
-            // btnFacturar
-            // 
-            this.btnFacturar.Location = new System.Drawing.Point(459, 20);
-            this.btnFacturar.Name = "btnFacturar";
-            this.btnFacturar.Size = new System.Drawing.Size(75, 23);
-            this.btnFacturar.TabIndex = 5;
-            this.btnFacturar.Text = "Facturar";
-            this.btnFacturar.UseVisualStyleBackColor = true;
-            this.btnFacturar.Click += new System.EventHandler(this.btnFacturar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(378, 20);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 4;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // txtMontoTotal
-            // 
-            this.txtMontoTotal.Enabled = false;
-            this.txtMontoTotal.Location = new System.Drawing.Point(121, 36);
-            this.txtMontoTotal.Name = "txtMontoTotal";
-            this.txtMontoTotal.Size = new System.Drawing.Size(100, 20);
-            this.txtMontoTotal.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(124, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Monto:";
-            // 
-            // txtPaq
-            // 
-            this.txtPaq.Enabled = false;
-            this.txtPaq.Location = new System.Drawing.Point(15, 35);
-            this.txtPaq.Name = "txtPaq";
-            this.txtPaq.Size = new System.Drawing.Size(100, 20);
-            this.txtPaq.TabIndex = 1;
-            // 
-            // lblPaquetes
-            // 
-            this.lblPaquetes.AutoSize = true;
-            this.lblPaquetes.Location = new System.Drawing.Point(12, 20);
-            this.lblPaquetes.Name = "lblPaquetes";
-            this.lblPaquetes.Size = new System.Drawing.Size(55, 13);
-            this.lblPaquetes.TabIndex = 0;
-            this.lblPaquetes.Text = "Paquetes:";
-            // 
             // TabResumen
             // 
             this.TabResumen.Controls.Add(this.dgResumen);
@@ -380,6 +313,23 @@
             this.Valor.ReadOnly = true;
             this.Valor.Width = 56;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.txtMontoNoVenta);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.btnFacturar);
+            this.groupBox3.Controls.Add(this.btnCancelar);
+            this.groupBox3.Controls.Add(this.txtMontoTotal);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.txtPaq);
+            this.groupBox3.Controls.Add(this.lblPaquetes);
+            this.groupBox3.Location = new System.Drawing.Point(188, 444);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(550, 64);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            // 
             // txtMontoNoVenta
             // 
             this.txtMontoNoVenta.Enabled = false;
@@ -397,16 +347,73 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "Monto No venta:";
             // 
+            // btnFacturar
+            // 
+            this.btnFacturar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFacturar.Location = new System.Drawing.Point(465, 23);
+            this.btnFacturar.Name = "btnFacturar";
+            this.btnFacturar.Size = new System.Drawing.Size(75, 23);
+            this.btnFacturar.TabIndex = 5;
+            this.btnFacturar.Text = "Facturar";
+            this.btnFacturar.UseVisualStyleBackColor = true;
+            this.btnFacturar.Click += new System.EventHandler(this.btnFacturar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelar.Location = new System.Drawing.Point(384, 23);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // txtMontoTotal
+            // 
+            this.txtMontoTotal.Enabled = false;
+            this.txtMontoTotal.Location = new System.Drawing.Point(121, 36);
+            this.txtMontoTotal.Name = "txtMontoTotal";
+            this.txtMontoTotal.Size = new System.Drawing.Size(100, 20);
+            this.txtMontoTotal.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(124, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Monto:";
+            // 
+            // txtPaq
+            // 
+            this.txtPaq.Enabled = false;
+            this.txtPaq.Location = new System.Drawing.Point(15, 35);
+            this.txtPaq.Name = "txtPaq";
+            this.txtPaq.Size = new System.Drawing.Size(100, 20);
+            this.txtPaq.TabIndex = 1;
+            // 
+            // lblPaquetes
+            // 
+            this.lblPaquetes.AutoSize = true;
+            this.lblPaquetes.Location = new System.Drawing.Point(12, 20);
+            this.lblPaquetes.Name = "lblPaquetes";
+            this.lblPaquetes.Size = new System.Drawing.Size(55, 13);
+            this.lblPaquetes.TabIndex = 0;
+            this.lblPaquetes.Text = "Paquetes:";
+            // 
             // frmFactMercancia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 512);
+            this.ClientSize = new System.Drawing.Size(740, 517);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmFactMercancia";
-            this.Text = "Facturacion de Mercancía";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Facturación de Mercancía";
             this.Load += new System.EventHandler(this.frmFactMercancia_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -420,10 +427,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgCorr)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.TabResumen.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgResumen)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }

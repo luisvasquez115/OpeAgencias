@@ -34,6 +34,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dg = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.chkCobros = new System.Windows.Forms.CheckBox();
+            this.chk_NC = new System.Windows.Forms.CheckBox();
             this.txtPorITBIS = new clsUtils.NumericTextBox();
             this.chkNCF = new System.Windows.Forms.CheckBox();
             this.cmbCAR_BASE = new System.Windows.Forms.ComboBox();
@@ -59,8 +61,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textCargoId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.chk_NC = new System.Windows.Forms.CheckBox();
-            this.chkCobros = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -172,6 +172,28 @@
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // chkCobros
+            // 
+            this.chkCobros.AutoSize = true;
+            this.chkCobros.Location = new System.Drawing.Point(436, 183);
+            this.chkCobros.Name = "chkCobros";
+            this.chkCobros.Size = new System.Drawing.Size(59, 17);
+            this.chkCobros.TabIndex = 49;
+            this.chkCobros.Tag = "CAR_COBROS";
+            this.chkCobros.Text = "Cobros";
+            this.chkCobros.UseVisualStyleBackColor = true;
+            // 
+            // chk_NC
+            // 
+            this.chk_NC.AutoSize = true;
+            this.chk_NC.Location = new System.Drawing.Point(436, 158);
+            this.chk_NC.Name = "chk_NC";
+            this.chk_NC.Size = new System.Drawing.Size(99, 17);
+            this.chk_NC.TabIndex = 48;
+            this.chk_NC.Tag = "CAR_NC";
+            this.chk_NC.Text = "Nota de crédito";
+            this.chk_NC.UseVisualStyleBackColor = true;
+            // 
             // txtPorITBIS
             // 
             this.txtPorITBIS.AllowSpace = false;
@@ -181,7 +203,7 @@
             0,
             0});
             this.txtPorITBIS.IntValue = 0;
-            this.txtPorITBIS.Location = new System.Drawing.Point(510, 83);
+            this.txtPorITBIS.Location = new System.Drawing.Point(495, 99);
             this.txtPorITBIS.Name = "txtPorITBIS";
             this.txtPorITBIS.Size = new System.Drawing.Size(70, 21);
             this.txtPorITBIS.TabIndex = 47;
@@ -190,7 +212,7 @@
             // chkNCF
             // 
             this.chkNCF.AutoSize = true;
-            this.chkNCF.Location = new System.Drawing.Point(449, 114);
+            this.chkNCF.Location = new System.Drawing.Point(436, 131);
             this.chkNCF.Name = "chkNCF";
             this.chkNCF.Size = new System.Drawing.Size(47, 17);
             this.chkNCF.TabIndex = 46;
@@ -202,7 +224,7 @@
             // 
             this.cmbCAR_BASE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCAR_BASE.FormattingEnabled = true;
-            this.cmbCAR_BASE.Location = new System.Drawing.Point(113, 245);
+            this.cmbCAR_BASE.Location = new System.Drawing.Point(121, 251);
             this.cmbCAR_BASE.Name = "cmbCAR_BASE";
             this.cmbCAR_BASE.Size = new System.Drawing.Size(261, 21);
             this.cmbCAR_BASE.TabIndex = 44;
@@ -211,7 +233,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 245);
+            this.label5.Location = new System.Drawing.Point(78, 254);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(34, 13);
             this.label5.TabIndex = 43;
@@ -220,7 +242,7 @@
             // chkSumar
             // 
             this.chkSumar.AutoSize = true;
-            this.chkSumar.Location = new System.Drawing.Point(449, 63);
+            this.chkSumar.Location = new System.Drawing.Point(436, 80);
             this.chkSumar.Name = "chkSumar";
             this.chkSumar.Size = new System.Drawing.Size(56, 17);
             this.chkSumar.TabIndex = 42;
@@ -231,7 +253,7 @@
             // chkRedondear
             // 
             this.chkRedondear.AutoSize = true;
-            this.chkRedondear.Location = new System.Drawing.Point(449, 40);
+            this.chkRedondear.Location = new System.Drawing.Point(436, 57);
             this.chkRedondear.Name = "chkRedondear";
             this.chkRedondear.Size = new System.Drawing.Size(79, 17);
             this.chkRedondear.TabIndex = 41;
@@ -241,7 +263,7 @@
             // 
             // txtMinimoFacturar
             // 
-            this.txtMinimoFacturar.Location = new System.Drawing.Point(113, 283);
+            this.txtMinimoFacturar.Location = new System.Drawing.Point(121, 278);
             this.txtMinimoFacturar.Name = "txtMinimoFacturar";
             this.txtMinimoFacturar.Size = new System.Drawing.Size(120, 20);
             this.txtMinimoFacturar.TabIndex = 40;
@@ -250,7 +272,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(14, 285);
+            this.label12.Location = new System.Drawing.Point(16, 280);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(96, 13);
             this.label12.TabIndex = 39;
@@ -259,7 +281,7 @@
             // chkRedondearEnteros
             // 
             this.chkRedondearEnteros.AutoSize = true;
-            this.chkRedondearEnteros.Location = new System.Drawing.Point(449, 17);
+            this.chkRedondearEnteros.Location = new System.Drawing.Point(436, 34);
             this.chkRedondearEnteros.Name = "chkRedondearEnteros";
             this.chkRedondearEnteros.Size = new System.Drawing.Size(117, 17);
             this.chkRedondearEnteros.TabIndex = 36;
@@ -270,7 +292,7 @@
             // chkItebis
             // 
             this.chkItebis.AutoSize = true;
-            this.chkItebis.Location = new System.Drawing.Point(449, 86);
+            this.chkItebis.Location = new System.Drawing.Point(436, 103);
             this.chkItebis.Name = "chkItebis";
             this.chkItebis.Size = new System.Drawing.Size(53, 17);
             this.chkItebis.TabIndex = 35;
@@ -286,7 +308,7 @@
             "Adicional",
             "Porcentaje",
             "Sin Tope"});
-            this.cmbCAR_TOPE_MAXIMO.Location = new System.Drawing.Point(113, 218);
+            this.cmbCAR_TOPE_MAXIMO.Location = new System.Drawing.Point(121, 224);
             this.cmbCAR_TOPE_MAXIMO.Name = "cmbCAR_TOPE_MAXIMO";
             this.cmbCAR_TOPE_MAXIMO.Size = new System.Drawing.Size(261, 21);
             this.cmbCAR_TOPE_MAXIMO.TabIndex = 32;
@@ -295,7 +317,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(14, 218);
+            this.label9.Location = new System.Drawing.Point(51, 227);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(61, 13);
             this.label9.TabIndex = 31;
@@ -308,7 +330,7 @@
             this.cmbCarFijoMultiplicar.Items.AddRange(new object[] {
             "Fijo",
             "Multiplicar"});
-            this.cmbCarFijoMultiplicar.Location = new System.Drawing.Point(113, 191);
+            this.cmbCarFijoMultiplicar.Location = new System.Drawing.Point(121, 197);
             this.cmbCarFijoMultiplicar.Name = "cmbCarFijoMultiplicar";
             this.cmbCarFijoMultiplicar.Size = new System.Drawing.Size(261, 21);
             this.cmbCarFijoMultiplicar.TabIndex = 30;
@@ -317,7 +339,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(14, 191);
+            this.label7.Location = new System.Drawing.Point(22, 200);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 13);
             this.label7.TabIndex = 29;
@@ -325,7 +347,7 @@
             // 
             // txtCAR_DESCRIPCION
             // 
-            this.txtCAR_DESCRIPCION.Location = new System.Drawing.Point(113, 80);
+            this.txtCAR_DESCRIPCION.Location = new System.Drawing.Point(121, 86);
             this.txtCAR_DESCRIPCION.Multiline = true;
             this.txtCAR_DESCRIPCION.Name = "txtCAR_DESCRIPCION";
             this.txtCAR_DESCRIPCION.Size = new System.Drawing.Size(261, 51);
@@ -335,11 +357,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 83);
+            this.label6.Location = new System.Drawing.Point(46, 89);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
+            this.label6.Size = new System.Drawing.Size(66, 13);
             this.label6.TabIndex = 27;
-            this.label6.Text = "Descripción";
+            this.label6.Text = "Descripción:";
             // 
             // cmbCarDirectoTabla
             // 
@@ -348,7 +370,7 @@
             this.cmbCarDirectoTabla.Items.AddRange(new object[] {
             "Directo",
             "Tabla"});
-            this.cmbCarDirectoTabla.Location = new System.Drawing.Point(113, 164);
+            this.cmbCarDirectoTabla.Location = new System.Drawing.Point(121, 170);
             this.cmbCarDirectoTabla.Name = "cmbCarDirectoTabla";
             this.cmbCarDirectoTabla.Size = new System.Drawing.Size(261, 21);
             this.cmbCarDirectoTabla.TabIndex = 22;
@@ -357,7 +379,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 164);
+            this.label3.Location = new System.Drawing.Point(78, 173);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 21;
@@ -366,7 +388,7 @@
             // chkEstado
             // 
             this.chkEstado.AutoSize = true;
-            this.chkEstado.Location = new System.Drawing.Point(532, 281);
+            this.chkEstado.Location = new System.Drawing.Point(436, 206);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Size = new System.Drawing.Size(56, 17);
             this.chkEstado.TabIndex = 20;
@@ -381,7 +403,7 @@
             this.cmbTipoId.Items.AddRange(new object[] {
             "UNIDAD",
             "CARGO"});
-            this.cmbTipoId.Location = new System.Drawing.Point(113, 137);
+            this.cmbTipoId.Location = new System.Drawing.Point(121, 143);
             this.cmbTipoId.Name = "cmbTipoId";
             this.cmbTipoId.Size = new System.Drawing.Size(261, 21);
             this.cmbTipoId.TabIndex = 19;
@@ -390,7 +412,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 137);
+            this.label2.Location = new System.Drawing.Point(81, 146);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 13);
             this.label2.TabIndex = 18;
@@ -398,7 +420,7 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(113, 47);
+            this.txtCodigo.Location = new System.Drawing.Point(121, 60);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 20);
             this.txtCodigo.TabIndex = 17;
@@ -407,7 +429,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(14, 47);
+            this.label8.Location = new System.Drawing.Point(69, 63);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(43, 13);
             this.label8.TabIndex = 16;
@@ -416,7 +438,7 @@
             // textCargoId
             // 
             this.textCargoId.Enabled = false;
-            this.textCargoId.Location = new System.Drawing.Point(113, 14);
+            this.textCargoId.Location = new System.Drawing.Point(121, 34);
             this.textCargoId.Name = "textCargoId";
             this.textCargoId.Size = new System.Drawing.Size(100, 20);
             this.textCargoId.TabIndex = 1;
@@ -425,33 +447,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 14);
+            this.label1.Location = new System.Drawing.Point(62, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cargo Id:";
-            // 
-            // chk_NC
-            // 
-            this.chk_NC.AutoSize = true;
-            this.chk_NC.Location = new System.Drawing.Point(449, 141);
-            this.chk_NC.Name = "chk_NC";
-            this.chk_NC.Size = new System.Drawing.Size(99, 17);
-            this.chk_NC.TabIndex = 48;
-            this.chk_NC.Tag = "CAR_NC";
-            this.chk_NC.Text = "Nota de crédito";
-            this.chk_NC.UseVisualStyleBackColor = true;
-            // 
-            // chkCobros
-            // 
-            this.chkCobros.AutoSize = true;
-            this.chkCobros.Location = new System.Drawing.Point(449, 166);
-            this.chkCobros.Name = "chkCobros";
-            this.chkCobros.Size = new System.Drawing.Size(59, 17);
-            this.chkCobros.TabIndex = 49;
-            this.chkCobros.Tag = "CAR_COBROS";
-            this.chkCobros.Text = "Cobros";
-            this.chkCobros.UseVisualStyleBackColor = true;
             // 
             // frmCargos
             // 
@@ -460,7 +460,8 @@
             this.ClientSize = new System.Drawing.Size(631, 389);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmCargos";
-            this.Text = "frmCargos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cargos";
             this.Load += new System.EventHandler(this.frmProductos_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

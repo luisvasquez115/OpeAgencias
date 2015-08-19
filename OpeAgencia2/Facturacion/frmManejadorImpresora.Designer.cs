@@ -397,6 +397,7 @@
             this.ClientSize = new System.Drawing.Size(445, 217);
             this.Controls.Add(this.tabControl1);
             this.Name = "frmManejadorImpresora";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmManejadorImpresora";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

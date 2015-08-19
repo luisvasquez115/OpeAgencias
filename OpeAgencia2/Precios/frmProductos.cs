@@ -579,13 +579,9 @@ namespace OpeAgencia2.Precios
                 catch(Exception ex)
                 {
                     throw ex;
-                    
                 }
             }
 
         }
-
-
-
     }
 }

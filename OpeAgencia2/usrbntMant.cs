@@ -19,15 +19,12 @@ namespace OpeAgencia2
 
         public bool bExito { set; get; }
         public bool bAdiciona { set; get; }
-       
-
         public event EventHandler ButtonClickAdd;
         public event EventHandler ButtonClickMod;
         public event EventHandler ButtonClickSave;
         public event EventHandler ButtonClickDel;
         public event EventHandler ButtonClickUndo;
         public event EventHandler ButtonClickSalir;
-
 
         #region "Botones"
       

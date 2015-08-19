@@ -67,6 +67,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtConsignatario = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtPeso = new System.Windows.Forms.NumericUpDown();
             this.txtSellos = new clsUtils.NumericTextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.txtValorFOB = new clsUtils.NumericTextBox();
@@ -97,7 +98,6 @@
             this.dgCargos = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgUnidades = new System.Windows.Forms.DataGridView();
-            this.txtPeso = new System.Windows.Forms.NumericUpDown();
             this.tabControl1.SuspendLayout();
             this.TabPageMant.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -105,6 +105,7 @@
             this.tabRemitente.SuspendLayout();
             this.tabConsignatario.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPeso)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPiezas)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -119,7 +120,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgCargos)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgUnidades)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPeso)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -523,6 +523,13 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
+            // txtPeso
+            // 
+            this.txtPeso.Location = new System.Drawing.Point(277, 91);
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.Size = new System.Drawing.Size(70, 20);
+            this.txtPeso.TabIndex = 30;
+            // 
             // txtSellos
             // 
             this.txtSellos.AllowSpace = false;
@@ -842,13 +849,6 @@
             this.dgUnidades.Size = new System.Drawing.Size(644, 478);
             this.dgUnidades.TabIndex = 1;
             // 
-            // txtPeso
-            // 
-            this.txtPeso.Location = new System.Drawing.Point(277, 91);
-            this.txtPeso.Name = "txtPeso";
-            this.txtPeso.Size = new System.Drawing.Size(70, 20);
-            this.txtPeso.TabIndex = 30;
-            // 
             // frmAgregarEnvio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -856,6 +856,7 @@
             this.ClientSize = new System.Drawing.Size(658, 510);
             this.Controls.Add(this.tabControl1);
             this.Name = "frmAgregarEnvio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAgregarEnvio";
             this.Load += new System.EventHandler(this.frmAgregarEnvio_Load);
             this.tabControl1.ResumeLayout(false);
@@ -868,6 +869,7 @@
             this.tabConsignatario.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPeso)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPiezas)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -883,7 +885,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgCargos)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgUnidades)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPeso)).EndInit();
             this.ResumeLayout(false);
 
         }
