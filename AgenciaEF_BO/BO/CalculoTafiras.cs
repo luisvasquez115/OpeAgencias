@@ -180,13 +180,28 @@ namespace AgenciaEF_BO.BO
                 }
                 else
                 {
-                    if (dPeso < cargo.Producto.PRO_MINIMO)
+                    if (cargo.Cargos.CAR_BASE_ID==27)
                     {
-                        dPeso = Convert.ToDecimal(cargo.Producto.PRO_MINIMO);
+                        if (iPiezas < cargo.Producto.PRO_MINIMO)
+                        {
+                            iPiezas = Convert.ToInt32(cargo.Producto.PRO_MINIMO);
+
+                        }
+
+                        oBultosVal.BVA_MONTO_LOCAL = iPiezas * oBultosVal.BVA_MONTO_APLICAR * cargo.TasaCambio.FACTOR_CONV;
 
                     }
+                    else
+                    {
+                        if (dPeso < cargo.Producto.PRO_MINIMO)
+                        {
+                            dPeso = Convert.ToDecimal(cargo.Producto.PRO_MINIMO);
 
-                    oBultosVal.BVA_MONTO_LOCAL = dPeso * oBultosVal.BVA_MONTO_APLICAR * cargo.TasaCambio.FACTOR_CONV;
+                        }
+
+                        oBultosVal.BVA_MONTO_LOCAL = dPeso * oBultosVal.BVA_MONTO_APLICAR * cargo.TasaCambio.FACTOR_CONV;
+                    }
+                    
                 }
 
                 //unitOfWork.BultosValoresRepository.Insert(oBultosVal);
