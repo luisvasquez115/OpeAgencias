@@ -398,7 +398,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "frmManejadorImpresora";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmManejadorImpresora";
+            this.Text = "Manejador de impresoras fiscales";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

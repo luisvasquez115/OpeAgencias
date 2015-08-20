@@ -65,7 +65,7 @@
             this.groupBox1.Controls.Add(this.lblNombres);
             this.groupBox1.Controls.Add(this.txtEPS);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 16);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(553, 98);
             this.groupBox1.TabIndex = 1;
@@ -140,7 +140,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgEnvios);
-            this.groupBox2.Location = new System.Drawing.Point(12, 154);
+            this.groupBox2.Location = new System.Drawing.Point(12, 145);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(553, 241);
             this.groupBox2.TabIndex = 2;
@@ -183,7 +183,7 @@
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.txtPaq);
             this.groupBox3.Controls.Add(this.lblPaquetes);
-            this.groupBox3.Location = new System.Drawing.Point(15, 410);
+            this.groupBox3.Location = new System.Drawing.Point(15, 401);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(550, 61);
             this.groupBox3.TabIndex = 3;
@@ -245,7 +245,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(15, 125);
+            this.btnAgregar.Location = new System.Drawing.Point(15, 116);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 4;
@@ -257,14 +257,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 511);
+            this.ClientSize = new System.Drawing.Size(578, 468);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmFactEnvios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmFactEnvios";
+            this.Text = "Facturación de envíos";
             this.Load += new System.EventHandler(this.frmFactEnvios_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

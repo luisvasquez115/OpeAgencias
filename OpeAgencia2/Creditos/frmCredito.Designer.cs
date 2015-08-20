@@ -52,9 +52,10 @@
             this.groupBox1.Controls.Add(this.lblNombres);
             this.groupBox1.Controls.Add(this.txtEPS);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Controls.Add(this.chkCredito);
+            this.groupBox1.Location = new System.Drawing.Point(12, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(426, 66);
+            this.groupBox1.Size = new System.Drawing.Size(426, 52);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -92,11 +93,10 @@
             this.groupBox6.Controls.Add(this.label26);
             this.groupBox6.Controls.Add(this.txtDiasCredito);
             this.groupBox6.Controls.Add(this.label30);
-            this.groupBox6.Controls.Add(this.chkCredito);
             this.groupBox6.Controls.Add(this.label37);
-            this.groupBox6.Location = new System.Drawing.Point(12, 84);
+            this.groupBox6.Location = new System.Drawing.Point(12, 61);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(315, 122);
+            this.groupBox6.Size = new System.Drawing.Size(305, 101);
             this.groupBox6.TabIndex = 21;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Crédito";
@@ -110,7 +110,7 @@
             0,
             0});
             this.TextCTE_BALANCE.IntValue = 0;
-            this.TextCTE_BALANCE.Location = new System.Drawing.Point(109, 94);
+            this.TextCTE_BALANCE.Location = new System.Drawing.Point(114, 67);
             this.TextCTE_BALANCE.Name = "TextCTE_BALANCE";
             this.TextCTE_BALANCE.Size = new System.Drawing.Size(172, 21);
             this.TextCTE_BALANCE.TabIndex = 29;
@@ -124,7 +124,7 @@
             0,
             0});
             this.textCTE_LIMITE_CREDITO.IntValue = 0;
-            this.textCTE_LIMITE_CREDITO.Location = new System.Drawing.Point(109, 66);
+            this.textCTE_LIMITE_CREDITO.Location = new System.Drawing.Point(114, 40);
             this.textCTE_LIMITE_CREDITO.Name = "textCTE_LIMITE_CREDITO";
             this.textCTE_LIMITE_CREDITO.Size = new System.Drawing.Size(172, 21);
             this.textCTE_LIMITE_CREDITO.TabIndex = 28;
@@ -132,7 +132,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(8, 96);
+            this.label26.Location = new System.Drawing.Point(13, 70);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(99, 13);
             this.label26.TabIndex = 25;
@@ -140,7 +140,7 @@
             // 
             // txtDiasCredito
             // 
-            this.txtDiasCredito.Location = new System.Drawing.Point(109, 40);
+            this.txtDiasCredito.Location = new System.Drawing.Point(114, 14);
             this.txtDiasCredito.Name = "txtDiasCredito";
             this.txtDiasCredito.Size = new System.Drawing.Size(120, 20);
             this.txtDiasCredito.TabIndex = 1;
@@ -149,7 +149,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(8, 42);
+            this.label30.Location = new System.Drawing.Point(44, 16);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(68, 13);
             this.label30.TabIndex = 27;
@@ -158,7 +158,7 @@
             // chkCredito
             // 
             this.chkCredito.AutoSize = true;
-            this.chkCredito.Location = new System.Drawing.Point(6, 17);
+            this.chkCredito.Location = new System.Drawing.Point(289, 21);
             this.chkCredito.Name = "chkCredito";
             this.chkCredito.Size = new System.Drawing.Size(114, 17);
             this.chkCredito.TabIndex = 0;
@@ -169,7 +169,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(6, 66);
+            this.label37.Location = new System.Drawing.Point(23, 43);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(89, 13);
             this.label37.TabIndex = 15;
@@ -177,7 +177,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(351, 101);
+            this.btnAceptar.Location = new System.Drawing.Point(349, 97);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 22;
@@ -187,7 +187,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(351, 130);
+            this.btnCancelar.Location = new System.Drawing.Point(349, 126);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 23;
@@ -199,14 +199,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 225);
+            this.ClientSize = new System.Drawing.Size(450, 172);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmCredito";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmCredito";
+            this.Text = "Clientes con crédito";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox6.ResumeLayout(false);

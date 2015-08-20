@@ -224,7 +224,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "frmImportacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmImportacion";
+            this.Text = "Importación de manifiesto";
             this.Load += new System.EventHandler(this.frmImportacion_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

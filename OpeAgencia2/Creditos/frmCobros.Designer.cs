@@ -58,7 +58,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(553, 90);
+            this.groupBox1.Size = new System.Drawing.Size(553, 81);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -71,7 +71,7 @@
             0,
             0});
             this.txtMontoAplicar.IntValue = 0;
-            this.txtMontoAplicar.Location = new System.Drawing.Point(103, 52);
+            this.txtMontoAplicar.Location = new System.Drawing.Point(102, 51);
             this.txtMontoAplicar.Name = "txtMontoAplicar";
             this.txtMontoAplicar.Size = new System.Drawing.Size(99, 21);
             this.txtMontoAplicar.TabIndex = 6;
@@ -99,7 +99,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 54);
+            this.label2.Location = new System.Drawing.Point(17, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 13);
             this.label2.TabIndex = 4;
@@ -127,7 +127,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 28);
+            this.label1.Location = new System.Drawing.Point(65, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 0;
@@ -136,9 +136,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgRecibos);
-            this.groupBox2.Location = new System.Drawing.Point(12, 99);
+            this.groupBox2.Location = new System.Drawing.Point(12, 89);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(551, 229);
+            this.groupBox2.Size = new System.Drawing.Size(551, 239);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             // 
@@ -152,7 +152,7 @@
             this.dgRecibos.Name = "dgRecibos";
             this.dgRecibos.ReadOnly = true;
             this.dgRecibos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgRecibos.Size = new System.Drawing.Size(545, 210);
+            this.dgRecibos.Size = new System.Drawing.Size(545, 220);
             this.dgRecibos.TabIndex = 0;
             this.dgRecibos.SelectionChanged += new System.EventHandler(this.dgRecibos_SelectionChanged);
             // 
@@ -160,9 +160,9 @@
             // 
             this.groupBox3.Controls.Add(this.txtMontoTotal);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(361, 334);
+            this.groupBox3.Location = new System.Drawing.Point(361, 331);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(199, 61);
+            this.groupBox3.Size = new System.Drawing.Size(199, 46);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             // 
@@ -187,13 +187,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 411);
+            this.ClientSize = new System.Drawing.Size(575, 383);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmCobros";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmCobros";
+            this.Text = "Cobros";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

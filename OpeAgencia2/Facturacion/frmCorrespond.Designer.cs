@@ -57,14 +57,20 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(300, 158);
+            this.groupBox1.Size = new System.Drawing.Size(300, 131);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // txtPesoCat
             // 
             this.txtPesoCat.AllowSpace = false;
-            this.txtPesoCat.Location = new System.Drawing.Point(239, 69);
+            this.txtPesoCat.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtPesoCat.IntValue = 0;
+            this.txtPesoCat.Location = new System.Drawing.Point(239, 46);
             this.txtPesoCat.Name = "txtPesoCat";
             this.txtPesoCat.Size = new System.Drawing.Size(47, 21);
             this.txtPesoCat.TabIndex = 9;
@@ -72,7 +78,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(157, 69);
+            this.label3.Location = new System.Drawing.Point(154, 46);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 13);
             this.label3.TabIndex = 8;
@@ -81,7 +87,13 @@
             // txtPiezaCat
             // 
             this.txtPiezaCat.AllowSpace = false;
-            this.txtPiezaCat.Location = new System.Drawing.Point(98, 69);
+            this.txtPiezaCat.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtPiezaCat.IntValue = 0;
+            this.txtPiezaCat.Location = new System.Drawing.Point(98, 46);
             this.txtPiezaCat.Name = "txtPiezaCat";
             this.txtPiezaCat.Size = new System.Drawing.Size(47, 21);
             this.txtPiezaCat.TabIndex = 7;
@@ -89,7 +101,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 69);
+            this.label4.Location = new System.Drawing.Point(7, 46);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 13);
             this.label4.TabIndex = 6;
@@ -98,7 +110,13 @@
             // txtPesoCorr
             // 
             this.txtPesoCorr.AllowSpace = false;
-            this.txtPesoCorr.Location = new System.Drawing.Point(238, 26);
+            this.txtPesoCorr.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtPesoCorr.IntValue = 0;
+            this.txtPesoCorr.Location = new System.Drawing.Point(239, 19);
             this.txtPesoCorr.Name = "txtPesoCorr";
             this.txtPesoCorr.Size = new System.Drawing.Size(47, 21);
             this.txtPesoCorr.TabIndex = 5;
@@ -106,7 +124,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(160, 26);
+            this.label2.Location = new System.Drawing.Point(163, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 4;
@@ -115,7 +133,13 @@
             // txtPiezaNormal
             // 
             this.txtPiezaNormal.AllowSpace = false;
-            this.txtPiezaNormal.Location = new System.Drawing.Point(97, 26);
+            this.txtPiezaNormal.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtPiezaNormal.IntValue = 0;
+            this.txtPiezaNormal.Location = new System.Drawing.Point(98, 19);
             this.txtPiezaNormal.Name = "txtPiezaNormal";
             this.txtPiezaNormal.Size = new System.Drawing.Size(47, 21);
             this.txtPiezaNormal.TabIndex = 3;
@@ -123,7 +147,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 26);
+            this.label1.Location = new System.Drawing.Point(15, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 13);
             this.label1.TabIndex = 2;
@@ -132,7 +156,7 @@
             // BtnCancelar
             // 
             this.BtnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BtnCancelar.Location = new System.Drawing.Point(127, 107);
+            this.BtnCancelar.Location = new System.Drawing.Point(156, 99);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(75, 23);
             this.BtnCancelar.TabIndex = 1;
@@ -142,7 +166,7 @@
             // btnAceptar
             // 
             this.btnAceptar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAceptar.Location = new System.Drawing.Point(208, 107);
+            this.btnAceptar.Location = new System.Drawing.Point(70, 99);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 0;
@@ -156,13 +180,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BtnCancelar;
-            this.ClientSize = new System.Drawing.Size(300, 158);
+            this.ClientSize = new System.Drawing.Size(300, 131);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmCorrespond";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmCorrespond";
+            this.Text = "Digitación de correspondencia";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

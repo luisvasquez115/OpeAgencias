@@ -230,7 +230,7 @@
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.txtPendiente);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Location = new System.Drawing.Point(20, 204);
+            this.groupBox3.Location = new System.Drawing.Point(264, 204);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(343, 119);
             this.groupBox3.TabIndex = 2;
@@ -346,7 +346,7 @@
             // 
             this.groupBox5.Controls.Add(this.btnCancelar);
             this.groupBox5.Controls.Add(this.btnAceptar);
-            this.groupBox5.Location = new System.Drawing.Point(182, 329);
+            this.groupBox5.Location = new System.Drawing.Point(351, 329);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(181, 56);
             this.groupBox5.TabIndex = 7;
@@ -355,7 +355,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.txtMontoTotal);
-            this.groupBox4.Location = new System.Drawing.Point(20, 15);
+            this.groupBox4.Location = new System.Drawing.Point(336, 15);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(196, 58);
             this.groupBox4.TabIndex = 6;
@@ -368,7 +368,7 @@
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.txtEfectivo);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Location = new System.Drawing.Point(20, 79);
+            this.groupBox2.Location = new System.Drawing.Point(264, 79);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(343, 119);
             this.groupBox2.TabIndex = 5;
@@ -461,7 +461,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "frmDatosPago";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmDatosPago";
+            this.Text = "Datos de pago";
             this.Load += new System.EventHandler(this.frmDatosPago_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

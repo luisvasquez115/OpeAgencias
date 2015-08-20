@@ -39,7 +39,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtMonto = new clsUtils.NumericTextBox();
             this.txtDesc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbCargos = new System.Windows.Forms.ComboBox();
@@ -49,6 +48,7 @@
             this.cmCargvar = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.facturarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.anularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtMonto = new clsUtils.NumericTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -66,7 +66,7 @@
             this.groupBox1.Controls.Add(this.lblNombres);
             this.groupBox1.Controls.Add(this.txtEPS);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(16, 13);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(491, 54);
             this.groupBox1.TabIndex = 0;
@@ -175,20 +175,6 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Monto:";
             // 
-            // txtMonto
-            // 
-            this.txtMonto.AllowSpace = false;
-            this.txtMonto.DecimalValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtMonto.IntValue = 0;
-            this.txtMonto.Location = new System.Drawing.Point(59, 156);
-            this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(172, 21);
-            this.txtMonto.TabIndex = 6;
-            // 
             // txtDesc
             // 
             this.txtDesc.Location = new System.Drawing.Point(59, 67);
@@ -272,6 +258,20 @@
             this.anularToolStripMenuItem.Name = "anularToolStripMenuItem";
             this.anularToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.anularToolStripMenuItem.Text = "Anular";
+            // 
+            // txtMonto
+            // 
+            this.txtMonto.AllowSpace = false;
+            this.txtMonto.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtMonto.IntValue = 0;
+            this.txtMonto.Location = new System.Drawing.Point(59, 156);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(172, 21);
+            this.txtMonto.TabIndex = 6;
             // 
             // frmCargosVarios
             // 

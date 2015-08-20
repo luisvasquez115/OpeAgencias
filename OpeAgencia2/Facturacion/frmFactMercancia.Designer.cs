@@ -224,7 +224,7 @@
             this.tabCorr.Location = new System.Drawing.Point(4, 22);
             this.tabCorr.Name = "tabCorr";
             this.tabCorr.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCorr.Size = new System.Drawing.Size(546, 268);
+            this.tabCorr.Size = new System.Drawing.Size(712, 309);
             this.tabCorr.TabIndex = 1;
             this.tabCorr.Text = "Correspondencia";
             this.tabCorr.UseVisualStyleBackColor = true;
@@ -244,8 +244,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgCorr);
-            this.splitContainer1.Size = new System.Drawing.Size(540, 262);
-            this.splitContainer1.SplitterDistance = 33;
+            this.splitContainer1.Size = new System.Drawing.Size(706, 303);
+            this.splitContainer1.SplitterDistance = 38;
             this.splitContainer1.TabIndex = 2;
             // 
             // button1
@@ -267,7 +267,7 @@
             this.dgCorr.Location = new System.Drawing.Point(0, 0);
             this.dgCorr.Name = "dgCorr";
             this.dgCorr.ReadOnly = true;
-            this.dgCorr.Size = new System.Drawing.Size(540, 225);
+            this.dgCorr.Size = new System.Drawing.Size(706, 261);
             this.dgCorr.TabIndex = 1;
             this.dgCorr.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCorr_CellEndEdit);
             // 
@@ -277,7 +277,7 @@
             this.TabResumen.Location = new System.Drawing.Point(4, 22);
             this.TabResumen.Name = "TabResumen";
             this.TabResumen.Padding = new System.Windows.Forms.Padding(3);
-            this.TabResumen.Size = new System.Drawing.Size(546, 268);
+            this.TabResumen.Size = new System.Drawing.Size(712, 309);
             this.TabResumen.TabIndex = 2;
             this.TabResumen.Text = "Resumen";
             this.TabResumen.UseVisualStyleBackColor = true;
@@ -296,7 +296,7 @@
             this.dgResumen.Name = "dgResumen";
             this.dgResumen.ReadOnly = true;
             this.dgResumen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgResumen.Size = new System.Drawing.Size(540, 262);
+            this.dgResumen.Size = new System.Drawing.Size(706, 303);
             this.dgResumen.TabIndex = 1;
             // 
             // Cargo

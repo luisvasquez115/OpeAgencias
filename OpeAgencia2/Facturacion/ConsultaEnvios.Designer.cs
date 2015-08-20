@@ -77,7 +77,7 @@
             // chkNoImpresos
             // 
             this.chkNoImpresos.AutoSize = true;
-            this.chkNoImpresos.Location = new System.Drawing.Point(286, 58);
+            this.chkNoImpresos.Location = new System.Drawing.Point(315, 47);
             this.chkNoImpresos.Name = "chkNoImpresos";
             this.chkNoImpresos.Size = new System.Drawing.Size(140, 17);
             this.chkNoImpresos.TabIndex = 8;
@@ -88,7 +88,7 @@
             // 
             this.cmbCounter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCounter.FormattingEnabled = true;
-            this.cmbCounter.Location = new System.Drawing.Point(68, 60);
+            this.cmbCounter.Location = new System.Drawing.Point(81, 45);
             this.cmbCounter.Name = "cmbCounter";
             this.cmbCounter.Size = new System.Drawing.Size(192, 21);
             this.cmbCounter.TabIndex = 7;
@@ -96,7 +96,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 63);
+            this.label3.Location = new System.Drawing.Point(28, 48);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 6;
@@ -104,7 +104,7 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(367, 89);
+            this.btnPrint.Location = new System.Drawing.Point(380, 74);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 23);
             this.btnPrint.TabIndex = 5;
@@ -114,7 +114,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(286, 89);
+            this.btnBuscar.Location = new System.Drawing.Point(299, 74);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 4;
@@ -124,7 +124,7 @@
             // 
             // txtFecha
             // 
-            this.txtFecha.Location = new System.Drawing.Point(60, 89);
+            this.txtFecha.Location = new System.Drawing.Point(81, 74);
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(200, 20);
             this.txtFecha.TabIndex = 3;
@@ -132,7 +132,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 89);
+            this.label2.Location = new System.Drawing.Point(35, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 2;
@@ -140,7 +140,7 @@
             // 
             // txtEPS
             // 
-            this.txtEPS.Location = new System.Drawing.Point(68, 27);
+            this.txtEPS.Location = new System.Drawing.Point(81, 19);
             this.txtEPS.Name = "txtEPS";
             this.txtEPS.Size = new System.Drawing.Size(100, 20);
             this.txtEPS.TabIndex = 1;
@@ -148,7 +148,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 30);
+            this.label1.Location = new System.Drawing.Point(44, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 0;

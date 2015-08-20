@@ -570,7 +570,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(516, 93);
+            this.btnCancelar.Location = new System.Drawing.Point(533, 153);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 25;
@@ -579,7 +579,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(516, 64);
+            this.btnAceptar.Location = new System.Drawing.Point(452, 153);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 24;
@@ -626,7 +626,8 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(331, 9);
+            this.dateTimePicker1.Enabled = false;
+            this.dateTimePicker1.Location = new System.Drawing.Point(408, 9);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 4;
@@ -634,7 +635,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(285, 12);
+            this.label3.Location = new System.Drawing.Point(362, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 3;
@@ -857,7 +858,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "frmAgregarEnvio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAgregarEnvio";
+            this.Text = "Agregar envío";
             this.Load += new System.EventHandler(this.frmAgregarEnvio_Load);
             this.tabControl1.ResumeLayout(false);
             this.TabPageMant.ResumeLayout(false);

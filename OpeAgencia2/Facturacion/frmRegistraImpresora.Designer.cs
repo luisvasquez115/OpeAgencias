@@ -75,8 +75,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabMant);
-            this.splitContainer1.Size = new System.Drawing.Size(649, 455);
-            this.splitContainer1.SplitterDistance = 38;
+            this.splitContainer1.Size = new System.Drawing.Size(649, 323);
+            this.splitContainer1.SplitterDistance = 26;
             this.splitContainer1.TabIndex = 5;
             // 
             // usrbntMant1
@@ -96,7 +96,7 @@
             this.tabMant.Location = new System.Drawing.Point(0, 0);
             this.tabMant.Name = "tabMant";
             this.tabMant.SelectedIndex = 0;
-            this.tabMant.Size = new System.Drawing.Size(649, 413);
+            this.tabMant.Size = new System.Drawing.Size(649, 293);
             this.tabMant.TabIndex = 0;
             this.tabMant.SelectedIndexChanged += new System.EventHandler(this.tabMant_SelectedIndexChanged);
             // 
@@ -177,14 +177,14 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(641, 387);
+            this.tabPage2.Size = new System.Drawing.Size(641, 267);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnSerial
             // 
-            this.btnSerial.Location = new System.Drawing.Point(544, 94);
+            this.btnSerial.Location = new System.Drawing.Point(564, 110);
             this.btnSerial.Name = "btnSerial";
             this.btnSerial.Size = new System.Drawing.Size(24, 23);
             this.btnSerial.TabIndex = 25;
@@ -194,7 +194,7 @@
             // 
             // txtPuerto
             // 
-            this.txtPuerto.Location = new System.Drawing.Point(88, 134);
+            this.txtPuerto.Location = new System.Drawing.Point(108, 150);
             this.txtPuerto.Multiline = true;
             this.txtPuerto.Name = "txtPuerto";
             this.txtPuerto.Size = new System.Drawing.Size(100, 23);
@@ -204,7 +204,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 134);
+            this.label5.Location = new System.Drawing.Point(61, 153);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 13);
             this.label5.TabIndex = 23;
@@ -222,7 +222,7 @@
             // TextSerial
             // 
             this.TextSerial.Enabled = false;
-            this.TextSerial.Location = new System.Drawing.Point(88, 96);
+            this.TextSerial.Location = new System.Drawing.Point(108, 112);
             this.TextSerial.Name = "TextSerial";
             this.TextSerial.Size = new System.Drawing.Size(450, 20);
             this.TextSerial.TabIndex = 19;
@@ -231,7 +231,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 96);
+            this.label2.Location = new System.Drawing.Point(66, 115);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(36, 13);
             this.label2.TabIndex = 18;
@@ -239,7 +239,7 @@
             // 
             // txtTermDesc
             // 
-            this.txtTermDesc.Location = new System.Drawing.Point(88, 60);
+            this.txtTermDesc.Location = new System.Drawing.Point(108, 76);
             this.txtTermDesc.Name = "txtTermDesc";
             this.txtTermDesc.Size = new System.Drawing.Size(450, 20);
             this.txtTermDesc.TabIndex = 17;
@@ -248,7 +248,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 60);
+            this.label8.Location = new System.Drawing.Point(41, 79);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(61, 13);
             this.label8.TabIndex = 16;
@@ -262,25 +262,27 @@
             this.textTERM_ID.Size = new System.Drawing.Size(100, 20);
             this.textTERM_ID.TabIndex = 1;
             this.textTERM_ID.Tag = "TERM_ID";
+            this.textTERM_ID.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 27);
+            this.label1.Location = new System.Drawing.Point(63, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(19, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Id:";
+            this.label1.Visible = false;
             // 
             // frmRegistraImpresora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(649, 455);
+            this.ClientSize = new System.Drawing.Size(649, 323);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmRegistraImpresora";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmRegistraImpresora";
+            this.Text = "Registrar impresora fiscal";
             this.Load += new System.EventHandler(this.frmRegistraImpresora_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
