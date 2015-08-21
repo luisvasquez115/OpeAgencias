@@ -458,20 +458,6 @@ namespace OpeAgencia2.Operaciones
             txtNumeroEPS.Text = "";
         }
 
-        private void txtCodigoBarra_Validating(object sender, CancelEventArgs e)
-        {
-            //if (txtCodigoBarra.Text == "")
-            //{
-            //    errorProvider1.SetError(txtCodigoBarra, "Este campo no puede quedar en blanco");
-            //    e.Cancel = true;
-            //}
-            //else
-            //{
-            //    errorProvider1.SetError(txtCodigoBarra, "");
-            //    e.Cancel = false;
-            //}
-        }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
@@ -587,12 +573,6 @@ namespace OpeAgencia2.Operaciones
             }
         }
 
-        private void txtPeso_Leave(object sender, EventArgs e)
-        {
-            //if (iNumeroEPS != -1)
-               // CarcularUnidades();
-        }
-
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EliminarCargo();
@@ -610,13 +590,18 @@ namespace OpeAgencia2.Operaciones
             {
                 iCargoProductoId = -1;
             }
-
             if (iCargoProductoId!= -1)
             {
                 oCargos.Rows.RemoveAt(iCargoProductoId);
                 //oCargos.Rows.Remove(dr);
                 oCargos.AcceptChanges();
             }
+        }
+
+        private void txtCodigoBarra_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+                BuscarDatosPorCodigoBarra();
         }
     }
 }

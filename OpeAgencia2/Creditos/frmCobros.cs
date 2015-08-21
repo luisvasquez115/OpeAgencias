@@ -26,11 +26,8 @@ namespace OpeAgencia2.Creditos
 
         private void txtEPS_Leave(object sender, EventArgs e)
         {
-             
-            if (txtEPS.Text !="")
+            if (txtEPS.Text != "")
                    BuscarCliente();
-           
-       
         }
 
 
@@ -185,6 +182,12 @@ namespace OpeAgencia2.Creditos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtEPS_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (txtEPS.Text != "" && e.KeyCode == Keys.Enter)
+                BuscarCliente();
         }
     }
 }

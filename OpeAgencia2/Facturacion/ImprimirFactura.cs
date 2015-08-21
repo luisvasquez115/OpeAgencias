@@ -391,10 +391,10 @@ namespace OpeAgencia2.Facturacion
 
         public void Dispose()
         {
-            if (m_streams != null)
+             if (m_streams != null)
             {
                 foreach (Stream stream in m_streams)
-                    stream.Close();
+                stream.Close();
                 m_streams = null;
             }
         }

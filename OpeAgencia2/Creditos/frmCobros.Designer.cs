@@ -56,9 +56,9 @@
             this.groupBox1.Controls.Add(this.lblNombres);
             this.groupBox1.Controls.Add(this.txtEPS);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 22);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(553, 81);
+            this.groupBox1.Size = new System.Drawing.Size(553, 77);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -71,14 +71,14 @@
             0,
             0});
             this.txtMontoAplicar.IntValue = 0;
-            this.txtMontoAplicar.Location = new System.Drawing.Point(102, 51);
+            this.txtMontoAplicar.Location = new System.Drawing.Point(102, 45);
             this.txtMontoAplicar.Name = "txtMontoAplicar";
             this.txtMontoAplicar.Size = new System.Drawing.Size(99, 21);
             this.txtMontoAplicar.TabIndex = 6;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(450, 48);
+            this.btnCancelar.Location = new System.Drawing.Point(462, 42);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 4;
@@ -88,7 +88,7 @@
             // 
             // btnFacturar
             // 
-            this.btnFacturar.Location = new System.Drawing.Point(450, 19);
+            this.btnFacturar.Location = new System.Drawing.Point(381, 42);
             this.btnFacturar.Name = "btnFacturar";
             this.btnFacturar.Size = new System.Drawing.Size(75, 23);
             this.btnFacturar.TabIndex = 5;
@@ -99,7 +99,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 53);
+            this.label2.Location = new System.Drawing.Point(17, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 13);
             this.label2.TabIndex = 4;
@@ -108,7 +108,7 @@
             // lblNombres
             // 
             this.lblNombres.AutoSize = true;
-            this.lblNombres.Location = new System.Drawing.Point(208, 28);
+            this.lblNombres.Location = new System.Drawing.Point(208, 22);
             this.lblNombres.Name = "lblNombres";
             this.lblNombres.Size = new System.Drawing.Size(55, 13);
             this.lblNombres.TabIndex = 2;
@@ -117,17 +117,18 @@
             // txtEPS
             // 
             this.txtEPS.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtEPS.Location = new System.Drawing.Point(102, 25);
+            this.txtEPS.Location = new System.Drawing.Point(102, 19);
             this.txtEPS.Name = "txtEPS";
             this.txtEPS.Size = new System.Drawing.Size(100, 20);
             this.txtEPS.TabIndex = 1;
             this.txtEPS.TextChanged += new System.EventHandler(this.txtEPS_TextChanged);
+            this.txtEPS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEPS_KeyDown);
             this.txtEPS.Leave += new System.EventHandler(this.txtEPS_Leave);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(65, 28);
+            this.label1.Location = new System.Drawing.Point(65, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 0;
@@ -160,9 +161,9 @@
             // 
             this.groupBox3.Controls.Add(this.txtMontoTotal);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(361, 331);
+            this.groupBox3.Location = new System.Drawing.Point(361, 334);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(199, 46);
+            this.groupBox3.Size = new System.Drawing.Size(199, 43);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             // 

@@ -79,7 +79,7 @@
             this.cmbTipoFact.Items.AddRange(new object[] {
             "Contado",
             "Crédito"});
-            this.cmbTipoFact.Location = new System.Drawing.Point(380, 58);
+            this.cmbTipoFact.Location = new System.Drawing.Point(417, 54);
             this.cmbTipoFact.Name = "cmbTipoFact";
             this.cmbTipoFact.Size = new System.Drawing.Size(121, 21);
             this.cmbTipoFact.TabIndex = 6;
@@ -87,7 +87,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(319, 58);
+            this.label4.Location = new System.Drawing.Point(356, 58);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 5;
@@ -96,7 +96,7 @@
             // dFechaVenc
             // 
             this.dFechaVenc.Enabled = false;
-            this.dFechaVenc.Location = new System.Drawing.Point(90, 52);
+            this.dFechaVenc.Location = new System.Drawing.Point(90, 51);
             this.dFechaVenc.Name = "dFechaVenc";
             this.dFechaVenc.Size = new System.Drawing.Size(200, 20);
             this.dFechaVenc.TabIndex = 4;
@@ -104,7 +104,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 52);
+            this.label2.Location = new System.Drawing.Point(13, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 3;
@@ -126,12 +126,13 @@
             this.txtEPS.Name = "txtEPS";
             this.txtEPS.Size = new System.Drawing.Size(100, 20);
             this.txtEPS.TabIndex = 1;
+            this.txtEPS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEPS_KeyDown);
             this.txtEPS.Leave += new System.EventHandler(this.txtEPS_Leave);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 28);
+            this.label1.Location = new System.Drawing.Point(53, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 0;
@@ -142,7 +143,7 @@
             this.groupBox2.Controls.Add(this.dgEnvios);
             this.groupBox2.Location = new System.Drawing.Point(12, 145);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(553, 241);
+            this.groupBox2.Size = new System.Drawing.Size(553, 278);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             // 
@@ -157,7 +158,7 @@
             this.dgEnvios.Location = new System.Drawing.Point(3, 16);
             this.dgEnvios.Name = "dgEnvios";
             this.dgEnvios.ReadOnly = true;
-            this.dgEnvios.Size = new System.Drawing.Size(547, 222);
+            this.dgEnvios.Size = new System.Drawing.Size(547, 259);
             this.dgEnvios.TabIndex = 0;
             this.dgEnvios.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgEnvios_CellEndEdit);
             // 
@@ -183,9 +184,9 @@
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.txtPaq);
             this.groupBox3.Controls.Add(this.lblPaquetes);
-            this.groupBox3.Location = new System.Drawing.Point(15, 401);
+            this.groupBox3.Location = new System.Drawing.Point(16, 418);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(550, 61);
+            this.groupBox3.Size = new System.Drawing.Size(550, 45);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             // 

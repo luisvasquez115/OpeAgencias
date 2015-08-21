@@ -342,6 +342,10 @@ namespace OpeAgencia2.Facturacion
             this.Close();
         }
 
-
+        private void txtEPS_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (txtEPS.Text != "" && e.KeyCode == Keys.Enter)
+                BuscarCliente();
+        }
     }
 }

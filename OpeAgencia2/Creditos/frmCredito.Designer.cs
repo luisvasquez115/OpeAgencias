@@ -75,6 +75,7 @@
             this.txtEPS.Name = "txtEPS";
             this.txtEPS.Size = new System.Drawing.Size(100, 20);
             this.txtEPS.TabIndex = 4;
+            this.txtEPS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEPS_KeyDown);
             this.txtEPS.Leave += new System.EventHandler(this.txtEPS_Leave);
             // 
             // label1

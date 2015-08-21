@@ -39,6 +39,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtMonto = new clsUtils.NumericTextBox();
             this.txtDesc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbCargos = new System.Windows.Forms.ComboBox();
@@ -48,7 +49,6 @@
             this.cmCargvar = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.facturarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.anularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtMonto = new clsUtils.NumericTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -68,7 +68,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(491, 54);
+            this.groupBox1.Size = new System.Drawing.Size(491, 44);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -88,6 +88,7 @@
             this.txtEPS.Name = "txtEPS";
             this.txtEPS.Size = new System.Drawing.Size(100, 20);
             this.txtEPS.TabIndex = 4;
+            this.txtEPS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEPS_KeyDown);
             this.txtEPS.Leave += new System.EventHandler(this.txtEPS_Leave);
             // 
             // label1
@@ -113,8 +114,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(551, 438);
-            this.splitContainer1.SplitterDistance = 88;
+            this.splitContainer1.Size = new System.Drawing.Size(551, 336);
+            this.splitContainer1.SplitterDistance = 67;
             this.splitContainer1.TabIndex = 1;
             // 
             // tabControl1
@@ -125,7 +126,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(551, 346);
+            this.tabControl1.Size = new System.Drawing.Size(551, 265);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -142,14 +143,14 @@
             this.tabAddCargo.Location = new System.Drawing.Point(4, 22);
             this.tabAddCargo.Name = "tabAddCargo";
             this.tabAddCargo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAddCargo.Size = new System.Drawing.Size(543, 320);
+            this.tabAddCargo.Size = new System.Drawing.Size(543, 239);
             this.tabAddCargo.TabIndex = 0;
             this.tabAddCargo.Text = "Agregar";
             this.tabAddCargo.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(140, 197);
+            this.btnCancel.Location = new System.Drawing.Point(288, 175);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 9;
@@ -158,7 +159,7 @@
             // 
             // btnAccept
             // 
-            this.btnAccept.Location = new System.Drawing.Point(59, 197);
+            this.btnAccept.Location = new System.Drawing.Point(207, 175);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 23);
             this.btnAccept.TabIndex = 8;
@@ -169,15 +170,29 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 156);
+            this.label3.Location = new System.Drawing.Point(114, 131);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Monto:";
             // 
+            // txtMonto
+            // 
+            this.txtMonto.AllowSpace = false;
+            this.txtMonto.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtMonto.IntValue = 0;
+            this.txtMonto.Location = new System.Drawing.Point(160, 131);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(172, 21);
+            this.txtMonto.TabIndex = 6;
+            // 
             // txtDesc
             // 
-            this.txtDesc.Location = new System.Drawing.Point(59, 67);
+            this.txtDesc.Location = new System.Drawing.Point(160, 53);
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(271, 72);
@@ -186,7 +201,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 70);
+            this.label2.Location = new System.Drawing.Point(119, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 4;
@@ -198,7 +213,7 @@
             this.cmbCargos.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbCargos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCargos.FormattingEnabled = true;
-            this.cmbCargos.Location = new System.Drawing.Point(59, 32);
+            this.cmbCargos.Location = new System.Drawing.Point(160, 26);
             this.cmbCargos.Name = "cmbCargos";
             this.cmbCargos.Size = new System.Drawing.Size(271, 21);
             this.cmbCargos.TabIndex = 3;
@@ -206,7 +221,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 35);
+            this.label5.Location = new System.Drawing.Point(116, 29);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 13);
             this.label5.TabIndex = 2;
@@ -218,7 +233,7 @@
             this.tabCargos.Location = new System.Drawing.Point(4, 22);
             this.tabCargos.Name = "tabCargos";
             this.tabCargos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCargos.Size = new System.Drawing.Size(543, 320);
+            this.tabCargos.Size = new System.Drawing.Size(543, 239);
             this.tabCargos.TabIndex = 1;
             this.tabCargos.Text = "Cargos";
             this.tabCargos.UseVisualStyleBackColor = true;
@@ -235,7 +250,7 @@
             this.dgCargos.Name = "dgCargos";
             this.dgCargos.ReadOnly = true;
             this.dgCargos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgCargos.Size = new System.Drawing.Size(537, 314);
+            this.dgCargos.Size = new System.Drawing.Size(537, 233);
             this.dgCargos.TabIndex = 0;
             // 
             // cmCargvar
@@ -259,29 +274,15 @@
             this.anularToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.anularToolStripMenuItem.Text = "Anular";
             // 
-            // txtMonto
-            // 
-            this.txtMonto.AllowSpace = false;
-            this.txtMonto.DecimalValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtMonto.IntValue = 0;
-            this.txtMonto.Location = new System.Drawing.Point(59, 156);
-            this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(172, 21);
-            this.txtMonto.TabIndex = 6;
-            // 
             // frmCargosVarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(551, 438);
+            this.ClientSize = new System.Drawing.Size(551, 336);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmCargosVarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmCargosVarios";
+            this.Text = "Cargos varios";
             this.Load += new System.EventHandler(this.frmCargosVarios_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

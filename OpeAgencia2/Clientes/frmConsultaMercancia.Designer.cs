@@ -142,7 +142,7 @@
             // txtMontoTotal
             // 
             this.txtMontoTotal.Enabled = false;
-            this.txtMontoTotal.Location = new System.Drawing.Point(279, 116);
+            this.txtMontoTotal.Location = new System.Drawing.Point(237, 116);
             this.txtMontoTotal.Name = "txtMontoTotal";
             this.txtMontoTotal.Size = new System.Drawing.Size(100, 20);
             this.txtMontoTotal.TabIndex = 15;
@@ -150,7 +150,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(233, 116);
+            this.label6.Location = new System.Drawing.Point(191, 116);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 14;
@@ -159,7 +159,7 @@
             // txtPaq
             // 
             this.txtPaq.Enabled = false;
-            this.txtPaq.Location = new System.Drawing.Point(111, 116);
+            this.txtPaq.Location = new System.Drawing.Point(69, 116);
             this.txtPaq.Name = "txtPaq";
             this.txtPaq.Size = new System.Drawing.Size(100, 20);
             this.txtPaq.TabIndex = 13;
@@ -167,7 +167,7 @@
             // lblPaquetes
             // 
             this.lblPaquetes.AutoSize = true;
-            this.lblPaquetes.Location = new System.Drawing.Point(50, 116);
+            this.lblPaquetes.Location = new System.Drawing.Point(8, 116);
             this.lblPaquetes.Name = "lblPaquetes";
             this.lblPaquetes.Size = new System.Drawing.Size(55, 13);
             this.lblPaquetes.TabIndex = 12;
@@ -175,7 +175,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(483, 79);
+            this.btnLimpiar.Location = new System.Drawing.Point(603, 113);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 11;
@@ -184,7 +184,7 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(402, 79);
+            this.btnConsultar.Location = new System.Drawing.Point(522, 113);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(75, 23);
             this.btnConsultar.TabIndex = 10;
@@ -200,7 +200,7 @@
             "Recibida",
             "Entregada",
             "Fuera de inventario"});
-            this.cmbEstado.Location = new System.Drawing.Point(351, 45);
+            this.cmbEstado.Location = new System.Drawing.Point(471, 45);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(207, 21);
             this.cmbEstado.TabIndex = 9;
@@ -208,7 +208,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(289, 49);
+            this.label5.Location = new System.Drawing.Point(409, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 13);
             this.label5.TabIndex = 8;
@@ -216,7 +216,7 @@
             // 
             // txtTracking
             // 
-            this.txtTracking.Location = new System.Drawing.Point(351, 19);
+            this.txtTracking.Location = new System.Drawing.Point(471, 19);
             this.txtTracking.Name = "txtTracking";
             this.txtTracking.Size = new System.Drawing.Size(207, 20);
             this.txtTracking.TabIndex = 7;
@@ -224,7 +224,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(256, 22);
+            this.label4.Location = new System.Drawing.Point(376, 22);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 13);
             this.label4.TabIndex = 6;
@@ -392,7 +392,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "frmConsultaMercancia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmConsultaMercancia";
+            this.Text = "Consulta de mercancía";
             this.Load += new System.EventHandler(this.frmConsultaMercancia_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabGenerales.ResumeLayout(false);

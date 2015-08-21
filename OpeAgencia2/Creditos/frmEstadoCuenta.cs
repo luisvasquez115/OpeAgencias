@@ -75,10 +75,10 @@ namespace OpeAgencia2.Creditos
             DataTable dt = new DataTable();
             dt = CargarDatos();
             dt.TableName = "EstadoCuenta";
-           
+
             if (dt.Rows.Count == 0)
             {
-                MessageBox.Show("No hay estados para imprimir","Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("No hay estados para imprimir", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
 
@@ -119,25 +119,25 @@ namespace OpeAgencia2.Creditos
         }
 
 
-        DataTable  CargarDatos()
+        DataTable CargarDatos()
         {
-             BO.DAL.dsFactura.EstadoCuentaDataTable oTable = new BO.DAL.dsFactura.EstadoCuentaDataTable();
+            BO.DAL.dsFactura.EstadoCuentaDataTable oTable = new BO.DAL.dsFactura.EstadoCuentaDataTable();
 
-             var Recibos = from p in unitOfWork.RecibosRepository.Get(filter: xy => xy.CTE_ID >= iEpsDesdeId && xy.CTE_ID <= iEpsHastaId && xy.ESTADO_ID == 13)
-                           orderby (p.CTE_ID)
-                           select new { p.CTE_ID, p.ESTADO_ID, p.F_COBRO, p.F_VCTO, p.FECHA, p.IMPORTE_CTA, p.IMPORTE_TOTAL, p.RECIBO_ID, p.TIPO_REC_ID };
-                       
+            var Recibos = from p in unitOfWork.RecibosRepository.Get(filter: xy => xy.CTE_ID >= iEpsDesdeId && xy.CTE_ID <= iEpsHastaId && xy.ESTADO_ID == 13)
+                          orderby (p.CTE_ID)
+                          select new { p.CTE_ID, p.ESTADO_ID, p.F_COBRO, p.F_VCTO, p.FECHA, p.IMPORTE_CTA, p.IMPORTE_TOTAL, p.RECIBO_ID, p.TIPO_REC_ID };
 
-            foreach(var Reg in Recibos)
+
+            foreach (var Reg in Recibos)
             {
                 var oClientes = unitOfWork.ClientesRepository.GetByID(Reg.CTE_ID);
 
                 BO.DAL.dsFactura.EstadoCuentaRow oRow = oTable.NewEstadoCuentaRow();
 
-                oRow.BALANCE = Reg.IMPORTE_TOTAL-Reg.IMPORTE_CTA;
-                oRow.CTE_NUMERO_EPS =oClientes.CTE_NUMERO_EPS;
-                oRow.CUENTACLI =oClientes.CTE_NUMERO_EPS.ToString() +"-"+ oClientes.CTE_NOMBRE +" "+ oClientes.CTE_APELLIDO;
-                oRow.DESC  = "";
+                oRow.BALANCE = Reg.IMPORTE_TOTAL - Reg.IMPORTE_CTA;
+                oRow.CTE_NUMERO_EPS = oClientes.CTE_NUMERO_EPS;
+                oRow.CUENTACLI = oClientes.CTE_NUMERO_EPS.ToString() + "-" + oClientes.CTE_NOMBRE + " " + oClientes.CTE_APELLIDO;
+                oRow.DESC = "";
                 oRow.DIAS = Reg.FECHA.Subtract(DateTime.Now.Date).Days;
                 oRow.DIRECCION1 = oClientes.CTE_DIRECCION_CASA == null ? " " : oClientes.CTE_DIRECCION_CASA.ToString();
                 oRow.DIRECCION2 = oClientes.CTE_DIRECCION_OFICINA == null ? " " : oClientes.CTE_DIRECCION_OFICINA.ToString();
@@ -149,28 +149,22 @@ namespace OpeAgencia2.Creditos
                 oRow.REC_FECHA = Reg.FECHA;
                 oRow.REC_ID = Reg.RECIBO_ID;
                 //
-                 var  oTipoDoc = unitOfWork.TiposRepository.GetByID(Reg.TIPO_REC_ID);
-                oRow.REC_TIPO = oTipoDoc.TIPO_CODIGO+"-"+Reg.RECIBO_ID.ToString() +"[" + oTipoDoc.TIPO_DESCR +"]";
-
-                 if (oClientes.CTE_CEDULA == null)
+                var oTipoDoc = unitOfWork.TiposRepository.GetByID(Reg.TIPO_REC_ID);
+                oRow.REC_TIPO = oTipoDoc.TIPO_CODIGO + "-" + Reg.RECIBO_ID.ToString() + "[" + oTipoDoc.TIPO_DESCR + "]";
+                if (oClientes.CTE_CEDULA == null)
+                    oRow.RNC = oClientes.CTE_RNC;
+                else
+                {
+                    if (oClientes.CTE_CEDULA.TrimEnd() == "")
                         oRow.RNC = oClientes.CTE_RNC;
                     else
                     {
-                         if (oClientes.CTE_CEDULA.TrimEnd() == "")
-                             oRow.RNC = oClientes.CTE_RNC;
-                         else
-                         {
-                             oRow.RNC = oClientes.CTE_CEDULA;
-                         }
-
+                        oRow.RNC = oClientes.CTE_CEDULA;
                     }
-
+                }
                 oTable.Rows.Add(oRow);
-
             }
-
             return oTable;
-
         }
     }
 }

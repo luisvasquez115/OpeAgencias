@@ -33,11 +33,8 @@ namespace OpeAgencia2.Creditos
 
         private void txtEPS_Leave(object sender, EventArgs e)
         {
-
             if (txtEPS.Text != "")
                 BuscarCliente();
-
-
         }
 
 
@@ -209,20 +206,19 @@ namespace OpeAgencia2.Creditos
             if (oCargos.Count > 0)
             {
                 if (oFact.CrearFacturaCargoVarios(oCargos, oCliente.CTE_ID,
-                       Parametros.Parametros.UsuarioId, Parametros.Parametros.SucursalActual, oCliente.CTE_TIPO_FISCAL) == true)
+                    Parametros.Parametros.UsuarioId, Parametros.Parametros.SucursalActual, oCliente.CTE_TIPO_FISCAL) 
+                    == true)
                 {
                     MessageBox.Show("Factura creada exitosamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     tabControl1.SelectedIndex = 0;
                 }
             }
-
-
-
         }
-       
 
+        private void txtEPS_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (txtEPS.Text != "" && e.KeyCode == Keys.Enter)
+                BuscarCliente();
+        }
     }
-
-
-
 }

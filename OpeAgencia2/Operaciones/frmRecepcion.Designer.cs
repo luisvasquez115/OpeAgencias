@@ -117,8 +117,8 @@
             this.txtCodigoBarra.Name = "txtCodigoBarra";
             this.txtCodigoBarra.Size = new System.Drawing.Size(141, 20);
             this.txtCodigoBarra.TabIndex = 1;
+            this.txtCodigoBarra.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoBarra_KeyDown);
             this.txtCodigoBarra.Leave += new System.EventHandler(this.txtCodigoBarra_Leave);
-            this.txtCodigoBarra.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodigoBarra_Validating);
             // 
             // label1
             // 
@@ -231,7 +231,6 @@
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(64, 20);
             this.txtPeso.TabIndex = 13;
-            this.txtPeso.Leave += new System.EventHandler(this.txtPeso_Leave);
             // 
             // label6
             // 
@@ -518,7 +517,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(620, 260);
+            this.tabPage3.Size = new System.Drawing.Size(620, 256);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Unidades";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -532,7 +531,7 @@
             this.dgUnidades.Location = new System.Drawing.Point(3, 3);
             this.dgUnidades.Name = "dgUnidades";
             this.dgUnidades.ReadOnly = true;
-            this.dgUnidades.Size = new System.Drawing.Size(614, 254);
+            this.dgUnidades.Size = new System.Drawing.Size(614, 250);
             this.dgUnidades.TabIndex = 1;
             // 
             // splitContainer1
@@ -558,7 +557,7 @@
             // 
             this.grbNavegacion.Controls.Add(this.btnCancelar);
             this.grbNavegacion.Controls.Add(this.btnSalvar);
-            this.grbNavegacion.Location = new System.Drawing.Point(376, 3);
+            this.grbNavegacion.Location = new System.Drawing.Point(442, 3);
             this.grbNavegacion.Name = "grbNavegacion";
             this.grbNavegacion.Size = new System.Drawing.Size(182, 40);
             this.grbNavegacion.TabIndex = 1;
