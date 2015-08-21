@@ -197,6 +197,9 @@ namespace OpeAgencia2.Operaciones
                 return;
             }
 
+            unitOfWork = new BO.DAL.UnitOfWork();
+            sErrores.Clear();
+
             try
             {
                 lblMensaje.Visible = true;
@@ -239,6 +242,7 @@ namespace OpeAgencia2.Operaciones
 
         void ImportarBultos()
         {
+            
 
 
             foreach (int i in chkBultos.CheckedIndices)
@@ -313,6 +317,13 @@ namespace OpeAgencia2.Operaciones
                 else
                 {/* el Bulto ya existe
                 */
+                    var oBultos = unitOfWork.BultosRepository.GetByID(BltNumeroLocal);
+                    //El bulto ya esta entregado
+                    if (oBultos.BLT_ESTADO_ID == 5 || oBultos.BLT_ESTADO_ID == 6)
+                    {
+                        continue;
+                    }
+
                     var oEquivalencia = unitOfWork.EquivalenciaBultosRepository.Get(filter: s => s.BLT_NUMERO_LOCAL == BltNumeroLocal).FirstOrDefault();
                     try
                     {
@@ -331,7 +342,7 @@ namespace OpeAgencia2.Operaciones
 
                 }
 
-                //Aqui importo las tablas relacionadas en a los bultos.
+               
 
             }
         }
@@ -353,8 +364,18 @@ namespace OpeAgencia2.Operaciones
             {
                 throw ex;
             }
+            //Hay que buscar por codigo de barra
+            try
+            {
+                var sQry = unitOfWork.BultosRepository.Get(filter: s => s.BLT_CODIGO_BARRA == bltcodigoBarra).FirstOrDefault();
+                if (sQry != null)
+                    iRetorno = sQry.BLT_NUMERO;
 
-
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
 
             return iRetorno;
@@ -420,7 +441,7 @@ namespace OpeAgencia2.Operaciones
             oBultos.BLT_RECEP_SUPLIDOR = Convert.ToDateTime(oRow["BLT_RECEP_SUPLIDOR"]);
             oBultos.BLT_DESPA_SUPLIDOR = oRow["BLT_DESPA_SUPLIDOR"].ToString() == "" ? DateTime.Now : Convert.ToDateTime(oRow["BLT_DESPA_SUPLIDOR"]);
             oBultos.BLT_FECHA_RECEPCION = DateTime.Now;
-            oBultos.BLT_FECHA_ENTREGADO = DateTime.Now;
+            oBultos.BLT_FECHA_ENTREGADO = DateTime.Parse("01/01/1900");
             oBultos.BLT_ENTREGAR = true;
             oBultos.BLT_VENTANILLA = 0;
             oBultos.USUARIO_ID = 1;

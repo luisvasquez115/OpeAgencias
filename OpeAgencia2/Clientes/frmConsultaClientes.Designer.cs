@@ -173,7 +173,7 @@
             this.tabMant.Location = new System.Drawing.Point(0, 0);
             this.tabMant.Name = "tabMant";
             this.tabMant.SelectedIndex = 0;
-            this.tabMant.Size = new System.Drawing.Size(738, 527);
+            this.tabMant.Size = new System.Drawing.Size(738, 566);
             this.tabMant.TabIndex = 2;
             this.tabMant.SelectedIndexChanged += new System.EventHandler(this.tabMant_SelectedIndexChanged);
             // 
@@ -296,7 +296,7 @@
             this.tabRegistro.Location = new System.Drawing.Point(4, 22);
             this.tabRegistro.Name = "tabRegistro";
             this.tabRegistro.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRegistro.Size = new System.Drawing.Size(730, 501);
+            this.tabRegistro.Size = new System.Drawing.Size(730, 540);
             this.tabRegistro.TabIndex = 1;
             this.tabRegistro.Text = "Mantenimiento";
             this.tabRegistro.UseVisualStyleBackColor = true;
@@ -310,7 +310,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(724, 495);
+            this.tabControl1.Size = new System.Drawing.Size(724, 534);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -324,7 +324,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(716, 469);
+            this.tabPage1.Size = new System.Drawing.Size(716, 508);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Generales";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1392,7 +1392,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 527);
+            this.ClientSize = new System.Drawing.Size(738, 566);
             this.Controls.Add(this.tabMant);
             this.Name = "frmConsultaClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
