@@ -75,8 +75,7 @@ namespace AgenciaEF_BO.Models
         public string BLT_BOLSA_SUPLIDOR { set; get; }
 
 
-        [Required]
-        public DateTime BLT_FECHA_ENTREGADO { set; get; }
+        public DateTime? BLT_FECHA_ENTREGADO { set; get; }
 
         [Required]
         public DateTime BLT_RECEP_SUPLIDOR { set; get; }
