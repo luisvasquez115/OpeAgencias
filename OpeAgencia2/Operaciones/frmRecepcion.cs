@@ -379,9 +379,13 @@ namespace OpeAgencia2.Operaciones
                     if (sqlBultos.BLT_ESTADO_ID == 5 || sqlBultos.BLT_ESTADO_ID ==6)
                     {
                         MessageBox.Show("Este paquete ya fué entregado, o está fuera de inventario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                        LimpiarCampos();
-                        return;
+                       // LimpiarCampos();
+                       // return;
+                        btnSalvar.Enabled = false;
                     }
+                    else
+                    { btnSalvar.Enabled = true; }
+
                     _Id = sqlBultos.BLT_NUMERO;
                     BuscarDatos(sqlBultos);
                 }
