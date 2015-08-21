@@ -441,7 +441,7 @@ namespace OpeAgencia2.Operaciones
             oBultos.BLT_RECEP_SUPLIDOR = Convert.ToDateTime(oRow["BLT_RECEP_SUPLIDOR"]);
             oBultos.BLT_DESPA_SUPLIDOR = oRow["BLT_DESPA_SUPLIDOR"].ToString() == "" ? DateTime.Now : Convert.ToDateTime(oRow["BLT_DESPA_SUPLIDOR"]);
             oBultos.BLT_FECHA_RECEPCION = DateTime.Now;
-            oBultos.BLT_FECHA_ENTREGADO = DateTime.Parse("01/01/1900");
+            //oBultos.BLT_FECHA_ENTREGADO = DateTime.Parse("01/01/1900");
             oBultos.BLT_ENTREGAR = true;
             oBultos.BLT_VENTANILLA = 0;
             oBultos.USUARIO_ID = 1;

@@ -183,7 +183,7 @@
             this.tabConsulta.Location = new System.Drawing.Point(4, 22);
             this.tabConsulta.Name = "tabConsulta";
             this.tabConsulta.Padding = new System.Windows.Forms.Padding(3);
-            this.tabConsulta.Size = new System.Drawing.Size(730, 501);
+            this.tabConsulta.Size = new System.Drawing.Size(730, 540);
             this.tabConsulta.TabIndex = 0;
             this.tabConsulta.Text = "Consulta";
             this.tabConsulta.UseVisualStyleBackColor = true;
@@ -208,8 +208,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.dg);
-            this.splitContainer2.Size = new System.Drawing.Size(724, 495);
-            this.splitContainer2.SplitterDistance = 40;
+            this.splitContainer2.Size = new System.Drawing.Size(724, 534);
+            this.splitContainer2.SplitterDistance = 43;
             this.splitContainer2.TabIndex = 0;
             // 
             // btnFind
@@ -287,7 +287,7 @@
             this.dg.Location = new System.Drawing.Point(0, 0);
             this.dg.Name = "dg";
             this.dg.ReadOnly = true;
-            this.dg.Size = new System.Drawing.Size(724, 451);
+            this.dg.Size = new System.Drawing.Size(724, 487);
             this.dg.TabIndex = 0;
             // 
             // tabRegistro
@@ -333,6 +333,7 @@
             // 
             this.groupBox8.Controls.Add(this.label43);
             this.groupBox8.Controls.Add(this.txtCTE_EMAIL);
+            this.groupBox8.Enabled = false;
             this.groupBox8.Location = new System.Drawing.Point(8, 460);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(690, 33);
@@ -1019,7 +1020,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(716, 469);
+            this.tabPage2.Size = new System.Drawing.Size(716, 508);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Asignaciones";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1225,7 +1226,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(716, 469);
+            this.tabPage3.Size = new System.Drawing.Size(716, 508);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Otras Informaciones";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1250,7 +1251,7 @@
             this.groupBox5.Enabled = false;
             this.groupBox5.Location = new System.Drawing.Point(3, 3);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(710, 463);
+            this.groupBox5.Size = new System.Drawing.Size(710, 502);
             this.groupBox5.TabIndex = 17;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Otras informaciones";
