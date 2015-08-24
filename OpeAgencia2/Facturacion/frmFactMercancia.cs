@@ -228,6 +228,7 @@ namespace OpeAgencia2.Facturacion
         {
             oTableCorr.Rows.Clear();
             dgPaq.DataSource = null;
+            dgResumen.DataSource = null;
             txtEPS.Text = "";
             txtEPS.Focus();
             lblNombres.Text = "";
@@ -238,7 +239,6 @@ namespace OpeAgencia2.Facturacion
 
         private void btnFacturar_Click(object sender, EventArgs e)
         {
-            var x = Size;
             /*Prueba*/
             if (dMontoVenta > 0)
                  FacturarVenta();

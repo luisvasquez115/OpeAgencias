@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.usrbntMant1 = new OpeAgencia2.usrbntMant();
             this.tabMant = new System.Windows.Forms.TabControl();
             this.tabConsulta = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -110,11 +111,11 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.cmbCTE_MANEJO_OPERACIONAL = new System.Windows.Forms.ComboBox();
+            this.cmbCFG_METODO_TARIFA = new System.Windows.Forms.ComboBox();
+            this.label36 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.txtDiaCorte = new System.Windows.Forms.NumericUpDown();
             this.label41 = new System.Windows.Forms.Label();
-            this.cmbCFG_METODO_TARIFA = new System.Windows.Forms.ComboBox();
-            this.label36 = new System.Windows.Forms.Label();
             this.cmbCOD_TARIFA = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
             this.cmbCTE_TIPO_FISCAL = new System.Windows.Forms.ComboBox();
@@ -141,7 +142,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.txtCTE_NOMBRE_COMPANIA = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.usrbntMant1 = new OpeAgencia2.usrbntMant();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -188,6 +188,15 @@
             this.splitContainer1.Size = new System.Drawing.Size(745, 602);
             this.splitContainer1.SplitterDistance = 38;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // usrbntMant1
+            // 
+            this.usrbntMant1.bAdiciona = false;
+            this.usrbntMant1.bExito = false;
+            this.usrbntMant1.Location = new System.Drawing.Point(0, 3);
+            this.usrbntMant1.Name = "usrbntMant1";
+            this.usrbntMant1.Size = new System.Drawing.Size(479, 28);
+            this.usrbntMant1.TabIndex = 1;
             // 
             // tabMant
             // 
@@ -374,7 +383,6 @@
             // 
             // txtCTE_EMAIL
             // 
-            this.txtCTE_EMAIL.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCTE_EMAIL.Location = new System.Drawing.Point(79, 12);
             this.txtCTE_EMAIL.Name = "txtCTE_EMAIL";
             this.txtCTE_EMAIL.Size = new System.Drawing.Size(596, 20);
@@ -1049,6 +1057,30 @@
             this.cmbCTE_MANEJO_OPERACIONAL.TabIndex = 6;
             this.cmbCTE_MANEJO_OPERACIONAL.Tag = "CTE_MANEJO_OPERACIONAL";
             // 
+            // cmbCFG_METODO_TARIFA
+            // 
+            this.cmbCFG_METODO_TARIFA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCFG_METODO_TARIFA.FormattingEnabled = true;
+            this.cmbCFG_METODO_TARIFA.Items.AddRange(new object[] {
+            "Embarque",
+            "Individual"});
+            this.cmbCFG_METODO_TARIFA.Location = new System.Drawing.Point(109, 213);
+            this.cmbCFG_METODO_TARIFA.Name = "cmbCFG_METODO_TARIFA";
+            this.cmbCFG_METODO_TARIFA.Size = new System.Drawing.Size(253, 21);
+            this.cmbCFG_METODO_TARIFA.TabIndex = 5;
+            this.cmbCFG_METODO_TARIFA.Tag = "CFG_METODO_TARIFA";
+            this.cmbCFG_METODO_TARIFA.Visible = false;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(31, 216);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(72, 13);
+            this.label36.TabIndex = 20;
+            this.label36.Text = "Método tarifa:";
+            this.label36.Visible = false;
+            // 
             // label34
             // 
             this.label34.AutoSize = true;
@@ -1079,30 +1111,6 @@
             this.label41.Size = new System.Drawing.Size(55, 13);
             this.label41.TabIndex = 22;
             this.label41.Text = "Día corte:";
-            // 
-            // cmbCFG_METODO_TARIFA
-            // 
-            this.cmbCFG_METODO_TARIFA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCFG_METODO_TARIFA.FormattingEnabled = true;
-            this.cmbCFG_METODO_TARIFA.Items.AddRange(new object[] {
-            "Embarque",
-            "Individual"});
-            this.cmbCFG_METODO_TARIFA.Location = new System.Drawing.Point(109, 213);
-            this.cmbCFG_METODO_TARIFA.Name = "cmbCFG_METODO_TARIFA";
-            this.cmbCFG_METODO_TARIFA.Size = new System.Drawing.Size(253, 21);
-            this.cmbCFG_METODO_TARIFA.TabIndex = 5;
-            this.cmbCFG_METODO_TARIFA.Tag = "CFG_METODO_TARIFA";
-            this.cmbCFG_METODO_TARIFA.Visible = false;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(31, 216);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(72, 13);
-            this.label36.TabIndex = 20;
-            this.label36.Text = "Método tarifa:";
-            this.label36.Visible = false;
             // 
             // cmbCOD_TARIFA
             // 
@@ -1360,15 +1368,6 @@
             this.label27.Size = new System.Drawing.Size(51, 13);
             this.label27.TabIndex = 16;
             this.label27.Text = "Empresa:";
-            // 
-            // usrbntMant1
-            // 
-            this.usrbntMant1.bAdiciona = false;
-            this.usrbntMant1.bExito = false;
-            this.usrbntMant1.Location = new System.Drawing.Point(0, 3);
-            this.usrbntMant1.Name = "usrbntMant1";
-            this.usrbntMant1.Size = new System.Drawing.Size(479, 28);
-            this.usrbntMant1.TabIndex = 1;
             // 
             // frmClientes
             // 

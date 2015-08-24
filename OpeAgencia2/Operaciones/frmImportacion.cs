@@ -214,8 +214,6 @@ namespace OpeAgencia2.Operaciones
                     ex.InnerException.InnerException.Message : "" : "", 
                     "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
             if (sErrores.Length > 0)
             {
                 MessageBox.Show("Datos cargados con  Errores", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
