@@ -184,17 +184,21 @@ namespace OpeAgencia2.Facturacion
 
                 bool bImpreso = Recibos.IMPRESO;
 
-                if (bImpreso == false)
+                if (bImpreso == false && Recibos.ESTADO_ID != 15)
                 {
                     DialogResult oResult = MessageBox.Show("Este recibo no se ha impreso fiscalmente, desea imprimirlo ahora?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                     if (oResult == System.Windows.Forms.DialogResult.No)
                         return;
                 }
+                else if (Recibos.ESTADO_ID == 15)
+                {
+                    DialogResult oResult = MessageBox.Show("Este recibo fue anulado, no es posible reimprimir", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
+                    return;
+                }
                 else
                 {
                     DialogResult oResult = MessageBox.Show("Este recibo ya fue impreso fiscalmente, no es posible reimprimir", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
                     return;
-
                 }
                 var PagosRecibos = unitOfWork.PagosRecibosRepository.Get(xy => xy.RECIBO_ID == iReciboId).FirstOrDefault();
                 if (PagosRecibos != null)
