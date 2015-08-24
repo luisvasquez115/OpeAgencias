@@ -41,11 +41,11 @@ namespace OpeAgencia2.Facturacion
 
 
 
-        public void SetInvoiceData(dsFactura.FACTURASDataTable  factura,
-            dsDatos.DatosPagoDataTable  desglosePagos = null,
+        public void SetInvoiceData(dsFactura.FACTURASDataTable factura,
+            dsDatos.DatosPagoDataTable desglosePagos = null,
             bool isReimpresion = false, int numeroCopias = 0, bool esFacturaCxc = false)
         {
-          
+
             _factura = factura;
             _desglosePagos = desglosePagos;
             _isReimpresion = isReimpresion;
@@ -72,104 +72,103 @@ namespace OpeAgencia2.Facturacion
              */
 
             string[] sDescAdicional;
-            sDescAdicional = new[] {" "};
+            sDescAdicional = new[] { " " };
 
 
-            ibltnumero =  Convert.ToInt32(_factura.Rows[0]["BLT_NUMERO"]);
+            ibltnumero = Convert.ToInt32(_factura.Rows[0]["BLT_NUMERO"]);
             int i = 0, j = 0;
             decimal dSubTotal = 0;
             foreach (BO.DAL.dsFactura.FACTURASRow oRow in (BO.DAL.dsFactura.FACTURASDataTable)_factura)
             {
                 if (i == 0)
-                    ibltnumero = oRow.BLT_NUMERO; 
+                    ibltnumero = oRow.BLT_NUMERO;
 
                 i++;
 
-               if (ibltnumero == oRow.BLT_NUMERO)
-               {
-                   var itemsBulto =
-                    new Item
-                    {
-                        Description = oRow.CODIGO,
-                        Quantity = 1,
-                        Rate = oRow.TASA_ITBIS,
-                        Price =System.Math.Round(oRow.MONTO_TOTAL,2, MidpointRounding.ToEven),
-                        Type =ItemTypes.SalesItem
-                      };
-
-                items.Add(itemsBulto);
-                dSubTotal += oRow.MONTO_TOTAL;
-                _MontoTotalFactura += System.Math.Round(oRow.MONTO_TOTAL,2, MidpointRounding.ToEven);
-
-                sDescAdicional = new[]{
-                          "Servicio-" + oRow.PRODUCTO.Trim() + "-",
-                        "--Identificacion -" + oRow.IDENTIFICACION,
-                        "Tarifa: "+oRow.TARIFA,
-                        "Peso: "+oRow.PESO,
-                        ("Contenido: "+oRow.CONTENIDO).Trim(),
-                        "Remitente: "+oRow.REMITENTE,
-                        "Destinatario: "+oRow.CONSIGNATARIO,
-                        "Tracking No. "+oRow.TRACKING,
-                         "TOTAL ITEM :"+Math.Round(dSubTotal, 2, MidpointRounding.ToEven)
-                    };
-
-
-               }
-               else
-               {
-                   string[] aditionalDescriptions;
-
-                     aditionalDescriptions = new[]
-                    {
-                           "Servicio-" + oRow.PRODUCTO.Trim() + "-",
-                        "--Identificacion -" + oRow.IDENTIFICACION,
-                        "Tarifa: "+oRow.TARIFA,
-                        "Peso: "+oRow.PESO,
-                        ("Contenido: "+oRow.CONTENIDO).Trim(),
-                        "Remitente: "+oRow.REMITENTE,
-                        "Destinatario: "+oRow.CONSIGNATARIO,
-                        "Tracking No. "+oRow.TRACKING,
-                         "TOTAL ITEM :"+Math.Round(dSubTotal, 2, MidpointRounding.ToEven)
-                    };
-
-                 items.Add(new Item
+                if (ibltnumero == oRow.BLT_NUMERO)
                 {
-                    AditionalDescriptions = sDescAdicional,
-                    Description = "0.00",
-                    Price = 0,
-                    Rate = 0,
-                    Quantity = 1,
-                    Type = ItemTypes.SalesItem
-                });
-                 j++;
-                   ibltnumero = oRow.BLT_NUMERO;
-                   dSubTotal = 0;
+                    var itemsBulto =
+                     new Item
+                     {
+                         Description = oRow.CODIGO,
+                         Quantity = 1,
+                         Rate = oRow.TASA_ITBIS,
+                         Price = System.Math.Round(oRow.MONTO_TOTAL, 2, MidpointRounding.ToEven),
+                         Type = ItemTypes.SalesItem
+                     };
 
+                    items.Add(itemsBulto);
+                    dSubTotal += oRow.MONTO_TOTAL;
+                    _MontoTotalFactura += System.Math.Round(oRow.MONTO_TOTAL, 2, MidpointRounding.ToEven);
 
-                   var itemsBulto =
-                    new Item
+                    sDescAdicional = new[]{
+                        "Servicio-" + oRow.PRODUCTO.Trim() + "-",
+                        "--Identificacion -" + oRow.IDENTIFICACION,
+                        "Tarifa: "+oRow.TARIFA,
+                        "Piezas: "+oRow.PIEZAS,
+                        "Peso: "+oRow.PESO,
+                        ("Contenido: "+oRow.CONTENIDO).Trim(),
+                        "Remitente: "+oRow.REMITENTE,
+                        "Destinatario: "+oRow.CONSIGNATARIO,
+                        "Tracking No. "+oRow.TRACKING,
+                        "TOTAL ITEM :"+Math.Round(dSubTotal, 2, MidpointRounding.ToEven)
+                    };
+                }
+                else
+                {
+                    string[] aditionalDescriptions;
+                    aditionalDescriptions = new[]
                     {
-                        //AditionalDescriptions = aditionalDescriptions,
-                        Description = oRow.CODIGO,
-                        Quantity = 1,
-                        Rate = oRow.TASA_ITBIS,
-                        Price = System.Math.Round(oRow.MONTO_TOTAL,2, MidpointRounding.ToEven),
-                        Type = ItemTypes.SalesItem
+                        "Servicio-" + oRow.PRODUCTO.Trim() + "-",
+                        "--Identificacion -" + oRow.IDENTIFICACION,
+                        "Tarifa: "+oRow.TARIFA,
+                        "Piezas: "+oRow.PIEZAS,
+                        "Peso: "+oRow.PESO,
+                        ("Contenido: "+oRow.CONTENIDO).Trim(),
+                        "Remitente: "+oRow.REMITENTE,
+                        "Destinatario: "+oRow.CONSIGNATARIO,
+                        "Tracking No. "+oRow.TRACKING,
+                        "TOTAL ITEM :"+Math.Round(dSubTotal, 2, MidpointRounding.ToEven)
                     };
 
-                   items.Add(itemsBulto);
-                   dSubTotal += oRow.MONTO_TOTAL;
-                   _MontoTotalFactura += System.Math.Round(oRow.MONTO_TOTAL,2, MidpointRounding.ToEven);
+                    items.Add(new Item
+                   {
+                       AditionalDescriptions = sDescAdicional,
+                       Description = "0.00",
+                       Price = 0,
+                       Rate = 0,
+                       Quantity = 1,
+                       Type = ItemTypes.SalesItem
+                   });
+                    j++;
+                    ibltnumero = oRow.BLT_NUMERO;
+                    dSubTotal = 0;
 
-               }
-                
-             
+
+                    var itemsBulto =
+                     new Item
+                     {
+                         //AditionalDescriptions = aditionalDescriptions,
+                         Description = oRow.CODIGO,
+                         Quantity = 1,
+                         Rate = oRow.TASA_ITBIS,
+                         Price = System.Math.Round(oRow.MONTO_TOTAL, 2, MidpointRounding.ToEven),
+                         Type = ItemTypes.SalesItem
+                     };
+
+                    items.Add(itemsBulto);
+                    dSubTotal += oRow.MONTO_TOTAL;
+                    _MontoTotalFactura += System.Math.Round(oRow.MONTO_TOTAL, 2, MidpointRounding.ToEven);
+
+                }
+
+
             }
-            
+
             if (dSubTotal > 0)
             {
 
-            
+
                 items.Add(new Item
                 {
                     AditionalDescriptions = sDescAdicional,
@@ -182,17 +181,17 @@ namespace OpeAgencia2.Facturacion
 
                 dSubTotal = 0;
             }
-            
-             _items = items;
+
+            _items = items;
         }
 
         private void AddPayments()
         {
             var payments = new List<Payment>();
             if (_desglosePagos == null) return;
-             
 
-            if (_factura.Rows[0]["REC_CREDITO"].ToString()=="S")
+
+            if (_factura.Rows[0]["REC_CREDITO"].ToString() == "S")
                 payments.Add(new Payment
                 {
                     PaymentMethod = PaymentMethods.OwnCard,
@@ -206,45 +205,45 @@ namespace OpeAgencia2.Facturacion
                CreditCard = 3, 49 3
               */
                 bool bEfectivo = false;
-                foreach(System.Data.DataRow drpagos in _desglosePagos.Rows)
+                foreach (System.Data.DataRow drpagos in _desglosePagos.Rows)
                 {
-                   
 
-                    if (Convert.ToDecimal(drpagos["MontoEfectivo"])  > 0 && bEfectivo == false)
+
+                    if (Convert.ToDecimal(drpagos["MontoEfectivo"]) > 0 && bEfectivo == false)
                     {
-                      
-                      payments.Add(new Payment
+
+                        payments.Add(new Payment
+                          {
+                              PaymentMethod = PaymentMethods.Cash,
+                              Value = Convert.ToDecimal(_desglosePagos.Rows[0]["MontoEfectivo"]),
+                              PaymentType = PaymentTypes.Payment
+                          });
+                    }
+
+
+                    if (Convert.ToInt32(drpagos["TipoPago"]) == 50)
+                    {
+                        payments.Add(new Payment
                         {
-                            PaymentMethod =  PaymentMethods.Cash,
-                            Value = Convert.ToDecimal(_desglosePagos.Rows[0]["MontoEfectivo"]),
+                            PaymentMethod = PaymentMethods.Check,
+                            Value = Convert.ToDecimal(_desglosePagos.Rows[0]["Importe"]),
                             PaymentType = PaymentTypes.Payment
                         });
                     }
-                    
-                    
-                       if (Convert.ToInt32(drpagos["TipoPago"]) == 50)
-                       {
-                           payments.Add(new Payment
-                           {
-                               PaymentMethod = PaymentMethods.Check,
-                               Value = Convert.ToDecimal(_desglosePagos.Rows[0]["Importe"]),
-                               PaymentType = PaymentTypes.Payment
-                           });
-                       }
-                       else if (Convert.ToInt32(drpagos["TipoPago"]) == 49)
-                       {
-                           payments.Add(new Payment
-                           {
-                               PaymentMethod = PaymentMethods.CreditCard,
-                               Value = Convert.ToDecimal(_desglosePagos.Rows[0]["Importe"]),
-                               PaymentType = PaymentTypes.Payment
-                           });
-                       }
+                    else if (Convert.ToInt32(drpagos["TipoPago"]) == 49)
+                    {
+                        payments.Add(new Payment
+                        {
+                            PaymentMethod = PaymentMethods.CreditCard,
+                            Value = Convert.ToDecimal(_desglosePagos.Rows[0]["Importe"]),
+                            PaymentType = PaymentTypes.Payment
+                        });
+                    }
 
-                       
+
 
                 }
-                
+
 
             }
             _payments = payments;
@@ -253,13 +252,13 @@ namespace OpeAgencia2.Facturacion
         private void SetFiscalPrinterData()
         {
 
-           /* if (_isinvoiceCxc)
-                AddItemsCxc();
-            else
-            {
-                AddItems();
-                AddPayments();
-            }*/
+            /* if (_isinvoiceCxc)
+                 AddItemsCxc();
+             else
+             {
+                 AddItems();
+                 AddPayments();
+             }*/
 
             AddItems();
             AddPayments();
@@ -274,7 +273,7 @@ namespace OpeAgencia2.Facturacion
                 Payments = _payments,
                 LogoNumber = 1,
                 Subsidiary = "0000", //_terminal.PuntoVenta.PadLeft(4, '0'),
-                CashNumber = ((Terminal)_terminal).TERM_ID.ToString().PadLeft(4,'0'),  //.PadLeft(4, '0'),  //_terminal.TermCaja,
+                CashNumber = ((Terminal)_terminal).TERM_ID.ToString().PadLeft(4, '0'),  //.PadLeft(4, '0'),  //_terminal.TermCaja,
                 NcfReference = _factura.Rows[0]["NCF_AFECTADO"].ToString(), //ncf afectado''
                 Comments = new[]
                     {
@@ -392,10 +391,10 @@ namespace OpeAgencia2.Facturacion
             decimal dMontoTotal = 0;
 
             _linesNoFiscalReceipt = new List<string>();
-          
-           
-             _linesNoFiscalReceipt.Add("RNC:" + _factura.Rows[0]["RNC"].ToString().KeepOnlyNumbers());
-             _linesNoFiscalReceipt.Add(_factura.Rows[0]["CUENTACLI"].ToString());
+
+
+            _linesNoFiscalReceipt.Add("RNC:" + _factura.Rows[0]["RNC"].ToString().KeepOnlyNumbers());
+            _linesNoFiscalReceipt.Add(_factura.Rows[0]["CUENTACLI"].ToString());
             _linesNoFiscalReceipt.Add("--------------------------------------------------------------------------");
             //_linesNoFiscalReceipt.Add(_factura.DescricpcionNcf.PutBlankSpaces(10, 'L', false));
             _linesNoFiscalReceipt.Add("                                     ");
@@ -422,7 +421,7 @@ namespace OpeAgencia2.Facturacion
                          Type = ItemTypes.SalesItem
                      };
 
-                   // items.Add(itemsBulto);
+                    // items.Add(itemsBulto);
                     _linesNoFiscalReceipt.Add("1.00 * " + string.Format("{0:##,###.##}", Math.Abs(oRow.MONTO_TOTAL)));
                     _linesNoFiscalReceipt.Add(oRow.CODIGO.PutBlankSpaces(25, 'R') +
                             string.Format("{0:0.00}", oRow.TASA_ITBIS).PutBlankSpaces(7, 'R') +
@@ -544,8 +543,8 @@ namespace OpeAgencia2.Facturacion
             }
 
 
-            _linesNoFiscalReceipt.Add( GetFiscalInvoiceTypeDescripcion(_factura.Rows[0]["REC_TIPO"].ToString()) +" : " + _factura.Rows[0]["SUCURSAL"].ToString() + "-" + _factura.Rows[0]["REC_TIPO"].ToString()  + "-" +  _factura.Rows[0]["REC_ID"].ToString());
-            _linesNoFiscalReceipt.Add(_factura.Rows[0]["REC_TIPO_DESC"].ToString() );
+            _linesNoFiscalReceipt.Add(GetFiscalInvoiceTypeDescripcion(_factura.Rows[0]["REC_TIPO"].ToString()) + " : " + _factura.Rows[0]["SUCURSAL"].ToString() + "-" + _factura.Rows[0]["REC_TIPO"].ToString() + "-" + _factura.Rows[0]["REC_ID"].ToString());
+            _linesNoFiscalReceipt.Add(_factura.Rows[0]["REC_TIPO_DESC"].ToString());
             _linesNoFiscalReceipt.Add(" "); //NCF
             _linesNoFiscalReceipt.Add(" ");
             _linesNoFiscalReceipt.Add(" ");
@@ -553,13 +552,13 @@ namespace OpeAgencia2.Facturacion
             _linesNoFiscalReceipt.Add(" ");
             _linesNoFiscalReceipt.Add(" ");
             _linesNoFiscalReceipt.Add("-------------------------------");
-            _linesNoFiscalReceipt.Add("Cliente :"+ _factura.Rows[0]["CUENTACLI"].ToString() );
+            _linesNoFiscalReceipt.Add("Cliente :" + _factura.Rows[0]["CUENTACLI"].ToString());
             _linesNoFiscalReceipt.Add(" ");
             _linesNoFiscalReceipt.Add("Revise su mercancia en nuestro counter al");
             _linesNoFiscalReceipt.Add("momento de recibirla. En caso contrario no");
             _linesNoFiscalReceipt.Add("tendra derecho de reclamos por faltante o rotura");
 
-            
+
         }
 
 
@@ -602,12 +601,12 @@ namespace OpeAgencia2.Facturacion
         public void PrintNoFiscalReceipt()
         {
             GenerateLinesNoFiscalInvoice();
-           /* if (_factura.DocCodigo.StartsWith("FT", StringComparison.OrdinalIgnoreCase) ||
-                _factura.DocCodigo.StartsWith("NC", StringComparison.OrdinalIgnoreCase))
-                GenerateLinesNoFiscalInvoice();
-            else
-                GenerateLinesNoFiscalRecipt();
-            */ 
+            /* if (_factura.DocCodigo.StartsWith("FT", StringComparison.OrdinalIgnoreCase) ||
+                 _factura.DocCodigo.StartsWith("NC", StringComparison.OrdinalIgnoreCase))
+                 GenerateLinesNoFiscalInvoice();
+             else
+                 GenerateLinesNoFiscalRecipt();
+             */
             for (var i = 0; i <= _numeroCopias; i++)
             {
                 var result = _fiscalPrinterWrapper.PrintNoFiscalReceipt(_linesNoFiscalReceipt, !_isReimpresion);

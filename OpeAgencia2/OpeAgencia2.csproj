@@ -32,7 +32,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>24</ApplicationRevision>
+    <ApplicationRevision>25</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -673,7 +673,7 @@
     <None Include="Service References\wsAgencias\OpeAgencia2.wsAgencias.ImportarEstadosPaquetesAgenciaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\wsAgencias\wsAgencias.wsdl" />
+    <None Include="Service References\wsAgencias\wsAgencias1.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\plus_16.png" />
@@ -723,9 +723,6 @@
     <WCFMetadataStorage Include="Service References\wsAgencias\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\wsAgencias\wsAgencias.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\wsAgencias\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -740,6 +737,7 @@
   <ItemGroup>
     <Content Include="EPSINTL.ico" />
     <Content Include="Images\EncabezadoFactura.gif" />
+    <None Include="Service References\wsAgencias\wsAgencias1.disco" />
     <Content Include="vmaxfpi.dll" />
     <None Include="Images\facturar.ico" />
     <None Include="Images\wherehouse.png" />

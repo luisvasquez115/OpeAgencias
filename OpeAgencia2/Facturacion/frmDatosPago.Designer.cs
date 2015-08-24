@@ -92,14 +92,14 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(16, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(810, 64);
+            this.groupBox1.Size = new System.Drawing.Size(420, 110);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 16);
+            this.label9.Location = new System.Drawing.Point(15, 16);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(28, 13);
             this.label9.TabIndex = 8;
@@ -120,7 +120,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(749, 29);
+            this.btnAdd.Location = new System.Drawing.Point(375, 83);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(31, 23);
             this.btnAdd.TabIndex = 5;
@@ -151,7 +151,7 @@
             0,
             0});
             this.txtMontoCk.IntValue = 0;
-            this.txtMontoCk.Location = new System.Drawing.Point(624, 32);
+            this.txtMontoCk.Location = new System.Drawing.Point(233, 83);
             this.txtMontoCk.Name = "txtMontoCk";
             this.txtMontoCk.Size = new System.Drawing.Size(119, 21);
             this.txtMontoCk.TabIndex = 4;
@@ -160,7 +160,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(621, 16);
+            this.label4.Location = new System.Drawing.Point(230, 67);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 6;
@@ -169,7 +169,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(409, 16);
+            this.label3.Location = new System.Drawing.Point(6, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 5;
@@ -177,7 +177,7 @@
             // 
             // txtFecha
             // 
-            this.txtFecha.Location = new System.Drawing.Point(412, 32);
+            this.txtFecha.Location = new System.Drawing.Point(9, 83);
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(200, 20);
             this.txtFecha.TabIndex = 3;
@@ -185,7 +185,7 @@
             // cmbBancos
             // 
             this.cmbBancos.FormattingEnabled = true;
-            this.cmbBancos.Location = new System.Drawing.Point(248, 32);
+            this.cmbBancos.Location = new System.Drawing.Point(248, 33);
             this.cmbBancos.Name = "cmbBancos";
             this.cmbBancos.Size = new System.Drawing.Size(158, 21);
             this.cmbBancos.TabIndex = 2;
@@ -219,7 +219,7 @@
             this.dg.Location = new System.Drawing.Point(0, 0);
             this.dg.Name = "dg";
             this.dg.ReadOnly = true;
-            this.dg.Size = new System.Drawing.Size(835, 323);
+            this.dg.Size = new System.Drawing.Size(444, 279);
             this.dg.TabIndex = 0;
             // 
             // groupBox3
@@ -230,9 +230,9 @@
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.txtPendiente);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Location = new System.Drawing.Point(264, 204);
+            this.groupBox3.Location = new System.Drawing.Point(65, 209);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(343, 119);
+            this.groupBox3.Size = new System.Drawing.Size(343, 107);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Desglose pago:";
@@ -325,7 +325,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(849, 432);
+            this.tabControl1.Size = new System.Drawing.Size(458, 432);
             this.tabControl1.TabIndex = 5;
             // 
             // TabEfectivo
@@ -337,7 +337,7 @@
             this.TabEfectivo.Location = new System.Drawing.Point(4, 22);
             this.TabEfectivo.Name = "TabEfectivo";
             this.TabEfectivo.Padding = new System.Windows.Forms.Padding(3);
-            this.TabEfectivo.Size = new System.Drawing.Size(841, 406);
+            this.TabEfectivo.Size = new System.Drawing.Size(450, 406);
             this.TabEfectivo.TabIndex = 0;
             this.TabEfectivo.Text = "Efectivo";
             this.TabEfectivo.UseVisualStyleBackColor = true;
@@ -346,7 +346,7 @@
             // 
             this.groupBox5.Controls.Add(this.btnCancelar);
             this.groupBox5.Controls.Add(this.btnAceptar);
-            this.groupBox5.Location = new System.Drawing.Point(351, 329);
+            this.groupBox5.Location = new System.Drawing.Point(147, 331);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(181, 56);
             this.groupBox5.TabIndex = 7;
@@ -355,7 +355,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.txtMontoTotal);
-            this.groupBox4.Location = new System.Drawing.Point(336, 15);
+            this.groupBox4.Location = new System.Drawing.Point(132, 20);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(196, 58);
             this.groupBox4.TabIndex = 6;
@@ -368,7 +368,7 @@
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.txtEfectivo);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Location = new System.Drawing.Point(264, 79);
+            this.groupBox2.Location = new System.Drawing.Point(65, 84);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(343, 119);
             this.groupBox2.TabIndex = 5;
@@ -429,7 +429,7 @@
             this.tabdDocumentos.Location = new System.Drawing.Point(4, 22);
             this.tabdDocumentos.Name = "tabdDocumentos";
             this.tabdDocumentos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabdDocumentos.Size = new System.Drawing.Size(841, 406);
+            this.tabdDocumentos.Size = new System.Drawing.Size(450, 406);
             this.tabdDocumentos.TabIndex = 1;
             this.tabdDocumentos.Text = "Documentos";
             this.tabdDocumentos.UseVisualStyleBackColor = true;
@@ -448,8 +448,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dg);
-            this.splitContainer1.Size = new System.Drawing.Size(835, 400);
-            this.splitContainer1.SplitterDistance = 73;
+            this.splitContainer1.Size = new System.Drawing.Size(444, 400);
+            this.splitContainer1.SplitterDistance = 117;
             this.splitContainer1.TabIndex = 0;
             // 
             // frmDatosPago
@@ -457,7 +457,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(875, 463);
+            this.ClientSize = new System.Drawing.Size(482, 463);
             this.Controls.Add(this.tabControl1);
             this.Name = "frmDatosPago";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

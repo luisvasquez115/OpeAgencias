@@ -446,10 +446,10 @@
   </wsdl:binding>
   <wsdl:service name="wsAgencias">
     <wsdl:port name="wsAgenciasSoap" binding="tns:wsAgenciasSoap">
-      <soap:address location="http://www.eps-int.com/WebAgencias/wsAgencias.asmx" />
+      <soap:address location="http://192.168.150.1/WebAgencias/wsAgencias.asmx" />
     </wsdl:port>
     <wsdl:port name="wsAgenciasSoap12" binding="tns:wsAgenciasSoap12">
-      <soap12:address location="http://www.eps-int.com/WebAgencias/wsAgencias.asmx" />
+      <soap12:address location="http://192.168.150.1/WebAgencias/wsAgencias.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

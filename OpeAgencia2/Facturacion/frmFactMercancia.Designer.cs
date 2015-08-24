@@ -46,34 +46,33 @@
             this.txtPaq = new System.Windows.Forms.TextBox();
             this.lblPaquetes = new System.Windows.Forms.Label();
             this.tabDetalle = new System.Windows.Forms.TabControl();
+            this.tabPaq = new System.Windows.Forms.TabPage();
+            this.dgResumen = new System.Windows.Forms.DataGridView();
+            this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgPaq = new System.Windows.Forms.DataGridView();
             this.tabCorr = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.dgCorr = new System.Windows.Forms.DataGridView();
-            this.btnCorres = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.tabPaq = new System.Windows.Forms.TabPage();
-            this.dgPaq = new System.Windows.Forms.DataGridView();
-            this.dgResumen = new System.Windows.Forms.DataGridView();
-            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCorres = new System.Windows.Forms.Button();
+            this.dgCorr = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabDetalle.SuspendLayout();
+            this.tabPaq.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgResumen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPaq)).BeginInit();
             this.tabCorr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorr)).BeginInit();
-            this.tabPaq.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgPaq)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgResumen)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.cmbTipoFact);
             this.groupBox1.Controls.Add(this.label4);
@@ -84,27 +83,31 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1021, 40);
+            this.groupBox1.Size = new System.Drawing.Size(855, 40);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // cmbTipoFact
             // 
+            this.cmbTipoFact.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbTipoFact.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoFact.Enabled = false;
             this.cmbTipoFact.FormattingEnabled = true;
             this.cmbTipoFact.Items.AddRange(new object[] {
             "Contado",
             "Crédito"});
-            this.cmbTipoFact.Location = new System.Drawing.Point(894, 12);
+            this.cmbTipoFact.Location = new System.Drawing.Point(728, 12);
             this.cmbTipoFact.Name = "cmbTipoFact";
             this.cmbTipoFact.Size = new System.Drawing.Size(121, 21);
             this.cmbTipoFact.TabIndex = 6;
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(833, 15);
+            this.label4.Location = new System.Drawing.Point(667, 15);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 5;
@@ -112,16 +115,20 @@
             // 
             // dFechaVenc
             // 
+            this.dFechaVenc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dFechaVenc.Enabled = false;
-            this.dFechaVenc.Location = new System.Drawing.Point(627, 12);
+            this.dFechaVenc.Location = new System.Drawing.Point(461, 12);
             this.dFechaVenc.Name = "dFechaVenc";
             this.dFechaVenc.Size = new System.Drawing.Size(200, 20);
             this.dFechaVenc.TabIndex = 4;
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(550, 15);
+            this.label2.Location = new System.Drawing.Point(384, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 3;
@@ -129,6 +136,8 @@
             // 
             // lblNombres
             // 
+            this.lblNombres.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.lblNombres.AutoSize = true;
             this.lblNombres.Location = new System.Drawing.Point(155, 16);
             this.lblNombres.Name = "lblNombres";
@@ -138,6 +147,8 @@
             // 
             // txtEPS
             // 
+            this.txtEPS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.txtEPS.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEPS.Location = new System.Drawing.Point(49, 13);
             this.txtEPS.Name = "txtEPS";
@@ -148,6 +159,8 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 16);
             this.label1.Name = "label1";
@@ -157,9 +170,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.txtMontoNoVenta);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.btnFacturar);
@@ -168,7 +179,7 @@
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.txtPaq);
             this.groupBox3.Controls.Add(this.lblPaquetes);
-            this.groupBox3.Location = new System.Drawing.Point(485, 400);
+            this.groupBox3.Location = new System.Drawing.Point(319, 400);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(550, 64);
             this.groupBox3.TabIndex = 2;
@@ -193,7 +204,7 @@
             // 
             // btnFacturar
             // 
-            this.btnFacturar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFacturar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFacturar.Location = new System.Drawing.Point(465, 23);
             this.btnFacturar.Name = "btnFacturar";
             this.btnFacturar.Size = new System.Drawing.Size(75, 23);
@@ -204,7 +215,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.Location = new System.Drawing.Point(384, 23);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
@@ -257,8 +268,69 @@
             this.tabDetalle.Location = new System.Drawing.Point(12, 59);
             this.tabDetalle.Name = "tabDetalle";
             this.tabDetalle.SelectedIndex = 0;
-            this.tabDetalle.Size = new System.Drawing.Size(1022, 335);
+            this.tabDetalle.Size = new System.Drawing.Size(856, 335);
             this.tabDetalle.TabIndex = 0;
+            // 
+            // tabPaq
+            // 
+            this.tabPaq.Controls.Add(this.dgResumen);
+            this.tabPaq.Controls.Add(this.dgPaq);
+            this.tabPaq.Location = new System.Drawing.Point(4, 22);
+            this.tabPaq.Name = "tabPaq";
+            this.tabPaq.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPaq.Size = new System.Drawing.Size(848, 309);
+            this.tabPaq.TabIndex = 0;
+            this.tabPaq.Text = "Paquetes";
+            this.tabPaq.UseVisualStyleBackColor = true;
+            // 
+            // dgResumen
+            // 
+            this.dgResumen.AllowUserToAddRows = false;
+            this.dgResumen.AllowUserToDeleteRows = false;
+            this.dgResumen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgResumen.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgResumen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgResumen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Cargo,
+            this.Valor});
+            this.dgResumen.Location = new System.Drawing.Point(561, 3);
+            this.dgResumen.Name = "dgResumen";
+            this.dgResumen.ReadOnly = true;
+            this.dgResumen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgResumen.Size = new System.Drawing.Size(286, 303);
+            this.dgResumen.TabIndex = 5;
+            // 
+            // Cargo
+            // 
+            this.Cargo.HeaderText = "Cargo";
+            this.Cargo.Name = "Cargo";
+            this.Cargo.ReadOnly = true;
+            this.Cargo.Width = 60;
+            // 
+            // Valor
+            // 
+            this.Valor.HeaderText = "Valor";
+            this.Valor.Name = "Valor";
+            this.Valor.ReadOnly = true;
+            this.Valor.Width = 56;
+            // 
+            // dgPaq
+            // 
+            this.dgPaq.AllowUserToAddRows = false;
+            this.dgPaq.AllowUserToDeleteRows = false;
+            this.dgPaq.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgPaq.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgPaq.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgPaq.Location = new System.Drawing.Point(7, 3);
+            this.dgPaq.Name = "dgPaq";
+            this.dgPaq.ReadOnly = true;
+            this.dgPaq.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgPaq.Size = new System.Drawing.Size(548, 303);
+            this.dgPaq.TabIndex = 4;
+            this.dgPaq.SelectionChanged += new System.EventHandler(this.dgPaq_SelectionChanged);
             // 
             // tabCorr
             // 
@@ -266,7 +338,7 @@
             this.tabCorr.Location = new System.Drawing.Point(4, 22);
             this.tabCorr.Name = "tabCorr";
             this.tabCorr.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCorr.Size = new System.Drawing.Size(1014, 309);
+            this.tabCorr.Size = new System.Drawing.Size(848, 309);
             this.tabCorr.TabIndex = 1;
             this.tabCorr.Text = "Correspondencia";
             this.tabCorr.UseVisualStyleBackColor = true;
@@ -286,23 +358,18 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgCorr);
-            this.splitContainer1.Size = new System.Drawing.Size(1008, 303);
+            this.splitContainer1.Size = new System.Drawing.Size(842, 303);
             this.splitContainer1.SplitterDistance = 38;
             this.splitContainer1.TabIndex = 2;
             // 
-            // dgCorr
+            // button1
             // 
-            this.dgCorr.AllowUserToAddRows = false;
-            this.dgCorr.AllowUserToDeleteRows = false;
-            this.dgCorr.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgCorr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgCorr.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgCorr.Location = new System.Drawing.Point(0, 0);
-            this.dgCorr.Name = "dgCorr";
-            this.dgCorr.ReadOnly = true;
-            this.dgCorr.Size = new System.Drawing.Size(1008, 261);
-            this.dgCorr.TabIndex = 1;
-            this.dgCorr.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCorr_CellEndEdit);
+            this.button1.Location = new System.Drawing.Point(110, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Eliminar";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // btnCorres
             // 
@@ -314,82 +381,30 @@
             this.btnCorres.UseVisualStyleBackColor = true;
             this.btnCorres.Click += new System.EventHandler(this.btnCorres_Click);
             // 
-            // button1
+            // dgCorr
             // 
-            this.button1.Location = new System.Drawing.Point(110, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Eliminar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // tabPaq
-            // 
-            this.tabPaq.Controls.Add(this.dgResumen);
-            this.tabPaq.Controls.Add(this.dgPaq);
-            this.tabPaq.Location = new System.Drawing.Point(4, 22);
-            this.tabPaq.Name = "tabPaq";
-            this.tabPaq.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPaq.Size = new System.Drawing.Size(1014, 309);
-            this.tabPaq.TabIndex = 0;
-            this.tabPaq.Text = "Paquetes";
-            this.tabPaq.UseVisualStyleBackColor = true;
-            // 
-            // dgPaq
-            // 
-            this.dgPaq.AllowUserToAddRows = false;
-            this.dgPaq.AllowUserToDeleteRows = false;
-            this.dgPaq.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgPaq.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgPaq.Location = new System.Drawing.Point(7, 3);
-            this.dgPaq.Name = "dgPaq";
-            this.dgPaq.ReadOnly = true;
-            this.dgPaq.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgPaq.Size = new System.Drawing.Size(714, 303);
-            this.dgPaq.TabIndex = 4;
-            this.dgPaq.SelectionChanged += new System.EventHandler(this.dgPaq_SelectionChanged);
-            // 
-            // dgResumen
-            // 
-            this.dgResumen.AllowUserToAddRows = false;
-            this.dgResumen.AllowUserToDeleteRows = false;
-            this.dgResumen.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dgResumen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgResumen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Cargo,
-            this.Valor});
-            this.dgResumen.Location = new System.Drawing.Point(727, 3);
-            this.dgResumen.Name = "dgResumen";
-            this.dgResumen.ReadOnly = true;
-            this.dgResumen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgResumen.Size = new System.Drawing.Size(286, 303);
-            this.dgResumen.TabIndex = 5;
-            // 
-            // Valor
-            // 
-            this.Valor.HeaderText = "Valor";
-            this.Valor.Name = "Valor";
-            this.Valor.ReadOnly = true;
-            this.Valor.Width = 56;
-            // 
-            // Cargo
-            // 
-            this.Cargo.HeaderText = "Cargo";
-            this.Cargo.Name = "Cargo";
-            this.Cargo.ReadOnly = true;
-            this.Cargo.Width = 60;
+            this.dgCorr.AllowUserToAddRows = false;
+            this.dgCorr.AllowUserToDeleteRows = false;
+            this.dgCorr.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgCorr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgCorr.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgCorr.Location = new System.Drawing.Point(0, 0);
+            this.dgCorr.Name = "dgCorr";
+            this.dgCorr.ReadOnly = true;
+            this.dgCorr.Size = new System.Drawing.Size(842, 261);
+            this.dgCorr.TabIndex = 1;
+            this.dgCorr.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCorr_CellEndEdit);
             // 
             // frmFactMercancia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1043, 471);
+            this.ClientSize = new System.Drawing.Size(877, 471);
             this.Controls.Add(this.tabDetalle);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1059, 509);
-            this.MinimumSize = new System.Drawing.Size(1059, 509);
             this.Name = "frmFactMercancia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facturación de Mercancía";
@@ -399,15 +414,15 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tabDetalle.ResumeLayout(false);
+            this.tabPaq.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgResumen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPaq)).EndInit();
             this.tabCorr.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgCorr)).EndInit();
-            this.tabPaq.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgPaq)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgResumen)).EndInit();
             this.ResumeLayout(false);
 
         }

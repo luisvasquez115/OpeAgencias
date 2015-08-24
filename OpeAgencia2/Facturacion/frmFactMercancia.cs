@@ -312,22 +312,16 @@ namespace OpeAgencia2.Facturacion
             }
             if (dMontoVenta >0)
             {
-
                 dMontoEfectivoVenta = dMontoEfectivo - dMontoEfectivoNoventa;
-
                 if (!bCredito)
                 {
-                  
                     if (bCredito == false)
                         RetornaDatosPagos(DatosPago, ref DatosPagoVenta, dMontoVenta, ref dMontoEfectivoVenta, ref dMontoOtrosVenta);
-
                 }
-
                 if ((bCredito == true) || (bPagado == true))
                 {
 
                 }//Aqui tengo que ver si el cliente esta suspendido
-
                 BultosAFacturar(ref oBltNumeros);
                 BO.BO.Facturar oFact = new BO.BO.Facturar();
                 if (oFact.CrearFactura(dMontoEfectivoVenta, dMontoOtrosVenta, dDevolucion, DatosPagoVenta,
@@ -335,23 +329,12 @@ namespace OpeAgencia2.Facturacion
                                    Parametros.Parametros.UsuarioId, oBltNumeros,
                                    oTableCorr, dMontoVenta, bCredito))
                 {//Todo anduvo bien. Entonces Imprimo y limpio la pantalla.
-
                     //ImprimirFactura(oFact.FacturaGenerada);
                     ImprimirFactura oImpFact = new ImprimirFactura();
                     oImpFact.Imprimir(oFact.FacturaGenerada, DatosPago);
-
-
                 }
-
             }
-
-
-         
-            
-
-    
         }
-
 
         void RetornaDatosPagos(BO.DAL.dsDatos.DatosPagoDataTable DatosPago, ref BO.DAL.dsDatos.DatosPagoDataTable newDatosPago, decimal dMonto, ref  decimal dMontoEfectvo, ref decimal dMontoOtros)
         {

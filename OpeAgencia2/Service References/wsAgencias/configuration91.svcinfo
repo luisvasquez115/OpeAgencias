@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="ltldBnW3uUhAgvH34GvwAs+Mbl4=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="D/WSDjcrH+9BzpuPvjoPUbt0rvA=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="wsAgenciasSoap">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="wsAgenciasSoap" contract="wsAgencias.wsAgenciasSoap" bindingType="basicHttpBinding" address="http://www.eps-int.com/WebAgencias/wsAgencias.asmx" bindingConfiguration="wsAgenciasSoap">
+    <endpoint name="wsAgenciasSoap" contract="wsAgencias.wsAgenciasSoap" bindingType="basicHttpBinding" address="http://192.168.150.1/WebAgencias/wsAgencias.asmx" bindingConfiguration="wsAgenciasSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://www.eps-int.com/WebAgencias/wsAgencias.asmx</serializedValue>
+          <serializedValue>http://192.168.150.1/WebAgencias/wsAgencias.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

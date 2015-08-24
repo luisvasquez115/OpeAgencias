@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://www.eps-int.com/WebAgencias/wsAgencias.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://192.168.150.1/WebAgencias/wsAgencias.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="wsAgencias.wsdl" MetadataType="Wsdl" ID="e046b27a-80fe-402b-8ae2-e61b3a64dc8b" SourceId="1" SourceUrl="http://www.eps-int.com/WebAgencias/wsAgencias.asmx?wsdl" />
-    <MetadataFile FileName="wsAgencias.disco" MetadataType="Disco" ID="f6239766-fb1a-4f0a-96c7-867e4af56f8d" SourceId="1" SourceUrl="http://www.eps-int.com/WebAgencias/wsAgencias.asmx?disco" />
+    <MetadataFile FileName="wsAgencias1.wsdl" MetadataType="Wsdl" ID="c48515f6-f702-4d11-beb3-7842f258face" SourceId="1" SourceUrl="http://192.168.150.1/WebAgencias/wsAgencias.asmx?wsdl" />
+    <MetadataFile FileName="wsAgencias1.disco" MetadataType="Disco" ID="00a219ae-60fc-48db-86fd-d8023c319c5c" SourceId="1" SourceUrl="http://192.168.150.1/WebAgencias/wsAgencias.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
