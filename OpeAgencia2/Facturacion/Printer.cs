@@ -93,13 +93,13 @@ namespace OpeAgencia2.Facturacion
                         Description = oRow.CODIGO,
                         Quantity = 1,
                         Rate = oRow.TASA_ITBIS,
-                        Price =oRow.MONTO_TOTAL,
+                        Price =System.Math.Round(oRow.MONTO_TOTAL,2, MidpointRounding.ToEven),
                         Type =ItemTypes.SalesItem
                       };
 
                 items.Add(itemsBulto);
                 dSubTotal += oRow.MONTO_TOTAL;
-                _MontoTotalFactura += oRow.MONTO_TOTAL;
+                _MontoTotalFactura += System.Math.Round(oRow.MONTO_TOTAL,2, MidpointRounding.ToEven);
 
                 sDescAdicional = new[]{
                           "Servicio-" + oRow.PRODUCTO.Trim() + "-",
@@ -153,13 +153,13 @@ namespace OpeAgencia2.Facturacion
                         Description = oRow.CODIGO,
                         Quantity = 1,
                         Rate = oRow.TASA_ITBIS,
-                        Price = oRow.MONTO_TOTAL,
+                        Price = System.Math.Round(oRow.MONTO_TOTAL,2, MidpointRounding.ToEven),
                         Type = ItemTypes.SalesItem
                     };
 
                    items.Add(itemsBulto);
                    dSubTotal += oRow.MONTO_TOTAL;
-                   _MontoTotalFactura += oRow.MONTO_TOTAL;
+                   _MontoTotalFactura += System.Math.Round(oRow.MONTO_TOTAL,2, MidpointRounding.ToEven);
 
                }
                 

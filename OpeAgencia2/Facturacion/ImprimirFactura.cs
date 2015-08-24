@@ -284,10 +284,20 @@ namespace OpeAgencia2.Facturacion
                 oFactRow.REC_CREDITO = oRecibo.REC_CREDITO == false ? "N" : "S";
                 oFactRow.REC_FECHA = oRecibo.FECHA.ToShortDateString();
                 oFactRow.SUCURSAL = Bultos.Sucursales.SUC_DESCRIPCION;
-                oFactRow.ITBIS = oRecDet.Cargos.CAR_ITBIS;
+
+                if (Bultos.Clientes.CTE_TIPO_FISCAL == 45) /*regimenes especiales*/
+                {
+                    oFactRow.ITBIS = false;
+                    oFactRow.TASA_ITBIS = 0;
+                }
+                else
+                {
+                    oFactRow.ITBIS = oRecDet.Cargos.CAR_ITBIS;
+                    oFactRow.TASA_ITBIS = oRecDet.Cargos.ITBIS;
+                }
                 oFactRow.MONTO_ITEBIS = oRecDet.MONTO_ITBIS;
                 oFactRow.MONTO_TOTAL = oRecDet.MONTO_TOTAL;
-                oFactRow.TASA_ITBIS = oRecDet.Cargos.ITBIS;
+                
                 oFactRow.USUARIO = oRecibo.USER_CREA;
                 if (oRecibo.TIPO_REC_ID == 5)
                     oFactRow.TIPO_FISCAL = 3; //Hay que buscar otra manera. Esto es para la anulacion qu esta por fuera del cliente.
