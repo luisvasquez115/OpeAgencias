@@ -83,7 +83,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(855, 40);
+            this.groupBox1.Size = new System.Drawing.Size(838, 40);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -97,7 +97,7 @@
             this.cmbTipoFact.Items.AddRange(new object[] {
             "Contado",
             "Crédito"});
-            this.cmbTipoFact.Location = new System.Drawing.Point(728, 12);
+            this.cmbTipoFact.Location = new System.Drawing.Point(711, 12);
             this.cmbTipoFact.Name = "cmbTipoFact";
             this.cmbTipoFact.Size = new System.Drawing.Size(121, 21);
             this.cmbTipoFact.TabIndex = 6;
@@ -107,7 +107,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(667, 15);
+            this.label4.Location = new System.Drawing.Point(650, 15);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 5;
@@ -118,7 +118,7 @@
             this.dFechaVenc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dFechaVenc.Enabled = false;
-            this.dFechaVenc.Location = new System.Drawing.Point(461, 12);
+            this.dFechaVenc.Location = new System.Drawing.Point(444, 12);
             this.dFechaVenc.Name = "dFechaVenc";
             this.dFechaVenc.Size = new System.Drawing.Size(200, 20);
             this.dFechaVenc.TabIndex = 4;
@@ -128,7 +128,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(384, 15);
+            this.label2.Location = new System.Drawing.Point(367, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 3;
@@ -179,7 +179,7 @@
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.txtPaq);
             this.groupBox3.Controls.Add(this.lblPaquetes);
-            this.groupBox3.Location = new System.Drawing.Point(319, 400);
+            this.groupBox3.Location = new System.Drawing.Point(302, 400);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(550, 64);
             this.groupBox3.TabIndex = 2;
@@ -268,7 +268,7 @@
             this.tabDetalle.Location = new System.Drawing.Point(12, 59);
             this.tabDetalle.Name = "tabDetalle";
             this.tabDetalle.SelectedIndex = 0;
-            this.tabDetalle.Size = new System.Drawing.Size(856, 335);
+            this.tabDetalle.Size = new System.Drawing.Size(839, 335);
             this.tabDetalle.TabIndex = 0;
             // 
             // tabPaq
@@ -278,7 +278,7 @@
             this.tabPaq.Location = new System.Drawing.Point(4, 22);
             this.tabPaq.Name = "tabPaq";
             this.tabPaq.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPaq.Size = new System.Drawing.Size(848, 309);
+            this.tabPaq.Size = new System.Drawing.Size(831, 309);
             this.tabPaq.TabIndex = 0;
             this.tabPaq.Text = "Paquetes";
             this.tabPaq.UseVisualStyleBackColor = true;
@@ -294,7 +294,7 @@
             this.dgResumen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cargo,
             this.Valor});
-            this.dgResumen.Location = new System.Drawing.Point(561, 3);
+            this.dgResumen.Location = new System.Drawing.Point(544, 3);
             this.dgResumen.Name = "dgResumen";
             this.dgResumen.ReadOnly = true;
             this.dgResumen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -328,7 +328,7 @@
             this.dgPaq.Name = "dgPaq";
             this.dgPaq.ReadOnly = true;
             this.dgPaq.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgPaq.Size = new System.Drawing.Size(548, 303);
+            this.dgPaq.Size = new System.Drawing.Size(531, 303);
             this.dgPaq.TabIndex = 4;
             this.dgPaq.SelectionChanged += new System.EventHandler(this.dgPaq_SelectionChanged);
             // 
@@ -399,7 +399,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 471);
+            this.ClientSize = new System.Drawing.Size(860, 471);
             this.Controls.Add(this.tabDetalle);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);

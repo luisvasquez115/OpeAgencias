@@ -496,6 +496,12 @@ namespace OpeAgencia2.Operaciones
             /* select new { p.ID, p.CARGO_PROD_ID, Desc = p.CargosProducto.Cargos.CAR_CODIGO + "-->" + p.CargosProducto.Cargos.CAR_DESCRIPCION + "(" + p.CargosProducto.TasaCambio.TASA_CODIGO + ")",
                             Monto = p.BVA_MONTO, Tasa= p.BVA_TASA, MontoLocal = p.BVA_MONTO_LOCAL };*/
             iCargoProd = Convert.ToInt32(cmbCargos.SelectedValue);
+            if (iCargoProd == null)
+            {
+                MessageBox.Show("Debe seleccionar un cargo para agregar", "Seleccionar cargos", MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+                return;
+            }
             var cargosProd = unitOfWork.CargosProductoRepository.GetByID(iCargoProd);
             DataRow dr = oCargos.NewRow();
             dr["ID"] = -1;
