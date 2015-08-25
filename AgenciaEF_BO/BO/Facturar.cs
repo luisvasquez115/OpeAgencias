@@ -49,7 +49,15 @@ namespace AgenciaEF_BO.BO
        
                 RecAnul.RECIBO_ID_ANUL = recibo.RECIBO_ID;
                 RecAnul.REC_CREDITO = false;
-                RecAnul.NUM_REC = -1;
+
+                var oSecuencial = unitOfWork.SecuencialesRepository.Get(filter: xy => xy.SUC_ID == RecAnul.SUC_ID && xy.TIPO_ID == 5).FirstOrDefault();
+
+                RecAnul.NUM_REC = oSecuencial.VALOR + 1;
+
+                oSecuencial.VALOR += 1;
+
+                unitOfWork.SecuencialesRepository.Update(oSecuencial);
+
                 RecAnul.SUC_ID = recibo.SUC_ID;
                 RecAnul.TIP_FISCAL = recibo.TIP_FISCAL;
                 RecAnul.TIPO_REC_ID = 5;  //Anulaciones
@@ -117,6 +125,15 @@ namespace AgenciaEF_BO.BO
                 oCaja.SUC_ID = RecAnul.SUC_ID;
 
                 oCaja.TIP_MOV = 60;// Registor de cobros;
+
+                var oSecuencialCaja = unitOfWork.SecuencialesRepository.Get(filter: xy => xy.SUC_ID == RecAnul.SUC_ID && xy.TIPO_ID == 60).FirstOrDefault();
+
+                oCaja.NUM_REC = oSecuencialCaja.VALOR + 1;
+
+                oSecuencialCaja.VALOR += 1;
+
+                unitOfWork.SecuencialesRepository.Update(oSecuencialCaja);
+               
 
                 unitOfWork.MovCajaRepository.Insert(oCaja);
 
@@ -197,7 +214,14 @@ namespace AgenciaEF_BO.BO
             oRecibos.IMPORTE_CTA = 0;
             oRecibos.IMPORTE_TOTAL = 0;
             oRecibos.NUM_FISCAL = "NA"; //Numero Fiscal
-            oRecibos.NUM_REC = -1;
+            var oSecuencial = unitOfWork.SecuencialesRepository.Get(filter: xy => xy.SUC_ID == iSucId && xy.TIPO_ID == 54).FirstOrDefault();
+
+            oRecibos.NUM_REC = oSecuencial.VALOR + 1;
+
+            oSecuencial.VALOR += 1;
+
+            unitOfWork.SecuencialesRepository.Update(oSecuencial);
+
             oRecibos.RECIBO_ID_ANUL = -1;
             oRecibos.SUC_ID = iSucId;
             oRecibos.TIP_FISCAL = iTipoFiscal;
@@ -323,6 +347,14 @@ namespace AgenciaEF_BO.BO
             oCaja.SUC_ID = iSucId;
 
             oCaja.TIP_MOV = 55;// Registor de cobros;
+
+            var oSecuencial = unitOfWork.SecuencialesRepository.Get(filter: xy => xy.SUC_ID == iSucId && xy.TIPO_ID == 55).FirstOrDefault();
+
+            oCaja.NUM_REC = oSecuencial.VALOR + 1;
+
+            oSecuencial.VALOR += 1;
+
+            unitOfWork.SecuencialesRepository.Update(oSecuencial);
 
             unitOfWork.MovCajaRepository.Insert(oCaja);
 
@@ -538,7 +570,16 @@ namespace AgenciaEF_BO.BO
                 oRecibos.IMPORTE_CTA = pdMontoFacturado;
                 oRecibos.IMPORTE_TOTAL = pdMontoFacturado;
                 oRecibos.NUM_FISCAL = "NA"; //Numero Fiscal
-                oRecibos.NUM_REC = -1;
+
+
+                var oSecuencial = unitOfWork.SecuencialesRepository.Get(filter: xy => xy.SUC_ID == iSucId && xy.TIPO_ID == 1).FirstOrDefault();
+
+                oRecibos.NUM_REC = oSecuencial.VALOR + 1;
+
+                oSecuencial.VALOR += 1;
+
+                unitOfWork.SecuencialesRepository.Update(oSecuencial);
+
                 oRecibos.RECIBO_ID_ANUL = -1;
                 oRecibos.SUC_ID = iSucId;
                 oRecibos.TIP_FISCAL = iTipoFiscal;
@@ -619,6 +660,8 @@ namespace AgenciaEF_BO.BO
 
                 unitOfWork.RecibosRepository.Insert(oRecibos);
                 //
+                int iTipoMovCaja = -1;
+
                 //registrar el movimiento de caja
                 MovCaja oCaja = new MovCaja();
                 oCaja.FPAGO_ID = -1;
@@ -627,10 +670,25 @@ namespace AgenciaEF_BO.BO
                 oCaja.COUNTER_ID = iUsuarioId;
                 oCaja.IMPORTE = pdMontoFacturado;
                 oCaja.SUC_ID = iSucId;
-                if(bCredito)
-                   oCaja.TIP_MOV = 53;// "MV001"  Facturacion de mercancia;
+                if(bCredito){
+
+                    iTipoMovCaja = 53;
+                    oCaja.TIP_MOV = 53;// "MV001"  Facturacion de mercancia;
+                }
                 else
-                   oCaja.TIP_MOV = 51;// "MV001"  Facturacion de mercancia;
+                {
+                    oCaja.TIP_MOV = 51;// "MV001"  Facturacion de mercancia;
+                    iTipoMovCaja = 51;
+                }
+
+
+                var oSecuencialCaja = unitOfWork.SecuencialesRepository.Get(filter: xy => xy.SUC_ID == iSucId && xy.TIPO_ID == iTipoMovCaja).FirstOrDefault();
+
+                oCaja.NUM_REC = oSecuencialCaja.VALOR + 1;
+
+                oSecuencialCaja.VALOR += 1;
+
+                unitOfWork.SecuencialesRepository.Update(oSecuencialCaja);
 
                 MovCajaRecibos oCajaRec = new MovCajaRecibos();
                 oCajaRec.MOVCAJA_ID = oCaja.MOVCAJA_ID;
@@ -767,6 +825,8 @@ namespace AgenciaEF_BO.BO
             sUsuario = unitOfWork.UsuariosRepository.GetByID(iUsuarioId).NOMBRES.TrimEnd() + " " + unitOfWork.UsuariosRepository.GetByID(iUsuarioId).APELLIDOS.TrimEnd();
 
            
+
+           
                 //Si funciona la correspondencia, 
 
                 oRecibos.COUNTER_ID = iUsuarioId;
@@ -780,7 +840,15 @@ namespace AgenciaEF_BO.BO
                 oRecibos.IMPORTE_CTA = pdMontoFacturado;
                 oRecibos.IMPORTE_TOTAL = pdMontoFacturado;
                 oRecibos.NUM_FISCAL = "NA"; //Numero Fiscal
-                oRecibos.NUM_REC = -1;
+
+                var oSecuencial = unitOfWork.SecuencialesRepository.Get(filter: xy => xy.SUC_ID == iSucId && xy.TIPO_ID == 62).FirstOrDefault();
+
+                oRecibos.NUM_REC = oSecuencial.VALOR + 1;
+
+                oSecuencial.VALOR += 1; 
+
+                unitOfWork.SecuencialesRepository.Update(oSecuencial);
+
                 oRecibos.RECIBO_ID_ANUL = -1;
                 oRecibos.SUC_ID = iSucId;
                 oRecibos.TIP_FISCAL = -1;
@@ -867,8 +935,16 @@ namespace AgenciaEF_BO.BO
                     oCaja.SUC_ID = iSucId;
                    
                     oCaja.TIP_MOV = 63;// "MV007"  NO VENTA;
-                  
 
+                    var oSecuencialCaja = unitOfWork.SecuencialesRepository.Get(filter: xy => xy.SUC_ID == iSucId && xy.TIPO_ID == 63).FirstOrDefault();
+
+                    oCaja.NUM_REC = oSecuencialCaja.VALOR + 1;
+
+                    oSecuencialCaja.VALOR += 1;
+
+                    unitOfWork.SecuencialesRepository.Update(oSecuencialCaja);
+
+                  
                     MovCajaRecibos oCajaRec = new MovCajaRecibos();
                     oCajaRec.MOVCAJA_ID = oCaja.MOVCAJA_ID;
                     oCajaRec.RECIBO_ID = oRecibos.RECIBO_ID;
@@ -988,8 +1064,6 @@ namespace AgenciaEF_BO.BO
 
 
 
-
-
         //x.FormaPago, x.MontoEfectivo, x.MontoOtros, x.Devolucion, x.DatosPago, 
         public bool CrearFacturaEnvio(decimal dMontoEfectivo, decimal dMontoOtros, decimal dDevolucion, DAL.dsDatos.DatosPagoDataTable pDatosPago,
                   int iCteId, int iTipoFiscal, int iSucId, int iUsuarioId, DAL.dsDatos.EnviosDataTable pTableEnvios, DAL.dsDatos.BultosValoresCargosDataTable oUnidades
@@ -1031,7 +1105,15 @@ namespace AgenciaEF_BO.BO
                 oRecibos.IMPORTE_CTA = pdMontoFacturado;
                 oRecibos.IMPORTE_TOTAL = pdMontoFacturado;
                 oRecibos.NUM_FISCAL = "NA"; //Numero Fiscal
-                oRecibos.NUM_REC = -1;
+
+                var oSecuencial = unitOfWork.SecuencialesRepository.Get(filter: xy => xy.SUC_ID == iSucId && xy.TIPO_ID == 3).FirstOrDefault();
+
+                oRecibos.NUM_REC = oSecuencial.VALOR + 1;
+
+                oSecuencial.VALOR += 1;
+
+                unitOfWork.SecuencialesRepository.Update(oSecuencial);
+
                 oRecibos.RECIBO_ID_ANUL = -1;
                 oRecibos.SUC_ID = iSucId;
                 oRecibos.TIP_FISCAL = iTipoFiscal;
@@ -1111,6 +1193,7 @@ namespace AgenciaEF_BO.BO
 
                 unitOfWork.RecibosRepository.Insert(oRecibos);
                 //
+                int iTipoMovCaja = -1;
                 //registrar el movimiento de caja
                 MovCaja oCaja = new MovCaja();
                 oCaja.FPAGO_ID = -1;
@@ -1119,10 +1202,27 @@ namespace AgenciaEF_BO.BO
                 oCaja.COUNTER_ID = iUsuarioId;
                 oCaja.IMPORTE = pdMontoFacturado;
                 oCaja.SUC_ID = iSucId;
-                if (bCredito)
+                if (bCredito){
                     oCaja.TIP_MOV = 59;// "MV001"  Facturacion de mercancia;
+                    iTipoMovCaja = 59;
+                }
                 else
+                {
                     oCaja.TIP_MOV = 58;// "MV001"  Facturacion de mercancia;
+                    iTipoMovCaja = 58;
+                }
+
+
+
+
+                var oSecuencialCaja = unitOfWork.SecuencialesRepository.Get(filter: xy => xy.SUC_ID == iSucId && xy.TIPO_ID == iTipoMovCaja).FirstOrDefault();
+
+                oCaja.NUM_REC = oSecuencialCaja.VALOR + 1;
+
+                oSecuencialCaja.VALOR += 1;
+
+                unitOfWork.SecuencialesRepository.Update(oSecuencialCaja);
+
 
                 MovCajaRecibos oCajaRec = new MovCajaRecibos();
                 oCajaRec.MOVCAJA_ID = oCaja.MOVCAJA_ID;

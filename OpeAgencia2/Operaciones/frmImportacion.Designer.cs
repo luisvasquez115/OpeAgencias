@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.DateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
+            this.DateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             this.GroupBox2 = new System.Windows.Forms.GroupBox();
             this.dgFacturas = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -44,6 +44,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnProcesar = new System.Windows.Forms.Button();
             this.lblMensaje = new System.Windows.Forms.Label();
+            this.lbltotal = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.GroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgFacturas)).BeginInit();
@@ -61,22 +62,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Fecha:";
-            // 
-            // DateTimePicker1
-            // 
-            this.DateTimePicker1.Location = new System.Drawing.Point(62, 27);
-            this.DateTimePicker1.Name = "DateTimePicker1";
-            this.DateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.DateTimePicker1.TabIndex = 1;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(274, 27);
@@ -86,6 +71,22 @@
             this.button1.Text = "Buscar Facturas";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // DateTimePicker1
+            // 
+            this.DateTimePicker1.Location = new System.Drawing.Point(62, 27);
+            this.DateTimePicker1.Name = "DateTimePicker1";
+            this.DateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.DateTimePicker1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Fecha:";
             // 
             // GroupBox2
             // 
@@ -206,11 +207,22 @@
             this.lblMensaje.TabIndex = 23;
             this.lblMensaje.Text = "label3";
             // 
+            // lbltotal
+            // 
+            this.lbltotal.AutoSize = true;
+            this.lbltotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotal.ForeColor = System.Drawing.Color.Red;
+            this.lbltotal.Location = new System.Drawing.Point(331, 242);
+            this.lbltotal.Name = "lbltotal";
+            this.lbltotal.Size = new System.Drawing.Size(0, 26);
+            this.lbltotal.TabIndex = 24;
+            // 
             // frmImportacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(486, 546);
+            this.Controls.Add(this.lbltotal);
             this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnProcesar);
@@ -251,5 +263,6 @@
         internal System.Windows.Forms.Button btnCancelar;
         internal System.Windows.Forms.Button btnProcesar;
         private System.Windows.Forms.Label lblMensaje;
+        private System.Windows.Forms.Label lbltotal;
     }
 }

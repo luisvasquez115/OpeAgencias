@@ -19,6 +19,8 @@ namespace OpeAgencia2.Operaciones
             InitializeComponent();
         }
 
+        int iTotal = 0;
+
         DataSet ds;
         string CodigoAgencia;
         wsAgencias.wsAgenciasSoapClient oAgencias;
@@ -171,14 +173,17 @@ namespace OpeAgencia2.Operaciones
 
         private void btnSeleccionarTodo_Click(object sender, EventArgs e)
         {
+            iTotal = 0;
+            //
             for (int i = 0; i < chkBultos.Items.Count; i++)
             {
 
                 chkBultos.SetItemChecked(i, true);
-
+                iTotal += 1;
 
 
             }
+            lbltotal.Text = iTotal.ToString();
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -246,6 +251,11 @@ namespace OpeAgencia2.Operaciones
 
             foreach (int i in chkBultos.CheckedIndices)
             {
+                unitOfWork = new BO.DAL.UnitOfWork();
+
+                lbltotal.Text = i.ToString() + "/" + iTotal.ToString();
+                lbltotal.Refresh();
+
                 int BltNumeroLocal = 0;
                 string sBltNumero;
                 string sCodigoBarra;
@@ -326,11 +336,11 @@ namespace OpeAgencia2.Operaciones
                     var oEquivalencia = unitOfWork.EquivalenciaBultosRepository.Get(filter: s => s.BLT_NUMERO_LOCAL == BltNumeroLocal).FirstOrDefault();
                     try
                     {
-                        InsertaContenido(oEquivalencia);
-                        InsertaRemitente(oEquivalencia);
-                        InsertaCargos(oEquivalencia);
-                        InsertaUnidades(oEquivalencia);
-                        ActualizarItbis(oEquivalencia);
+                        //InsertaContenido(oEquivalencia);
+                        //InsertaRemitente(oEquivalencia);
+                        //InsertaCargos(oEquivalencia);
+                        //InsertaUnidades(oEquivalencia);
+                        //ActualizarItbis(oEquivalencia);
                         unitOfWork.Save();
                     }
                     catch (Exception ex)
@@ -343,7 +353,7 @@ namespace OpeAgencia2.Operaciones
 
                
 
-            }
+            }//End for
         }
 
 
@@ -483,6 +493,36 @@ namespace OpeAgencia2.Operaciones
             //
             oBultos.BLT_MANIFIESTO_SUCURSAL = "NA";
             oBultos.BLT_BOLSA_SUCURSAL = "NA";
+
+            //Inserto contenido
+            ds.Tables["CONTENIDO_BULTOS"].DefaultView.RowFilter = "BLT_NUMERO = " + oRow["BLT_NUMERO"].ToString();
+
+            DataView dv = ds.Tables["CONTENIDO_BULTOS"].DefaultView;
+
+            if (dv.Count > 0)
+            {
+
+
+                oBultos.CONTENIDO = dv[0]["COB_CONTENIDO"].ToString().TrimEnd();
+
+            }
+            //
+            ds.Tables["remitente_destinatario"].DefaultView.RowFilter = "BLT_NUMERO = " + oRow["BLT_NUMERO"].ToString();
+
+            dv = ds.Tables["remitente_destinatario"].DefaultView;
+
+            if (dv.Count > 0)
+            {
+
+                oBultos.REMITENTE = dv[0]["RDE_REMITENTE"].ToString().TrimEnd();
+                oBultos.DESTINATARIO = dv[0]["RDE_DESTINATARIO"].ToString().TrimEnd();
+            }
+            else
+            {
+                oBultos.REMITENTE = "NA";
+                oBultos.DESTINATARIO = "NA";
+            }
+
 
 
             try

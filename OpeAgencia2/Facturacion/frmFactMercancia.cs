@@ -298,10 +298,7 @@ namespace OpeAgencia2.Facturacion
             if (dMontoVenta > 0)
                  FacturarVenta();
             
-            /*
-            if (dMontoNoVenta>0)
-                 FacturarNoVenta();
-            */
+           
             LimpiarPantalla();
         }
 

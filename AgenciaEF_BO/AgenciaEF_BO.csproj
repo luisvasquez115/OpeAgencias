@@ -61,6 +61,7 @@
     <Compile Include="BO\CalculoTafiras.cs" />
     <Compile Include="BO\Facturar.cs" />
     <Compile Include="DAL\BultosEnviosRepository.cs" />
+    <Compile Include="DAL\SecuencialesRepository.cs" />
     <Compile Include="DAL\TerminalRepository.cs" />
     <Compile Include="DAL\dsReportes.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -161,6 +162,7 @@
     <Compile Include="Models\Productos.cs" />
     <Compile Include="Models\Recibos.cs" />
     <Compile Include="Models\RecibosDet.cs" />
+    <Compile Include="Models\Secuenciales.cs" />
     <Compile Include="Models\Seguridad\UsuariosRoles.cs" />
     <Compile Include="Models\Seguridad\RolesOpciones.cs" />
     <Compile Include="Models\Seguridad\Roles.cs" />

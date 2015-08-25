@@ -329,6 +329,12 @@
     <Compile Include="Parametros\frmParametrosSucursal.Designer.cs">
       <DependentUpon>frmParametrosSucursal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Parametros\frmSecuenciales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Parametros\frmSecuenciales.Designer.cs">
+      <DependentUpon>frmSecuenciales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Parametros\frmTipos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -559,6 +565,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Parametros\frmParametrosSucursal.resx">
       <DependentUpon>frmParametrosSucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parametros\frmSecuenciales.resx">
+      <DependentUpon>frmSecuenciales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Parametros\frmTipos.resx">
       <DependentUpon>frmTipos.cs</DependentUpon>

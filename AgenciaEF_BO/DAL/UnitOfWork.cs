@@ -88,6 +88,22 @@ namespace AgenciaEF_BO.DAL
 
         private vwCuadreCajaRepository vwcuadreCajaRepository;
 
+        private SecuencialesRepository secuencialesRepository;
+
+        public SecuencialesRepository SecuencialesRepository
+        {
+            get
+            {
+
+                if (this.secuencialesRepository == null)
+                {
+                    this.secuencialesRepository = new SecuencialesRepository(context);
+                }
+                return secuencialesRepository;
+            }
+        }
+
+
         public vwCuadreCajaRepository vwCuadreCajaRepository
         {
             get
