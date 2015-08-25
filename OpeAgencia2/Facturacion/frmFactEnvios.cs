@@ -41,7 +41,7 @@ namespace OpeAgencia2.Facturacion
         {
             dgEnvios.DataSource = oEnvio;
 
-            for (int i = 0; i < oEnvio.Columns.Count; i++ )
+            for (int i = 0; i < oEnvio.Columns.Count; i++)
             {
 
                 dgEnvios.Columns[i].Visible = false;
@@ -66,31 +66,27 @@ namespace OpeAgencia2.Facturacion
 
             for (int i = 0; i < dgEnvios.Rows.Count; i++)
             {
-             
-                    iPaq++;
-                    dMonto += Convert.ToDecimal(dgEnvios.Rows[i].Cells[20].Value);
+                iPaq++;
+                dMonto += Convert.ToDecimal(dgEnvios.Rows[i].Cells[20].Value);
             }
-             
-
-
             this.txtPaq.Text = iPaq.ToString();
             txtMontoTotal.Text = dMonto.ToString();
         }
 
-
-
         void BuscarCliente()
         {
-
+            if (txtEPS.Text == "")
+            {
+                lblNombres.Text = string.Empty;
+                iCteId = -1;
+                return;
+            }
             oCliente = unitOfWork.ClientesRepository.Get(filter: s => s.CTE_NUMERO_EPS == txtEPS.Text && s.CTE_SUC_ID == Parametros.Parametros.SucursalActual).FirstOrDefault();
-
             if (oCliente != null)
             {
                 lblNombres.Text = oCliente.CTE_NOMBRE + " " + oCliente.CTE_APELLIDO;
                 dFechaVenc.Value = oCliente.CTE_FECHA_VENCIMIENTO;
                 cmbTipoFact.SelectedIndex = 0;
-
-
                 if (oCliente.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd() == "" && oCliente.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd() == "" && oCliente.CTE_PASAPORTE.ToString().TrimEnd() == "")
                 {
                     if (oCliente.CTE_TIPO_FISCAL != 47) //DIFETENTE DE PERSONA FISICA
@@ -101,19 +97,15 @@ namespace OpeAgencia2.Facturacion
                             btnFacturar.Enabled = false;
                             return;
                         }
-
-
                     }
                     MessageBox.Show("Este cliente no tienen un documento de identificación válido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     btnFacturar.Enabled = false;
                     return;
                 }
                 else
-                { btnFacturar.Enabled = true; }
-
-
-
-          
+                { 
+                    btnFacturar.Enabled = true; 
+                }
                 if (oCliente.CTE_CREDITO == true)
                 {
                     cmbTipoFact.Enabled = true;
@@ -131,17 +123,15 @@ namespace OpeAgencia2.Facturacion
                 txtEPS.Focus();
                 iCteId = -1;
                 lblNombres.Text = "";
-               // dgPaq.DataSource = null;
-               // dgCorr.DataSource = null;
+                // dgPaq.DataSource = null;
+                // dgCorr.DataSource = null;
             }
 
         }
 
         private void txtEPS_Leave(object sender, EventArgs e)
         {
-            if (txtEPS.Text != "")
-                BuscarCliente();
-
+            BuscarCliente();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -158,7 +148,7 @@ namespace OpeAgencia2.Facturacion
 
                     BO.DAL.dsDatos.EnviosRow oEnvioRow = oEnvio.NewEnviosRow();
 
-                    for (int i = 1; i < oEnvio.Columns.Count; i++ )
+                    for (int i = 1; i < oEnvio.Columns.Count; i++)
                     {
                         oEnvioRow[i] = dr[i];
 
@@ -168,26 +158,24 @@ namespace OpeAgencia2.Facturacion
                     oEnvio.Rows.Add(oEnvioRow);
 
 
-                        foreach (DataRow drnew in x.UnidadesRetorno.Rows)
+                    foreach (DataRow drnew in x.UnidadesRetorno.Rows)
+                    {
+                        BO.DAL.dsDatos.BultosValoresCargosRow oUnidaesRow = oUnidades.NewBultosValoresCargosRow();
+
+                        for (int i = 0; i < oUnidades.Columns.Count; i++)
                         {
-                            BO.DAL.dsDatos.BultosValoresCargosRow oUnidaesRow = oUnidades.NewBultosValoresCargosRow();
-
-                            for (int i = 0; i < oUnidades.Columns.Count; i++)
-                            {
-                                oUnidaesRow[i] = drnew[i];
-
-                            }
-                            oUnidaesRow.ID = iSecuenciaId;
-                            oUnidades.Rows.Add(oUnidaesRow);
-
-
+                            oUnidaesRow[i] = drnew[i];
                         }
-
-                        ActualizaTotal();
-
+                        oUnidaesRow.ID = iSecuenciaId;
+                        oUnidades.Rows.Add(oUnidaesRow);
+                    }
+                    ActualizaTotal();
                 }
-
-
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un cliente para agregar envíos", "Cliente", MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
             }
         }
 
@@ -209,8 +197,8 @@ namespace OpeAgencia2.Facturacion
             try
             {
                 iEnvioId = Convert.ToInt32(dgEnvios.Rows[dgEnvios.CurrentCell.RowIndex].Cells[0].Value);
-                
-                for(int i = 0; i < oUnidades.Rows.Count; i++)
+
+                for (int i = 0; i < oUnidades.Rows.Count; i++)
                 {
                     if (Convert.ToInt32(oUnidades.Rows[i][0]) == iEnvioId)
                     {
@@ -218,34 +206,24 @@ namespace OpeAgencia2.Facturacion
                         oUnidades.AcceptChanges();
                     }
                 }
-                 for(int i = 0; i < oEnvio.Rows.Count; i++)
-                   {
-                      if (Convert.ToInt32(oEnvio.Rows[i][0]) == iEnvioId)
+                for (int i = 0; i < oEnvio.Rows.Count; i++)
+                {
+                    if (Convert.ToInt32(oEnvio.Rows[i][0]) == iEnvioId)
                     {
-                           oEnvio.Rows[i].Delete();
-                           oEnvio.AcceptChanges();
-                  }
-                 }
-
-
-
+                        oEnvio.Rows[i].Delete();
+                        oEnvio.AcceptChanges();
+                    }
+                }
             }
             catch
             {
 
             }
-
-          
-
-
-
-           
-
         }
 
         private void btnFacturar_Click(object sender, EventArgs e)
         {
-           
+
             bool bCredito, bPagado = false;
             decimal dMontoEfectivo = 0;
             decimal dMontoOtros = 0;
@@ -304,12 +282,12 @@ namespace OpeAgencia2.Facturacion
                     }
                 }//Aqui tengo que ver si el cliente esta suspendido
 
-            
+
                 BO.BO.Facturar oFact = new BO.BO.Facturar();
                 if (oFact.CrearFacturaEnvio(dMontoEfectivo, dMontoOtros, dDevolucion, DatosPago,
                                    oCliente.CTE_ID, oCliente.CTE_TIPO_FISCAL, Parametros.Parametros.SucursalActual,
                                    Parametros.Parametros.UsuarioId,
-                                   oEnvio,oUnidades, Convert.ToDecimal(txtMontoTotal.Text), bCredito))
+                                   oEnvio, oUnidades, Convert.ToDecimal(txtMontoTotal.Text), bCredito))
                 {//Todo anduvo bien. Entonces Imprimo y limpio la pantalla.
 
                     //ImprimirFactura(oFact.FacturaGenerada);
@@ -344,7 +322,7 @@ namespace OpeAgencia2.Facturacion
 
         private void txtEPS_KeyDown(object sender, KeyEventArgs e)
         {
-            if (txtEPS.Text != "" && e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
                 BuscarCliente();
         }
     }

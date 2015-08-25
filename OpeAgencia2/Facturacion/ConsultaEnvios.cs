@@ -43,15 +43,10 @@ namespace OpeAgencia2.Facturacion
         {
             var sQryCounter = from p in unitOfWork.UsuarioSucursalRepository.Get(filter: s => s.SUC_ID == Parametros.ParametrosSucursal.IdSucursal)
                               select new { Id = p.Usuarios.USUARIO_ID, Nombre = p.Usuarios.USER_NAME };
-
-
             cmbCounter.ValueMember = "Id";
             cmbCounter.DisplayMember = "Nombre";
-
             cmbCounter.DataSource = sQryCounter.ToList();
-
             cmbCounter.SelectedValue = Parametros.Parametros.UsuarioId;
-
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -59,19 +54,15 @@ namespace OpeAgencia2.Facturacion
             BuscarDatos();
         }
 
-
-
         void BuscarDatos()
         {
-
+            unitOfWork = new BO.DAL.UnitOfWork();
             DateTime dFechaIni;
             DateTime dFechaFin;
             int iCounterId = -1;
             dFechaIni = txtFecha.Value.Date;
             dFechaFin = txtFecha.Value.Date.AddDays(1);
-
             iCounterId = Convert.ToInt32(cmbCounter.SelectedValue);
-
             if (txtEPS.Text == "")
             {
                 var sQuery = from p in unitOfWork.RecibosRepository.Get(filter: s => s.FECHA >= dFechaIni &&
@@ -123,10 +114,17 @@ namespace OpeAgencia2.Facturacion
             iReciboId = Convert.ToInt32(dgDatos[0, dgDatos.CurrentCell.RowIndex].Value);
 
             var recibo = unitOfWork.RecibosRepository.GetByID(iReciboId);
-
+            if (recibo.ESTADO_ID == 15)
+            {
+                MessageBox.Show("Este recibo ya fue anulado", "Recibo anulado", MessageBoxButtons.OK, 
+                    MessageBoxIcon.Exclamation);
+                return;
+            }
             if (recibo != null)
             {//"0,0.00", CultureInfo.InvariantCulture
-                if (MessageBox.Show("Desea anular el recibo por un monto de: " + recibo.IMPORTE_TOTAL.ToString("0,0.00", CultureInfo.InvariantCulture), "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == System.Windows.Forms.DialogResult.Yes)
+                if (MessageBox.Show("Desea anular el recibo por un monto de: " + recibo.IMPORTE_TOTAL.ToString("0,0.00", 
+                    CultureInfo.InvariantCulture), "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == 
+                    System.Windows.Forms.DialogResult.Yes)
                 {
                     if (ProcesoAnulacion(iReciboId) == false)
                     {
@@ -152,7 +150,7 @@ namespace OpeAgencia2.Facturacion
             }
             else
             {
-                MessageBox.Show("Anulación realizada exitosamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Anulación realizada exitosamente en el sistema", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //ImprimirFactura(oFact.FacturaGenerada);
                 ImprimirFactura oImpFact = new ImprimirFactura();
                 BO.DAL.dsDatos.DatosPagoDataTable oDatosPago = null;

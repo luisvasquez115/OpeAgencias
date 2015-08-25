@@ -45,11 +45,11 @@ namespace OpeAgencia2.Seguridad
 
         #region "Combos"
 
-       
+
         void CargarCombo()
         {
             ComboCargosTipoUser();
-        
+
         }
 
 
@@ -148,20 +148,17 @@ namespace OpeAgencia2.Seguridad
         }
         private void btnSav_Click(object sender, EventArgs e)
         {
-
+            txtNombres.Focus();
             usrbntMant1.bExito = false;
-
             if (SalvarDatos())
             {
                 usrbntMant1.bExito = true;
                 ManejarEstado(false);
                 int iModId = 0;
-
-
                 CargarDatosIniciales();
-
             }
         }
+
         private void btnUn_Click(object sender, EventArgs e)
         {
             // MessageBox.Show("Deshacer");
@@ -173,40 +170,27 @@ namespace OpeAgencia2.Seguridad
 
         void DeleteData()
         {
-
-
             int iId = Convert.ToInt32(this.textId.Text);
-
             //var opciones = unitOfWork.SucursalesRepository.GetByID(iId);
-
             try
             {
-
                 unitOfWork.UsuariosRepository.Delete(iId);
                 unitOfWork.Save();
                 MessageBox.Show("Datos Actualizados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 usrbntMant1.bExito = true;
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
-
-
         }
 
         bool SalvarDatos()
         {
             int iId = -1;
             bool bRetorno = false;
-
             //CompaniasRecord oCom = new CompaniasRecord();
-
-
             BO.Models.Usuarios oCom;
-
-
             if (usrbntMant1.bAdiciona == false)
             {
                 iId = Convert.ToInt32(this.textId.Text);
@@ -216,28 +200,23 @@ namespace OpeAgencia2.Seguridad
             {
                 oCom = new BO.Models.Usuarios();
             }
-
             oCom.TIPO_ID = Convert.ToInt32(this.cmbTipo.SelectedValue.ToString());
             oCom.NOMBRES = txtNombres.Text;
             oCom.APELLIDOS = this.txtApellidos.Text;
-
             oCom.ESTADO = chkEstado.Checked;
             oCom.FECHA_CLAVE = DateTime.Now;
             oCom.FECHA_PROX_CAMBIO = DateTime.Now.AddDays(60);
             oCom.USER_NAME = txtUserName.Text;
             oCom.CLAVE = txtClave.Text;
-          
             try
             {
                 if (usrbntMant1.bAdiciona == false)
                     unitOfWork.UsuariosRepository.Update(oCom);
                 else
                     unitOfWork.UsuariosRepository.Insert(oCom);
-
                 unitOfWork.Save();
                 bRetorno = true;
                 usrbntMant1.bExito = true;
-
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException e)
             {
@@ -248,8 +227,6 @@ namespace OpeAgencia2.Seguridad
                     Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
                         eve.Entry.Entity.GetType().Name, eve.Entry.State);
                     */
-
-
                     foreach (var ve in eve.ValidationErrors)
                     {
                         s += ve.ErrorMessage + "\n";
@@ -262,22 +239,16 @@ namespace OpeAgencia2.Seguridad
             }
             catch (DataException ex)
             {
-
                 throw ex;
             }
-
-
             return bRetorno;
-
         }
 
         public void Modificar()
         {
-
             try
             {
                 _Id = Convert.ToInt32(dg.CurrentRow.Cells[0].Value);
-
             }
             catch
             {
@@ -286,44 +257,30 @@ namespace OpeAgencia2.Seguridad
             if (_Id != -1)
             {
                 tabMant.SelectedTab = tabPage2;
-
             }
             ConsultarDatos(_Id);
-            
-           
-
         }
 
         void ConsultaSucursales(int Id)
         {
-
             try
             {
-                
-                var Qry = from p in unitOfWork.UsuarioSucursalRepository.Get(filter: s => s.USUARIO_ID == Id )
-                               select new { Id = p.USR_SUC_ID, Empresa = p.Sucursales.Empresas.COM_DESCORTA, Sucursal = p.Sucursales.SUC_CODIGO, Descripción = p.Sucursales.SUC_DESCRIPCION  };
-
-
+                var Qry = from p in unitOfWork.UsuarioSucursalRepository.Get(filter: s => s.USUARIO_ID == Id)
+                          select new { Id = p.USR_SUC_ID, Empresa = p.Sucursales.Empresas.COM_DESCORTA, Sucursal = p.Sucursales.SUC_CODIGO, Descripción = p.Sucursales.SUC_DESCRIPCION };
                 dgSucursales.DataSource = Qry.ToList();
                 tabMant.SelectedIndex = 0;
-               
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
         }
-
 
         void ConsultarDatos(int Id)
         {
             var Prod = unitOfWork.UsuariosRepository.GetByID(Id);
-
             ConsultaSucursales(Id);
             ComboSucursales(Id);
-
-
             MoverDatos(Prod);
         }
 
@@ -334,8 +291,6 @@ namespace OpeAgencia2.Seguridad
             {
                 if (ctr.Tag == null)
                     continue;
-
-
                 switch (ctr.Tag.ToString())
                 {
                     case "USUARIO_ID":
@@ -365,10 +320,7 @@ namespace OpeAgencia2.Seguridad
                     case "FECHA_PROX_CAMBIO":
                         ((TextBox)ctr).Text = MyComp.FECHA_PROX_CAMBIO.ToShortDateString();
                         break;
-
                 }
-
-
             }
         }
 
@@ -383,12 +335,8 @@ namespace OpeAgencia2.Seguridad
                         ctr.Enabled = false;
                     else
                         ctr.Enabled = bEstado;
-
-
                 }
-
             }
-
         }
 
         void LimpiarCampos()
@@ -399,7 +347,6 @@ namespace OpeAgencia2.Seguridad
                 {
                     if (ctr.Name.Substring(0, 3) == "txt")
                         ctr.Text = "";
-
                 }
                 else if (ctr.GetType().Name == "ComboBox")
                     ((ComboBox)ctr).SelectedValue = -1;
@@ -407,8 +354,6 @@ namespace OpeAgencia2.Seguridad
                     ((CheckBox)ctr).Checked = false;
                 else if (ctr.GetType().Name == "NumericUpDown")
                     ((NumericUpDown)ctr).Value = 0;
-
-
             }
         }
 
@@ -420,7 +365,6 @@ namespace OpeAgencia2.Seguridad
                 {
                     _Id = Convert.ToInt32(dg.CurrentRow.Cells[0].Value);
                     ConsultarDatos(_Id);
-
                 }
                 catch (Exception ex)
                 {
@@ -430,7 +374,6 @@ namespace OpeAgencia2.Seguridad
                 if (_Id != -1)
                 {
                     tabMant.SelectedTab = tabPage2;
-
                 }
             }
             else if (tabMant.SelectedIndex == 2)
@@ -438,8 +381,7 @@ namespace OpeAgencia2.Seguridad
                 try
                 {
                     _Id = Convert.ToInt32(dg.CurrentRow.Cells[0].Value);
-                     ConsultarDatos(_Id);
-
+                    ConsultarDatos(_Id);
                 }
                 catch (Exception ex)
                 {
@@ -449,7 +391,6 @@ namespace OpeAgencia2.Seguridad
                 if (_Id != -1)
                 {
                     tabMant.SelectedTab = tabSucursales;
-
                 }
             }
             else if (tabMant.SelectedIndex == 3)
@@ -458,7 +399,6 @@ namespace OpeAgencia2.Seguridad
                 {
                     _Id = Convert.ToInt32(dg.CurrentRow.Cells[0].Value);
                     ConsultarDatos(_Id);
-
                 }
                 catch (Exception ex)
                 {
@@ -468,10 +408,8 @@ namespace OpeAgencia2.Seguridad
                 if (_Id != -1)
                 {
                     tabMant.SelectedTab = tabRoles;
-
                 }
             }
-
         }
 
         private void btnAddSucursal_Click(object sender, EventArgs e)
@@ -480,34 +418,27 @@ namespace OpeAgencia2.Seguridad
             {
                 frmAddSucursal oSuc = new frmAddSucursal(_Id);
                 oSuc.ShowDialog();
-
             }
         }
 
         private void btnQuitarSuc_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Seguro que quiere quitar el acceso a la sucursal seleccionada","Pregunta", 
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) 
+            if (MessageBox.Show("Seguro que quiere quitar el acceso a la sucursal seleccionada", "Pregunta",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
                 == System.Windows.Forms.DialogResult.Yes)
             {
                 int iUsrSucId = -1;
-
                 iUsrSucId = Convert.ToInt32(dgSucursales.CurrentRow.Cells[0].Value);
-
                 unitOfWork.UsuarioSucursalRepository.Delete(iUsrSucId);
-
                 try
                 {
                     unitOfWork.Save();
                     ConsultarDatos(_Id);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Error " + ex.Message.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        
                 }
-                
-
             }
         }
 
@@ -520,39 +451,30 @@ namespace OpeAgencia2.Seguridad
             }
         }
 
-
         private void cmbSucursal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ConsutaRoles();
+            ConsultaRoles();
         }
 
-        void ConsutaRoles()
+        void ConsultaRoles()
         {
-
             int iUsrSucId = Convert.ToInt32(cmbSucursal.SelectedValue);
-
             var Qry = from p in unitOfWork.UsuariosRolesRepository.Get(filter: s => s.USR_SUC_ID == iUsrSucId)
-                          select new {Id = p.USR_ROLE_ID, Nombre = p.Roles.NOMBRE, Desc = p.Roles.DESCRIPCION};
-
-
+                      select new { Id = p.USR_ROLE_ID, Nombre = p.Roles.NOMBRE, Desc = p.Roles.DESCRIPCION };
             dgRoles.DataSource = Qry.ToList();
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int iUsrSucId =  Convert.ToInt32(cmbSucursal.SelectedValue);
-
+            int iUsrSucId = Convert.ToInt32(cmbSucursal.SelectedValue);
             frmAgregarRoles ofrm = new frmAgregarRoles(_Id, iUsrSucId);
             ofrm.ShowDialog();
-            ConsutaRoles();
+            ConsultaRoles();
         }
 
         private void txtClave_Leave(object sender, EventArgs e)
         {
-            txtClave.Text = string.Join("",new MD5CryptoServiceProvider().ComputeHash(new MemoryStream(Encoding.UTF8.GetBytes(this.txtClave.Text))).Select(x => x.ToString("X2")));
+            txtClave.Text = string.Join("", new MD5CryptoServiceProvider().ComputeHash(new MemoryStream(Encoding.UTF8.GetBytes(this.txtClave.Text))).Select(x => x.ToString("X2")));
         }
-
     }
 }

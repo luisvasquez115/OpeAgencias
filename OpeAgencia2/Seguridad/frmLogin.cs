@@ -67,6 +67,7 @@ namespace OpeAgencia2.Seguridad
                 MessageBox.Show("Usuario o contraseña incorrecta. Intente nuevamente", "Datos incorrectos", MessageBoxButtons.OK, 
                     MessageBoxIcon.Exclamation);
                 txtClave.Text = "";
+                txtClave.Focus();
                 iCount++;
             }
             if (iCount > 2)
