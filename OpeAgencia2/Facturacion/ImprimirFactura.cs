@@ -232,7 +232,7 @@ namespace OpeAgencia2.Facturacion
                     BO.DAL.dsFactura.FACTURASRow oFactRow = oTable.NewFACTURASRow();
 
 
-                    oFactRow.REC_ID = oRecibo.RECIBO_ID;
+                    oFactRow.REC_ID = oRecibo.NUM_REC;
                     var  oTipoDoc = unitOfWork.TiposRepository.GetByID(oRecibo.TIPO_REC_ID);
                     oFactRow.REC_TIPO = oTipoDoc.TIPO_CODIGO;
                     oFactRow.REC_TIPO_DESC = oTipoDoc.TIPO_DESCR;
@@ -327,8 +327,8 @@ namespace OpeAgencia2.Facturacion
 
                 BO.DAL.dsFactura.FACTURASRow oFactRow = oTable.NewFACTURASRow();
 
-
-                oFactRow.REC_ID = oRecibo.RECIBO_ID;
+                /*DEBE IR CON EL SECUENCIAL DE RECIBOS*/ 
+                oFactRow.REC_ID = oRecibo.NUM_REC;
                 var oTipoDoc = unitOfWork.TiposRepository.GetByID(oRecibo.TIPO_REC_ID);
                 oFactRow.REC_TIPO = oTipoDoc.TIPO_CODIGO;
                 oFactRow.REC_TIPO_DESC = oTipoDoc.TIPO_DESCR;

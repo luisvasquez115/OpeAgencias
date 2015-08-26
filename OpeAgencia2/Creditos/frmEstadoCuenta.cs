@@ -125,7 +125,7 @@ namespace OpeAgencia2.Creditos
 
              var Recibos = from p in unitOfWork.RecibosRepository.Get(filter: xy => xy.CTE_ID >= iEpsDesdeId && xy.CTE_ID <= iEpsHastaId && xy.ESTADO_ID == 13)
                            orderby (p.CTE_ID)
-                           select new { p.CTE_ID, p.ESTADO_ID, p.F_COBRO, p.F_VCTO, p.FECHA, p.IMPORTE_CTA, p.IMPORTE_TOTAL, p.RECIBO_ID, p.TIPO_REC_ID };
+                           select new { p.CTE_ID, p.ESTADO_ID, p.F_COBRO, p.F_VCTO, p.FECHA, p.IMPORTE_CTA, p.IMPORTE_TOTAL, p.RECIBO_ID, p.TIPO_REC_ID, p.NUM_REC };
                        
 
             foreach(var Reg in Recibos)
@@ -147,10 +147,10 @@ namespace OpeAgencia2.Creditos
                 oRow.MONTO_ULT_PAGO = 0;
                 oRow.PAGOS = Reg.IMPORTE_CTA;
                 oRow.REC_FECHA = Reg.FECHA;
-                oRow.REC_ID = Reg.RECIBO_ID;
+                oRow.REC_ID = Reg.NUM_REC;
                 //
                  var  oTipoDoc = unitOfWork.TiposRepository.GetByID(Reg.TIPO_REC_ID);
-                oRow.REC_TIPO = oTipoDoc.TIPO_CODIGO+"-"+Reg.RECIBO_ID.ToString() +"[" + oTipoDoc.TIPO_DESCR +"]";
+                oRow.REC_TIPO = oTipoDoc.TIPO_CODIGO+"-"+Reg.NUM_REC.ToString() +"[" + oTipoDoc.TIPO_DESCR +"]";
 
                  if (oClientes.CTE_CEDULA == null)
                         oRow.RNC = oClientes.CTE_RNC;

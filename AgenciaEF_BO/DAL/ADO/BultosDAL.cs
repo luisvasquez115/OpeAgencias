@@ -16,15 +16,19 @@ namespace AgenciaEF_BO.DAL.ADO
 
         public bool InsertarCargos(int piBultoLocal, int piBltNumero)
         {
-            bool bRetorno;
+            int iRetorno;
 
             using (_connection = Acceso.ObtenerConexion())
             {
-                bRetorno = _connection.Query<bool>(@"PROC_INSERTAR_CARGOS", new { piBultoLocal, piBltNumero }, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                iRetorno = _connection.ExecuteScalar<int>(@"[PROC_MFR2_INSERTAR_CARGOS]", new {BLT_NUMERO_LOCAL= piBultoLocal, BLT_NUMERO_EPS=piBltNumero }, commandType: CommandType.StoredProcedure);
+
+               // iRetorno = _connection.ExecuteScalar<int>(@"[PROC_MFR2_INSERTAR_UNIDADES]", new { BLT_NUMERO_LOCAL = piBultoLocal, BLT_NUMERO_EPS = piBltNumero }, commandType: CommandType.StoredProcedure);
+
+              //  iRetorno = _connection.ExecuteScalar<int>(@"[PROC_MFR2_INSERTAR_ITEBIS]", new { BLT_NUMERO_LOCAL = piBultoLocal}, commandType: CommandType.StoredProcedure);
                 
             }
 
-            return false;
+            return true;
         }
 
         /*public Agencias ObtenerAgenciaPorCodigo(string ageCodigo, int tipoBusqueda = 1)

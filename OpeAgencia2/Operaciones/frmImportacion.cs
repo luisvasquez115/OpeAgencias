@@ -339,7 +339,7 @@ namespace OpeAgencia2.Operaciones
                         //InsertaContenido(oEquivalencia);
                         //InsertaRemitente(oEquivalencia);
                         //InsertaCargos(oEquivalencia);
-                        //InsertaUnidades(oEquivalencia);
+                        InsertaUnidades(oEquivalencia);
                         //ActualizarItbis(oEquivalencia);
                         unitOfWork.Save();
                     }
@@ -629,9 +629,14 @@ namespace OpeAgencia2.Operaciones
         void InsertaUnidades(BO.Models.EquivalenciaBultos pEquivalencia)
         {
 
-            BO.BO.CalculoTafiras oTar = new BO.BO.CalculoTafiras();
+           // BO.BO.CalculoTafiras oTar = new BO.BO.CalculoTafiras();
 
-            oTar.CalcularUnidades(pEquivalencia.BLT_NUMERO_LOCAL);
+          //  oTar.CalcularUnidades(pEquivalencia.BLT_NUMERO_LOCAL);
+
+            AgenciaEF_BO.DAL.ADO.BultosDal Bultos = new BO.DAL.ADO.BultosDal();
+
+            Bultos.InsertarCargos(pEquivalencia.BLT_NUMERO_LOCAL, pEquivalencia.BLT_NUMERO_SDQ);
+
 
         }
 

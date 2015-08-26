@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -47,6 +50,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Linq.Dynamic">
       <HintPath>..\packages\System.Linq.Dynamic.1.0.2\lib\net40\System.Linq.Dynamic.dll</HintPath>
@@ -60,6 +64,8 @@
   <ItemGroup>
     <Compile Include="BO\CalculoTafiras.cs" />
     <Compile Include="BO\Facturar.cs" />
+    <Compile Include="DAL\ADO\Acceso.cs" />
+    <Compile Include="DAL\ADO\BultosDAL.cs" />
     <Compile Include="DAL\BultosEnviosRepository.cs" />
     <Compile Include="DAL\SecuencialesRepository.cs" />
     <Compile Include="DAL\TerminalRepository.cs" />

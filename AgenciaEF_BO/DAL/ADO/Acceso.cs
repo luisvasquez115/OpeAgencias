@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using Dapper;
 using System.Data.SqlClient;
 using System.Configuration;
 
@@ -20,7 +21,7 @@ namespace AgenciaEF_BO.DAL.ADO
 
         private static SqlConnection _conexion;
 
-        private static string _cadenaConexion = ConfigurationManager.ConnectionStrings["ConexionPrueba"].ToString();
+        private static string _cadenaConexion = ConfigurationManager.ConnectionStrings["dbepsContext"].ToString();
 
         public static SqlConnection ObtenerConexion()
         {
