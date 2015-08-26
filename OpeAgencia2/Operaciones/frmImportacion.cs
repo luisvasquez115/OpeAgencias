@@ -20,6 +20,8 @@ namespace OpeAgencia2.Operaciones
             InitializeComponent();
         }
 
+        int iTotal = 0;
+
         DataSet ds;
         string CodigoAgencia;
         wsAgencias.wsAgenciasSoapClient oAgencias;
@@ -53,17 +55,12 @@ namespace OpeAgencia2.Operaciones
 
             lblMensaje.Visible = true;
             lblMensaje.Text = "[Estableciendo comunicacion con Servidor.]";
-
-
             try
             {
-
                 sFecha = DateTimePicker1.Value.Month.ToString().PadLeft(2, '0') + "/" +
                                             DateTimePicker1.Value.Day.ToString().PadLeft(2, '0') + "/" +
                                             DateTimePicker1.Value.Year.ToString();
-
                 ds = oAgencias.FacturasAgencias(CodigoAgencia, sFecha);
-
                 dgFacturas.DataSource = ds.Tables["Facturas"];
                 lblMensaje.Text = "[Buscando Facturas]";
             }
@@ -72,25 +69,18 @@ namespace OpeAgencia2.Operaciones
                 lblMensaje.Text = "[Error.....]";
                 MessageBox.Show("No se puedo hacer conexion con el Servidor " + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             this.chkBultos.Items.Clear();
             lblMensaje.Visible = false;
-
         }
 
         //buscar manifiesto
         private void button3_Click(object sender, EventArgs e)
         {
-
-
             if (dgFacturas.Rows.Count <= 0)
             {
                 MessageBox.Show("No Hay Guias para Importar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
-
-
-
             lblMensaje.Visible = true;
             lblMensaje.Text = "[Estableciendo comunicacion con Servidor.]";
             lblMensaje.Refresh();
@@ -133,22 +123,24 @@ namespace OpeAgencia2.Operaciones
 
 
             }
-
+            lblDe.Visible = lblSeleccionados.Visible = lblTotal.Visible = chkBultos.Items.Count > 0;
+            lblTotal.Text = chkBultos.Items.Count.ToString();
+            lblSeleccionados.Text = "0";
             lblMensaje.Visible = false;
         }
 
         private void TextBox1_Leave(object sender, EventArgs e)
         {
 
-            if (TextBox1.Text != "")
+            if (txtCodigoBarra.Text != "")
             {
 
-                if (SeleccionarEnLista(TextBox1.Text.TrimEnd()) == false)
+                if (SeleccionarEnLista(txtCodigoBarra.Text.TrimEnd()) == false)
                 {
-                    MessageBox.Show("Este Codigo no esta en el manifiesto ..> " + TextBox1.Text.TrimEnd(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Este Codigo no esta en el manifiesto ..> " + txtCodigoBarra.Text.TrimEnd(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-                TextBox1.Text = "";
-                TextBox1.Select();
+                txtCodigoBarra.Text = "";
+                txtCodigoBarra.Select();
             }
         }
 
@@ -169,14 +161,15 @@ namespace OpeAgencia2.Operaciones
 
         private void btnSeleccionarTodo_Click(object sender, EventArgs e)
         {
+            iTotal = 0;
+            //
             for (int i = 0; i < chkBultos.Items.Count; i++)
             {
 
                 chkBultos.SetItemChecked(i, true);
-
-
-
+                iTotal += 1;
             }
+            lblSeleccionados.Text = iTotal.ToString();
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -210,8 +203,8 @@ namespace OpeAgencia2.Operaciones
             catch (Exception ex)
             {
                 MessageBox.Show("Error cargando registros a base de datos local " + ex.Message + " \n" +
-                    ex.InnerException != null ? ex.InnerException.InnerException != null ? 
-                    ex.InnerException.InnerException.Message : "" : "", 
+                    ex.InnerException != null ? ex.InnerException.InnerException != null ?
+                    ex.InnerException.InnerException.Message : "" : "",
                     "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             if (sErrores.Length > 0)
@@ -240,11 +233,16 @@ namespace OpeAgencia2.Operaciones
 
         void ImportarBultos()
         {
-            
+
 
 
             foreach (int i in chkBultos.CheckedIndices)
             {
+                unitOfWork = new BO.DAL.UnitOfWork();
+
+                lblDe.Text = i.ToString() + "/" + iTotal.ToString();
+                lblDe.Refresh();
+
                 int BltNumeroLocal = 0;
                 string sBltNumero;
                 string sCodigoBarra;
@@ -325,11 +323,11 @@ namespace OpeAgencia2.Operaciones
                     var oEquivalencia = unitOfWork.EquivalenciaBultosRepository.Get(filter: s => s.BLT_NUMERO_LOCAL == BltNumeroLocal).FirstOrDefault();
                     try
                     {
-                        InsertaContenido(oEquivalencia);
-                        InsertaRemitente(oEquivalencia);
-                        InsertaCargos(oEquivalencia);
+                        //InsertaContenido(oEquivalencia);
+                        //InsertaRemitente(oEquivalencia);
+                        //InsertaCargos(oEquivalencia);
                         InsertaUnidades(oEquivalencia);
-                        ActualizarItbis(oEquivalencia);
+                        //ActualizarItbis(oEquivalencia);
                         unitOfWork.Save();
                     }
                     catch (Exception ex)
@@ -340,9 +338,9 @@ namespace OpeAgencia2.Operaciones
 
                 }
 
-               
 
-            }
+
+            }//End for
         }
 
 
@@ -472,6 +470,36 @@ namespace OpeAgencia2.Operaciones
             oBultos.BLT_MANIFIESTO_SUCURSAL = "NA";
             oBultos.BLT_BOLSA_SUCURSAL = "NA";
 
+            //Inserto contenido
+            ds.Tables["CONTENIDO_BULTOS"].DefaultView.RowFilter = "BLT_NUMERO = " + oRow["BLT_NUMERO"].ToString();
+
+            DataView dv = ds.Tables["CONTENIDO_BULTOS"].DefaultView;
+
+            if (dv.Count > 0)
+            {
+
+
+                oBultos.CONTENIDO = dv[0]["COB_CONTENIDO"].ToString().TrimEnd();
+
+            }
+            //
+            ds.Tables["remitente_destinatario"].DefaultView.RowFilter = "BLT_NUMERO = " + oRow["BLT_NUMERO"].ToString();
+
+            dv = ds.Tables["remitente_destinatario"].DefaultView;
+
+            if (dv.Count > 0)
+            {
+
+                oBultos.REMITENTE = dv[0]["RDE_REMITENTE"].ToString().TrimEnd();
+                oBultos.DESTINATARIO = dv[0]["RDE_DESTINATARIO"].ToString().TrimEnd();
+            }
+            else
+            {
+                oBultos.REMITENTE = "NA";
+                oBultos.DESTINATARIO = "NA";
+            }
+
+
 
             try
             {
@@ -576,54 +604,39 @@ namespace OpeAgencia2.Operaciones
 
         void InsertaUnidades(BO.Models.EquivalenciaBultos pEquivalencia)
         {
+            // BO.BO.CalculoTafiras oTar = new BO.BO.CalculoTafiras();
+            //  oTar.CalcularUnidades(pEquivalencia.BLT_NUMERO_LOCAL);
+            AgenciaEF_BO.DAL.ADO.BultosDal Bultos = new BO.DAL.ADO.BultosDal();
 
-            BO.BO.CalculoTafiras oTar = new BO.BO.CalculoTafiras();
-
-            oTar.CalcularUnidades(pEquivalencia.BLT_NUMERO_LOCAL);
-
+            Bultos.InsertarCargos(pEquivalencia.BLT_NUMERO_LOCAL, pEquivalencia.BLT_NUMERO_SDQ);
         }
 
         void ActualizarItbis(BO.Models.EquivalenciaBultos pEquivalencia)
         {
             var vQryBultosValores = unitOfWork.BultosValoresRepository.Get(filter: s => s.BLT_NUMERO == pEquivalencia.BLT_NUMERO_LOCAL);
-
             decimal dMontoItebis = 0;
-
-
             var QrycargosProd = unitOfWork.CargosProductoRepository.Get(filter: s => s.Cargos.CAR_CODIGO == "999").FirstOrDefault();
-
             //No se le pone itbis
             if (unitOfWork.BultosRepository.Get(filter: s => s.BLT_NUMERO == pEquivalencia.BLT_NUMERO_LOCAL).FirstOrDefault().Clientes.CTE_TIPO_FISCAL == 45)
             {
                 return;
             };
-
             if (QrycargosProd != null)
             {
-
                 foreach (var sQry in vQryBultosValores)
                 {
                     if (sQry.CargosProducto.Cargos.CAR_ITBIS == true && sQry.CargosProducto.Cargos.ITBIS > 0)
                     {
                         dMontoItebis += Math.Round((sQry.BVA_MONTO_LOCAL * sQry.CargosProducto.Cargos.ITBIS) / 100, 2);
-
                     }
                 }
-
-
-
                 if (dMontoItebis > 0)
                 {
-
-
                     AgenciaEF_BO.Models.BultosValores oBultosValores;
-
                     oBultosValores = unitOfWork.BultosValoresRepository.Get(filter: xy => xy.BLT_NUMERO == pEquivalencia.BLT_NUMERO_LOCAL && xy.CARGO_PROD_ID == QrycargosProd.CARGO_PROD_ID).FirstOrDefault();
-
                     if (oBultosValores == null)
                     {
                         oBultosValores = new BO.Models.BultosValores();
-
                         oBultosValores.BLT_NUMERO = pEquivalencia.BLT_NUMERO_LOCAL;
                         oBultosValores.BVA_MONTO = dMontoItebis;
                         oBultosValores.BVA_MONTO_APLICAR = dMontoItebis;
@@ -638,19 +651,9 @@ namespace OpeAgencia2.Operaciones
                         oBultosValores.BVA_MONTO_APLICAR = dMontoItebis;
                         oBultosValores.BVA_MONTO_LOCAL = dMontoItebis;
                         unitOfWork.BultosValoresRepository.Update(oBultosValores);
-
                     }
-
-
-
                 }
             }
-
-
-
-
-
-
         }
 
         void InsertaCargos(BO.Models.EquivalenciaBultos pEquivalencia)
@@ -672,7 +675,6 @@ namespace OpeAgencia2.Operaciones
                 decimal dMontoAplicar = Convert.ToDecimal(dv[i]["BVA_MONTO"]);
                 //filter: s => s.PROD_ID == iProductoId && s.Cargos.CAR_BASE_ID == 29 && s.Cargos.CAR_ESTADO == true 
                 var sQueryCargos = unitOfWork.CargosProductoRepository.Get(filter: s => s.Cargos.CAR_CODIGO == sCarCodigo && s.Cargos.CAR_BASE_ID == 29 && s.PROD_ID == vQryBultos.PROD_ID && s.Cargos.CAR_ESTADO == true).FirstOrDefault();
-
                 if (sQueryCargos != null)
                 {
                     var vBultosValores = unitOfWork.BultosValoresRepository.Get(filter: s => s.BLT_NUMERO == pEquivalencia.BLT_NUMERO_LOCAL && s.CargosProducto.Cargos.CAR_CODIGO == sCarCodigo).FirstOrDefault();
@@ -680,18 +682,13 @@ namespace OpeAgencia2.Operaciones
                     {
                         unitOfWork.BultosValoresRepository.Delete(vBultosValores);
                     }
-
                     var cargosExits = unitOfWork.CargosProductoRepository.Get(filter: s => s.PROD_ID == vQryBultos.PROD_ID && s.Cargos.CAR_BASE_ID == 29 && s.Cargos.CAR_ESTADO == true
                                             && s.Cargos.CAR_CODIGO == sCarCodigo).FirstOrDefault(); /*tipo cargos*/
-
-
                     BO.Models.BultosValores oBultosVal = new BO.Models.BultosValores();
-
                     oBultosVal.BLT_NUMERO = vQryBultos.BLT_NUMERO;
                     oBultosVal.CARGO_PROD_ID = cargosExits.CARGO_PROD_ID;
                     oBultosVal.BVA_TASA = cargosExits.TasaCambio.FACTOR_CONV;
                     oBultosVal.BVA_MONTO = dMontoAplicar;
-
                     if (cargosExits.Cargos.CAR_DIRECTO_TABLA == "D")
                         oBultosVal.BVA_MONTO_APLICAR = dMontoAplicar;
                     else
@@ -703,43 +700,46 @@ namespace OpeAgencia2.Operaciones
                     {
                         oBultosVal.BVA_MONTO_APLICAR = cargosExits.Cargos.CAR_MINIMO_FACTURAR;
                     }
-
                     if (cargosExits.Cargos.CAR_FIJO_MULTIPLICAR == "F")
                         oBultosVal.BVA_MONTO_LOCAL = oBultosVal.BVA_MONTO_APLICAR * cargosExits.TasaCambio.FACTOR_CONV;
                     else
                         oBultosVal.BVA_MONTO_LOCAL = dMontoAplicar * oBultosVal.BVA_MONTO_APLICAR * cargosExits.TasaCambio.FACTOR_CONV;
-
-
                     unitOfWork.BultosValoresRepository.Insert(oBultosVal);
-
-
                 }
-
-
-
-
-
-
                 unitOfWork.Save();
             }
-
-
         }
 
         private void TextBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (TextBox1.Text != "")
+                if (txtCodigoBarra.Text != "")
                 {
-                    if (SeleccionarEnLista(TextBox1.Text.TrimEnd()) == false)
+                    if (SeleccionarEnLista(txtCodigoBarra.Text.TrimEnd()) == false)
                     {
-                        MessageBox.Show("Este Codigo no esta en el manifiesto ..> " + TextBox1.Text.TrimEnd(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Este Codigo no esta en el manifiesto ..> " + txtCodigoBarra.Text.TrimEnd(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
-                    TextBox1.Text = "";
-                    TextBox1.Select();
+                    txtCodigoBarra.Text = "";
+                    txtCodigoBarra.Select();
                 }
             }
+        }
+
+        private void chkBultos_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            int checkedItems = 0;
+            checkedItems = chkBultos.CheckedItems.Count;
+            checkedItems += e.NewValue == CheckState.Checked ? 1 : -1;
+            lblSeleccionados.Text = checkedItems.ToString();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            dgFacturas.DataSource = null;
+            chkBultos.Items.Clear();
+            lblDe.Visible = lblTotal.Visible = lblSeleccionados.Visible = false;
+            txtCodigoBarra.Text = string.Empty;
         }
     }
 }

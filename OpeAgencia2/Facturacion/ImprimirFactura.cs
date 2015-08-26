@@ -234,7 +234,8 @@ namespace OpeAgencia2.Facturacion
                 //var BultosValores = unitOfWork.BultosValoresRepository.GetByID(oDet.BVA_ID);
                 var Bultos = unitOfWork.BultosRepository.GetByID(oRecDet.BLT_NUMERO);
                 BO.DAL.dsFactura.FACTURASRow oFactRow = oTable.NewFACTURASRow();
-                oFactRow.REC_ID = oRecibo.RECIBO_ID;
+                /*DEBE IR CON EL SECUENCIAL DE RECIBOS*/ 
+                oFactRow.REC_ID = oRecibo.NUM_REC;
                 var oTipoDoc = unitOfWork.TiposRepository.GetByID(oRecibo.TIPO_REC_ID);
                 oFactRow.REC_TIPO = oTipoDoc.TIPO_CODIGO;
                 oFactRow.REC_TIPO_DESC = oTipoDoc.TIPO_DESCR;

@@ -38,12 +38,15 @@
             this.chkBultos = new System.Windows.Forms.CheckedListBox();
             this.Button2 = new System.Windows.Forms.Button();
             this.btnSeleccionarTodo = new System.Windows.Forms.Button();
-            this.TextBox1 = new System.Windows.Forms.TextBox();
+            this.txtCodigoBarra = new System.Windows.Forms.TextBox();
             this.Label2 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnProcesar = new System.Windows.Forms.Button();
             this.lblMensaje = new System.Windows.Forms.Label();
+            this.lblDe = new System.Windows.Forms.Label();
+            this.lblSeleccionados = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.GroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgFacturas)).BeginInit();
@@ -127,6 +130,7 @@
             this.chkBultos.Name = "chkBultos";
             this.chkBultos.Size = new System.Drawing.Size(452, 274);
             this.chkBultos.TabIndex = 0;
+            this.chkBultos.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.chkBultos_ItemCheck);
             // 
             // Button2
             // 
@@ -134,7 +138,7 @@
             this.Button2.Name = "Button2";
             this.Button2.Size = new System.Drawing.Size(115, 23);
             this.Button2.TabIndex = 2;
-            this.Button2.Text = "Limpiar seleccion";
+            this.Button2.Text = "Limpiar selección";
             this.Button2.UseVisualStyleBackColor = true;
             this.Button2.Click += new System.EventHandler(this.Button2_Click);
             // 
@@ -148,15 +152,15 @@
             this.btnSeleccionarTodo.UseVisualStyleBackColor = true;
             this.btnSeleccionarTodo.Click += new System.EventHandler(this.btnSeleccionarTodo_Click);
             // 
-            // TextBox1
+            // txtCodigoBarra
             // 
-            this.TextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TextBox1.Location = new System.Drawing.Point(327, 179);
-            this.TextBox1.Name = "TextBox1";
-            this.TextBox1.Size = new System.Drawing.Size(148, 20);
-            this.TextBox1.TabIndex = 20;
-            this.TextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox1_KeyDown);
-            this.TextBox1.Leave += new System.EventHandler(this.TextBox1_Leave);
+            this.txtCodigoBarra.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodigoBarra.Location = new System.Drawing.Point(327, 179);
+            this.txtCodigoBarra.Name = "txtCodigoBarra";
+            this.txtCodigoBarra.Size = new System.Drawing.Size(148, 20);
+            this.txtCodigoBarra.TabIndex = 20;
+            this.txtCodigoBarra.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox1_KeyDown);
+            this.txtCodigoBarra.Leave += new System.EventHandler(this.TextBox1_Leave);
             // 
             // Label2
             // 
@@ -185,6 +189,7 @@
             this.btnCancelar.TabIndex = 22;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnProcesar
             // 
@@ -206,17 +211,55 @@
             this.lblMensaje.TabIndex = 23;
             this.lblMensaje.Text = "label3";
             // 
+            // lblDe
+            // 
+            this.lblDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDe.ForeColor = System.Drawing.Color.Red;
+            this.lblDe.Location = new System.Drawing.Point(176, 179);
+            this.lblDe.Name = "lblDe";
+            this.lblDe.Size = new System.Drawing.Size(27, 23);
+            this.lblDe.TabIndex = 24;
+            this.lblDe.Text = " de ";
+            this.lblDe.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblDe.Visible = false;
+            // 
+            // lblSeleccionados
+            // 
+            this.lblSeleccionados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSeleccionados.ForeColor = System.Drawing.Color.Red;
+            this.lblSeleccionados.Location = new System.Drawing.Point(133, 179);
+            this.lblSeleccionados.Name = "lblSeleccionados";
+            this.lblSeleccionados.Size = new System.Drawing.Size(46, 23);
+            this.lblSeleccionados.TabIndex = 25;
+            this.lblSeleccionados.Text = " de ";
+            this.lblSeleccionados.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblSeleccionados.Visible = false;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.Red;
+            this.lblTotal.Location = new System.Drawing.Point(200, 179);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(44, 23);
+            this.lblTotal.TabIndex = 26;
+            this.lblTotal.Text = " de ";
+            this.lblTotal.Visible = false;
+            // 
             // frmImportacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(486, 546);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.lblSeleccionados);
             this.Controls.Add(this.Button2);
+            this.Controls.Add(this.lblDe);
             this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.btnSeleccionarTodo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnProcesar);
-            this.Controls.Add(this.TextBox1);
+            this.Controls.Add(this.txtCodigoBarra);
             this.Controls.Add(this.Label2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.groupBox3);
@@ -248,11 +291,14 @@
         internal System.Windows.Forms.Button Button2;
         internal System.Windows.Forms.Button btnSeleccionarTodo;
         internal System.Windows.Forms.CheckedListBox chkBultos;
-        internal System.Windows.Forms.TextBox TextBox1;
+        internal System.Windows.Forms.TextBox txtCodigoBarra;
         internal System.Windows.Forms.Label Label2;
         internal System.Windows.Forms.Button button3;
         internal System.Windows.Forms.Button btnCancelar;
         internal System.Windows.Forms.Button btnProcesar;
         private System.Windows.Forms.Label lblMensaje;
+        private System.Windows.Forms.Label lblDe;
+        private System.Windows.Forms.Label lblSeleccionados;
+        private System.Windows.Forms.Label lblTotal;
     }
 }

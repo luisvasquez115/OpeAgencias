@@ -29,7 +29,7 @@ namespace OpeAgencia2.Facturacion
         Hashtable htValores = new Hashtable();
         decimal dMontoNoVenta;
         decimal dMontoVenta;
-      
+
         private void frmFactMercancia_Load(object sender, EventArgs e)
         {
 
@@ -42,14 +42,14 @@ namespace OpeAgencia2.Facturacion
             LimpiarPantalla();
         }
 
-         void  CargarCorrespondencia()
+        void CargarCorrespondencia()
         {
             oTableCorr = new BO.DAL.dsDatos.CorrespondenciaDataTable();
             dgCorr.DataSource = oTableCorr;
             dgCorr.Columns[0].Visible = false;
             dgCorr.Columns[3].Visible = false;
         }
-        
+
         void BuscarPaquetes(int iCteId)
         {
             var oBultos = from p in unitOfWork.VW_BultosValoresRepository.Get(filter: s => s.CTE_ID == iCteId && s.BLT_ESTADO_ID == 2)
@@ -68,8 +68,8 @@ namespace OpeAgencia2.Facturacion
 
         void BuscarCliente()
         {
-             oCliente = unitOfWork.ClientesRepository.Get(filter: s => s.CTE_NUMERO_EPS == txtEPS.Text  && s.CTE_SUC_ID == Parametros.Parametros.SucursalActual).FirstOrDefault();
-            if (oCliente !=null)
+            oCliente = unitOfWork.ClientesRepository.Get(filter: s => s.CTE_NUMERO_EPS == txtEPS.Text && s.CTE_SUC_ID == Parametros.Parametros.SucursalActual).FirstOrDefault();
+            if (oCliente != null)
             {
                 lblNombres.Text = oCliente.CTE_NOMBRE + " " + oCliente.CTE_APELLIDO;
                 dFechaVenc.Value = oCliente.CTE_FECHA_VENCIMIENTO;
@@ -89,12 +89,12 @@ namespace OpeAgencia2.Facturacion
                 {
                     if (oCliente.CTE_TIPO_FISCAL != 47) //DIFETENTE DE PERSONA FISICA
                     {
-                          if (oCliente.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd() ==""   && oCliente.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd() == "")
-                          {
-                              MessageBox.Show("Este cliente no tienen un documento de identificación válido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                              btnFacturar.Enabled = false;
-                              return;
-                          }
+                        if (oCliente.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd() == "" && oCliente.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd() == "")
+                        {
+                            MessageBox.Show("Este cliente no tienen un documento de identificación válido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            btnFacturar.Enabled = false;
+                            return;
+                        }
                     }
                     MessageBox.Show("Este cliente no tienen un documento de identificación válido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     btnFacturar.Enabled = false;
@@ -116,7 +116,7 @@ namespace OpeAgencia2.Facturacion
 
         private void txtEPS_Leave(object sender, EventArgs e)
         {
-            if (txtEPS.Text !="")
+            if (txtEPS.Text != "")
                 BuscarCliente();
         }
 
@@ -139,26 +139,26 @@ namespace OpeAgencia2.Facturacion
                 if (dgPaq.Rows[i].Selected == true)
                 {
                     iPaq++;
-                    dMonto += Math.Round(Convert.ToDecimal(dgPaq.Rows[i].Cells[5].Value),2);
+                    dMonto += Math.Round(Convert.ToDecimal(dgPaq.Rows[i].Cells[5].Value), 2);
                     BuscarValores(Convert.ToInt32(dgPaq.Rows[i].Cells[0].Value));
                 }
             }
             //
             for (int i = 0; i < this.dgCorr.Rows.Count; i++)
             {
-                    iPaq++;
-                    dMonto += Convert.ToDecimal(dgCorr.Rows[i].Cells[2].Value);
-                    dMontoCorr = dMontoCorr + Convert.ToDecimal(dgCorr.Rows[i].Cells[2].Value);
+                iPaq++;
+                dMonto += Convert.ToDecimal(dgCorr.Rows[i].Cells[2].Value);
+                dMontoCorr = dMontoCorr + Convert.ToDecimal(dgCorr.Rows[i].Cells[2].Value);
             }
             dMontoVenta += dMontoCorr;
             this.txtPaq.Text = iPaq.ToString();
             txtMontoTotal.Text = string.Format("{0:0,0.00}", dMontoVenta);
             txtMontoNoVenta.Text = string.Format("{0:0,0.00}", dMontoNoVenta);
-            foreach( var item in htValores.Keys)
+            foreach (var item in htValores.Keys)
             {
                 dgResumen.Rows.Add(item, string.Format("{0:0,0.00}", htValores[item]));
             }
-            if (dMontoCorr > 0  )
+            if (dMontoCorr > 0)
             {
                 dgResumen.Rows.Add("Correspondencia", string.Format("{0:0,0.00}", dMontoCorr));
             }
@@ -166,8 +166,8 @@ namespace OpeAgencia2.Facturacion
 
         void BuscarValores(int bltNumero)
         {
-            var loBultosVal = from p in  unitOfWork.BultosValoresRepository.Get(filter: xy => xy.BLT_NUMERO == bltNumero)
-                            select new {Cargo = p.CargosProducto.Cargos.CAR_CODIGO + '-' + p.CargosProducto.Cargos.CAR_DESCRIPCION, Monto = p.BVA_MONTO_LOCAL, ncf = p.CargosProducto.Cargos.CAR_NCF, p.CargosProducto.Cargos.CAR_CODIGO};
+            var loBultosVal = from p in unitOfWork.BultosValoresRepository.Get(filter: xy => xy.BLT_NUMERO == bltNumero)
+                              select new { Cargo = p.CargosProducto.Cargos.CAR_CODIGO + '-' + p.CargosProducto.Cargos.CAR_DESCRIPCION, Monto = p.BVA_MONTO_LOCAL, ncf = p.CargosProducto.Cargos.CAR_NCF, p.CargosProducto.Cargos.CAR_CODIGO };
             foreach (var cargo in loBultosVal)
             {
                 if (htValores[cargo.Cargo] == null)
@@ -188,11 +188,11 @@ namespace OpeAgencia2.Facturacion
             if (x.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
                 //Agregar correspondecia.
-               if ((x.Peso > 0) || (x.Piezas > 0))
-               {
-                   RegistraCorrespondencia(x.Peso, x.Piezas);
-                   ActualizaTotal();
-               }
+                if ((x.Peso > 0) || (x.Piezas > 0))
+                {
+                    RegistraCorrespondencia(x.Peso, x.Piezas);
+                    ActualizaTotal();
+                }
             }
         }
 
@@ -207,9 +207,9 @@ namespace OpeAgencia2.Facturacion
             dr["Monto"] = 0;
             BO.BO.CalculoTafiras oTar = new BO.BO.CalculoTafiras();
             oBultosValores = oTar.CalcularCorrespondencia(Parametros.Parametros.ProdCorrespondencia, pdPeso, piPiezas, oCliente.CTE_ID);
-            foreach(BO.Models.BultosValores oVal in oBultosValores)
+            foreach (BO.Models.BultosValores oVal in oBultosValores)
             {
-                dr["Monto"] = Math.Round((decimal)dr["Monto"] + oVal.BVA_MONTO_LOCAL,2);
+                dr["Monto"] = Math.Round((decimal)dr["Monto"] + oVal.BVA_MONTO_LOCAL, 2);
             }
             oTableCorr.Rows.Add(dr);
         }
@@ -241,18 +241,14 @@ namespace OpeAgencia2.Facturacion
         {
             /*Prueba*/
             if (dMontoVenta > 0)
-                 FacturarVenta();
-            /*
-            if (dMontoNoVenta>0)
-                 FacturarNoVenta();
-            */
+                FacturarVenta();
             LimpiarPantalla();
         }
 
         void FacturarVenta()
         {
-            ArrayList oBltNumeros  = new ArrayList();
-            bool bCredito, bPagado=false;
+            ArrayList oBltNumeros = new ArrayList();
+            bool bCredito, bPagado = false;
             decimal dMontoEfectivo = 0;
             decimal dMontoOtros = 0;
             decimal dDevolucion = 0;
@@ -266,7 +262,7 @@ namespace OpeAgencia2.Facturacion
             bCredito = cmbTipoFact.SelectedIndex == 1;
             if (!bCredito)
             {
-                frmDatosPago x = new frmDatosPago(dMontoVenta+dMontoNoVenta);
+                frmDatosPago x = new frmDatosPago(dMontoVenta + dMontoNoVenta);
                 x.StartPosition = FormStartPosition.CenterParent;
                 x.ShowDialog();
                 dMontoEfectivo = x.MontoEfectivo;
@@ -305,12 +301,12 @@ namespace OpeAgencia2.Facturacion
             /*Tengo que hacer doble desglose*/
             if (dMontoNoVenta > 0)
             {
-                if (bCredito==false)
+                if (bCredito == false)
                     RetornaDatosPagos(DatosPago, ref DatosPagoNoVenta, dMontoNoVenta, ref dMontoEfectivoNoventa, ref dMontoOtrosNoVenta);
 
                 FacturarNoVenta(DatosPagoNoVenta, bCredito, dMontoNoVenta, dMontoEfectivoNoventa, dMontoOtrosNoVenta);
             }
-            if (dMontoVenta >0)
+            if (dMontoVenta > 0)
             {
                 dMontoEfectivoVenta = dMontoEfectivo - dMontoEfectivoNoventa;
                 if (!bCredito)
@@ -339,10 +335,10 @@ namespace OpeAgencia2.Facturacion
         void RetornaDatosPagos(BO.DAL.dsDatos.DatosPagoDataTable DatosPago, ref BO.DAL.dsDatos.DatosPagoDataTable newDatosPago, decimal dMonto, ref  decimal dMontoEfectvo, ref decimal dMontoOtros)
         {
             decimal dMontoRestante = 0;
-            foreach(BO.DAL.dsDatos.DatosPagoRow  dr in DatosPago.OrderBy(p=>p.TipoPago))
+            foreach (BO.DAL.dsDatos.DatosPagoRow dr in DatosPago.OrderBy(p => p.TipoPago))
             {
                 /*Pago Efect*/
-                if(dr.TipoPago == -1)
+                if (dr.TipoPago == -1)
                 {
                     if (dr.MontoEfectivo >= dMonto)
                     {
@@ -362,7 +358,7 @@ namespace OpeAgencia2.Facturacion
                     }
                     else
                     {
-                        dMontoEfectvo = dr.MontoEfectivo; 
+                        dMontoEfectvo = dr.MontoEfectivo;
                         BO.DAL.dsDatos.DatosPagoRow oNewRow = newDatosPago.NewDatosPagoRow();
                         oNewRow.MontoEfectivo = dr.MontoEfectivo;
                         oNewRow.Importe = dr.MontoEfectivo;
@@ -396,7 +392,7 @@ namespace OpeAgencia2.Facturacion
             }
         }
 
-        void FacturarNoVenta(BO.DAL.dsDatos.DatosPagoDataTable DatosPago, bool bCredito, decimal dMontoNoVenta, decimal dMontoEfectivo,  decimal dMontoOtros)
+        void FacturarNoVenta(BO.DAL.dsDatos.DatosPagoDataTable DatosPago, bool bCredito, decimal dMontoNoVenta, decimal dMontoEfectivo, decimal dMontoOtros)
         {
             ArrayList oBltNumeros = new ArrayList();
             decimal dDevolucion = 0;
@@ -424,10 +420,10 @@ namespace OpeAgencia2.Facturacion
 
         void BultosAFacturar(ref ArrayList pBtlNumeros)
         {
-            for(int i= 0; i < dgPaq.RowCount; i++)
+            for (int i = 0; i < dgPaq.RowCount; i++)
             {
                 if (dgPaq.Rows[i].Selected == true)
-                       pBtlNumeros.Add(dgPaq.Rows[i].Cells[0].Value);
+                    pBtlNumeros.Add(dgPaq.Rows[i].Cells[0].Value);
             }
         }
 
@@ -435,6 +431,6 @@ namespace OpeAgencia2.Facturacion
         {
             if (txtEPS.Text != "" && e.KeyCode == Keys.Enter)
                 BuscarCliente();
-        }       
+        }
     }
 }
