@@ -333,7 +333,6 @@
             // 
             this.groupBox8.Controls.Add(this.label43);
             this.groupBox8.Controls.Add(this.txtCTE_EMAIL);
-            this.groupBox8.Enabled = false;
             this.groupBox8.Location = new System.Drawing.Point(8, 460);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(690, 33);
@@ -367,7 +366,6 @@
             this.groupBox6.Controls.Add(this.chkCredito);
             this.groupBox6.Controls.Add(this.textCTE_LIMITE_CREDITO);
             this.groupBox6.Controls.Add(this.label37);
-            this.groupBox6.Enabled = false;
             this.groupBox6.Location = new System.Drawing.Point(383, 331);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(315, 122);
@@ -386,7 +384,6 @@
             // 
             // txtDiasCredito
             // 
-            this.txtDiasCredito.Enabled = false;
             this.txtDiasCredito.Location = new System.Drawing.Point(109, 40);
             this.txtDiasCredito.Name = "txtDiasCredito";
             this.txtDiasCredito.Size = new System.Drawing.Size(120, 20);
@@ -396,7 +393,6 @@
             // TextCTE_BALANCE
             // 
             this.TextCTE_BALANCE.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TextCTE_BALANCE.Enabled = false;
             this.TextCTE_BALANCE.Location = new System.Drawing.Point(109, 96);
             this.TextCTE_BALANCE.Name = "TextCTE_BALANCE";
             this.TextCTE_BALANCE.Size = new System.Drawing.Size(198, 20);
@@ -415,7 +411,6 @@
             // chkCredito
             // 
             this.chkCredito.AutoSize = true;
-            this.chkCredito.Enabled = false;
             this.chkCredito.Location = new System.Drawing.Point(109, 17);
             this.chkCredito.Name = "chkCredito";
             this.chkCredito.Size = new System.Drawing.Size(114, 17);
@@ -427,7 +422,6 @@
             // textCTE_LIMITE_CREDITO
             // 
             this.textCTE_LIMITE_CREDITO.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textCTE_LIMITE_CREDITO.Enabled = false;
             this.textCTE_LIMITE_CREDITO.Location = new System.Drawing.Point(109, 66);
             this.textCTE_LIMITE_CREDITO.Name = "textCTE_LIMITE_CREDITO";
             this.textCTE_LIMITE_CREDITO.Size = new System.Drawing.Size(198, 20);
@@ -467,7 +461,6 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.textCTE_NUMERO_EPS);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(9, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(361, 341);
@@ -477,7 +470,6 @@
             // 
             // txtCTE_FECHA_VENCIMIENTO
             // 
-            this.txtCTE_FECHA_VENCIMIENTO.Enabled = false;
             this.txtCTE_FECHA_VENCIMIENTO.Location = new System.Drawing.Point(123, 315);
             this.txtCTE_FECHA_VENCIMIENTO.Name = "txtCTE_FECHA_VENCIMIENTO";
             this.txtCTE_FECHA_VENCIMIENTO.Size = new System.Drawing.Size(200, 20);
@@ -495,7 +487,6 @@
             // 
             // txtCTE_FECHA_INGRESO
             // 
-            this.txtCTE_FECHA_INGRESO.Enabled = false;
             this.txtCTE_FECHA_INGRESO.Location = new System.Drawing.Point(123, 289);
             this.txtCTE_FECHA_INGRESO.Name = "txtCTE_FECHA_INGRESO";
             this.txtCTE_FECHA_INGRESO.Size = new System.Drawing.Size(200, 20);
@@ -504,7 +495,6 @@
             // 
             // txtCTE_FECHA_NACIMIENTO
             // 
-            this.txtCTE_FECHA_NACIMIENTO.Enabled = false;
             this.txtCTE_FECHA_NACIMIENTO.Location = new System.Drawing.Point(123, 265);
             this.txtCTE_FECHA_NACIMIENTO.Name = "txtCTE_FECHA_NACIMIENTO";
             this.txtCTE_FECHA_NACIMIENTO.Size = new System.Drawing.Size(200, 20);
@@ -532,7 +522,6 @@
             // cmbCOD_PAIS
             // 
             this.cmbCOD_PAIS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCOD_PAIS.Enabled = false;
             this.cmbCOD_PAIS.FormattingEnabled = true;
             this.cmbCOD_PAIS.Location = new System.Drawing.Point(83, 130);
             this.cmbCOD_PAIS.Name = "cmbCOD_PAIS";
@@ -552,7 +541,6 @@
             // txtCTE_DIRECCION_CASA
             // 
             this.txtCTE_DIRECCION_CASA.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCTE_DIRECCION_CASA.Enabled = false;
             this.txtCTE_DIRECCION_CASA.Location = new System.Drawing.Point(83, 219);
             this.txtCTE_DIRECCION_CASA.Multiline = true;
             this.txtCTE_DIRECCION_CASA.Name = "txtCTE_DIRECCION_CASA";
@@ -571,7 +559,6 @@
             // txtCTE_DIRECCION_OFICINA
             // 
             this.txtCTE_DIRECCION_OFICINA.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCTE_DIRECCION_OFICINA.Enabled = false;
             this.txtCTE_DIRECCION_OFICINA.Location = new System.Drawing.Point(83, 160);
             this.txtCTE_DIRECCION_OFICINA.Multiline = true;
             this.txtCTE_DIRECCION_OFICINA.Name = "txtCTE_DIRECCION_OFICINA";
@@ -599,7 +586,6 @@
             // txtCTE_APELLIDO
             // 
             this.txtCTE_APELLIDO.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCTE_APELLIDO.Enabled = false;
             this.txtCTE_APELLIDO.Location = new System.Drawing.Point(81, 104);
             this.txtCTE_APELLIDO.Name = "txtCTE_APELLIDO";
             this.txtCTE_APELLIDO.Size = new System.Drawing.Size(268, 20);
@@ -609,7 +595,6 @@
             // txtCTE_NOMBRE
             // 
             this.txtCTE_NOMBRE.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCTE_NOMBRE.Enabled = false;
             this.txtCTE_NOMBRE.Location = new System.Drawing.Point(81, 78);
             this.txtCTE_NOMBRE.Name = "txtCTE_NOMBRE";
             this.txtCTE_NOMBRE.Size = new System.Drawing.Size(268, 20);
@@ -628,7 +613,6 @@
             // textBox5
             // 
             this.textBox5.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox5.Enabled = false;
             this.textBox5.Location = new System.Drawing.Point(249, 19);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
@@ -647,7 +631,6 @@
             // cmbCTE_TIPO_ID
             // 
             this.cmbCTE_TIPO_ID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCTE_TIPO_ID.Enabled = false;
             this.cmbCTE_TIPO_ID.FormattingEnabled = true;
             this.cmbCTE_TIPO_ID.Location = new System.Drawing.Point(81, 50);
             this.cmbCTE_TIPO_ID.Name = "cmbCTE_TIPO_ID";
@@ -667,7 +650,6 @@
             // textCTE_NUMERO_EPS
             // 
             this.textCTE_NUMERO_EPS.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textCTE_NUMERO_EPS.Enabled = false;
             this.textCTE_NUMERO_EPS.Location = new System.Drawing.Point(81, 19);
             this.textCTE_NUMERO_EPS.Name = "textCTE_NUMERO_EPS";
             this.textCTE_NUMERO_EPS.Size = new System.Drawing.Size(81, 20);
@@ -695,7 +677,6 @@
             this.groupBox3.Controls.Add(this.txtCelular);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.txtCTE_TELEFONO_CASA);
-            this.groupBox3.Enabled = false;
             this.groupBox3.Location = new System.Drawing.Point(6, 357);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(364, 97);
@@ -715,7 +696,6 @@
             // txtFax
             // 
             this.txtFax.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFax.Enabled = false;
             this.txtFax.Location = new System.Drawing.Point(73, 70);
             this.txtFax.Name = "txtFax";
             this.txtFax.Size = new System.Drawing.Size(100, 20);
@@ -725,7 +705,6 @@
             // txtExtension
             // 
             this.txtExtension.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtExtension.Enabled = false;
             this.txtExtension.Location = new System.Drawing.Point(240, 44);
             this.txtExtension.Name = "txtExtension";
             this.txtExtension.Size = new System.Drawing.Size(100, 20);
@@ -762,7 +741,6 @@
             // txtTelefonoOficina
             // 
             this.txtTelefonoOficina.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTelefonoOficina.Enabled = false;
             this.txtTelefonoOficina.Location = new System.Drawing.Point(73, 44);
             this.txtTelefonoOficina.Name = "txtTelefonoOficina";
             this.txtTelefonoOficina.Size = new System.Drawing.Size(100, 20);
@@ -772,7 +750,6 @@
             // txtCelular
             // 
             this.txtCelular.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCelular.Enabled = false;
             this.txtCelular.Location = new System.Drawing.Point(240, 20);
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(100, 20);
@@ -791,7 +768,6 @@
             // txtCTE_TELEFONO_CASA
             // 
             this.txtCTE_TELEFONO_CASA.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCTE_TELEFONO_CASA.Enabled = false;
             this.txtCTE_TELEFONO_CASA.Location = new System.Drawing.Point(73, 20);
             this.txtCTE_TELEFONO_CASA.Name = "txtCTE_TELEFONO_CASA";
             this.txtCTE_TELEFONO_CASA.Size = new System.Drawing.Size(100, 20);
@@ -811,7 +787,6 @@
             this.groupBox7.Controls.Add(this.chkCTE_JUNK_MAIL);
             this.groupBox7.Controls.Add(this.label40);
             this.groupBox7.Controls.Add(this.cmbCTE_ESTADO_ID);
-            this.groupBox7.Enabled = false;
             this.groupBox7.Location = new System.Drawing.Point(389, 7);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(315, 207);
@@ -821,7 +796,6 @@
             // 
             // textCTE_CHEQUES_DEV
             // 
-            this.textCTE_CHEQUES_DEV.Enabled = false;
             this.textCTE_CHEQUES_DEV.Location = new System.Drawing.Point(112, 179);
             this.textCTE_CHEQUES_DEV.Name = "textCTE_CHEQUES_DEV";
             this.textCTE_CHEQUES_DEV.Size = new System.Drawing.Size(120, 20);
@@ -840,7 +814,6 @@
             // chkExonerado
             // 
             this.chkExonerado.AutoSize = true;
-            this.chkExonerado.Enabled = false;
             this.chkExonerado.Location = new System.Drawing.Point(113, 152);
             this.chkExonerado.Name = "chkExonerado";
             this.chkExonerado.Size = new System.Drawing.Size(117, 17);
@@ -852,7 +825,6 @@
             // chkEnviarEmail
             // 
             this.chkEnviarEmail.AutoSize = true;
-            this.chkEnviarEmail.Enabled = false;
             this.chkEnviarEmail.Location = new System.Drawing.Point(206, 80);
             this.chkEnviarEmail.Name = "chkEnviarEmail";
             this.chkEnviarEmail.Size = new System.Drawing.Size(83, 17);
@@ -864,7 +836,6 @@
             // chkEnviarFax
             // 
             this.chkEnviarFax.AutoSize = true;
-            this.chkEnviarFax.Enabled = false;
             this.chkEnviarFax.Location = new System.Drawing.Point(207, 57);
             this.chkEnviarFax.Name = "chkEnviarFax";
             this.chkEnviarFax.Size = new System.Drawing.Size(73, 17);
@@ -876,7 +847,6 @@
             // chkPagoCheque
             // 
             this.chkPagoCheque.AutoSize = true;
-            this.chkPagoCheque.Enabled = false;
             this.chkPagoCheque.Location = new System.Drawing.Point(113, 129);
             this.chkPagoCheque.Name = "chkPagoCheque";
             this.chkPagoCheque.Size = new System.Drawing.Size(90, 17);
@@ -888,7 +858,6 @@
             // chkPagoTarjeta
             // 
             this.chkPagoTarjeta.AutoSize = true;
-            this.chkPagoTarjeta.Enabled = false;
             this.chkPagoTarjeta.Location = new System.Drawing.Point(113, 106);
             this.chkPagoTarjeta.Name = "chkPagoTarjeta";
             this.chkPagoTarjeta.Size = new System.Drawing.Size(83, 17);
@@ -900,7 +869,6 @@
             // chkLlamarVoice
             // 
             this.chkLlamarVoice.AutoSize = true;
-            this.chkLlamarVoice.Enabled = false;
             this.chkLlamarVoice.Location = new System.Drawing.Point(113, 80);
             this.chkLlamarVoice.Name = "chkLlamarVoice";
             this.chkLlamarVoice.Size = new System.Drawing.Size(87, 17);
@@ -912,7 +880,6 @@
             // chkCTE_JUNK_MAIL
             // 
             this.chkCTE_JUNK_MAIL.AutoSize = true;
-            this.chkCTE_JUNK_MAIL.Enabled = false;
             this.chkCTE_JUNK_MAIL.Location = new System.Drawing.Point(113, 57);
             this.chkCTE_JUNK_MAIL.Name = "chkCTE_JUNK_MAIL";
             this.chkCTE_JUNK_MAIL.Size = new System.Drawing.Size(70, 17);
@@ -933,7 +900,6 @@
             // cmbCTE_ESTADO_ID
             // 
             this.cmbCTE_ESTADO_ID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCTE_ESTADO_ID.Enabled = false;
             this.cmbCTE_ESTADO_ID.FormattingEnabled = true;
             this.cmbCTE_ESTADO_ID.Location = new System.Drawing.Point(109, 27);
             this.cmbCTE_ESTADO_ID.Name = "cmbCTE_ESTADO_ID";
@@ -949,7 +915,6 @@
             this.groupBox2.Controls.Add(this.txtCTE_PASAPORTE);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.txtCTE_CEDULA);
-            this.groupBox2.Enabled = false;
             this.groupBox2.Location = new System.Drawing.Point(389, 224);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(315, 97);
@@ -978,7 +943,6 @@
             // txtCTE_RNC
             // 
             this.txtCTE_RNC.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCTE_RNC.Enabled = false;
             this.txtCTE_RNC.Location = new System.Drawing.Point(83, 42);
             this.txtCTE_RNC.Name = "txtCTE_RNC";
             this.txtCTE_RNC.Size = new System.Drawing.Size(100, 20);
@@ -988,7 +952,6 @@
             // txtCTE_PASAPORTE
             // 
             this.txtCTE_PASAPORTE.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCTE_PASAPORTE.Enabled = false;
             this.txtCTE_PASAPORTE.Location = new System.Drawing.Point(83, 69);
             this.txtCTE_PASAPORTE.Name = "txtCTE_PASAPORTE";
             this.txtCTE_PASAPORTE.Size = new System.Drawing.Size(100, 20);
@@ -1007,7 +970,6 @@
             // txtCTE_CEDULA
             // 
             this.txtCTE_CEDULA.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCTE_CEDULA.Enabled = false;
             this.txtCTE_CEDULA.Location = new System.Drawing.Point(83, 16);
             this.txtCTE_CEDULA.Name = "txtCTE_CEDULA";
             this.txtCTE_CEDULA.Size = new System.Drawing.Size(100, 20);
@@ -1054,7 +1016,6 @@
             // cmbCTE_MANEJO_OPERACIONAL
             // 
             this.cmbCTE_MANEJO_OPERACIONAL.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCTE_MANEJO_OPERACIONAL.Enabled = false;
             this.cmbCTE_MANEJO_OPERACIONAL.FormattingEnabled = true;
             this.cmbCTE_MANEJO_OPERACIONAL.Items.AddRange(new object[] {
             "IMPUESTO",
@@ -1076,7 +1037,6 @@
             // 
             // txtDiaCorte
             // 
-            this.txtDiaCorte.Enabled = false;
             this.txtDiaCorte.Location = new System.Drawing.Point(110, 253);
             this.txtDiaCorte.Maximum = new decimal(new int[] {
             31,
@@ -1100,7 +1060,6 @@
             // cmbCFG_METODO_TARIFA
             // 
             this.cmbCFG_METODO_TARIFA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCFG_METODO_TARIFA.Enabled = false;
             this.cmbCFG_METODO_TARIFA.FormattingEnabled = true;
             this.cmbCFG_METODO_TARIFA.Items.AddRange(new object[] {
             "Embarque",
@@ -1123,7 +1082,6 @@
             // cmbCOD_TARIFA
             // 
             this.cmbCOD_TARIFA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCOD_TARIFA.Enabled = false;
             this.cmbCOD_TARIFA.FormattingEnabled = true;
             this.cmbCOD_TARIFA.Location = new System.Drawing.Point(109, 153);
             this.cmbCOD_TARIFA.Name = "cmbCOD_TARIFA";
@@ -1143,7 +1101,6 @@
             // cmbCTE_TIPO_FISCAL
             // 
             this.cmbCTE_TIPO_FISCAL.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCTE_TIPO_FISCAL.Enabled = false;
             this.cmbCTE_TIPO_FISCAL.FormattingEnabled = true;
             this.cmbCTE_TIPO_FISCAL.Location = new System.Drawing.Point(109, 106);
             this.cmbCTE_TIPO_FISCAL.Name = "cmbCTE_TIPO_FISCAL";
@@ -1163,7 +1120,6 @@
             // cmbTIPO_MENSAJERIA_ID
             // 
             this.cmbTIPO_MENSAJERIA_ID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTIPO_MENSAJERIA_ID.Enabled = false;
             this.cmbTIPO_MENSAJERIA_ID.FormattingEnabled = true;
             this.cmbTIPO_MENSAJERIA_ID.Location = new System.Drawing.Point(109, 77);
             this.cmbTIPO_MENSAJERIA_ID.Name = "cmbTIPO_MENSAJERIA_ID";
@@ -1183,7 +1139,6 @@
             // cmbCTE_RESPRESENTANTE_ID
             // 
             this.cmbCTE_RESPRESENTANTE_ID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCTE_RESPRESENTANTE_ID.Enabled = false;
             this.cmbCTE_RESPRESENTANTE_ID.FormattingEnabled = true;
             this.cmbCTE_RESPRESENTANTE_ID.Location = new System.Drawing.Point(109, 49);
             this.cmbCTE_RESPRESENTANTE_ID.Name = "cmbCTE_RESPRESENTANTE_ID";
@@ -1203,7 +1158,6 @@
             // cmbCTE_SUC_ID
             // 
             this.cmbCTE_SUC_ID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCTE_SUC_ID.Enabled = false;
             this.cmbCTE_SUC_ID.FormattingEnabled = true;
             this.cmbCTE_SUC_ID.Location = new System.Drawing.Point(109, 22);
             this.cmbCTE_SUC_ID.Name = "cmbCTE_SUC_ID";
@@ -1268,7 +1222,6 @@
             // txtCTE_LIBRAS_GRATIS
             // 
             this.txtCTE_LIBRAS_GRATIS.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCTE_LIBRAS_GRATIS.Enabled = false;
             this.txtCTE_LIBRAS_GRATIS.Location = new System.Drawing.Point(101, 182);
             this.txtCTE_LIBRAS_GRATIS.Name = "txtCTE_LIBRAS_GRATIS";
             this.txtCTE_LIBRAS_GRATIS.Size = new System.Drawing.Size(114, 20);
@@ -1278,7 +1231,6 @@
             // txtCTE_MENSAJE_PIE
             // 
             this.txtCTE_MENSAJE_PIE.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCTE_MENSAJE_PIE.Enabled = false;
             this.txtCTE_MENSAJE_PIE.Location = new System.Drawing.Point(101, 266);
             this.txtCTE_MENSAJE_PIE.Multiline = true;
             this.txtCTE_MENSAJE_PIE.Name = "txtCTE_MENSAJE_PIE";
@@ -1307,7 +1259,6 @@
             // txtCTE_LIBRAS_ACUMULADAS
             // 
             this.txtCTE_LIBRAS_ACUMULADAS.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCTE_LIBRAS_ACUMULADAS.Enabled = false;
             this.txtCTE_LIBRAS_ACUMULADAS.Location = new System.Drawing.Point(101, 218);
             this.txtCTE_LIBRAS_ACUMULADAS.Name = "txtCTE_LIBRAS_ACUMULADAS";
             this.txtCTE_LIBRAS_ACUMULADAS.Size = new System.Drawing.Size(113, 20);
@@ -1317,7 +1268,6 @@
             // txtCTE_COBRADOR
             // 
             this.txtCTE_COBRADOR.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCTE_COBRADOR.Enabled = false;
             this.txtCTE_COBRADOR.Location = new System.Drawing.Point(101, 103);
             this.txtCTE_COBRADOR.Name = "txtCTE_COBRADOR";
             this.txtCTE_COBRADOR.Size = new System.Drawing.Size(302, 20);
@@ -1335,7 +1285,6 @@
             // txtCTE_CODIGO_VOICE
             // 
             this.txtCTE_CODIGO_VOICE.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCTE_CODIGO_VOICE.Enabled = false;
             this.txtCTE_CODIGO_VOICE.Location = new System.Drawing.Point(102, 150);
             this.txtCTE_CODIGO_VOICE.Name = "txtCTE_CODIGO_VOICE";
             this.txtCTE_CODIGO_VOICE.PasswordChar = '*';
@@ -1354,7 +1303,6 @@
             // txtCargo
             // 
             this.txtCargo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCargo.Enabled = false;
             this.txtCargo.Location = new System.Drawing.Point(101, 51);
             this.txtCargo.Name = "txtCargo";
             this.txtCargo.Size = new System.Drawing.Size(302, 20);
@@ -1373,7 +1321,6 @@
             // txtCTE_NOMBRE_COMPANIA
             // 
             this.txtCTE_NOMBRE_COMPANIA.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCTE_NOMBRE_COMPANIA.Enabled = false;
             this.txtCTE_NOMBRE_COMPANIA.Location = new System.Drawing.Point(101, 26);
             this.txtCTE_NOMBRE_COMPANIA.Name = "txtCTE_NOMBRE_COMPANIA";
             this.txtCTE_NOMBRE_COMPANIA.Size = new System.Drawing.Size(302, 20);
