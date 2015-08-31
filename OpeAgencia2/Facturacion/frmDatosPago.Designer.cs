@@ -32,8 +32,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.cmbFormaPago = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.txtNumero = new clsUtils.NumericTextBox();
-            this.txtMontoCk = new clsUtils.NumericTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtFecha = new System.Windows.Forms.DateTimePicker();
@@ -56,12 +54,14 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtDevolucion = new clsUtils.NumericTextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtEfectivo = new clsUtils.NumericTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tabdDocumentos = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.txtDevolucion = new clsUtils.NumericTextBox();
+            this.txtEfectivo = new clsUtils.NumericTextBox();
+            this.txtNumero = new clsUtils.NumericTextBox();
+            this.txtMontoCk = new clsUtils.NumericTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -127,35 +127,6 @@
             this.btnAdd.Text = "...";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // txtNumero
-            // 
-            this.txtNumero.AllowSpace = false;
-            this.txtNumero.DecimalValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtNumero.IntValue = 0;
-            this.txtNumero.Location = new System.Drawing.Point(175, 33);
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(59, 21);
-            this.txtNumero.TabIndex = 1;
-            // 
-            // txtMontoCk
-            // 
-            this.txtMontoCk.AllowSpace = false;
-            this.txtMontoCk.DecimalValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtMontoCk.IntValue = 0;
-            this.txtMontoCk.Location = new System.Drawing.Point(233, 83);
-            this.txtMontoCk.Name = "txtMontoCk";
-            this.txtMontoCk.Size = new System.Drawing.Size(119, 21);
-            this.txtMontoCk.TabIndex = 4;
-            this.txtMontoCk.Leave += new System.EventHandler(this.txtMontoCk_Leave);
             // 
             // label4
             // 
@@ -306,7 +277,6 @@
             this.btnAceptar.TabIndex = 3;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
@@ -375,21 +345,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos pago";
             // 
-            // txtDevolucion
-            // 
-            this.txtDevolucion.AllowSpace = false;
-            this.txtDevolucion.DecimalValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtDevolucion.Enabled = false;
-            this.txtDevolucion.IntValue = 0;
-            this.txtDevolucion.Location = new System.Drawing.Point(154, 64);
-            this.txtDevolucion.Name = "txtDevolucion";
-            this.txtDevolucion.Size = new System.Drawing.Size(172, 21);
-            this.txtDevolucion.TabIndex = 9;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -398,21 +353,6 @@
             this.label11.Size = new System.Drawing.Size(137, 13);
             this.label11.TabIndex = 8;
             this.label11.Text = "Monto devolución Efectivo:";
-            // 
-            // txtEfectivo
-            // 
-            this.txtEfectivo.AllowSpace = false;
-            this.txtEfectivo.DecimalValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtEfectivo.IntValue = 0;
-            this.txtEfectivo.Location = new System.Drawing.Point(154, 28);
-            this.txtEfectivo.Name = "txtEfectivo";
-            this.txtEfectivo.Size = new System.Drawing.Size(172, 21);
-            this.txtEfectivo.TabIndex = 7;
-            this.txtEfectivo.Leave += new System.EventHandler(this.txtEfectivo_Leave);
             // 
             // label10
             // 
@@ -451,6 +391,65 @@
             this.splitContainer1.Size = new System.Drawing.Size(444, 400);
             this.splitContainer1.SplitterDistance = 117;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // txtDevolucion
+            // 
+            this.txtDevolucion.AllowSpace = false;
+            this.txtDevolucion.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtDevolucion.Enabled = false;
+            this.txtDevolucion.IntValue = 0;
+            this.txtDevolucion.Location = new System.Drawing.Point(154, 64);
+            this.txtDevolucion.Name = "txtDevolucion";
+            this.txtDevolucion.Size = new System.Drawing.Size(172, 21);
+            this.txtDevolucion.TabIndex = 9;
+            // 
+            // txtEfectivo
+            // 
+            this.txtEfectivo.AllowSpace = false;
+            this.txtEfectivo.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtEfectivo.IntValue = 0;
+            this.txtEfectivo.Location = new System.Drawing.Point(154, 28);
+            this.txtEfectivo.Name = "txtEfectivo";
+            this.txtEfectivo.Size = new System.Drawing.Size(172, 21);
+            this.txtEfectivo.TabIndex = 7;
+            this.txtEfectivo.Leave += new System.EventHandler(this.txtEfectivo_Leave);
+            // 
+            // txtNumero
+            // 
+            this.txtNumero.AllowSpace = false;
+            this.txtNumero.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtNumero.IntValue = 0;
+            this.txtNumero.Location = new System.Drawing.Point(175, 33);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(59, 21);
+            this.txtNumero.TabIndex = 1;
+            // 
+            // txtMontoCk
+            // 
+            this.txtMontoCk.AllowSpace = false;
+            this.txtMontoCk.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtMontoCk.IntValue = 0;
+            this.txtMontoCk.Location = new System.Drawing.Point(233, 83);
+            this.txtMontoCk.Name = "txtMontoCk";
+            this.txtMontoCk.Size = new System.Drawing.Size(119, 21);
+            this.txtMontoCk.TabIndex = 4;
+            this.txtMontoCk.Leave += new System.EventHandler(this.txtMontoCk_Leave);
             // 
             // frmDatosPago
             // 

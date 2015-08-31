@@ -1005,7 +1005,6 @@
             this.groupBox4.Controls.Add(this.label23);
             this.groupBox4.Controls.Add(this.cmbCTE_SUC_ID);
             this.groupBox4.Controls.Add(this.label22);
-            this.groupBox4.Enabled = false;
             this.groupBox4.Location = new System.Drawing.Point(6, 6);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(481, 302);
@@ -1202,7 +1201,6 @@
             this.groupBox5.Controls.Add(this.txtCTE_NOMBRE_COMPANIA);
             this.groupBox5.Controls.Add(this.label27);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox5.Enabled = false;
             this.groupBox5.Location = new System.Drawing.Point(3, 3);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(710, 502);

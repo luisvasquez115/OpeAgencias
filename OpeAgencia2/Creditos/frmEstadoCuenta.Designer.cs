@@ -148,7 +148,6 @@
             this.Name = "frmEstadoCuenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Estado de cuenta";
-            this.Load += new System.EventHandler(this.frmEstadoCuenta_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

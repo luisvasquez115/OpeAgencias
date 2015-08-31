@@ -16,10 +16,24 @@ namespace clsUtils
         public NumericTextBox()
         {
             InitializeComponent();
+            TextChanged += NumericTextBox_TextChanged;
+        }
+
+        void NumericTextBox_TextChanged(object sender, EventArgs e)
+        {
+            base.OnTextChanged(e);
         }
 
         bool allowSpace = false;
 
+        public string StringValue
+        {
+            get
+            {
+                return textBox1.Text;
+            }
+            set { this.textBox1.Text = value.ToString(); }
+        }
 
         public int IntValue
         {
@@ -27,7 +41,7 @@ namespace clsUtils
             {
                 return Int32.Parse(this.textBox1.Text == "" ? "0" : this.textBox1.Text);
             }
-            set { this.textBox1.Text = value.ToString(); }
+            set { this.textBox1.Text = value.ToString(); OnTextChanged(new EventArgs()); }
         }
 
         public decimal DecimalValue
@@ -36,7 +50,7 @@ namespace clsUtils
             {
                 return Decimal.Parse(this.textBox1.Text == "" ? "0" : this.textBox1.Text);
             }
-            set { this.textBox1.Text = value.ToString(); }
+            set { this.textBox1.Text = value.ToString(); OnTextChanged(new EventArgs()); }
         }
 
         public bool AllowSpace
@@ -86,11 +100,6 @@ namespace clsUtils
                 e.Handled = true;
                 //    MessageBeep();
             }
-
-
-
-
         }
-
     }
 }

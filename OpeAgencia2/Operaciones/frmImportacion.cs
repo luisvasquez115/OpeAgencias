@@ -305,10 +305,7 @@ namespace OpeAgencia2.Operaciones
                     MessageBox.Show("Error Actualizando datos de bultos " + "\n" + "  Codigo Barra:" + ds.Tables["bultos"].DefaultView[0].Row["BLT_CODIGO_BARRA"].ToString() +
                                                       "\n" + "  Guia Hija:" + ds.Tables["bultos"].DefaultView[0].Row["BLT_GUIA_HIJA"].ToString() +
                                                       "\n" + " BltNumeroLocal: " + BltNumeroLocal + "\n", "aviso", MessageBoxButtons.OK);
-
-
                     continue;
-
                 }
                 else
                 {/* el Bulto ya existe
@@ -319,7 +316,6 @@ namespace OpeAgencia2.Operaciones
                     {
                         continue;
                     }
-
                     var oEquivalencia = unitOfWork.EquivalenciaBultosRepository.Get(filter: s => s.BLT_NUMERO_LOCAL == BltNumeroLocal).FirstOrDefault();
                     try
                     {
@@ -334,21 +330,13 @@ namespace OpeAgencia2.Operaciones
                     {
                         throw ex;
                     }
-
-
                 }
-
-
-
             }//End for
         }
-
-
 
         int TraeBltNumeroLocal(int bltNumero, string bltcodigoBarra, string bltGuiaHija)
         {
             int iRetorno = 0;
-
             try
             {
                 var sQry = unitOfWork.EquivalenciaBultosRepository.Get(filter: s => s.BLT_NUMERO_SDQ == bltNumero).FirstOrDefault();
