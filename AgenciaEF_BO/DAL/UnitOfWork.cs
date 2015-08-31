@@ -90,6 +90,22 @@ namespace AgenciaEF_BO.DAL
 
         private SecuencialesRepository secuencialesRepository;
 
+        private CorrespondenciaRepository correspondenciaRepository;
+
+        public CorrespondenciaRepository CorrespondenciaRepository
+        {
+            get
+            {
+
+                if (this.correspondenciaRepository == null)
+                {
+                    this.correspondenciaRepository = new CorrespondenciaRepository(context);
+                }
+                return correspondenciaRepository;
+            }
+        }
+
+
         public SecuencialesRepository SecuencialesRepository
         {
             get

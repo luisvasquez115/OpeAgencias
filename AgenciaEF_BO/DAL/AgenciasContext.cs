@@ -89,7 +89,9 @@ namespace AgenciaEF_BO.DAL
         public DbSet<vw_cuadre_caja> vwCuadreCaja { set; get; }
 
         public DbSet<Secuenciales> Secuenciales { get; set; }
-     
+
+        public DbSet<Correspondencia> Correspondencia { set; get; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
           //  modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

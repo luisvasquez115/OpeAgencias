@@ -67,6 +67,7 @@
     <Compile Include="DAL\ADO\Acceso.cs" />
     <Compile Include="DAL\ADO\BultosDAL.cs" />
     <Compile Include="DAL\BultosEnviosRepository.cs" />
+    <Compile Include="DAL\CorrespondenciaRepository.cs" />
     <Compile Include="DAL\SecuencialesRepository.cs" />
     <Compile Include="DAL\TerminalRepository.cs" />
     <Compile Include="DAL\dsReportes.Designer.cs">
@@ -147,6 +148,7 @@
     <Compile Include="Models\CargosProducto.cs" />
     <Compile Include="Models\CargosVarios.cs" />
     <Compile Include="Models\Clientes.cs" />
+    <Compile Include="Models\Correspondencia.cs" />
     <Compile Include="Models\DatosPago.cs" />
     <Compile Include="Models\Envios.cs" />
     <Compile Include="Models\EquivalenciaBultos.cs" />

@@ -29,6 +29,7 @@ namespace OpeAgencia2.Seguridad
 
             if (bAutenticado == true)
             {
+                
                 Parametros.Parametros.UsuarioSucursalActual = Convert.ToInt32(cmbSucursal.SelectedValue);
                 Parametros.Parametros.NombreSucActual = cmbSucursal.Text;
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -44,10 +45,10 @@ namespace OpeAgencia2.Seguridad
                 if (Parametros.Parametros.UsuarioSucursal.Count > 1)
                 {
                     var sQry = from p in Parametros.Parametros.UsuarioSucursal
-                                 select new {p.USR_SUC_ID, p.Sucursales.SUC_DESCRIPCION};
+                                 select new {p.Sucursales.SUC_ID, p.Sucursales.SUC_DESCRIPCION};
                     cmbSucursal.DataSource =  sQry.ToList();
                     cmbSucursal.DisplayMember = "SUC_DESCRIPCION";
-                    cmbSucursal.ValueMember = "USR_SUC_ID";
+                    cmbSucursal.ValueMember = "SUC_ID";
                     cmbSucursal.Visible = true;
                     lblSucursal.Visible = true;
                     grbBotones.Location = new Point(grbBotones.Location.X, grbBotones.Location.Y + 25);
@@ -55,7 +56,7 @@ namespace OpeAgencia2.Seguridad
                 }
                 else
                 {
-                    Parametros.Parametros.SucursalActual = Parametros.Parametros.UsuarioSucursal.FirstOrDefault().Sucursales.SUC_ID;
+                    Parametros.Parametros.SucursalActual = Convert.ToInt32(cmbSucursal.SelectedValue);
                     Parametros.Parametros.UsuarioSucursalActual = Parametros.Parametros.UsuarioSucursal.FirstOrDefault().USR_SUC_ID;
                     Parametros.Parametros.NombreSucActual = Parametros.Parametros.UsuarioSucursal.FirstOrDefault().Sucursales.SUC_DESCRIPCION;
                     this.DialogResult = System.Windows.Forms.DialogResult.OK;

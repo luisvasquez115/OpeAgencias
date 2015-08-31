@@ -272,6 +272,12 @@
     <Compile Include="Operaciones\frmRecepcion.Designer.cs">
       <DependentUpon>frmRecepcion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Operaciones\frmRecepCorrep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operaciones\frmRecepCorrep.Designer.cs">
+      <DependentUpon>frmRecepCorrep.cs</DependentUpon>
+    </Compile>
     <Compile Include="Operaciones\LocalizarPaq.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -541,6 +547,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Operaciones\frmRecepcion.resx">
       <DependentUpon>frmRecepcion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operaciones\frmRecepCorrep.resx">
+      <DependentUpon>frmRecepCorrep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operaciones\LocalizarPaq.resx">
       <DependentUpon>LocalizarPaq.cs</DependentUpon>

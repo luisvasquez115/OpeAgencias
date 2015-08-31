@@ -128,7 +128,7 @@ namespace AgenciaEF_BO.BO
 
                 var oSecuencialCaja = unitOfWork.SecuencialesRepository.Get(filter: xy => xy.SUC_ID == RecAnul.SUC_ID && xy.TIPO_ID == 60).FirstOrDefault();
 
-                oCaja.NUM_REC = oSecuencialCaja.VALOR + 1;
+                oCaja.MOV_CAJA_SEC = oSecuencialCaja.VALOR + 1;
 
                 oSecuencialCaja.VALOR += 1;
 
@@ -350,7 +350,7 @@ namespace AgenciaEF_BO.BO
 
             var oSecuencial = unitOfWork.SecuencialesRepository.Get(filter: xy => xy.SUC_ID == iSucId && xy.TIPO_ID == 55).FirstOrDefault();
 
-            oCaja.NUM_REC = oSecuencial.VALOR + 1;
+            oCaja.MOV_CAJA_SEC = oSecuencial.VALOR + 1;
 
             oSecuencial.VALOR += 1;
 
@@ -684,7 +684,7 @@ namespace AgenciaEF_BO.BO
 
                 var oSecuencialCaja = unitOfWork.SecuencialesRepository.Get(filter: xy => xy.SUC_ID == iSucId && xy.TIPO_ID == iTipoMovCaja).FirstOrDefault();
 
-                oCaja.NUM_REC = oSecuencialCaja.VALOR + 1;
+                oCaja.MOV_CAJA_SEC = oSecuencialCaja.VALOR + 1;
 
                 oSecuencialCaja.VALOR += 1;
 
@@ -938,7 +938,7 @@ namespace AgenciaEF_BO.BO
 
                     var oSecuencialCaja = unitOfWork.SecuencialesRepository.Get(filter: xy => xy.SUC_ID == iSucId && xy.TIPO_ID == 63).FirstOrDefault();
 
-                    oCaja.NUM_REC = oSecuencialCaja.VALOR + 1;
+                    oCaja.MOV_CAJA_SEC = oSecuencialCaja.VALOR + 1;
 
                     oSecuencialCaja.VALOR += 1;
 
@@ -1217,7 +1217,7 @@ namespace AgenciaEF_BO.BO
 
                 var oSecuencialCaja = unitOfWork.SecuencialesRepository.Get(filter: xy => xy.SUC_ID == iSucId && xy.TIPO_ID == iTipoMovCaja).FirstOrDefault();
 
-                oCaja.NUM_REC = oSecuencialCaja.VALOR + 1;
+                oCaja.MOV_CAJA_SEC = oSecuencialCaja.VALOR + 1;
 
                 oSecuencialCaja.VALOR += 1;
 

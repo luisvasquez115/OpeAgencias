@@ -38,7 +38,7 @@ namespace AgenciaEF_BO.Models
         [Required]
         public int CTE_ID { set; get; }
 
-        public int NUM_REC { set; get; }
+        public int MOV_CAJA_SEC { set; get; }
 
         public virtual Clientes Clientes { set; get; }
 
