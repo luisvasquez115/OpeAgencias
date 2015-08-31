@@ -161,7 +161,7 @@ namespace OpeAgencia2.Facturacion
                 //var BultosValores = unitOfWork.BultosValoresRepository.GetByID(oDet.BVA_ID);
                 var Bultos = unitOfWork.BultosRepository.GetByID(oRecDet.BLT_NUMERO);
                 BO.DAL.dsFactura.FACTURASRow oFactRow = oTable.NewFACTURASRow();
-                oFactRow.REC_ID = oRecibo.RECIBO_ID;
+                oFactRow.REC_ID = oRecibo.NUM_REC;
                 var oTipoDoc = unitOfWork.TiposRepository.GetByID(oRecibo.TIPO_REC_ID);
                 oFactRow.REC_TIPO = oTipoDoc.TIPO_CODIGO;
                 oFactRow.REC_TIPO_DESC = oTipoDoc.TIPO_DESCR;
@@ -325,7 +325,7 @@ namespace OpeAgencia2.Facturacion
                 //var BultosValores = unitOfWork.BultosValoresRepository.GetByID(oDet.BVA_ID);
                 // var Bultos = unitOfWork.BultosRepository.GetByID(oRecDet.BLT_NUMERO);
                 BO.DAL.dsFactura.MOVCAJARow oFactRow = oTable.NewMOVCAJARow();
-                oFactRow.MOVCAJA_ID = oRecibo.MOVCAJA_ID;
+                oFactRow.MOVCAJA_ID = oRecibo.MOV_CAJA_SEC;
                 oFactRow.TIP_MOV = unitOfWork.TiposRepository.GetByID(oRecibo.TIP_MOV).TIPO_CODIGO;
                 oFactRow.RNC = "NA";
                 oFactRow.CUENTACLI = oRecibo.Clientes.CTE_NUMERO_EPS + " " + oRecibo.Clientes.CTE_NOMBRE + " " + oRecibo.Clientes.CTE_APELLIDO;
