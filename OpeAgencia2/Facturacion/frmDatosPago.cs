@@ -55,12 +55,6 @@ namespace OpeAgencia2.Facturacion
             dMontoPend = dMontoTransacc;
             txtRecibidoEfectivo.Text = "0";
             txtRecibidoOtros.Text = "0";
-            txtEfectivo.TextChanged += txtEfectivo_TextChanged;
-        }
-
-        void txtEfectivo_TextChanged(object sender, EventArgs e)
-        {
-            ActualizaTotales();
         }
 
         void cargarDataGrid()

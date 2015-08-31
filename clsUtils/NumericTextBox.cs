@@ -16,12 +16,6 @@ namespace clsUtils
         public NumericTextBox()
         {
             InitializeComponent();
-            TextChanged += NumericTextBox_TextChanged;
-        }
-
-        void NumericTextBox_TextChanged(object sender, EventArgs e)
-        {
-            base.OnTextChanged(e);
         }
 
         bool allowSpace = false;
