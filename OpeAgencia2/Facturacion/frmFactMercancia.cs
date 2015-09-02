@@ -68,6 +68,7 @@ namespace OpeAgencia2.Facturacion
 
         void BuscarCliente()
         {
+            txtTarifa.Text = "";
             oCliente = unitOfWork.ClientesRepository.Get(filter: s => s.CTE_NUMERO_EPS == txtEPS.Text && s.CTE_SUC_ID == Parametros.Parametros.SucursalActual).FirstOrDefault();
             if (oCliente != null)
             {
@@ -167,7 +168,9 @@ namespace OpeAgencia2.Facturacion
         void BuscarValores(int bltNumero)
         {
             var loBultosVal = from p in unitOfWork.BultosValoresRepository.Get(filter: xy => xy.BLT_NUMERO == bltNumero)
-                              select new { Cargo = p.CargosProducto.Cargos.CAR_CODIGO + '-' + p.CargosProducto.Cargos.CAR_DESCRIPCION, Monto = p.BVA_MONTO_LOCAL, ncf = p.CargosProducto.Cargos.CAR_NCF, p.CargosProducto.Cargos.CAR_CODIGO };
+                              select new { Cargo = p.CargosProducto.Cargos.CAR_CODIGO + '-' + p.CargosProducto.Cargos.CAR_DESCRIPCION, 
+                                  Monto = p.BVA_MONTO_LOCAL, ncf = p.CargosProducto.Cargos.CAR_NCF, p.CargosProducto.Cargos.CAR_CODIGO,
+                                  MontoAplicar = p.BVA_MONTO_APLICAR};
             foreach (var cargo in loBultosVal)
             {
                 if (htValores[cargo.Cargo] == null)
@@ -178,6 +181,8 @@ namespace OpeAgencia2.Facturacion
                     dMontoNoVenta += cargo.Monto;
                 else
                     dMontoVenta += cargo.Monto;
+                if (cargo.CAR_CODIGO == "010")
+                    txtTarifa.Text = cargo.MontoAplicar.ToString();
             }
         }
 

@@ -70,33 +70,35 @@
             this.lblEpsHasta.AutoSize = true;
             this.lblEpsHasta.Location = new System.Drawing.Point(261, 42);
             this.lblEpsHasta.Name = "lblEpsHasta";
-            this.lblEpsHasta.Size = new System.Drawing.Size(35, 13);
+            this.lblEpsHasta.Size = new System.Drawing.Size(0, 13);
             this.lblEpsHasta.TabIndex = 5;
-            this.lblEpsHasta.Text = "label5";
             // 
             // lblEps
             // 
             this.lblEps.AutoSize = true;
             this.lblEps.Location = new System.Drawing.Point(78, 42);
             this.lblEps.Name = "lblEps";
-            this.lblEps.Size = new System.Drawing.Size(28, 13);
+            this.lblEps.Size = new System.Drawing.Size(0, 13);
             this.lblEps.TabIndex = 4;
-            this.lblEps.Text = "EPS";
             // 
             // txtEpsHasta
             // 
+            this.txtEpsHasta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEpsHasta.Location = new System.Drawing.Point(264, 19);
             this.txtEpsHasta.Name = "txtEpsHasta";
             this.txtEpsHasta.Size = new System.Drawing.Size(100, 20);
             this.txtEpsHasta.TabIndex = 3;
+            this.txtEpsHasta.TextChanged += new System.EventHandler(this.txtEpsHasta_TextChanged);
             this.txtEpsHasta.Leave += new System.EventHandler(this.txtEpsHasta_Leave);
             // 
             // txtEpsDesde
             // 
+            this.txtEpsDesde.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEpsDesde.Location = new System.Drawing.Point(81, 19);
             this.txtEpsDesde.Name = "txtEpsDesde";
             this.txtEpsDesde.Size = new System.Drawing.Size(100, 20);
             this.txtEpsDesde.TabIndex = 2;
+            this.txtEpsDesde.TextChanged += new System.EventHandler(this.txtEpsDesde_TextChanged);
             this.txtEpsDesde.Leave += new System.EventHandler(this.txtEpsDesde_Leave);
             // 
             // label3
@@ -135,6 +137,7 @@
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // frmEstadoCuenta
             // 

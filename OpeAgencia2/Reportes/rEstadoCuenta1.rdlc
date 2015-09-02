@@ -97,30 +97,30 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>6.85504cm</Width>
+                  <Width>3.60067cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.25671cm</Width>
+                  <Width>2.57386cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.72754cm</Width>
+                  <Width>2.4365cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.12417cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>2.12958cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>2.3148cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.84396cm</Width>
+                  <Width>2.30396cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>1.00776cm</Height>
+                  <Height>1.12682cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -137,7 +137,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox24</rd:DefaultName>
@@ -183,13 +185,15 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>FECHA EMISION</Value>
+                                  <Value>FECHA EMISIÓN</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox25</rd:DefaultName>
@@ -241,7 +245,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                             <Paragraph>
                               <TextRuns>
@@ -252,7 +258,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox26</rd:DefaultName>
@@ -298,13 +306,15 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>DIAS</Value>
+                                  <Value>DÎAS</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox30</rd:DefaultName>
@@ -356,7 +366,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox34</rd:DefaultName>
@@ -408,7 +420,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox38</rd:DefaultName>
@@ -460,7 +474,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox42</rd:DefaultName>
@@ -500,7 +516,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.90868cm</Height>
+                  <Height>0.76316cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -720,7 +736,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.71906cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -964,7 +980,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>1.55278cm</Size>
+                    <Size>0.7458cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox23">
                         <CanGrow>true</CanGrow>
@@ -1019,6 +1035,7 @@
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
+                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                   <TablixMembers>
@@ -1047,10 +1064,9 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>1.3462cm</Top>
-            <Left>0.49953cm</Left>
-            <Height>4.06922cm</Height>
-            <Width>21.80742cm</Width>
+            <Top>2.21368cm</Top>
+            <Height>3.35485cm</Height>
+            <Width>16.48354cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1058,17 +1074,17 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.23622in</Height>
+        <Height>2.93413in</Height>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Body>
-      <Width>11.60267in</Width>
+      <Width>6.48959in</Width>
       <Page>
         <PageHeader>
-          <Height>2.73995cm</Height>
+          <Height>4.27453cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1091,10 +1107,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
-              <Top>0.89641cm</Top>
-              <Left>0.49953cm</Left>
-              <Height>0.89104cm</Height>
-              <Width>21.25896cm</Width>
+              <Top>1.11662cm</Top>
+              <Left>0.00001cm</Left>
+              <Height>0.70583cm</Height>
+              <Width>6.48958in</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1112,7 +1128,52 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Parameters!Fecha.Value</Value>
+                      <Value>="CORTADO AL " + Parameters!Fecha.Value</Value>
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Fecha</rd:DefaultName>
+              <Top>1.85773cm</Top>
+              <Left>9.73521cm</Left>
+              <Height>0.52063cm</Height>
+              <Width>6.74834cm</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox14">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>RNC: 1-01-69179-4</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>www.eps-int.com </Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
@@ -1121,12 +1182,80 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
+              <rd:DefaultName>Textbox13</rd:DefaultName>
+              <Top>0.06711cm</Top>
+              <Left>13.41438cm</Left>
+              <Height>1.04951cm</Height>
+              <Width>1.20833in</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Fecha2">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>="CORTADO AL " + Parameters!Fecha.Value</Value>
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
               <rd:DefaultName>Fecha</rd:DefaultName>
-              <Top>1.96384cm</Top>
-              <Left>9.54828cm</Left>
-              <Height>0.6cm</Height>
-              <Width>2.5cm</Width>
-              <ZIndex>1</ZIndex>
+              <Top>2.41363cm</Top>
+              <Left>9.73521cm</Left>
+              <Height>0.52063cm</Height>
+              <Width>6.74834cm</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Fecha3">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>="CORTADO AL " + Parameters!Fecha.Value</Value>
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Fecha</rd:DefaultName>
+              <Top>1.87695cm</Top>
+              <Left>0.00001cm</Left>
+              <Height>0.52063cm</Height>
+              <Width>6.74834cm</Width>
+              <ZIndex>4</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1145,7 +1274,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>2.54cm</Height>
+          <Height>1.79917cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1166,10 +1295,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Encabezado1</rd:DefaultName>
-              <Top>0.36104cm</Top>
-              <Left>0.49953cm</Left>
+              <Top>0.17639cm</Top>
+              <Left>0.00001cm</Left>
               <Height>0.6cm</Height>
-              <Width>21.80742cm</Width>
+              <Width>16.48354cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1197,10 +1326,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Encabezado2</rd:DefaultName>
-              <Top>1.13743cm</Top>
-              <Left>0.49953cm</Left>
+              <Top>0.95278cm</Top>
+              <Left>0.00001cm</Left>
               <Height>0.6cm</Height>
-              <Width>21.80742cm</Width>
+              <Width>16.48354cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -1221,10 +1350,10 @@
         </PageFooter>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
-        <LeftMargin>2cm</LeftMargin>
-        <RightMargin>2cm</RightMargin>
-        <TopMargin>2cm</TopMargin>
-        <BottomMargin>2cm</BottomMargin>
+        <LeftMargin>0.75in</LeftMargin>
+        <RightMargin>0.75in</RightMargin>
+        <TopMargin>0.75in</TopMargin>
+        <BottomMargin>0.75in</BottomMargin>
         <ColumnSpacing>0.13cm</ColumnSpacing>
         <Style />
       </Page>

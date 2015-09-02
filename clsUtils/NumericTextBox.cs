@@ -35,7 +35,7 @@ namespace clsUtils
             {
                 return Int32.Parse(this.textBox1.Text == "" ? "0" : this.textBox1.Text);
             }
-            set { this.textBox1.Text = value.ToString(); OnTextChanged(new EventArgs()); }
+            set { this.textBox1.Text = value.ToString(); }
         }
 
         public decimal DecimalValue
@@ -44,7 +44,7 @@ namespace clsUtils
             {
                 return Decimal.Parse(this.textBox1.Text == "" ? "0" : this.textBox1.Text);
             }
-            set { this.textBox1.Text = value.ToString(); OnTextChanged(new EventArgs()); }
+            set { this.textBox1.Text = value.ToString(); }
         }
 
         public bool AllowSpace

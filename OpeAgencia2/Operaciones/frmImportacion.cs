@@ -223,6 +223,7 @@ namespace OpeAgencia2.Operaciones
             else
             {
                 MessageBox.Show("Datos cargados con exito", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lblMensaje.Text = string.Empty;
             }
 
 
@@ -240,8 +241,8 @@ namespace OpeAgencia2.Operaciones
             {
                 unitOfWork = new BO.DAL.UnitOfWork();
 
-                lblDe.Text = i.ToString() + "/" + iTotal.ToString();
-                lblDe.Refresh();
+                //lblDe.Text = i.ToString() + "/" + iTotal.ToString();
+                //lblDe.Refresh();
 
                 int BltNumeroLocal = 0;
                 string sBltNumero;

@@ -31,6 +31,8 @@ namespace OpeAgencia2.Creditos
         private void txtEpsDesde_Leave(object sender, EventArgs e)
         {
             var eps = unitOfWork.ClientesRepository.Get(filter: xy => xy.CTE_NUMERO_EPS == txtEpsDesde.Text).FirstOrDefault();
+            if (txtEpsHasta.Text == string.Empty)
+                return;
             if (eps == null)
             {
                 MessageBox.Show("Numero de eps no existe", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -45,7 +47,9 @@ namespace OpeAgencia2.Creditos
 
         private void txtEpsHasta_Leave(object sender, EventArgs e)
         {
-            var eps = unitOfWork.ClientesRepository.Get(filter: xy => xy.CTE_NUMERO_EPS == txtEpsDesde.Text).FirstOrDefault();
+            var eps = unitOfWork.ClientesRepository.Get(filter: xy => xy.CTE_NUMERO_EPS == txtEpsHasta.Text).FirstOrDefault();
+            if (txtEpsHasta.Text == string.Empty)
+                return;
             if (eps == null)
             {
                 MessageBox.Show("Numero de eps no existe", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -117,7 +121,7 @@ namespace OpeAgencia2.Creditos
                 oRow.REC_FECHA = Reg.FECHA;
                 oRow.REC_ID = Reg.NUM_REC;
                 var oTipoDoc = unitOfWork.TiposRepository.GetByID(Reg.TIPO_REC_ID);
-                oRow.REC_TIPO = oTipoDoc.TIPO_CODIGO + "-" + Reg.NUM_REC.ToString() + "[" + oTipoDoc.TIPO_DESCR + "]";
+                oRow.REC_TIPO = oTipoDoc.TIPO_CODIGO + "-" + Reg.NUM_REC.ToString();// +"[" + oTipoDoc.TIPO_DESCR + "]";
                 if (oClientes.CTE_CEDULA == null)
                     oRow.RNC = oClientes.CTE_RNC;
                 else
@@ -132,6 +136,36 @@ namespace OpeAgencia2.Creditos
                 oTable.Rows.Add(oRow);
             }
             return oTable;
+        }
+
+        private void txtEpsDesde_TextChanged(object sender, EventArgs e)
+        {
+            var eps = unitOfWork.ClientesRepository.Get(filter: xy => xy.CTE_NUMERO_EPS == txtEpsDesde.Text).FirstOrDefault();
+            if (eps != null)
+            {
+                iEpsDesdeId = eps.CTE_ID;
+                lblEps.Text = eps.CTE_NOMBRE.ToString() + " " + eps.CTE_APELLIDO.ToString();
+            }
+            else
+                lblEps.Text = string.Empty;
+            txtEpsHasta.Text = txtEpsDesde.Text;
+        }
+
+        private void txtEpsHasta_TextChanged(object sender, EventArgs e)
+        {
+            var eps = unitOfWork.ClientesRepository.Get(filter: xy => xy.CTE_NUMERO_EPS == txtEpsHasta.Text).FirstOrDefault();
+            if (eps != null)
+            {
+                iEpsHastaId = eps.CTE_ID;
+                this.lblEpsHasta.Text = eps.CTE_NOMBRE.ToString() + " " + eps.CTE_APELLIDO.ToString();
+            }
+            else
+                lblEpsHasta.Text = string.Empty;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            txtEpsDesde.Text = txtEpsHasta.Text = string.Empty;
         }
     }
 }
