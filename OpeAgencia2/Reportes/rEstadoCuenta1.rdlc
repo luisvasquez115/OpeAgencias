@@ -980,7 +980,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>0.7458cm</Size>
+                    <Size>1.40726cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox23">
                         <CanGrow>true</CanGrow>
@@ -1035,7 +1035,6 @@
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
-                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                   <TablixMembers>
@@ -1064,8 +1063,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>2.21368cm</Top>
-            <Height>3.35485cm</Height>
+            <Top>0.03528cm</Top>
+            <Height>4.0163cm</Height>
             <Width>16.48354cm</Width>
             <Style>
               <Border>
@@ -1074,7 +1073,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.93413in</Height>
+        <Height>1.6008in</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1084,7 +1083,7 @@
       <Width>6.48959in</Width>
       <Page>
         <PageHeader>
-          <Height>4.27453cm</Height>
+          <Height>2.37864cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1128,7 +1127,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>="CORTADO AL " + Parameters!Fecha.Value</Value>
+                      <Value>=Parameters!Fecha.Value</Value>
                       <Style>
                         <FontSize>9pt</FontSize>
                       </Style>
@@ -1188,74 +1187,6 @@
               <Height>1.04951cm</Height>
               <Width>1.20833in</Width>
               <ZIndex>2</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Fecha2">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>="CORTADO AL " + Parameters!Fecha.Value</Value>
-                      <Style>
-                        <FontSize>9pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Fecha</rd:DefaultName>
-              <Top>2.41363cm</Top>
-              <Left>9.73521cm</Left>
-              <Height>0.52063cm</Height>
-              <Width>6.74834cm</Width>
-              <ZIndex>3</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Fecha3">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>="CORTADO AL " + Parameters!Fecha.Value</Value>
-                      <Style>
-                        <FontSize>9pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Left</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Fecha</rd:DefaultName>
-              <Top>1.87695cm</Top>
-              <Left>0.00001cm</Left>
-              <Height>0.52063cm</Height>
-              <Width>6.74834cm</Width>
-              <ZIndex>4</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
