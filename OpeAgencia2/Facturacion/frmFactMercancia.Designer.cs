@@ -56,6 +56,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnCorres = new System.Windows.Forms.Button();
             this.dgCorr = new System.Windows.Forms.DataGridView();
+            this.txtTarifa = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabDetalle.SuspendLayout();
@@ -275,6 +277,8 @@
             // 
             this.tabPaq.Controls.Add(this.dgResumen);
             this.tabPaq.Controls.Add(this.dgPaq);
+            this.tabPaq.Controls.Add(this.txtTarifa);
+            this.tabPaq.Controls.Add(this.label7);
             this.tabPaq.Location = new System.Drawing.Point(4, 22);
             this.tabPaq.Name = "tabPaq";
             this.tabPaq.Padding = new System.Windows.Forms.Padding(3);
@@ -294,11 +298,11 @@
             this.dgResumen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cargo,
             this.Valor});
-            this.dgResumen.Location = new System.Drawing.Point(544, 3);
+            this.dgResumen.Location = new System.Drawing.Point(538, 3);
             this.dgResumen.Name = "dgResumen";
             this.dgResumen.ReadOnly = true;
             this.dgResumen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgResumen.Size = new System.Drawing.Size(286, 303);
+            this.dgResumen.Size = new System.Drawing.Size(292, 273);
             this.dgResumen.TabIndex = 5;
             // 
             // Cargo
@@ -338,7 +342,7 @@
             this.tabCorr.Location = new System.Drawing.Point(4, 22);
             this.tabCorr.Name = "tabCorr";
             this.tabCorr.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCorr.Size = new System.Drawing.Size(848, 309);
+            this.tabCorr.Size = new System.Drawing.Size(831, 309);
             this.tabCorr.TabIndex = 1;
             this.tabCorr.Text = "Correspondencia";
             this.tabCorr.UseVisualStyleBackColor = true;
@@ -358,7 +362,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgCorr);
-            this.splitContainer1.Size = new System.Drawing.Size(842, 303);
+            this.splitContainer1.Size = new System.Drawing.Size(825, 303);
             this.splitContainer1.SplitterDistance = 38;
             this.splitContainer1.TabIndex = 2;
             // 
@@ -391,9 +395,28 @@
             this.dgCorr.Location = new System.Drawing.Point(0, 0);
             this.dgCorr.Name = "dgCorr";
             this.dgCorr.ReadOnly = true;
-            this.dgCorr.Size = new System.Drawing.Size(842, 261);
+            this.dgCorr.Size = new System.Drawing.Size(825, 261);
             this.dgCorr.TabIndex = 1;
             this.dgCorr.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCorr_CellEndEdit);
+            // 
+            // txtTarifa
+            // 
+            this.txtTarifa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTarifa.Enabled = false;
+            this.txtTarifa.Location = new System.Drawing.Point(769, 282);
+            this.txtTarifa.Name = "txtTarifa";
+            this.txtTarifa.Size = new System.Drawing.Size(56, 20);
+            this.txtTarifa.TabIndex = 5;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(729, 285);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Tarifa";
             // 
             // frmFactMercancia
             // 
@@ -415,6 +438,7 @@
             this.groupBox3.PerformLayout();
             this.tabDetalle.ResumeLayout(false);
             this.tabPaq.ResumeLayout(false);
+            this.tabPaq.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgResumen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgPaq)).EndInit();
             this.tabCorr.ResumeLayout(false);
@@ -457,5 +481,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnCorres;
         private System.Windows.Forms.DataGridView dgCorr;
+        private System.Windows.Forms.TextBox txtTarifa;
+        private System.Windows.Forms.Label label7;
     }
 }

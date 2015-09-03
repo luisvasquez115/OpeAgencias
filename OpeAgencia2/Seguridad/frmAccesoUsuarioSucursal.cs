@@ -35,7 +35,6 @@ namespace OpeAgencia2.Seguridad
             CargarCombos();
         }
 
-
         #region "Combos"
 
         void CargarCombos()
@@ -48,32 +47,26 @@ namespace OpeAgencia2.Seguridad
         void ComboUsuarios()
         {
             var Qry = from p in unitOfWork.UsuariosRepository.Get()
-                      select new { Id = p.USUARIO_ID, Nombre = p.NOMBRES  + " " + p.APELLIDOS + "(" + p.USER_NAME +")" }
-                         ;
-
-
+                      select new { Id = p.USUARIO_ID, Nombre = p.NOMBRES + " " + p.APELLIDOS + "(" + p.USER_NAME + ")" };
             //
             this.cmbUsuario.ValueMember = "Id";
             cmbUsuario.DisplayMember = "Nombre";
-            //
             cmbUsuario.DataSource = Qry.ToList();
-
             cmbUsuario.SelectedValue = iUserId;
         }
 
         void ComboSucursales(int piUserId)
         {
-            var Qry = from p in unitOfWork.UsuarioSucursalRepository.Get(filter: s => s.USUARIO_ID == piUserId )
-                      select new { Id = p.USR_SUC_ID, Nombre = p.Sucursales.SUC_CODIGO + " " + p.Sucursales.SUC_DESCRIPCION+ "(" + p.Sucursales.Empresas.COM_DESCORTA + ")" }
-                         ;
-
-
-            //
+            var Qry = from p in unitOfWork.UsuarioSucursalRepository.Get(filter: s => s.USUARIO_ID == piUserId)
+                      select new
+                      {
+                          Id = p.USR_SUC_ID,
+                          Nombre = p.Sucursales.SUC_CODIGO + " " + p.Sucursales.SUC_DESCRIPCION + "(" +
+                              p.Sucursales.Empresas.COM_DESCORTA + ")"
+                      };
             this.cmbSucursal.ValueMember = "Id";
             cmbSucursal.DisplayMember = "Nombre";
-            //
             cmbSucursal.DataSource = Qry.ToList();
-
             cmbSucursal.SelectedValue = -1;
         }
 
@@ -115,13 +108,13 @@ namespace OpeAgencia2.Seguridad
 
         void BuscarOpciones()
         {
-           
+
 
 
             int iModId = Convert.ToInt32(cmbModulo.SelectedValue);
             var MyQry = unitOfWork.OpcionesRepository.Get(filter: s => s.MOD_ID == iModId && s.OPC_PARENT_ID == 0);
 
-            foreach(var item in MyQry)
+            foreach (var item in MyQry)
             {
                 TreeNode oNode = new TreeNode(item.OPC_NAME);
                 oNode.Tag = item.OPC_ID.ToString();
@@ -129,14 +122,14 @@ namespace OpeAgencia2.Seguridad
 
                 AgregaHijos(oNode, item.OPC_ID);
                 treeView1.Nodes.Add(oNode);
-            }                
+            }
         }
 
         void VerificaPermiso(TreeNode oNode)
         {
             int iOpcId = Convert.ToInt32(oNode.Tag);
 
-            var MyQry = unitOfWork.UsuariosOpcionesRepository.Get(filter: s => s.OPC_ID == iOpcId && s.UsuariosModulos.MOD_ID == iModId && s.UsuariosModulos.UsuarioSucursal.USR_SUC_ID == iSucUsrId).FirstOrDefault(); 
+            var MyQry = unitOfWork.UsuariosOpcionesRepository.Get(filter: s => s.OPC_ID == iOpcId && s.UsuariosModulos.MOD_ID == iModId && s.UsuariosModulos.UsuarioSucursal.USR_SUC_ID == iSucUsrId).FirstOrDefault();
 
             if (MyQry != null)
             {
@@ -156,12 +149,12 @@ namespace OpeAgencia2.Seguridad
             {
                 TreeNode oNode = new TreeNode(item.OPC_NAME);
                 oNode.Tag = item.OPC_ID.ToString();
-                VerificaPermiso( oNode);
+                VerificaPermiso(oNode);
                 AgregaHijos(oNode, item.OPC_ID);
 
                 pNode.Nodes.Add(oNode);
-                
-            }         
+
+            }
 
 
         }
@@ -169,35 +162,33 @@ namespace OpeAgencia2.Seguridad
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             GuardarDatos();
+            MessageBox.Show("Datos guardados con éxito", "Datos guardados", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
 
-        void  GuardarDatos()
+        void GuardarDatos()
         {
-
-            foreach(TreeNode oNode in treeView1.Nodes)
+            foreach (TreeNode oNode in treeView1.Nodes)
             {
                 ProcesarNodo(oNode);
             }
-
         }
 
         void ProcesarNodo(TreeNode pNode)
         {
             int OpcId = Convert.ToInt32(pNode.Tag);
 
-             var ModUsr =  unitOfWork.UsuariosModulosRepository.Get(filter: s => s.USR_SUC_ID == iSucUsrId && s.MOD_ID == iModId).FirstOrDefault();
+            var ModUsr = unitOfWork.UsuariosModulosRepository.Get(filter: s => s.USR_SUC_ID == iSucUsrId && s.MOD_ID == iModId).FirstOrDefault();
 
-             GuardaUsuarioModulo(ref ModUsr);
+            GuardaUsuarioModulo(ref ModUsr);
 
-             var UsrOpc = unitOfWork.UsuariosOpcionesRepository.Get(filter: s => s.USR_MOD_ID == ModUsr.USR_MOD_ID && s.OPC_ID == OpcId).FirstOrDefault();
+            var UsrOpc = unitOfWork.UsuariosOpcionesRepository.Get(filter: s => s.USR_MOD_ID == ModUsr.USR_MOD_ID && s.OPC_ID == OpcId).FirstOrDefault();
 
-             GuardaUsuarioOpciones(ref UsrOpc, ModUsr, OpcId, pNode.Checked);
+            GuardaUsuarioOpciones(ref UsrOpc, ModUsr, OpcId, pNode.Checked);
 
-            foreach(TreeNode oNode in pNode.Nodes)
+            foreach (TreeNode oNode in pNode.Nodes)
             {
-
-                 ProcesarNodo(oNode);
+                ProcesarNodo(oNode);
             }
 
 
@@ -216,7 +207,7 @@ namespace OpeAgencia2.Seguridad
 
                 unitOfWork.UsuariosOpcionesRepository.Insert(oUserOpc);
 
-               
+
                 pUserOpc = oUserOpc;
 
             }
@@ -271,7 +262,7 @@ namespace OpeAgencia2.Seguridad
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-         
+
         }
 
         void VerificaParentCheck(TreeNode oNode)
@@ -294,15 +285,15 @@ namespace OpeAgencia2.Seguridad
         void VerificaHijosCheck(TreeNode pNode)
         {
 
-              if (pNode.Nodes.Count > 0)
+            if (pNode.Nodes.Count > 0)
+            {
+                foreach (TreeNode oNode in pNode.Nodes)
                 {
-                  foreach(TreeNode oNode in pNode.Nodes)
-                  {
-                        oNode.Checked = pNode.Checked;
-                        VerificaHijosCheck(oNode);
-                    }
+                    oNode.Checked = pNode.Checked;
+                    VerificaHijosCheck(oNode);
                 }
-            
+            }
+
 
         }
 
@@ -315,7 +306,7 @@ namespace OpeAgencia2.Seguridad
                 //VerificaHijosCheck(e.Node);
             }
         }
-           
+
 
 
 

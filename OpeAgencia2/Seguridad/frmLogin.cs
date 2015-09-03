@@ -18,7 +18,6 @@ namespace OpeAgencia2.Seguridad
             InitializeComponent();
         }
 
-
         int iCount = 0;
         bool bAutenticado = false;
 
@@ -26,7 +25,6 @@ namespace OpeAgencia2.Seguridad
         {
             BO.Seg.Seguridad oSeg = new BO.Seg.Seguridad();
             int iUsuarioId =-1;
-
             if (bAutenticado == true)
             {
                 
@@ -35,7 +33,6 @@ namespace OpeAgencia2.Seguridad
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 this.Close();
             }
-
             if (oSeg.Autentica(txtUsuario.Text, txtClave.Text, ref iUsuarioId))
             {
                 Parametros.Parametros.UsuarioId = iUsuarioId;

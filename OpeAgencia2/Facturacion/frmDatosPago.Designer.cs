@@ -140,6 +140,7 @@
             this.txtNumero.Location = new System.Drawing.Point(175, 33);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(59, 21);
+            this.txtNumero.StringValue = "0";
             this.txtNumero.TabIndex = 1;
             // 
             // txtMontoCk
@@ -154,6 +155,7 @@
             this.txtMontoCk.Location = new System.Drawing.Point(233, 83);
             this.txtMontoCk.Name = "txtMontoCk";
             this.txtMontoCk.Size = new System.Drawing.Size(119, 21);
+            this.txtMontoCk.StringValue = "0";
             this.txtMontoCk.TabIndex = 4;
             this.txtMontoCk.Leave += new System.EventHandler(this.txtMontoCk_Leave);
             // 
@@ -306,7 +308,6 @@
             this.btnAceptar.TabIndex = 3;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
@@ -388,6 +389,7 @@
             this.txtDevolucion.Location = new System.Drawing.Point(154, 64);
             this.txtDevolucion.Name = "txtDevolucion";
             this.txtDevolucion.Size = new System.Drawing.Size(172, 21);
+            this.txtDevolucion.StringValue = "0";
             this.txtDevolucion.TabIndex = 9;
             // 
             // label11
@@ -411,6 +413,7 @@
             this.txtEfectivo.Location = new System.Drawing.Point(154, 28);
             this.txtEfectivo.Name = "txtEfectivo";
             this.txtEfectivo.Size = new System.Drawing.Size(172, 21);
+            this.txtEfectivo.StringValue = "0";
             this.txtEfectivo.TabIndex = 7;
             this.txtEfectivo.Leave += new System.EventHandler(this.txtEfectivo_Leave);
             // 

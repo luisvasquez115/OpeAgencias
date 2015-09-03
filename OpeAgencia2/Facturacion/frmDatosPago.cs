@@ -37,21 +37,19 @@ namespace OpeAgencia2.Facturacion
 
         public decimal dMontoPend { set; get; }
 
-        public decimal  MontoEfectivo {set;get;}
+        public decimal MontoEfectivo { set; get; }
 
-        public decimal  MontoOtros {set;get;}
+        public decimal MontoOtros { set; get; }
 
-         public decimal  Devolucion {set;get;}
-     
-  
+        public decimal Devolucion { set; get; }
+
+
 
         private void frmDatosPago_Load(object sender, EventArgs e)
         {
             CargarCombo();
             CargarComboTipoPago();
-            
             cargarDataGrid();
-
             txtPendiente.Text = dMontoTransacc.ToString();
             txtMontoTotal.Text = dMontoTransacc.ToString();
             dMontoPend = dMontoTransacc;
@@ -63,28 +61,28 @@ namespace OpeAgencia2.Facturacion
         {
             DataGridViewComboBoxColumn cmb = new DataGridViewComboBoxColumn();
 
-             var Productos = from p in unitOfWork.TiposRepository.GetByGroupCode("TPAGO")
+            var Productos = from p in unitOfWork.TiposRepository.GetByGroupCode("TPAGO")
                             select new { Id = p.TIPO_ID, Nombre = p.TIPO_CODIGO + "-->" + p.TIPO_NOMBRE };
 
 
-             cmb.DisplayMember = "Nombre";
-             cmb.ValueMember = "Id";
+            cmb.DisplayMember = "Nombre";
+            cmb.ValueMember = "Id";
 
-             cmb.DataSource = Productos.ToList();
+            cmb.DataSource = Productos.ToList();
 
-                
+
             dg.DataSource = oTable;
             dg.Columns[0].Visible = false;
             dg.Columns[2].Visible = false;
             //
 
         }
-      
+
         void CargarCombo()
         {
 
             var Bancos = from p in unitOfWork.CodigosRepository.GetByGroupCode("CB")
-                            select new { Id = p.CODIGO_ID, Nombre = p.CODIGO_NOMBRE + "-->" + p.CODIGO_COD };
+                         select new { Id = p.CODIGO_ID, Nombre = p.CODIGO_NOMBRE + "-->" + p.CODIGO_COD };
 
 
             this.cmbBancos.DisplayMember = "Nombre";
@@ -101,7 +99,7 @@ namespace OpeAgencia2.Facturacion
                             where p.TIPO_CODIGO != "EF"
                             select new { Id = p.TIPO_ID, Nombre = p.TIPO_CODIGO + "-->" + p.TIPO_NOMBRE };
 
-           
+
 
             this.cmbFormaPago.DisplayMember = "Nombre";
             cmbFormaPago.ValueMember = "Id";
@@ -124,7 +122,7 @@ namespace OpeAgencia2.Facturacion
 
         private void txtMontoCk_Leave(object sender, EventArgs e)
         {
-           
+
         }
 
         bool Registrar()
@@ -135,7 +133,7 @@ namespace OpeAgencia2.Facturacion
             {
                 DataRow dr = oTable.NewRow();
 
-                if (txtNumero.IntValue == 0 ||  cmbBancos.SelectedValue == null || txtMontoCk.DecimalValue == 0)
+                if (txtNumero.IntValue == 0 || cmbBancos.SelectedValue == null || txtMontoCk.DecimalValue == 0)
                 {
                     bRetorno = false;
                 }
@@ -155,11 +153,11 @@ namespace OpeAgencia2.Facturacion
                     bRetorno = true;
 
                 }
-              
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se puede registrar \n " + ex.Message.ToString(),"Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("No se puede registrar \n " + ex.Message.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
 
             return bRetorno;
@@ -183,7 +181,7 @@ namespace OpeAgencia2.Facturacion
         {
             decimal dMonto = 0;
 
-            for(int i = 0; i < dg.Rows.Count; i++)
+            for (int i = 0; i < dg.Rows.Count; i++)
             {
                 dMonto += Convert.ToDecimal(dg.Rows[i].Cells[6].Value);
             }
@@ -205,23 +203,12 @@ namespace OpeAgencia2.Facturacion
                 txtPendiente.Text = "0";
                 btnAceptar.Enabled = true;
             }
-
             txtDevolucion.DecimalValue = dMontoPend;
-                
-
-
-        }
-
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void txtEfectivo_Leave(object sender, EventArgs e)
         {
             ActualizaTotales();
         }
-
-        
     }
 }

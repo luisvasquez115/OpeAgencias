@@ -582,7 +582,7 @@
             // 
             // label13
             // 
-            this.label13.Location = new System.Drawing.Point(9, 222);
+            this.label13.Location = new System.Drawing.Point(18, 222);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(57, 31);
             this.label13.TabIndex = 20;
@@ -600,11 +600,11 @@
             // 
             // label12
             // 
-            this.label12.Location = new System.Drawing.Point(9, 163);
+            this.label12.Location = new System.Drawing.Point(18, 163);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(72, 36);
+            this.label12.Size = new System.Drawing.Size(57, 36);
             this.label12.TabIndex = 18;
-            this.label12.Text = "Dirección Residencia:";
+            this.label12.Text = "Dirección Oficina:";
             // 
             // label11
             // 

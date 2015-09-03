@@ -20,6 +20,14 @@ namespace clsUtils
 
         bool allowSpace = false;
 
+        public string StringValue
+        {
+            get
+            {
+                return textBox1.Text;
+            }
+            set { this.textBox1.Text = value.ToString(); }
+        }
 
         public int IntValue
         {
@@ -86,11 +94,6 @@ namespace clsUtils
                 e.Handled = true;
                 //    MessageBeep();
             }
-
-
-
-
         }
-
     }
 }
