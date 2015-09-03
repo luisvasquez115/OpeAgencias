@@ -125,6 +125,7 @@ namespace OpeAgencia2.Creditos
             var Recibos = from p in unitOfWork.RecibosRepository.Get(filter: xy => xy.CTE_ID >= iEpsDesdeId && xy.CTE_ID <= iEpsHastaId && xy.ESTADO_ID == 13)
                           orderby (p.CTE_ID)
                           select new { p.CTE_ID, p.ESTADO_ID, p.F_COBRO, p.F_VCTO, p.FECHA, p.IMPORTE_CTA, p.IMPORTE_TOTAL, p.RECIBO_ID, p.TIPO_REC_ID, p.NUM_REC };
+
             foreach (var Reg in Recibos)
             {
                 var oClientes = unitOfWork.ClientesRepository.GetByID(Reg.CTE_ID);

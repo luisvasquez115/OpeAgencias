@@ -45,10 +45,10 @@ namespace OpeAgencia2.Seguridad
                 if (Parametros.Parametros.UsuarioSucursal.Count > 1)
                 {
                     var sQry = from p in Parametros.Parametros.UsuarioSucursal
-                                 select new {p.Sucursales.SUC_ID, p.Sucursales.SUC_DESCRIPCION};
+                                 select new {p.USR_SUC_ID, p.Sucursales.SUC_DESCRIPCION};
                     cmbSucursal.DataSource =  sQry.ToList();
                     cmbSucursal.DisplayMember = "SUC_DESCRIPCION";
-                    cmbSucursal.ValueMember = "SUC_ID";
+                    cmbSucursal.ValueMember = "USR_SUC_ID";
                     cmbSucursal.Visible = true;
                     lblSucursal.Visible = true;
                     grbBotones.Location = new Point(grbBotones.Location.X, grbBotones.Location.Y + 25);
