@@ -88,6 +88,7 @@
             this.txtEpsHasta.Name = "txtEpsHasta";
             this.txtEpsHasta.Size = new System.Drawing.Size(100, 20);
             this.txtEpsHasta.TabIndex = 3;
+            this.txtEpsHasta.Text = "R-8437";
             this.txtEpsHasta.TextChanged += new System.EventHandler(this.txtEpsHasta_TextChanged);
             this.txtEpsHasta.Leave += new System.EventHandler(this.txtEpsHasta_Leave);
             // 
@@ -98,6 +99,7 @@
             this.txtEpsDesde.Name = "txtEpsDesde";
             this.txtEpsDesde.Size = new System.Drawing.Size(100, 20);
             this.txtEpsDesde.TabIndex = 2;
+            this.txtEpsDesde.Text = "R-7532      ";
             this.txtEpsDesde.TextChanged += new System.EventHandler(this.txtEpsDesde_TextChanged);
             this.txtEpsDesde.Leave += new System.EventHandler(this.txtEpsDesde_Leave);
             // 

@@ -99,10 +99,14 @@ namespace OpeAgencia2.Creditos
         DataTable CargarDatos()
         {
             BO.DAL.dsFactura.EstadoCuentaDataTable oTable = new BO.DAL.dsFactura.EstadoCuentaDataTable();
-            var Recibos = from p in unitOfWork.RecibosRepository.Get(filter: xy => xy.CTE_ID >= iEpsDesdeId && xy.CTE_ID <= iEpsHastaId && xy.ESTADO_ID == 13)
-                          orderby (p.CTE_ID)
-                          select new { p.CTE_ID, p.ESTADO_ID, p.F_COBRO, p.F_VCTO, p.FECHA, p.IMPORTE_CTA, p.IMPORTE_TOTAL, p.RECIBO_ID, p.TIPO_REC_ID, p.NUM_REC };
+            
+            var Recibos = from p in unitOfWork.RecibosRepository.Get(filter: xy => xy.CTE_ID >= iEpsDesdeId && xy.CTE_ID <= iEpsHastaId && xy.ESTADO_ID == 13 && xy.REC_CREDITO == true
+                              && xy.SUC_ID == Parametros.Parametros.SucursalActual)
+                              orderby (p.CTE_ID)
+                              select new { p.CTE_ID, p.ESTADO_ID, p.F_COBRO, p.F_VCTO, p.FECHA, p.IMPORTE_CTA, p.IMPORTE_TOTAL, p.RECIBO_ID, p.TIPO_REC_ID, p.NUM_REC };
 
+
+            
             foreach (var Reg in Recibos)
             {
                 var oClientes = unitOfWork.ClientesRepository.GetByID(Reg.CTE_ID);
@@ -141,7 +145,7 @@ namespace OpeAgencia2.Creditos
 
         private void txtEpsDesde_TextChanged(object sender, EventArgs e)
         {
-            var eps = unitOfWork.ClientesRepository.Get(filter: xy => xy.CTE_NUMERO_EPS == txtEpsDesde.Text).FirstOrDefault();
+           /* var eps = unitOfWork.ClientesRepository.Get(filter: xy => xy.CTE_NUMERO_EPS == txtEpsDesde.Text).FirstOrDefault();
             if (eps != null)
             {
                 iEpsDesdeId = eps.CTE_ID;
@@ -149,24 +153,25 @@ namespace OpeAgencia2.Creditos
             }
             else
                 lblEps.Text = string.Empty;
-            txtEpsHasta.Text = txtEpsDesde.Text;
+            txtEpsHasta.Text = txtEpsDesde.Text*/
         }
 
         private void txtEpsHasta_TextChanged(object sender, EventArgs e)
         {
-            var eps = unitOfWork.ClientesRepository.Get(filter: xy => xy.CTE_NUMERO_EPS == txtEpsHasta.Text).FirstOrDefault();
+            /*var eps = unitOfWork.ClientesRepository.Get(filter: xy => xy.CTE_NUMERO_EPS == txtEpsHasta.Text).FirstOrDefault();
             if (eps != null)
             {
                 iEpsHastaId = eps.CTE_ID;
                 this.lblEpsHasta.Text = eps.CTE_NOMBRE.ToString() + " " + eps.CTE_APELLIDO.ToString();
             }
             else
-                lblEpsHasta.Text = string.Empty;
+                lblEpsHasta.Text = string.Empty;*/
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             txtEpsDesde.Text = txtEpsHasta.Text = string.Empty;
         }
+             
     }
 }
