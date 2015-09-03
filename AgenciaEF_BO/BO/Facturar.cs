@@ -672,7 +672,6 @@ namespace AgenciaEF_BO.BO
                 oCaja.SUC_ID = iSucId;
                 if (bCredito)
                 {
-
                     iTipoMovCaja = 53;
                     oCaja.TIP_MOV = 53;// "MV001"  Facturacion de mercancia;
                 }

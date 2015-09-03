@@ -73,7 +73,7 @@ namespace OpeAgencia2.Facturacion
             oTable.TableName = "FacturaFecha";
 
             // string sPath = @".\Reportes\CuandreCaja.rdlc";
-            string sPath = "OpeAgencia2.Reportes.rReporteFacturacionFecha.rdlc";
+            string sPath = @".\Reportes\rReporteFacturacionFecha.rdlc";
             string sTitulo = "Listado de Facturas por Fecha (" + txtFechaDesde.Value.ToShortDateString() + " - " + txtFechaHasta.Value.ToShortDateString() +")";
 
             frmReportViewer x = new frmReportViewer(sPath, oTable, sTitulo);

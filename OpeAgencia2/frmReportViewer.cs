@@ -55,7 +55,7 @@ namespace OpeAgencia2
 
             if (_Report == null)
             {
-                this.reportViewer1.LocalReport.ReportEmbeddedResource = sReportPath;
+                this.reportViewer1.LocalReport.ReportPath = sReportPath; //sReportPath;
 
                 this.reportViewer1.LocalReport.SetParameters(new ReportParameter("Encabezado1", Parametros.ParametrosSucursal.EncabezadoFactura1));
                 this.reportViewer1.LocalReport.SetParameters(new ReportParameter("Encabezado2", Parametros.ParametrosSucursal.EncabezadoFactura2));

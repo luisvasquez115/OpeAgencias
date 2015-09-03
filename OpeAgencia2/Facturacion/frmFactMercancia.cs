@@ -231,7 +231,8 @@ namespace OpeAgencia2.Facturacion
 
         void LimpiarPantalla()
         {
-            oTableCorr.Rows.Clear();
+            if (oTableCorr != null)
+                oTableCorr.Rows.Clear();
             dgPaq.DataSource = null;
             dgResumen.DataSource = null;
             txtEPS.Text = "";
@@ -240,6 +241,7 @@ namespace OpeAgencia2.Facturacion
             txtMontoTotal.Text = "0";
             txtPaq.Text = "0";
             cmbTipoFact.SelectedIndex = 0;
+            txtTarifa.Text = string.Empty;
         }
 
         private void btnFacturar_Click(object sender, EventArgs e)
