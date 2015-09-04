@@ -647,7 +647,9 @@
     <Content Include="Reportes\rEstadoCuenta1.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Reportes\rFactura.rdlc" />
+    <Content Include="Reportes\rFactura.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Reportes\rReciboIngreso.rdlc" />
     <Content Include="Reportes\rReporteFacturacionFecha.rdlc" />
     <EmbeddedResource Include="Reportes\rInventariordlc.rdlc">
