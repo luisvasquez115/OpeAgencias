@@ -489,7 +489,7 @@ namespace OpeAgencia2.Operaciones
         {
             if (iNumeroEPS == -1)
             {
-                MessageBox.Show("Es necesario registra un numero de eps", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Es necesario registrar un numero de eps", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
             int iCargoProd = -1;

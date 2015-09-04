@@ -145,33 +145,32 @@ namespace OpeAgencia2.Creditos
 
         private void txtEpsDesde_TextChanged(object sender, EventArgs e)
         {
-           /* var eps = unitOfWork.ClientesRepository.Get(filter: xy => xy.CTE_NUMERO_EPS == txtEpsDesde.Text).FirstOrDefault();
-            if (eps != null)
-            {
-                iEpsDesdeId = eps.CTE_ID;
-                lblEps.Text = eps.CTE_NOMBRE.ToString() + " " + eps.CTE_APELLIDO.ToString();
-            }
-            else
-                lblEps.Text = string.Empty;
-            txtEpsHasta.Text = txtEpsDesde.Text*/
+             var eps = unitOfWork.ClientesRepository.Get(filter: xy => xy.CTE_NUMERO_EPS == txtEpsDesde.Text).FirstOrDefault();
+             if (eps != null)
+             {
+                 iEpsDesdeId = eps.CTE_ID;
+                 lblEps.Text = eps.CTE_NOMBRE.ToString() + " " + eps.CTE_APELLIDO.ToString();
+             }
+             else
+                 lblEps.Text = string.Empty;
+             txtEpsHasta.Text = txtEpsDesde.Text;
         }
 
         private void txtEpsHasta_TextChanged(object sender, EventArgs e)
         {
-            /*var eps = unitOfWork.ClientesRepository.Get(filter: xy => xy.CTE_NUMERO_EPS == txtEpsHasta.Text).FirstOrDefault();
+            var eps = unitOfWork.ClientesRepository.Get(filter: xy => xy.CTE_NUMERO_EPS == txtEpsHasta.Text).FirstOrDefault();
             if (eps != null)
             {
                 iEpsHastaId = eps.CTE_ID;
                 this.lblEpsHasta.Text = eps.CTE_NOMBRE.ToString() + " " + eps.CTE_APELLIDO.ToString();
             }
             else
-                lblEpsHasta.Text = string.Empty;*/
+                lblEpsHasta.Text = string.Empty;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             txtEpsDesde.Text = txtEpsHasta.Text = string.Empty;
-        }
-             
+        }             
     }
 }

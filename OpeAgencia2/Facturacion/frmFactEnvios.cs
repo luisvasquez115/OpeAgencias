@@ -176,6 +176,7 @@ namespace OpeAgencia2.Facturacion
             {
                 MessageBox.Show("Debe seleccionar un cliente para agregar envíos", "Cliente", MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
+                txtEPS.Focus();
             }
         }
 
