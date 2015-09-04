@@ -30,38 +30,29 @@ namespace OpeAgencia2.Creditos
 
         private void txtEpsDesde_Leave(object sender, EventArgs e)
         {
-            var eps = unitOfWork.ClientesRepository.Get(filter: xy => xy.CTE_NUMERO_EPS == txtEpsDesde.Text).FirstOrDefault();
-            if (txtEpsHasta.Text == string.Empty)
-                return;
-            if (eps == null)
+            if (txtEpsDesde.Text != "")
             {
-                MessageBox.Show("Numero de eps no existe", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                return;
+                var eps = unitOfWork.ClientesRepository.Get(filter: xy => xy.CTE_NUMERO_EPS == txtEpsDesde.Text).FirstOrDefault();
+
+                if (eps == null)
+                {
+                    MessageBox.Show("Numero de eps no existe", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    return;
+                }
+                else
+                {
+                    txtDiacorte.Value = 0;
+                    chkGenerar.Checked = false;
+
+                    iEpsDesdeId = eps.CTE_ID;
+                    lblEps.Text = eps.CTE_NOMBRE.ToString() + " " + eps.CTE_APELLIDO.ToString();
+                }
+
             }
-            else
-            {
-                iEpsDesdeId = eps.CTE_ID;
-                lblEps.Text = eps.CTE_NOMBRE.ToString() + " " + eps.CTE_APELLIDO.ToString();
-            }
+          
         }
 
-        private void txtEpsHasta_Leave(object sender, EventArgs e)
-        {
-            var eps = unitOfWork.ClientesRepository.Get(filter: xy => xy.CTE_NUMERO_EPS == txtEpsHasta.Text).FirstOrDefault();
-            if (txtEpsHasta.Text == string.Empty)
-                return;
-            if (eps == null)
-            {
-                MessageBox.Show("Numero de eps no existe", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                return;
-            }
-            else
-            {
-                iEpsHastaId = eps.CTE_ID;
-                this.lblEpsHasta.Text = eps.CTE_NOMBRE.ToString() + " " + eps.CTE_APELLIDO.ToString();
-            }
-        }
-
+      
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             // dsFacturaBindingSource.DataSource = CargarDataSet();
@@ -99,12 +90,31 @@ namespace OpeAgencia2.Creditos
         DataTable CargarDatos()
         {
             BO.DAL.dsFactura.EstadoCuentaDataTable oTable = new BO.DAL.dsFactura.EstadoCuentaDataTable();
-            
+
+            string sFiltro = "";
+
+            if (iEpsDesdeId > 0)
+            {
+                sFiltro = " CTE_ID == " + iEpsDesdeId.ToString() + " && ";
+            }
+            else if (txtDiacorte.Value>0)
+            {
+
+                sFiltro = " Clientes.CTE_DIA_CORTE == " + txtDiacorte.Value.ToString() + " && ";
+
+            }
+
+            sFiltro += " ESTADO_ID = 13 &&  REC_CREDITO == true  && Clientes.CTE_SUC_ID ==" + Parametros.Parametros.SucursalActual;
+
+
+            var Recibos = unitOfWork.RecibosRepository.GetDinamic(filter: sFiltro);
+                   
+            /*
             var Recibos = from p in unitOfWork.RecibosRepository.Get(filter: xy => xy.CTE_ID >= iEpsDesdeId && xy.CTE_ID <= iEpsHastaId && xy.ESTADO_ID == 13 && xy.REC_CREDITO == true
-                              && xy.SUC_ID == Parametros.Parametros.SucursalActual)
+                              && xy.SUC_ID == Parametros.Parametros.SucursalActual &&  xy.Clientes.CTE_SUC_ID)
                               orderby (p.CTE_ID)
                               select new { p.CTE_ID, p.ESTADO_ID, p.F_COBRO, p.F_VCTO, p.FECHA, p.IMPORTE_CTA, p.IMPORTE_TOTAL, p.RECIBO_ID, p.TIPO_REC_ID, p.NUM_REC };
-
+            */
 
             
             foreach (var Reg in Recibos)
@@ -170,7 +180,16 @@ namespace OpeAgencia2.Creditos
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            txtEpsDesde.Text = txtEpsHasta.Text = string.Empty;
+         //   txtEpsDesde.Text = txtEpsHasta.Text = string.Empty;
+        }
+
+        private void chkGenerar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkGenerar.Checked)
+            {
+                txtEpsDesde.Text = "";
+                txtDiacorte.Value = 0;
+            }
         }
              
     }
