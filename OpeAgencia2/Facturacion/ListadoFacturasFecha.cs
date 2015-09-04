@@ -7,8 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using BO = AgenciaEF_BO;
+using Microsoft.Reporting.WinForms;
+using System.IO;
+using System.Drawing.Imaging;
+using System.Drawing.Printing;
+using clsUtils;
+
 
 namespace OpeAgencia2.Facturacion
 {
@@ -72,11 +77,33 @@ namespace OpeAgencia2.Facturacion
 
             oTable.TableName = "FacturaFecha";
 
-            // string sPath = @".\Reportes\CuandreCaja.rdlc";
-            string sPath = "OpeAgencia2.Reportes.rReporteFacturacionFecha.rdlc";
+            //string sPath = @".\Reportes\rReporteFacturacionFecha.rdlc";
+            //string sPath = "OpeAgencia2.Reportes.rReporteFacturacionFecha.rdlc";
             string sTitulo = "Listado de Facturas por Fecha (" + txtFechaDesde.Value.ToShortDateString() + " - " + txtFechaHasta.Value.ToShortDateString() +")";
 
-            frmReportViewer x = new frmReportViewer(sPath, oTable, sTitulo);
+
+            LocalReport report = new LocalReport();
+            report.ReportPath = @".\Reportes\rReporteFacturacionFecha.rdlc";
+            report.DataSources.Add(new ReportDataSource("DataSet1", oTable.Copy()));
+
+         //   report.SetParameters(new ReportParameter("Fecha", DateTime.Now.ToShortDateString()));
+           // report.SetParameters(new ReportParameter("Hora", DateTime.Now.ToShortDateString()));
+            //report.SetParameters(new ReportParameter("Sucursal", dt.Rows[0]["SUCURSAL"].ToString()));
+            //report.SetParameters(new ReportParameter("Factura", dt.Rows[0]["REC_TIPO"].ToString() + "-" + dt.Rows[0]["REC_ID"].ToString()));
+            report.SetParameters(new ReportParameter("Titulo", sTitulo));
+            report.SetParameters(new ReportParameter("Encabezado1", Parametros.ParametrosSucursal.EncabezadoFactura1));
+            report.SetParameters(new ReportParameter("Encabezado2", Parametros.ParametrosSucursal.EncabezadoFactura2));
+            report.SetParameters(new ReportParameter("Encabezado3", Parametros.ParametrosSucursal.EncabezadoFactura3));
+            /*
+              report.DataSources.Add(
+                 new ReportDataSource("Sales", LoadSalesData()));
+               -----
+              */
+            frmReportViewer x = new frmReportViewer(report);
+            x.ShowDialog();
+
+
+
 
             x.ShowDialog();
         }

@@ -1503,7 +1503,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Sum(iif(Fields!DIAS.Value&lt;-10,cdec(Fields!BALANCE.Value),cdec(0) ))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1981,6 +1981,11 @@
                     <PageBreak>
                       <BreakLocation>Between</BreakLocation>
                     </PageBreak>
+                    <Variables>
+                      <Variable Name="var0_30">
+                        <Value>=iif(Fields!DIAS.Value&lt;=30,Fields!BALANCE.Value,0)</Value>
+                      </Variable>
+                    </Variables>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
@@ -2185,12 +2190,6 @@
     </ReportParameter>
   </ReportParameters>
   <Language>es-DO</Language>
-  <Variables>
-    <Variable Name="BalanceAcumulado">
-      <Value>0</Value>
-      <Writable>true</Writable>
-    </Variable>
-  </Variables>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>ae6df6ca-8a31-4b14-8654-f7e6801df2ef</rd:ReportID>
 </Report>
