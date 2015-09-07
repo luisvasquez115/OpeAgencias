@@ -74,7 +74,7 @@ namespace AgenciaEF_BO.BO
                 RecAnul.ESTADO_ID = recibo.ESTADO_ID;
                 RecAnul.CTE_ID = recibo.CTE_ID;
                 RecAnul.COUNTER_ID = iUsuarioId;
-                RecAnul.NUM_FISCAL = FindNextNCF_ANUL();
+                RecAnul.NUM_FISCAL = FindNextNCF_ANUL(oClientes.CTE_SUC_ID);
                 RecAnul.IMPRESO = false;
 
                 unitOfWork.RecibosRepository.Insert(RecAnul);
@@ -645,7 +645,7 @@ namespace AgenciaEF_BO.BO
                 var oClientes = unitOfWork.ClientesRepository.GetByID(oRecibos.CTE_ID);
 
                 oRecibos.TIP_FISCAL = oClientes.CTE_TIPO_FISCAL;
-                oRecibos.NUM_FISCAL = FindNextNCF(oRecibos.TIP_FISCAL);
+                oRecibos.NUM_FISCAL = FindNextNCF(oRecibos.TIP_FISCAL, iSucId);
 
 
                 if (bCredito)
@@ -1176,7 +1176,7 @@ namespace AgenciaEF_BO.BO
                 var oClientes = unitOfWork.ClientesRepository.GetByID(oRecibos.CTE_ID);
 
                 oRecibos.TIP_FISCAL = oClientes.CTE_TIPO_FISCAL;
-                oRecibos.NUM_FISCAL = FindNextNCF(oRecibos.TIP_FISCAL);
+                oRecibos.NUM_FISCAL = FindNextNCF(oRecibos.TIP_FISCAL,iSucId);
 
 
                 if (bCredito)
@@ -1638,6 +1638,27 @@ namespace AgenciaEF_BO.BO
             return sRetorno;
         }
 
+          string FindNextNCF(int iTipFiscal, int iSucursal)
+        {
+            string sRetorno = "";
+
+            NumeroFiscal oFiscal = unitOfWork.NumeroFicalRepository.Get(filter: xy => xy.TIPO_ID == iTipFiscal && xy.SUC_ID == iSucursal).FirstOrDefault();
+
+            if (oFiscal != null)
+            {
+                sRetorno = oFiscal.PREFIJO + oFiscal.SECUENCIA.ToString().PadLeft(6, '0');
+
+                oFiscal.SECUENCIA += 1;
+
+                unitOfWork.NumeroFicalRepository.Update(oFiscal);
+
+
+            }
+
+
+            return sRetorno;
+        }
+
         string FindNextNCF_ANUL()
         {
             string sRetorno = "";
@@ -1660,6 +1681,26 @@ namespace AgenciaEF_BO.BO
         }
 
 
+        string FindNextNCF_ANUL(int iSucId)
+        {
+            string sRetorno = "";
+
+            NumeroFiscal oFiscal = unitOfWork.NumeroFicalRepository.Get(filter: xy => xy.TIPO_ID == 61 && xy.SUC_ID == iSucId).FirstOrDefault();
+
+            if (oFiscal != null)
+            {
+                sRetorno = oFiscal.PREFIJO + oFiscal.SECUENCIA.ToString().PadLeft(6, '0');
+
+                oFiscal.SECUENCIA += 1;
+
+                unitOfWork.NumeroFicalRepository.Update(oFiscal);
+
+
+            }
+
+
+            return sRetorno;
+        }
 
         bool RegistroBultosEnvio(int iCteId, int iSucId, dsDatos.EnviosDataTable pTableEnvio,
             dsDatos.BultosValoresCargosDataTable oUnidades, int iUsuarioId, ref  ArrayList pBultos)
