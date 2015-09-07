@@ -16,7 +16,9 @@
                         <TextRuns>
                           <TextRun>
                             <Value>Fecha</Value>
-                            <Style />
+                            <Style>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
                           </TextRun>
                         </TextRuns>
                         <Style />
@@ -46,7 +48,9 @@
                         <TextRuns>
                           <TextRun>
                             <Value>Cliente</Value>
-                            <Style />
+                            <Style>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
                           </TextRun>
                         </TextRuns>
                         <Style />
@@ -76,7 +80,9 @@
                         <TextRuns>
                           <TextRun>
                             <Value>Factura</Value>
-                            <Style />
+                            <Style>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
                           </TextRun>
                         </TextRuns>
                         <Style />
@@ -106,7 +112,9 @@
                         <TextRuns>
                           <TextRun>
                             <Value>Monto Gravado</Value>
-                            <Style />
+                            <Style>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
                           </TextRun>
                         </TextRuns>
                         <Style />
@@ -136,7 +144,9 @@
                         <TextRuns>
                           <TextRun>
                             <Value>Monto Excento</Value>
-                            <Style />
+                            <Style>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
                           </TextRun>
                         </TextRuns>
                         <Style />
@@ -166,7 +176,9 @@
                         <TextRuns>
                           <TextRun>
                             <Value>ITBIS</Value>
-                            <Style />
+                            <Style>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
                           </TextRun>
                         </TextRuns>
                         <Style />
@@ -196,7 +208,9 @@
                         <TextRuns>
                           <TextRun>
                             <Value>Monto Fact</Value>
-                            <Style />
+                            <Style>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
                           </TextRun>
                         </TextRuns>
                         <Style />
@@ -226,7 +240,9 @@
                         <TextRuns>
                           <TextRun>
                             <Value>Usuario</Value>
-                            <Style />
+                            <Style>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
                           </TextRun>
                         </TextRuns>
                         <Style />
@@ -256,7 +272,9 @@
                         <TextRuns>
                           <TextRun>
                             <Value>NCF</Value>
-                            <Style />
+                            <Style>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
                           </TextRun>
                         </TextRuns>
                         <Style />
@@ -369,7 +387,7 @@
               <TablixHeader>
                 <Size>0.6cm</Size>
                 <CellContents>
-                  <Textbox Name="Textbox37">
+                  <Textbox Name="Textbox6">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
@@ -383,7 +401,7 @@
                         <Style />
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox37</rd:DefaultName>
+                    <rd:DefaultName>Textbox6</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -414,7 +432,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>2.5cm</Size>
+                <Size>1.94438cm</Size>
                 <CellContents>
                   <Textbox Name="Fecha1">
                     <CanGrow>true</CanGrow>
@@ -425,6 +443,7 @@
                           <TextRun>
                             <Value>=Fields!Fecha.Value</Value>
                             <Style>
+                              <FontSize>8pt</FontSize>
                               <Format>dd/MM/yyyy</Format>
                             </Style>
                           </TextRun>
@@ -459,7 +478,9 @@
                             <TextRuns>
                               <TextRun>
                                 <Value>=Fields!Cliente.Value</Value>
-                                <Style />
+                                <Style>
+                                  <FontSize>8pt</FontSize>
+                                </Style>
                               </TextRun>
                             </TextRuns>
                             <Style />
@@ -482,7 +503,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>2.5cm</Size>
+                        <Size>1.60042cm</Size>
                         <CellContents>
                           <Textbox Name="Factura">
                             <CanGrow>true</CanGrow>
@@ -492,7 +513,9 @@
                                 <TextRuns>
                                   <TextRun>
                                     <Value>=Fields!Factura.Value</Value>
-                                    <Style />
+                                    <Style>
+                                      <FontSize>8pt</FontSize>
+                                    </Style>
                                   </TextRun>
                                 </TextRuns>
                                 <Style />
@@ -526,6 +549,7 @@
                                       <TextRun>
                                         <Value>=Sum(Fields!MontoGrabado.Value)</Value>
                                         <Style>
+                                          <FontSize>8pt</FontSize>
                                           <Format>#,0.00;(#,0.00)</Format>
                                         </Style>
                                       </TextRun>
@@ -561,6 +585,7 @@
                                           <TextRun>
                                             <Value>=Sum(Fields!MontoExcento.Value)</Value>
                                             <Style>
+                                              <FontSize>8pt</FontSize>
                                               <Format>#,0.00;(#,0.00)</Format>
                                             </Style>
                                           </TextRun>
@@ -596,6 +621,7 @@
                                               <TextRun>
                                                 <Value>=Sum(Fields!ITBIS.Value)</Value>
                                                 <Style>
+                                                  <FontSize>8pt</FontSize>
                                                   <Format>#,0.00;(#,0.00)</Format>
                                                 </Style>
                                               </TextRun>
@@ -631,6 +657,7 @@
                                                   <TextRun>
                                                     <Value>=Sum(Fields!MontoFact.Value)</Value>
                                                     <Style>
+                                                      <FontSize>8pt</FontSize>
                                                       <Format>#,0.00;(#,0.00)</Format>
                                                     </Style>
                                                   </TextRun>
@@ -665,7 +692,9 @@
                                                     <TextRuns>
                                                       <TextRun>
                                                         <Value>=Fields!Usuario.Value</Value>
-                                                        <Style />
+                                                        <Style>
+                                                          <FontSize>8pt</FontSize>
+                                                        </Style>
                                                       </TextRun>
                                                     </TextRuns>
                                                     <Style />
@@ -688,7 +717,7 @@
                                           <TablixMembers>
                                             <TablixMember>
                                               <TablixHeader>
-                                                <Size>5.48979cm</Size>
+                                                <Size>3.18792cm</Size>
                                                 <CellContents>
                                                   <Textbox Name="NCF">
                                                     <CanGrow>true</CanGrow>
@@ -698,7 +727,9 @@
                                                         <TextRuns>
                                                           <TextRun>
                                                             <Value>=Fields!NCF.Value</Value>
-                                                            <Style />
+                                                            <Style>
+                                                              <FontSize>8pt</FontSize>
+                                                            </Style>
                                                           </TextRun>
                                                         </TextRuns>
                                                         <Style />
@@ -737,7 +768,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>2.5cm</Size>
+                <Size>1.94438cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox1">
                     <CanGrow>true</CanGrow>
@@ -747,7 +778,9 @@
                         <TextRuns>
                           <TextRun>
                             <Value>Total</Value>
-                            <Style />
+                            <Style>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
                           </TextRun>
                         </TextRuns>
                         <Style />
@@ -803,7 +836,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>2.5cm</Size>
+                        <Size>1.60042cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox5">
                             <CanGrow>true</CanGrow>
@@ -963,7 +996,6 @@
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
-                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixHeader>
                                       <TablixMembers>
@@ -1002,7 +1034,7 @@
                                           <TablixMembers>
                                             <TablixMember>
                                               <TablixHeader>
-                                                <Size>5.48979cm</Size>
+                                                <Size>3.18792cm</Size>
                                                 <CellContents>
                                                   <Textbox Name="Textbox11">
                                                     <CanGrow>true</CanGrow>
@@ -1053,157 +1085,168 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>3.83328cm</Top>
-        <Left>0.55245cm</Left>
+        <Top>0.44661cm</Top>
+        <Left>0.68473cm</Left>
         <Height>1.8cm</Height>
-        <Width>28.35172cm</Width>
+        <Width>24.59464cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox2">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Listado de Facturas por Fecha</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>1.81667cm</Top>
-        <Left>0.55245cm</Left>
-        <Height>0.6cm</Height>
-        <Width>15.21672cm</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Encabezado2">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Parameters!Encabezado2.Value</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Encabezado2</rd:DefaultName>
-        <Top>1.14611cm</Top>
-        <Left>0.55245cm</Left>
-        <Height>0.6cm</Height>
-        <Width>15.21672cm</Width>
-        <ZIndex>2</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Encabezado1">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Parameters!Encabezado1.Value</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Encabezado1</rd:DefaultName>
-        <Top>0.44028cm</Top>
-        <Left>0.55245cm</Left>
-        <Height>0.6cm</Height>
-        <Width>15.21672cm</Width>
-        <ZIndex>3</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Titulo">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Parameters!Titulo.Value</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Titulo</rd:DefaultName>
-        <Top>2.59306cm</Top>
-        <Left>0.55245cm</Left>
-        <Height>0.54708cm</Height>
-        <Width>15.21672cm</Width>
-        <ZIndex>4</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
-    <Height>2.44792in</Height>
+    <Height>0.98959in</Height>
     <Style />
   </Body>
-  <Width>11.37959in</Width>
+  <Width>9.95251in</Width>
   <Page>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
-    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <PageHeader>
+      <Height>1.20833in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Encabezado1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Parameters!Encabezado1.Value</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Encabezado1</rd:DefaultName>
+          <Top>0.25507cm</Top>
+          <Left>5.44724cm</Left>
+          <Height>0.6cm</Height>
+          <Width>15.21672cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Encabezado2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Parameters!Encabezado2.Value</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Encabezado2</rd:DefaultName>
+          <Top>0.89035cm</Top>
+          <Left>5.44724cm</Left>
+          <Height>0.6cm</Height>
+          <Width>15.21672cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Listado de Facturas por Fecha</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>1.49035cm</Top>
+          <Left>5.44724cm</Left>
+          <Height>0.6cm</Height>
+          <Width>15.21672cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Titulo">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Parameters!Titulo.Value</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Titulo</rd:DefaultName>
+          <Top>2.1609cm</Top>
+          <Left>5.44724cm</Left>
+          <Height>0.54708cm</Height>
+          <Width>15.21672cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageHeight>8.5in</PageHeight>
+    <PageWidth>11in</PageWidth>
+    <LeftMargin>0.3in</LeftMargin>
+    <RightMargin>0.3in</RightMargin>
+    <TopMargin>0.3in</TopMargin>
+    <BottomMargin>0.3in</BottomMargin>
+    <ColumnSpacing>0.05118in</ColumnSpacing>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
@@ -1286,6 +1329,6 @@
     </ReportParameter>
   </ReportParameters>
   <Language>en-US</Language>
-  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>7ecfe717-b357-4fbf-9e61-48c034623d72</rd:ReportID>
 </Report>

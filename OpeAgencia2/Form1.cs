@@ -394,7 +394,6 @@ namespace OpeAgencia2
                 }
                 else
                 {
-
                     x.Focus();
                 }
             }
