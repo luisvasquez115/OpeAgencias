@@ -55,7 +55,8 @@ namespace OpeAgencia2.Precios
 
         void CombosEmpresas()
         {
-            var Empresas = from p in unitOfWork.EmpresasRepository.Get()
+            var codigoCompania = unitOfWork.SucursalesRepository.GetByID(Parametros.ParametrosSucursal.IdSucursal).COM_CODIGO;
+            var Empresas = from p in unitOfWork.EmpresasRepository.Get(filter: xy => xy.COM_CODIGO == codigoCompania)
                              select new { Id = p.COM_CODIGO, Nombre = p.COM_DESCORTA };
 
 

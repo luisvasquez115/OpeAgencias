@@ -234,9 +234,6 @@ namespace OpeAgencia2.Operaciones
 
         void ImportarBultos()
         {
-
-
-
             foreach (int i in chkBultos.CheckedIndices)
             {
                 unitOfWork = new BO.DAL.UnitOfWork();

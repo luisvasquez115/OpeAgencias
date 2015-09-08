@@ -158,19 +158,14 @@ namespace OpeAgencia2
 
         void CargarOpciones()
         {
-
             int iUserId, iSucId;
-
             iUserId = Parametros.Parametros.UsuarioId;
             iSucId = Parametros.Parametros.SucursalActual;
-            
-
           //  mOpciones = unitOfWork.OpcionesRepository.Get().ToList();
 
           //  mUsuariosOpciones = unitOfWork.vwUsuarioOpcionesRepository.Get(xy => xy.USUARIO_ID == iUserId).ToList();
 
             mUsuariosOpciones = unitOfWork.vwUsuarioOpcionesRepository.Get(xy => xy.USUARIO_ID == iUserId && xy.SUC_ID == iSucId).ToList();
-
             /*
                var MyQry = from s in mUsuariosOpciones
                         where s.OPC_ID == piOpcId && s.UsuariosModulos.MOD_ID == iModId && s.UsuariosModulos.UsuarioSucursal.USR_SUC_ID == iSucUsrId
