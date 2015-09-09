@@ -277,8 +277,8 @@ namespace OpeAgencia2.Facturacion
                     {
                        //_desglosePagos!=null && _desglosePagos.Any(a=>a.DpaTipo=="I")?"RC00":null,
                        // _desglosePagos!=null && _desglosePagos.Any(a=>a.DpaTipo=="R")?"TRANSFERENCIA":null,
-                        "Total ITEMS : "+ _factura.Rows[0]["CANT_ELEMENTOS"].ToString(),
-                        GetFiscalInvoiceTypeDescripcion(_factura.Rows[0]["REC_TIPO"].ToString()) +" : " + _factura.Rows[0]["SUCURSAL"].ToString() + "-" + _factura.Rows[0]["REC_TIPO"].ToString()  + "-" +  _factura.Rows[0]["REC_ID"].ToString() ,
+                        "Total ITEMS: "+ _factura.Rows[0]["CANT_ELEMENTOS"].ToString(),
+                        GetFiscalInvoiceTypeDescripcion(_factura.Rows[0]["REC_TIPO"].ToString()) +": " + _factura.Rows[0]["SUCURSAL"].ToString() + "-" + _factura.Rows[0]["REC_TIPO"].ToString()  + "-" +  _factura.Rows[0]["REC_ID"].ToString() ,
                         _factura.Rows[0]["REC_TIPO_DESC"].ToString() , 
                        _factura.Rows[0]["NCF_TIPO"].ToString(),
                         " ", 
@@ -287,10 +287,10 @@ namespace OpeAgencia2.Facturacion
                         "Entregado a: "+_factura.Rows[0]["ENTREGADO_A"].ToString(),
                         " ",
                         "-------------------------------",
-                       "Cliente :"+ _factura.Rows[0]["CUENTACLI"].ToString(),
+                        "Cliente :"+ _factura.Rows[0]["CUENTACLI"].ToString(),
                         " ",
-                        "Revise su mercancia en nuestro counter al",
-                        "momento de recibirla. En caso contrario no",
+                        "    Revise su mercancia en nuestro counter al       ",
+                        "   momento de recibirla. En caso contrario no   ",
                         "tendra derecho de reclamos por faltante o rotura"
                     }
             };

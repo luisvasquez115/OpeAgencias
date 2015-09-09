@@ -69,7 +69,7 @@ namespace OpeAgencia2.Creditos
             LocalReport report = new LocalReport();
             report.ReportPath = @".\Reportes\rEstadoCuenta1.rdlc";
             report.DataSources.Add(new ReportDataSource("DataSet1", dt));
-            report.SetParameters(new ReportParameter("Fecha", DateTime.Now.ToShortDateString()));
+            report.SetParameters(new ReportParameter("Fecha", dtpFechaHasta.Value.ToShortDateString()));
             report.SetParameters(new ReportParameter("Hora", DateTime.Now.ToShortDateString()));
             //report.SetParameters(new ReportParameter("Sucursal", dt.Rows[0]["SUCURSAL"].ToString()));
             //report.SetParameters(new ReportParameter("Factura", dt.Rows[0]["REC_TIPO"].ToString() + "-" + dt.Rows[0]["REC_ID"].ToString()));
@@ -90,33 +90,24 @@ namespace OpeAgencia2.Creditos
         DataTable CargarDatos()
         {
             BO.DAL.dsFactura.EstadoCuentaDataTable oTable = new BO.DAL.dsFactura.EstadoCuentaDataTable();
-
             string sFiltro = "";
-
             if (iEpsDesdeId > 0)
             {
                 sFiltro = " CTE_ID == " + iEpsDesdeId.ToString() + " && ";
             }
             else if (txtDiacorte.Value>0)
             {
-
                 sFiltro = " Clientes.CTE_DIA_CORTE == " + txtDiacorte.Value.ToString() + " && ";
-
             }
-
-            sFiltro += " ESTADO_ID = 13 &&  REC_CREDITO == true  && Clientes.CTE_SUC_ID ==" + Parametros.Parametros.SucursalActual;
-
-
+            sFiltro += " ESTADO_ID = 13 &&  REC_CREDITO == true  && Clientes.CTE_SUC_ID == " + Parametros.Parametros.SucursalActual;
             var Recibos = unitOfWork.RecibosRepository.GetDinamic(filter: sFiltro);
-                   
+            Recibos = Recibos.Where(xy => xy.FECHA >= dtpFechaDesde.Value && xy.FECHA <= dtpFechaHasta.Value);
             /*
             var Recibos = from p in unitOfWork.RecibosRepository.Get(filter: xy => xy.CTE_ID >= iEpsDesdeId && xy.CTE_ID <= iEpsHastaId && xy.ESTADO_ID == 13 && xy.REC_CREDITO == true
                               && xy.SUC_ID == Parametros.Parametros.SucursalActual &&  xy.Clientes.CTE_SUC_ID)
                               orderby (p.CTE_ID)
                               select new { p.CTE_ID, p.ESTADO_ID, p.F_COBRO, p.F_VCTO, p.FECHA, p.IMPORTE_CTA, p.IMPORTE_TOTAL, p.RECIBO_ID, p.TIPO_REC_ID, p.NUM_REC };
             */
-
-            
             foreach (var Reg in Recibos)
             {
                 var oClientes = unitOfWork.ClientesRepository.GetByID(Reg.CTE_ID);
@@ -190,6 +181,14 @@ namespace OpeAgencia2.Creditos
                 txtEpsDesde.Text = "";
                 txtDiacorte.Value = 0;
             }
+            txtEpsDesde.Enabled = txtDiacorte.Enabled = !chkGenerar.Checked;
+        }
+
+        private void frmEstadoCuenta_Load(object sender, EventArgs e)
+        {
+            dtpFechaDesde.Value = DateTime.Today.AddDays(1 - DateTime.Today.Day);
+            var lastDayOfMonth = DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month);
+            dtpFechaHasta.Value = DateTime.Today.AddDays(lastDayOfMonth - DateTime.Today.Day).AddHours(23).AddMinutes(59).AddSeconds(59);
         }
     }
 }

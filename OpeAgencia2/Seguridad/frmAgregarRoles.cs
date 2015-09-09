@@ -123,14 +123,30 @@ namespace OpeAgencia2.Seguridad
 
         private void btnPasar_Click(object sender, EventArgs e)
         {
-            lstRolesUsuario.Items.Add(lstRoles.Items[lstRoles.SelectedIndex]);
-            lstRoles.Items.RemoveAt(lstRoles.SelectedIndex);
+            try
+            {
+                lstRolesUsuario.Items.Add(lstRoles.Items[lstRoles.SelectedIndex]);
+                lstRoles.Items.RemoveAt(lstRoles.SelectedIndex);
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Debe seleccionar un rol del panel izquierdo", "Seleccionar rol",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            lstRoles.Items.Add(lstRolesUsuario.Items[lstRolesUsuario.SelectedIndex]);
-            lstRolesUsuario.Items.RemoveAt(lstRolesUsuario.SelectedIndex);
+            try
+            {
+                lstRoles.Items.Add(lstRolesUsuario.Items[lstRolesUsuario.SelectedIndex]);
+                lstRolesUsuario.Items.RemoveAt(lstRolesUsuario.SelectedIndex);
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Debe seleccionar un rol del panel izquierdo", "Seleccionar rol",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

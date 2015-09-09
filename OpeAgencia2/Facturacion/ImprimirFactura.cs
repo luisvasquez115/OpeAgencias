@@ -284,7 +284,7 @@ namespace OpeAgencia2.Facturacion
                 oFactRow.PRODUCTO = Bultos.Productos.PRO_CODIGO + " " + Bultos.Productos.PRO_DESCRIPCION;
                 oFactRow.REC_CREDITO = oRecibo.REC_CREDITO == false ? "N" : "S";
                 oFactRow.REC_FECHA = oRecibo.FECHA.ToShortDateString();
-                oFactRow.SUCURSAL = Bultos.Sucursales.SUC_DESCRIPCION;
+                oFactRow.SUCURSAL = Bultos.Sucursales.SUC_CODIGO;
 
                 if (Bultos.Clientes.CTE_TIPO_FISCAL == 45) /*regimenes especiales*/
                 {

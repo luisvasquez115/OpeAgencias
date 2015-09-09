@@ -73,17 +73,14 @@ namespace OpeAgencia2.Clientes
             //}
         }
 
-        private void dg_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dg_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (dg.CurrentRow == null || dg.CurrentRow.Index < 0)
+                return;
             int iBltNumero = -1;
-
             iBltNumero = Convert.ToInt32(dg.Rows[dg.CurrentRow.Index].Cells[0].Value);
-
             Operaciones.frmRecepcion oFrom = new Operaciones.frmRecepcion(iBltNumero);
-
             oFrom.ShowDialog();
-
-       
         }
 
         private void dg_SelectionChanged(object sender, EventArgs e)

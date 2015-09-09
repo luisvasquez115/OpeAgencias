@@ -439,5 +439,15 @@ namespace OpeAgencia2.Facturacion
             if (txtEPS.Text != "" && e.KeyCode == Keys.Enter)
                 BuscarCliente();
         }
+
+        private void dgPaq_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //if (dgPaq.CurrentRow == null || dgPaq.CurrentRow.Index < 0)
+            //    return;
+            //int iBltNumero = -1;
+            //iBltNumero = Convert.ToInt32(dgPaq.CurrentRow.Cells[0].Value);
+            //Operaciones.frmRecepcion oFrom = new Operaciones.frmRecepcion(iBltNumero);
+            //oFrom.ShowDialog();
+        }
     }
 }

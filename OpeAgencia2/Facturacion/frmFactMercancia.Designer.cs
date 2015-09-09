@@ -51,13 +51,13 @@
             this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgPaq = new System.Windows.Forms.DataGridView();
+            this.txtTarifa = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabCorr = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.button1 = new System.Windows.Forms.Button();
             this.btnCorres = new System.Windows.Forms.Button();
             this.dgCorr = new System.Windows.Forms.DataGridView();
-            this.txtTarifa = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabDetalle.SuspendLayout();
@@ -334,7 +334,27 @@
             this.dgPaq.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgPaq.Size = new System.Drawing.Size(531, 303);
             this.dgPaq.TabIndex = 4;
+            this.dgPaq.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPaq_CellDoubleClick);
             this.dgPaq.SelectionChanged += new System.EventHandler(this.dgPaq_SelectionChanged);
+            // 
+            // txtTarifa
+            // 
+            this.txtTarifa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTarifa.Enabled = false;
+            this.txtTarifa.Location = new System.Drawing.Point(769, 282);
+            this.txtTarifa.Name = "txtTarifa";
+            this.txtTarifa.Size = new System.Drawing.Size(56, 20);
+            this.txtTarifa.TabIndex = 5;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(729, 285);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Tarifa";
             // 
             // tabCorr
             // 
@@ -398,25 +418,6 @@
             this.dgCorr.Size = new System.Drawing.Size(825, 261);
             this.dgCorr.TabIndex = 1;
             this.dgCorr.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCorr_CellEndEdit);
-            // 
-            // txtTarifa
-            // 
-            this.txtTarifa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTarifa.Enabled = false;
-            this.txtTarifa.Location = new System.Drawing.Point(769, 282);
-            this.txtTarifa.Name = "txtTarifa";
-            this.txtTarifa.Size = new System.Drawing.Size(56, 20);
-            this.txtTarifa.TabIndex = 5;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(729, 285);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 13);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Tarifa";
             // 
             // frmFactMercancia
             // 

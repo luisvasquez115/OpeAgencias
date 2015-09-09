@@ -153,6 +153,7 @@ namespace OpeAgencia2.Precios
         private void cmbTarifa_SelectedIndexChanged(object sender, EventArgs e)
         {
             iTarifaId = Convert.ToInt32(cmbTarifa.SelectedValue);
+            CargarDatosIniciales();
         }
 
         #endregion

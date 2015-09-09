@@ -476,5 +476,13 @@ namespace OpeAgencia2.Seguridad
         {
             txtClave.Text = string.Join("", new MD5CryptoServiceProvider().ComputeHash(new MemoryStream(Encoding.UTF8.GetBytes(this.txtClave.Text))).Select(x => x.ToString("X2")));
         }
+
+        private void btnEliminarRol_Click(object sender, EventArgs e)
+        {
+            var rolUsuario = unitOfWork.UsuariosRolesRepository.GetByID(dgRoles.CurrentRow.Cells["id"].Value);
+            unitOfWork.UsuariosRolesRepository.Delete(dgRoles.CurrentRow.Cells["id"].Value);
+            unitOfWork.Save();
+            ConsultaRoles();
+        }
     }
 }

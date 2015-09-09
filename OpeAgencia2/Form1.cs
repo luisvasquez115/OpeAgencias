@@ -131,72 +131,50 @@ namespace OpeAgencia2
 
         void ActivaSubcontros(ToolStripDropDownItem oItem)
         {
-
             if (oItem.Tag ==null)
                 return;
-
             string sTag = oItem.Tag.ToString();
-
             var eTag = mUsuariosOpciones
                        .Where(p => p.OPC_FORM != null && p.OPC_FORM.Contains(sTag))
                        .FirstOrDefault();
-                      
-
-
-
-
             if (eTag != null)
             {
                 oItem.Enabled = true;
             }
             else
                 oItem.Enabled = false;
-
         }
-      
-
 
         void CargarOpciones()
         {
             int iUserId, iSucId;
             iUserId = Parametros.Parametros.UsuarioId;
             iSucId = Parametros.Parametros.SucursalActual;
-          //  mOpciones = unitOfWork.OpcionesRepository.Get().ToList();
-
-          //  mUsuariosOpciones = unitOfWork.vwUsuarioOpcionesRepository.Get(xy => xy.USUARIO_ID == iUserId).ToList();
-
+            //  mOpciones = unitOfWork.OpcionesRepository.Get().ToList();
+            //  mUsuariosOpciones = unitOfWork.vwUsuarioOpcionesRepository.Get(xy => xy.USUARIO_ID == iUserId).ToList();
             mUsuariosOpciones = unitOfWork.vwUsuarioOpcionesRepository.Get(xy => xy.USUARIO_ID == iUserId && xy.SUC_ID == iSucId).ToList();
             /*
                var MyQry = from s in mUsuariosOpciones
                         where s.OPC_ID == piOpcId && s.UsuariosModulos.MOD_ID == iModId && s.UsuariosModulos.UsuarioSucursal.USR_SUC_ID == iSucUsrId
                         select new { s.OPC_ID, s.ACTIVO };
-              */
-
+            */
         }
 
         void BuscaTerminalFiscal()
         {
             string sSerial = clsUtils.Utils.ObtenerSerialTerminal();
             BO.Models.Terminal oTerminal = new BO.Models.Terminal();
-
             var oRetorno = unitOfWork.TerminalRepository.Get(xy => xy.SERIAL == sSerial && xy.SUC_ID == Parametros.Parametros.SucursalActual).FirstOrDefault();
             if (oRetorno !=null)
             {
-              
-
                 Parametros.ParametrosSucursal.PuertoFiscal =oRetorno.PUERTO;
                 Parametros.ParametrosSucursal.TermFiscalId = oRetorno.TERM_ID;
-
             }
             else
             {
                 Parametros.ParametrosSucursal.PuertoFiscal = "NA";
                 Parametros.ParametrosSucursal.TermFiscalId = -1;
-
             } 
-         
-            
-            
         }
 
         void InicializaParametros()
@@ -204,9 +182,7 @@ namespace OpeAgencia2
             var sQry = unitOfWork.ProductosRepository.Get(filter: s => s.PRO_CODIGO == "017").FirstOrDefault();
             Parametros.Parametros.ProdCorrespondencia = sQry.PROD_ID;
             Parametros.Parametros.NomProdCorrespondencia = sQry.PRO_DESCRIPCION + "(" + sQry.PRO_CODIGO + ")";
-            //
             Parametros.ParametrosSucursal.BuscarEncabezado();
-
         }
 
         void OrganizaMenu()
@@ -216,13 +192,10 @@ namespace OpeAgencia2
                            orderby p.OPC_ORDER
                            select new { p.OPC_NAME, p.OPC_FORM, p.OPC_ID };
              * */
-
             var Opciones = from p in mUsuariosOpciones
                            where p.OPC_PARENT_ID == 0
                            orderby p.OPC_ORDER
                            select new { p.OPC_NAME, p.OPC_FORM, p.OPC_ID };                          
-                           
-
             foreach (var opc in Opciones)
             {
                 /*if (VerificaPermiso(opc.OPC_ID))

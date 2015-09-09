@@ -755,8 +755,7 @@ namespace AgenciaEF_BO.DAL
 
         public void Save()
         {
-            context.SaveChanges();
-     
+            context.SaveChanges();     
         }
 
         private bool disposed = false;
