@@ -643,14 +643,16 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Content Include="Reportes\CuandreCaja.rdlc" />
-    <Content Include="Reportes\rCuadreCaja2.rdlc" />
+    <EmbeddedResource Include="Reportes\rCuadreCaja2.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="Reportes\rEstadoCuenta1.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Reportes\rFactura.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Reportes\rReciboIngreso.rdlc" />
+    <EmbeddedResource Include="Reportes\rReciboIngreso.rdlc" />
     <Content Include="Reportes\rReporteFacturacionFecha.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

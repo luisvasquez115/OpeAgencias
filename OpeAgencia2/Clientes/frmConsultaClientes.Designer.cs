@@ -140,6 +140,7 @@
             this.label28 = new System.Windows.Forms.Label();
             this.txtCTE_NOMBRE_COMPANIA = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
+            this.btnCodigoSecreto = new System.Windows.Forms.Button();
             this.tabMant.SuspendLayout();
             this.tabConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -1186,6 +1187,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.btnCodigoSecreto);
             this.groupBox5.Controls.Add(this.label39);
             this.groupBox5.Controls.Add(this.txtCTE_LIBRAS_GRATIS);
             this.groupBox5.Controls.Add(this.txtCTE_MENSAJE_PIE);
@@ -1285,9 +1287,9 @@
             this.txtCTE_CODIGO_VOICE.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCTE_CODIGO_VOICE.Location = new System.Drawing.Point(102, 150);
             this.txtCTE_CODIGO_VOICE.Name = "txtCTE_CODIGO_VOICE";
-            this.txtCTE_CODIGO_VOICE.PasswordChar = '*';
             this.txtCTE_CODIGO_VOICE.Size = new System.Drawing.Size(113, 20);
             this.txtCTE_CODIGO_VOICE.TabIndex = 3;
+            this.txtCTE_CODIGO_VOICE.Tag = "CTE_CODIGO_VOICE";
             // 
             // label29
             // 
@@ -1333,6 +1335,16 @@
             this.label27.Size = new System.Drawing.Size(51, 13);
             this.label27.TabIndex = 16;
             this.label27.Text = "Empresa:";
+            // 
+            // btnCodigoSecreto
+            // 
+            this.btnCodigoSecreto.Location = new System.Drawing.Point(221, 147);
+            this.btnCodigoSecreto.Name = "btnCodigoSecreto";
+            this.btnCodigoSecreto.Size = new System.Drawing.Size(27, 23);
+            this.btnCodigoSecreto.TabIndex = 25;
+            this.btnCodigoSecreto.Text = "...";
+            this.btnCodigoSecreto.UseVisualStyleBackColor = true;
+            this.btnCodigoSecreto.Click += new System.EventHandler(this.btnCodigoSecreto_Click);
             // 
             // frmConsultaClientes
             // 
@@ -1494,5 +1506,6 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox txtCTE_NOMBRE_COMPANIA;
         private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Button btnCodigoSecreto;
     }
 }
