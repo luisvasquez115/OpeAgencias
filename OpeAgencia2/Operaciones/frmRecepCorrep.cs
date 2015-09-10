@@ -36,10 +36,11 @@ namespace OpeAgencia2.Operaciones
                 lblEps.Text = "";
                 iNumeroEPS = -1;
                // iSucursalId = -1;
+                return;
             }
-            if (Eps.CTE_SUC_ID != Parametros.Parametros.UsuarioSucursalActual)
+            if (Eps.CTE_SUC_ID != Parametros.Parametros.SucursalActual)
             {
-                MessageBox.Show("Aviso", "No puede registrar correspondencia para este cliente, debe ingresar con la sucursal del cliente ", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+                MessageBox.Show("No puede registrar correspondencia para este cliente, debe ingresar con la sucursal del cliente ", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
                 Cancelar();
                 return;
             }
@@ -75,7 +76,7 @@ namespace OpeAgencia2.Operaciones
                 oCorre.CTE_ID = iNumeroEPS;
                 oCorre.FECHA = DateTime.Now;
                 oCorre.PESO = txtPesoCorr.DecimalValue;
-                oCorre.PIEZAS = txtPesoCorr.IntValue;
+                oCorre.PIEZAS = txtPiezaNormal.IntValue;
                 oCorre.USER_ID = Parametros.Parametros.UsuarioId;
 
                 unitOfWork.CorrespondenciaRepository.Insert(oCorre);

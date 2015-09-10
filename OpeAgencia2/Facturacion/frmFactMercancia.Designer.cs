@@ -51,13 +51,14 @@
             this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgPaq = new System.Windows.Forms.DataGridView();
+            this.txtTarifa = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabCorr = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.button1 = new System.Windows.Forms.Button();
             this.btnCorres = new System.Windows.Forms.Button();
             this.dgCorr = new System.Windows.Forms.DataGridView();
-            this.txtTarifa = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblCorrespondencia = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabDetalle.SuspendLayout();
@@ -336,6 +337,25 @@
             this.dgPaq.TabIndex = 4;
             this.dgPaq.SelectionChanged += new System.EventHandler(this.dgPaq_SelectionChanged);
             // 
+            // txtTarifa
+            // 
+            this.txtTarifa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTarifa.Enabled = false;
+            this.txtTarifa.Location = new System.Drawing.Point(769, 282);
+            this.txtTarifa.Name = "txtTarifa";
+            this.txtTarifa.Size = new System.Drawing.Size(56, 20);
+            this.txtTarifa.TabIndex = 5;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(729, 285);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Tarifa";
+            // 
             // tabCorr
             // 
             this.tabCorr.Controls.Add(this.splitContainer1);
@@ -399,30 +419,23 @@
             this.dgCorr.TabIndex = 1;
             this.dgCorr.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCorr_CellEndEdit);
             // 
-            // txtTarifa
+            // lblCorrespondencia
             // 
-            this.txtTarifa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTarifa.Enabled = false;
-            this.txtTarifa.Location = new System.Drawing.Point(769, 282);
-            this.txtTarifa.Name = "txtTarifa";
-            this.txtTarifa.Size = new System.Drawing.Size(56, 20);
-            this.txtTarifa.TabIndex = 5;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(729, 285);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 13);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Tarifa";
+            this.lblCorrespondencia.AutoSize = true;
+            this.lblCorrespondencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorrespondencia.ForeColor = System.Drawing.Color.Red;
+            this.lblCorrespondencia.Location = new System.Drawing.Point(13, 410);
+            this.lblCorrespondencia.Name = "lblCorrespondencia";
+            this.lblCorrespondencia.Size = new System.Drawing.Size(13, 20);
+            this.lblCorrespondencia.TabIndex = 3;
+            this.lblCorrespondencia.Text = ".";
             // 
             // frmFactMercancia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 471);
+            this.ClientSize = new System.Drawing.Size(860, 470);
+            this.Controls.Add(this.lblCorrespondencia);
             this.Controls.Add(this.tabDetalle);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -448,6 +461,7 @@
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgCorr)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -483,5 +497,6 @@
         private System.Windows.Forms.DataGridView dgCorr;
         private System.Windows.Forms.TextBox txtTarifa;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblCorrespondencia;
     }
 }

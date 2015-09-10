@@ -642,7 +642,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Content Include="Reportes\CuandreCaja.rdlc" />
+    <EmbeddedResource Include="Reportes\CuadreCaja.rdlc" />
     <EmbeddedResource Include="Reportes\rCuadreCaja2.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -652,7 +652,9 @@
     <Content Include="Reportes\rFactura.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="Reportes\rReciboIngreso.rdlc" />
+    <None Include="Reportes\rReciboIngreso.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="Reportes\rReporteFacturacionFecha.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

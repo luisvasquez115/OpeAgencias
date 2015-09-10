@@ -50,7 +50,7 @@ namespace AgenciaEF_BO.BO
                 RecAnul.RECIBO_ID_ANUL = recibo.RECIBO_ID;
                 RecAnul.REC_CREDITO = false;
 
-                var oSecuencial = unitOfWork.SecuencialesRepository.Get(filter: xy => xy.SUC_ID == RecAnul.SUC_ID && xy.TIPO_ID == 5).FirstOrDefault();
+                var oSecuencial = unitOfWork.SecuencialesRepository.Get(filter: xy => xy.SUC_ID == recibo.SUC_ID && xy.TIPO_ID == 5).FirstOrDefault();
 
                 RecAnul.NUM_REC = oSecuencial.VALOR + 1;
 
@@ -553,6 +553,8 @@ namespace AgenciaEF_BO.BO
             if (pTableCorr.Rows.Count > 0)
             {
                 bRetornoCorr = RegistroCorrespondencia(iCteId, iSucId, pTableCorr, iUsuarioId, ref pBultos);
+                oCliente.CTE_CORRESPONDENCIA = false;
+                unitOfWork.ClientesRepository.Update(oCliente);
             }
 
             if (bRetornoCorr == true)

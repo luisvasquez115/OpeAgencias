@@ -68,6 +68,7 @@ namespace OpeAgencia2.Facturacion
 
         void BuscarCliente()
         {
+            unitOfWork = new BO.DAL.UnitOfWork();
             txtTarifa.Text = "";
             oCliente = unitOfWork.ClientesRepository.Get(filter: s => s.CTE_NUMERO_EPS == txtEPS.Text && s.CTE_SUC_ID == Parametros.Parametros.SucursalActual).FirstOrDefault();
             if (oCliente != null)
@@ -84,6 +85,11 @@ namespace OpeAgencia2.Facturacion
                 {
                     cmbTipoFact.Enabled = false;
                 }
+                //
+                if (oCliente.CTE_CORRESPONDENCIA)
+                    lblCorrespondencia.Text = "Cliente tiene correspondencia";
+                else
+                    lblCorrespondencia.Text = "";
                 //
                 var ctePasaporte = oCliente.CTE_PASAPORTE ?? "";
                 if (oCliente.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd() == "" && oCliente.CTE_RNC.KeepOnlyNumbers().ToString().TrimEnd() == "" && ctePasaporte.TrimEnd() == "")
@@ -240,6 +246,7 @@ namespace OpeAgencia2.Facturacion
             txtMontoTotal.Text = "0";
             txtPaq.Text = "0";
             cmbTipoFact.SelectedIndex = 0;
+            lblCorrespondencia.Text = "";
         }
 
         private void btnFacturar_Click(object sender, EventArgs e)
