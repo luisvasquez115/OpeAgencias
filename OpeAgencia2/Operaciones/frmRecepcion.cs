@@ -277,7 +277,7 @@ namespace OpeAgencia2.Operaciones
             var Eps = unitOfWork.ClientesRepository.Get(filter: s => s.CTE_NUMERO_EPS == txtNumeroEPS.Text).FirstOrDefault();
             if (Eps != null)
             {
-                lblEps.Text = Eps.CTE_NOMBRE.ToString() + " " + Eps.CTE_APELLIDO;
+                lblEps.Text = Eps.CTE_NOMBRE + " " + Eps.CTE_APELLIDO;
                 iNumeroEPS = Eps.CTE_ID;
                 iSucursalId = Eps.CTE_SUC_ID;
             }
@@ -550,7 +550,8 @@ namespace OpeAgencia2.Operaciones
         void CarcularUnidades()
         {
             int iProductoId = Convert.ToInt32(cmbProducto.SelectedValue);
-            var cargosExits = unitOfWork.CargosProductoRepository.Get(filter: s => s.PROD_ID == iProductoId && s.Cargos.CAR_BASE_ID == 25 && s.Cargos.CAR_ESTADO == true); /*tipo cargos*/
+            var cargosExits = unitOfWork.CargosProductoRepository.Get(filter: s => s.PROD_ID == iProductoId && 
+                s.Cargos.CAR_BASE_ID == 25 && s.Cargos.CAR_ESTADO == true && s.FIJO == true); /*tipo cargos*/
             // var cargosProd = unitOfWork.CargosProductoRepository.GetByID(iCargoProd);
             decimal dPeso = Convert.ToDecimal(txtPeso.Text);
             oUnidades.Rows.Clear();

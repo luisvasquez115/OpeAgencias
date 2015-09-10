@@ -343,5 +343,10 @@ namespace OpeAgencia2.Facturacion
             }
             return dRetorno;
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

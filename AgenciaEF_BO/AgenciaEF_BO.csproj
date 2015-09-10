@@ -66,6 +66,7 @@
     <Compile Include="BO\Facturar.cs" />
     <Compile Include="DAL\ADO\Acceso.cs" />
     <Compile Include="DAL\ADO\BultosDAL.cs" />
+    <Compile Include="DAL\ADO\ClientesDAL.cs" />
     <Compile Include="DAL\BultosEnviosRepository.cs" />
     <Compile Include="DAL\CorrespondenciaRepository.cs" />
     <Compile Include="DAL\dsReportes.cs">

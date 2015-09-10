@@ -941,5 +941,12 @@ namespace OpeAgencia2.Clientes
         {
             CargarDatosIniciales();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BO.DAL.ADO.ClientesDAL oCli = new BO.DAL.ADO.ClientesDAL();
+
+            MessageBox.Show("El código secreto en la base de datos principal es:\n" + oCli.RetornaCodigoVoice_dbeps(this.textCTE_NUMERO_EPS.Text.TrimEnd()), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

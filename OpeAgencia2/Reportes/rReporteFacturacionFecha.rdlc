@@ -9,7 +9,6 @@
               <TablixCornerCell>
                 <CellContents>
                   <Textbox Name="Textbox21">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -17,18 +16,21 @@
                           <TextRun>
                             <Value>Fecha</Value>
                             <Style>
+                              <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox21</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
-                        <Style>Solid</Style>
+                        <Style>None</Style>
                       </Border>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
@@ -41,7 +43,6 @@
               <TablixCornerCell>
                 <CellContents>
                   <Textbox Name="Textbox29">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -49,18 +50,21 @@
                           <TextRun>
                             <Value>Cliente</Value>
                             <Style>
+                              <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox29</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
-                        <Style>Solid</Style>
+                        <Style>None</Style>
                       </Border>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
@@ -73,7 +77,6 @@
               <TablixCornerCell>
                 <CellContents>
                   <Textbox Name="Textbox27">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -81,18 +84,21 @@
                           <TextRun>
                             <Value>Factura</Value>
                             <Style>
+                              <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox27</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
-                        <Style>Solid</Style>
+                        <Style>None</Style>
                       </Border>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
@@ -105,7 +111,6 @@
               <TablixCornerCell>
                 <CellContents>
                   <Textbox Name="Textbox25">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -113,18 +118,21 @@
                           <TextRun>
                             <Value>Monto Gravado</Value>
                             <Style>
+                              <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox25</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
-                        <Style>Solid</Style>
+                        <Style>None</Style>
                       </Border>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
@@ -137,7 +145,6 @@
               <TablixCornerCell>
                 <CellContents>
                   <Textbox Name="Textbox23">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -145,18 +152,21 @@
                           <TextRun>
                             <Value>Monto Excento</Value>
                             <Style>
+                              <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox23</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
-                        <Style>Solid</Style>
+                        <Style>None</Style>
                       </Border>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
@@ -169,7 +179,6 @@
               <TablixCornerCell>
                 <CellContents>
                   <Textbox Name="Textbox4">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -177,18 +186,21 @@
                           <TextRun>
                             <Value>ITBIS</Value>
                             <Style>
+                              <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox4</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
-                        <Style>Solid</Style>
+                        <Style>None</Style>
                       </Border>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
@@ -201,7 +213,6 @@
               <TablixCornerCell>
                 <CellContents>
                   <Textbox Name="Textbox19">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -209,18 +220,21 @@
                           <TextRun>
                             <Value>Monto Fact</Value>
                             <Style>
+                              <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox19</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
-                        <Style>Solid</Style>
+                        <Style>None</Style>
                       </Border>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
@@ -233,7 +247,6 @@
               <TablixCornerCell>
                 <CellContents>
                   <Textbox Name="Textbox17">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -241,18 +254,21 @@
                           <TextRun>
                             <Value>Usuario</Value>
                             <Style>
+                              <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox17</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
-                        <Style>Solid</Style>
+                        <Style>None</Style>
                       </Border>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
@@ -265,7 +281,6 @@
               <TablixCornerCell>
                 <CellContents>
                   <Textbox Name="Textbox15">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -273,18 +288,21 @@
                           <TextRun>
                             <Value>NCF</Value>
                             <Style>
+                              <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox15</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
-                        <Style>Solid</Style>
+                        <Style>None</Style>
                       </Border>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
@@ -300,39 +318,42 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.14521cm</Width>
+              <Width>0.07938cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.33542cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
                     <Textbox Name="Textbox36">
-                      <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox36</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingLeft>0cm</PaddingLeft>
+                        <PaddingRight>0cm</PaddingRight>
+                        <PaddingTop>0cm</PaddingTop>
+                        <PaddingBottom>0cm</PaddingBottom>
                       </Style>
                     </Textbox>
                   </CellContents>
@@ -345,14 +366,16 @@
                 <TablixCell>
                   <CellContents>
                     <Textbox Name="Textbox12">
-                      <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -362,7 +385,7 @@
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -388,24 +411,27 @@
                 <Size>0.6cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox6">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
                             <Value />
-                            <Style />
+                            <Style>
+                              <FontSize>8pt</FontSize>
+                            </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox6</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
-                        <Style>Solid</Style>
+                        <Style>None</Style>
                       </Border>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
@@ -432,10 +458,9 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>1.94438cm</Size>
+                <Size>1.8994cm</Size>
                 <CellContents>
                   <Textbox Name="Fecha1">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -448,19 +473,21 @@
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Fecha1</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
-                        <Style>Solid</Style>
+                        <Style>None</Style>
                       </Border>
-                      <PaddingLeft>2pt</PaddingLeft>
-                      <PaddingRight>2pt</PaddingRight>
-                      <PaddingTop>2pt</PaddingTop>
-                      <PaddingBottom>2pt</PaddingBottom>
+                      <PaddingLeft>0cm</PaddingLeft>
+                      <PaddingRight>0cm</PaddingRight>
+                      <PaddingTop>0cm</PaddingTop>
+                      <PaddingBottom>0cm</PaddingBottom>
                     </Style>
                   </Textbox>
                 </CellContents>
@@ -468,10 +495,9 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>5.21672cm</Size>
+                    <Size>6.25335cm</Size>
                     <CellContents>
                       <Textbox Name="Cliente1">
-                        <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
@@ -483,19 +509,21 @@
                                 </Style>
                               </TextRun>
                             </TextRuns>
-                            <Style />
+                            <Style>
+                              <TextAlign>Left</TextAlign>
+                            </Style>
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>Cliente1</rd:DefaultName>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
-                            <Style>Solid</Style>
+                            <Style>None</Style>
                           </Border>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
+                          <PaddingLeft>0cm</PaddingLeft>
+                          <PaddingRight>0cm</PaddingRight>
+                          <PaddingTop>0cm</PaddingTop>
+                          <PaddingBottom>0cm</PaddingBottom>
                         </Style>
                       </Textbox>
                     </CellContents>
@@ -503,10 +531,9 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>1.60042cm</Size>
+                        <Size>1.47607cm</Size>
                         <CellContents>
                           <Textbox Name="Factura">
-                            <CanGrow>true</CanGrow>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
                               <Paragraph>
@@ -518,55 +545,59 @@
                                     </Style>
                                   </TextRun>
                                 </TextRuns>
-                                <Style />
+                                <Style>
+                                  <TextAlign>Left</TextAlign>
+                                </Style>
                               </Paragraph>
                             </Paragraphs>
                             <rd:DefaultName>Factura</rd:DefaultName>
                             <Style>
                               <Border>
                                 <Color>LightGrey</Color>
-                                <Style>Solid</Style>
+                                <Style>None</Style>
                               </Border>
-                              <PaddingLeft>2pt</PaddingLeft>
-                              <PaddingRight>2pt</PaddingRight>
-                              <PaddingTop>2pt</PaddingTop>
-                              <PaddingBottom>2pt</PaddingBottom>
+                              <PaddingLeft>3pt</PaddingLeft>
+                              <PaddingRight>0cm</PaddingRight>
+                              <PaddingTop>0cm</PaddingTop>
+                              <PaddingBottom>0cm</PaddingBottom>
                             </Style>
                           </Textbox>
+                          <rd:Selected>true</rd:Selected>
                         </CellContents>
                       </TablixHeader>
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>2.5cm</Size>
+                            <Size>2.4021cm</Size>
                             <CellContents>
                               <Textbox Name="MontoGrabado">
-                                <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
                                   <Paragraph>
                                     <TextRuns>
                                       <TextRun>
-                                        <Value>=Sum(Fields!MontoGrabado.Value)</Value>
+                                        <Value>=FormatNumber(Sum(Fields!MontoGrabado.Value),2)</Value>
                                         <Style>
                                           <FontSize>8pt</FontSize>
                                           <Format>#,0.00;(#,0.00)</Format>
                                         </Style>
                                       </TextRun>
                                     </TextRuns>
-                                    <Style />
+                                    <Style>
+                                      <TextAlign>Right</TextAlign>
+                                    </Style>
                                   </Paragraph>
                                 </Paragraphs>
                                 <rd:DefaultName>MontoGrabado</rd:DefaultName>
                                 <Style>
                                   <Border>
                                     <Color>LightGrey</Color>
-                                    <Style>Solid</Style>
+                                    <Style>None</Style>
                                   </Border>
-                                  <PaddingLeft>2pt</PaddingLeft>
-                                  <PaddingRight>2pt</PaddingRight>
-                                  <PaddingTop>2pt</PaddingTop>
-                                  <PaddingBottom>2pt</PaddingBottom>
+                                  <PaddingLeft>0cm</PaddingLeft>
+                                  <PaddingRight>0cm</PaddingRight>
+                                  <PaddingTop>0cm</PaddingTop>
+                                  <PaddingBottom>0cm</PaddingBottom>
                                 </Style>
                               </Textbox>
                             </CellContents>
@@ -574,35 +605,36 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>2.5cm</Size>
+                                <Size>2.42856cm</Size>
                                 <CellContents>
                                   <Textbox Name="MontoExcento">
-                                    <CanGrow>true</CanGrow>
                                     <KeepTogether>true</KeepTogether>
                                     <Paragraphs>
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>=Sum(Fields!MontoExcento.Value)</Value>
+                                            <Value>=FormatNumber(Sum(Fields!MontoExcento.Value),2)</Value>
                                             <Style>
                                               <FontSize>8pt</FontSize>
                                               <Format>#,0.00;(#,0.00)</Format>
                                             </Style>
                                           </TextRun>
                                         </TextRuns>
-                                        <Style />
+                                        <Style>
+                                          <TextAlign>Right</TextAlign>
+                                        </Style>
                                       </Paragraph>
                                     </Paragraphs>
                                     <rd:DefaultName>MontoExcento</rd:DefaultName>
                                     <Style>
                                       <Border>
                                         <Color>LightGrey</Color>
-                                        <Style>Solid</Style>
+                                        <Style>None</Style>
                                       </Border>
-                                      <PaddingLeft>2pt</PaddingLeft>
-                                      <PaddingRight>2pt</PaddingRight>
-                                      <PaddingTop>2pt</PaddingTop>
-                                      <PaddingBottom>2pt</PaddingBottom>
+                                      <PaddingLeft>0cm</PaddingLeft>
+                                      <PaddingRight>0cm</PaddingRight>
+                                      <PaddingTop>0cm</PaddingTop>
+                                      <PaddingBottom>0cm</PaddingBottom>
                                     </Style>
                                   </Textbox>
                                 </CellContents>
@@ -610,35 +642,36 @@
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>2.5cm</Size>
+                                    <Size>2.00523cm</Size>
                                     <CellContents>
                                       <Textbox Name="ITBIS">
-                                        <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Sum(Fields!ITBIS.Value)</Value>
+                                                <Value>=FormatNumber(Sum(Fields!ITBIS.Value),2)</Value>
                                                 <Style>
                                                   <FontSize>8pt</FontSize>
                                                   <Format>#,0.00;(#,0.00)</Format>
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
-                                            <Style />
+                                            <Style>
+                                              <TextAlign>Right</TextAlign>
+                                            </Style>
                                           </Paragraph>
                                         </Paragraphs>
                                         <rd:DefaultName>ITBIS</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
-                                          <PaddingRight>2pt</PaddingRight>
-                                          <PaddingTop>2pt</PaddingTop>
-                                          <PaddingBottom>2pt</PaddingBottom>
+                                          <PaddingRight>0cm</PaddingRight>
+                                          <PaddingTop>0cm</PaddingTop>
+                                          <PaddingBottom>0cm</PaddingBottom>
                                         </Style>
                                       </Textbox>
                                     </CellContents>
@@ -646,35 +679,36 @@
                                   <TablixMembers>
                                     <TablixMember>
                                       <TablixHeader>
-                                        <Size>2.5cm</Size>
+                                        <Size>2.00523cm</Size>
                                         <CellContents>
                                           <Textbox Name="MontoFact">
-                                            <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!MontoFact.Value)</Value>
+                                                    <Value>=FormatNumber(Sum(Fields!MontoFact.Value),2)</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                       <Format>#,0.00;(#,0.00)</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
-                                                <Style />
+                                                <Style>
+                                                  <TextAlign>Right</TextAlign>
+                                                </Style>
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>MontoFact</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
+                                                <Style>None</Style>
                                               </Border>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
+                                              <PaddingLeft>0cm</PaddingLeft>
+                                              <PaddingRight>0cm</PaddingRight>
+                                              <PaddingTop>0cm</PaddingTop>
+                                              <PaddingBottom>0cm</PaddingBottom>
                                             </Style>
                                           </Textbox>
                                         </CellContents>
@@ -682,10 +716,9 @@
                                       <TablixMembers>
                                         <TablixMember>
                                           <TablixHeader>
-                                            <Size>2.5cm</Size>
+                                            <Size>3.3546cm</Size>
                                             <CellContents>
                                               <Textbox Name="Usuario">
-                                                <CanGrow>true</CanGrow>
                                                 <KeepTogether>true</KeepTogether>
                                                 <Paragraphs>
                                                   <Paragraph>
@@ -697,19 +730,21 @@
                                                         </Style>
                                                       </TextRun>
                                                     </TextRuns>
-                                                    <Style />
+                                                    <Style>
+                                                      <TextAlign>Center</TextAlign>
+                                                    </Style>
                                                   </Paragraph>
                                                 </Paragraphs>
                                                 <rd:DefaultName>Usuario</rd:DefaultName>
                                                 <Style>
                                                   <Border>
                                                     <Color>LightGrey</Color>
-                                                    <Style>Solid</Style>
+                                                    <Style>None</Style>
                                                   </Border>
-                                                  <PaddingLeft>2pt</PaddingLeft>
-                                                  <PaddingRight>2pt</PaddingRight>
-                                                  <PaddingTop>2pt</PaddingTop>
-                                                  <PaddingBottom>2pt</PaddingBottom>
+                                                  <PaddingLeft>0cm</PaddingLeft>
+                                                  <PaddingRight>0cm</PaddingRight>
+                                                  <PaddingTop>0cm</PaddingTop>
+                                                  <PaddingBottom>0cm</PaddingBottom>
                                                 </Style>
                                               </Textbox>
                                             </CellContents>
@@ -717,10 +752,9 @@
                                           <TablixMembers>
                                             <TablixMember>
                                               <TablixHeader>
-                                                <Size>3.18792cm</Size>
+                                                <Size>3.49608cm</Size>
                                                 <CellContents>
                                                   <Textbox Name="NCF">
-                                                    <CanGrow>true</CanGrow>
                                                     <KeepTogether>true</KeepTogether>
                                                     <Paragraphs>
                                                       <Paragraph>
@@ -732,19 +766,21 @@
                                                             </Style>
                                                           </TextRun>
                                                         </TextRuns>
-                                                        <Style />
+                                                        <Style>
+                                                          <TextAlign>Center</TextAlign>
+                                                        </Style>
                                                       </Paragraph>
                                                     </Paragraphs>
                                                     <rd:DefaultName>NCF</rd:DefaultName>
                                                     <Style>
                                                       <Border>
                                                         <Color>LightGrey</Color>
-                                                        <Style>Solid</Style>
+                                                        <Style>None</Style>
                                                       </Border>
-                                                      <PaddingLeft>2pt</PaddingLeft>
-                                                      <PaddingRight>2pt</PaddingRight>
-                                                      <PaddingTop>2pt</PaddingTop>
-                                                      <PaddingBottom>2pt</PaddingBottom>
+                                                      <PaddingLeft>0cm</PaddingLeft>
+                                                      <PaddingRight>0cm</PaddingRight>
+                                                      <PaddingTop>0cm</PaddingTop>
+                                                      <PaddingBottom>0cm</PaddingBottom>
                                                     </Style>
                                                   </Textbox>
                                                 </CellContents>
@@ -768,10 +804,9 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>1.94438cm</Size>
+                <Size>1.8994cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox1">
-                    <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -779,6 +814,7 @@
                           <TextRun>
                             <Value>Total</Value>
                             <Style>
+                              <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
@@ -790,7 +826,7 @@
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
-                        <Style>Solid</Style>
+                        <Style>None</Style>
                       </Border>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
@@ -803,17 +839,19 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>5.21672cm</Size>
+                    <Size>6.25335cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox3">
-                        <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
                                 <Value />
-                                <Style />
+                                <Style>
+                                  <FontSize>8pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
                               </TextRun>
                             </TextRuns>
                             <Style />
@@ -823,7 +861,7 @@
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
-                            <Style>Solid</Style>
+                            <Style>None</Style>
                           </Border>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
@@ -836,27 +874,31 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>1.60042cm</Size>
+                        <Size>1.47607cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox5">
-                            <CanGrow>true</CanGrow>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
                                     <Value />
-                                    <Style />
+                                    <Style>
+                                      <FontSize>8pt</FontSize>
+                                      <FontWeight>Bold</FontWeight>
+                                    </Style>
                                   </TextRun>
                                 </TextRuns>
-                                <Style />
+                                <Style>
+                                  <TextAlign>Right</TextAlign>
+                                </Style>
                               </Paragraph>
                             </Paragraphs>
                             <rd:DefaultName>Textbox5</rd:DefaultName>
                             <Style>
                               <Border>
                                 <Color>LightGrey</Color>
-                                <Style>Solid</Style>
+                                <Style>None</Style>
                               </Border>
                               <PaddingLeft>2pt</PaddingLeft>
                               <PaddingRight>2pt</PaddingRight>
@@ -869,27 +911,31 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>2.5cm</Size>
+                            <Size>2.4021cm</Size>
                             <CellContents>
                               <Textbox Name="MontoGrabado1">
-                                <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
                                   <Paragraph>
                                     <TextRuns>
                                       <TextRun>
-                                        <Value>=Sum(Fields!MontoGrabado.Value)</Value>
-                                        <Style />
+                                        <Value>=FormatNumber(Sum(Fields!MontoGrabado.Value), 2)</Value>
+                                        <Style>
+                                          <FontSize>8pt</FontSize>
+                                          <FontWeight>Bold</FontWeight>
+                                        </Style>
                                       </TextRun>
                                     </TextRuns>
-                                    <Style />
+                                    <Style>
+                                      <TextAlign>Right</TextAlign>
+                                    </Style>
                                   </Paragraph>
                                 </Paragraphs>
                                 <rd:DefaultName>MontoGrabado1</rd:DefaultName>
                                 <Style>
                                   <Border>
                                     <Color>LightGrey</Color>
-                                    <Style>Solid</Style>
+                                    <Style>None</Style>
                                   </Border>
                                   <PaddingLeft>2pt</PaddingLeft>
                                   <PaddingRight>2pt</PaddingRight>
@@ -902,27 +948,31 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>2.5cm</Size>
+                                <Size>2.42856cm</Size>
                                 <CellContents>
                                   <Textbox Name="MontoExcento1">
-                                    <CanGrow>true</CanGrow>
                                     <KeepTogether>true</KeepTogether>
                                     <Paragraphs>
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>=Sum(Fields!MontoExcento.Value)</Value>
-                                            <Style />
+                                            <Value>=FormatNumber(Sum(Fields!MontoExcento.Value),2)</Value>
+                                            <Style>
+                                              <FontSize>8pt</FontSize>
+                                              <FontWeight>Bold</FontWeight>
+                                            </Style>
                                           </TextRun>
                                         </TextRuns>
-                                        <Style />
+                                        <Style>
+                                          <TextAlign>Right</TextAlign>
+                                        </Style>
                                       </Paragraph>
                                     </Paragraphs>
                                     <rd:DefaultName>MontoExcento1</rd:DefaultName>
                                     <Style>
                                       <Border>
                                         <Color>LightGrey</Color>
-                                        <Style>Solid</Style>
+                                        <Style>None</Style>
                                       </Border>
                                       <PaddingLeft>2pt</PaddingLeft>
                                       <PaddingRight>2pt</PaddingRight>
@@ -935,27 +985,31 @@
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>2.5cm</Size>
+                                    <Size>2.00523cm</Size>
                                     <CellContents>
                                       <Textbox Name="MontoFact1">
-                                        <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Sum(Fields!MontoFact.Value)</Value>
-                                                <Style />
+                                                <Value>=FormatNumber(Sum(Fields!ITBIS.Value),2)</Value>
+                                                <Style>
+                                                  <FontSize>8pt</FontSize>
+                                                  <FontWeight>Bold</FontWeight>
+                                                </Style>
                                               </TextRun>
                                             </TextRuns>
-                                            <Style />
+                                            <Style>
+                                              <TextAlign>Right</TextAlign>
+                                            </Style>
                                           </Paragraph>
                                         </Paragraphs>
                                         <rd:DefaultName>MontoFact1</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -968,27 +1022,31 @@
                                   <TablixMembers>
                                     <TablixMember>
                                       <TablixHeader>
-                                        <Size>2.5cm</Size>
+                                        <Size>2.00523cm</Size>
                                         <CellContents>
                                           <Textbox Name="MontoFact2">
-                                            <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!MontoFact.Value)</Value>
-                                                    <Style />
+                                                    <Value>=FormatNumber(Sum(Fields!MontoFact.Value),2)</Value>
+                                                    <Style>
+                                                      <FontSize>8pt</FontSize>
+                                                      <FontWeight>Bold</FontWeight>
+                                                    </Style>
                                                   </TextRun>
                                                 </TextRuns>
-                                                <Style />
+                                                <Style>
+                                                  <TextAlign>Right</TextAlign>
+                                                </Style>
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>MontoFact2</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
+                                                <Style>None</Style>
                                               </Border>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
@@ -1001,17 +1059,19 @@
                                       <TablixMembers>
                                         <TablixMember>
                                           <TablixHeader>
-                                            <Size>2.5cm</Size>
+                                            <Size>3.3546cm</Size>
                                             <CellContents>
                                               <Textbox Name="Textbox10">
-                                                <CanGrow>true</CanGrow>
                                                 <KeepTogether>true</KeepTogether>
                                                 <Paragraphs>
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
                                                         <Value />
-                                                        <Style />
+                                                        <Style>
+                                                          <FontSize>8pt</FontSize>
+                                                          <FontWeight>Bold</FontWeight>
+                                                        </Style>
                                                       </TextRun>
                                                     </TextRuns>
                                                     <Style />
@@ -1021,7 +1081,7 @@
                                                 <Style>
                                                   <Border>
                                                     <Color>LightGrey</Color>
-                                                    <Style>Solid</Style>
+                                                    <Style>None</Style>
                                                   </Border>
                                                   <PaddingLeft>2pt</PaddingLeft>
                                                   <PaddingRight>2pt</PaddingRight>
@@ -1034,17 +1094,19 @@
                                           <TablixMembers>
                                             <TablixMember>
                                               <TablixHeader>
-                                                <Size>3.18792cm</Size>
+                                                <Size>3.49608cm</Size>
                                                 <CellContents>
                                                   <Textbox Name="Textbox11">
-                                                    <CanGrow>true</CanGrow>
                                                     <KeepTogether>true</KeepTogether>
                                                     <Paragraphs>
                                                       <Paragraph>
                                                         <TextRuns>
                                                           <TextRun>
                                                             <Value />
-                                                            <Style />
+                                                            <Style>
+                                                              <FontSize>8pt</FontSize>
+                                                              <FontWeight>Bold</FontWeight>
+                                                            </Style>
                                                           </TextRun>
                                                         </TextRuns>
                                                         <Style />
@@ -1054,7 +1116,7 @@
                                                     <Style>
                                                       <Border>
                                                         <Color>LightGrey</Color>
-                                                        <Style>Solid</Style>
+                                                        <Style>None</Style>
                                                       </Border>
                                                       <PaddingLeft>2pt</PaddingLeft>
                                                       <PaddingRight>2pt</PaddingRight>
@@ -1085,10 +1147,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.44661cm</Top>
-        <Left>0.68473cm</Left>
-        <Height>1.8cm</Height>
-        <Width>24.59464cm</Width>
+        <Height>1.53542cm</Height>
+        <Width>25.4cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1096,10 +1156,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.98959in</Height>
+    <Height>0.70866in</Height>
     <Style />
   </Body>
-  <Width>9.95251in</Width>
+  <Width>10in</Width>
   <Page>
     <PageHeader>
       <Height>1.20833in</Height>
@@ -1107,7 +1167,6 @@
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
         <Textbox Name="Encabezado1">
-          <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
@@ -1123,10 +1182,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Encabezado1</rd:DefaultName>
-          <Top>0.25507cm</Top>
-          <Left>5.44724cm</Left>
-          <Height>0.6cm</Height>
-          <Width>15.21672cm</Width>
+          <Top>0.18451cm</Top>
+          <Height>0.52945cm</Height>
+          <Width>25.4cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1138,7 +1196,6 @@
           </Style>
         </Textbox>
         <Textbox Name="Encabezado2">
-          <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
@@ -1154,10 +1211,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Encabezado2</rd:DefaultName>
-          <Top>0.89035cm</Top>
-          <Left>5.44724cm</Left>
+          <Top>0.74924cm</Top>
           <Height>0.6cm</Height>
-          <Width>15.21672cm</Width>
+          <Width>25.4cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -1170,7 +1226,6 @@
           </Style>
         </Textbox>
         <Textbox Name="Textbox2">
-          <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
@@ -1186,10 +1241,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>1.49035cm</Top>
-          <Left>5.44724cm</Left>
+          <Top>1.34924cm</Top>
           <Height>0.6cm</Height>
-          <Width>15.21672cm</Width>
+          <Width>25.4cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -1202,7 +1256,6 @@
           </Style>
         </Textbox>
         <Textbox Name="Titulo">
-          <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
@@ -1218,10 +1271,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Titulo</rd:DefaultName>
-          <Top>2.1609cm</Top>
-          <Left>5.44724cm</Left>
+          <Top>1.94924cm</Top>
           <Height>0.54708cm</Height>
-          <Width>15.21672cm</Width>
+          <Width>25.4cm</Width>
           <ZIndex>3</ZIndex>
           <Style>
             <Border>
@@ -1242,10 +1294,10 @@
     </PageHeader>
     <PageHeight>8.5in</PageHeight>
     <PageWidth>11in</PageWidth>
-    <LeftMargin>0.3in</LeftMargin>
-    <RightMargin>0.3in</RightMargin>
-    <TopMargin>0.3in</TopMargin>
-    <BottomMargin>0.3in</BottomMargin>
+    <LeftMargin>0.5in</LeftMargin>
+    <RightMargin>0.5in</RightMargin>
+    <TopMargin>0.5in</TopMargin>
+    <BottomMargin>0.5in</BottomMargin>
     <ColumnSpacing>0.05118in</ColumnSpacing>
     <Style />
   </Page>

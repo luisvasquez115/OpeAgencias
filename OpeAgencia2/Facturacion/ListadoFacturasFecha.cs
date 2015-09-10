@@ -37,14 +37,16 @@ namespace OpeAgencia2.Facturacion
             DateTime dFechaFin;
             dFechaIni = this.txtFechaDesde.Value.Date;
             dFechaFin = this.txtFechaHasta.Value.Date.AddDays(1);
-            var sQuery = from p in unitOfWork.RecibosRepository.Get(filter: s => s.FECHA >= dFechaIni && s.FECHA < dFechaFin )
+            var sQuery = from p in unitOfWork.RecibosRepository.Get(filter: s => s.FECHA >= dFechaIni && s.FECHA < 
+                dFechaFin && s.SUC_ID == Parametros.ParametrosSucursal.IdSucursal)
                          orderby p.FECHA
                          select new { Fecha = p.FECHA, Cliente = p.Clientes.CTE_NUMERO_EPS.TrimEnd() + "-" + p.Clientes.CTE_NOMBRE.TrimEnd() + " " + p.Clientes.CTE_APELLIDO.TrimEnd() ,
-                                      Factura = p.Tipos.TIPO_CODIGO + "-" + p.RECIBO_ID,
+                                      Factura = p.Tipos.TIPO_CODIGO + "-" + p.NUM_REC,
                                       MontoGrabado = p.IMPORTE_GRAVADO,
                                       MontoExcento = p.IMPORTE_TOTAL - p.IMPORTE_GRAVADO,
                                       MontoItebis = p.IMPORTE_ITEBIS,
-                             p.ITBIS,MontoFact=p.IMPORTE_TOTAL,Usuario=p.USER_CREA,NCF=p.NUM_FISCAL };
+                                      p.ITBIS,MontoFact=p.IMPORTE_TOTAL,Usuario=p.USER_CREA,NCF=p.NUM_FISCAL,
+                                      TipoReciboId = p.TIPO_REC_ID };
             BO.DAL.dsReportes.FacturaFechaDataTable oTable = new BO.DAL.dsReportes.FacturaFechaDataTable();
             foreach (var oQuery in sQuery)
             {
@@ -53,11 +55,11 @@ namespace OpeAgencia2.Facturacion
                 oFactRow.Cliente = oQuery.Cliente;
                 oFactRow.Factura = oQuery.Factura;
                 oFactRow.Fecha = oQuery.Fecha;
-                oFactRow.MontoGrabado = oQuery.MontoGrabado;
-                oFactRow.MontoExcento = oQuery.MontoExcento;
-                oFactRow.MontoFact = oQuery.MontoFact;
+                oFactRow.MontoGrabado = oQuery.MontoGrabado * (oQuery.TipoReciboId == 5 ? -1 : 1);
+                oFactRow.MontoExcento = oQuery.MontoExcento * (oQuery.TipoReciboId == 5 ? -1 : 1);
+                oFactRow.MontoFact = oQuery.MontoFact * (oQuery.TipoReciboId == 5 ? -1 : 1);
                 oFactRow.Usuario = oQuery.Usuario;
-                oFactRow.ITBIS = oQuery.MontoItebis;
+                oFactRow.ITBIS = (oQuery.MontoItebis) * (oQuery.TipoReciboId == 5 ? -1 : 1);
                 oFactRow.NCF = oQuery.NCF;
                 oTable.Rows.Add(oFactRow);
             }
@@ -83,7 +85,7 @@ namespace OpeAgencia2.Facturacion
               */
             frmReportViewer x = new frmReportViewer(report);
             x.ShowDialog();
-            x.ShowDialog();
+            //x.ShowDialog();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

@@ -50,7 +50,7 @@ namespace AgenciaEF_BO.BO
                 RecAnul.REC_CREDITO = false;
                 RecAnul.SUC_ID = recibo.SUC_ID;
 
-                var oSecuencial = unitOfWork.SecuencialesRepository.Get(filter: xy => xy.SUC_ID == RecAnul.SUC_ID && xy.TIPO_ID == 5).FirstOrDefault();
+                var oSecuencial = unitOfWork.SecuencialesRepository.Get(filter: xy => xy.SUC_ID == recibo.SUC_ID && xy.TIPO_ID == 5).FirstOrDefault();
 
                 RecAnul.NUM_REC = oSecuencial.VALOR + 1;
 

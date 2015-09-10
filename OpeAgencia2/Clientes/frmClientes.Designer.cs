@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.usrbntMant1 = new OpeAgencia2.usrbntMant();
             this.tabMant = new System.Windows.Forms.TabControl();
             this.tabConsulta = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -142,6 +141,8 @@
             this.label28 = new System.Windows.Forms.Label();
             this.txtCTE_NOMBRE_COMPANIA = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
+            this.usrbntMant1 = new OpeAgencia2.usrbntMant();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -188,15 +189,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(745, 602);
             this.splitContainer1.SplitterDistance = 38;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // usrbntMant1
-            // 
-            this.usrbntMant1.bAdiciona = false;
-            this.usrbntMant1.bExito = false;
-            this.usrbntMant1.Location = new System.Drawing.Point(0, 3);
-            this.usrbntMant1.Name = "usrbntMant1";
-            this.usrbntMant1.Size = new System.Drawing.Size(479, 28);
-            this.usrbntMant1.TabIndex = 1;
             // 
             // tabMant
             // 
@@ -1221,6 +1213,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.button1);
             this.groupBox5.Controls.Add(this.label39);
             this.groupBox5.Controls.Add(this.txtCTE_LIBRAS_GRATIS);
             this.groupBox5.Controls.Add(this.txtCTE_MENSAJE_PIE);
@@ -1323,6 +1316,7 @@
             this.txtCTE_CODIGO_VOICE.PasswordChar = '*';
             this.txtCTE_CODIGO_VOICE.Size = new System.Drawing.Size(113, 20);
             this.txtCTE_CODIGO_VOICE.TabIndex = 3;
+            this.txtCTE_CODIGO_VOICE.Tag = "CTE_CODIGO_VOICE";
             // 
             // label29
             // 
@@ -1368,6 +1362,25 @@
             this.label27.Size = new System.Drawing.Size(51, 13);
             this.label27.TabIndex = 16;
             this.label27.Text = "Empresa:";
+            // 
+            // usrbntMant1
+            // 
+            this.usrbntMant1.bAdiciona = false;
+            this.usrbntMant1.bExito = false;
+            this.usrbntMant1.Location = new System.Drawing.Point(0, 3);
+            this.usrbntMant1.Name = "usrbntMant1";
+            this.usrbntMant1.Size = new System.Drawing.Size(479, 28);
+            this.usrbntMant1.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(221, 101);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(21, 23);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "...";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmClientes
             // 
@@ -1535,5 +1548,6 @@
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.TextBox txtCTE_EMAIL;
+        private System.Windows.Forms.Button button1;
     }
 }
