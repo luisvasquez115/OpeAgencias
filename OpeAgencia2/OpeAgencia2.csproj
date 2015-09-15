@@ -20,7 +20,7 @@
     <SccProvider>
     </SccProvider>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\192.168.199.15\ope agencias\</PublishUrl>
+    <PublishUrl>\\192.168.199.15\ope agencias\ope agencias prueba\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -32,7 +32,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>63</ApplicationRevision>
+    <ApplicationRevision>65</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -271,6 +271,12 @@
     </Compile>
     <Compile Include="Operaciones\frmImportacion.Designer.cs">
       <DependentUpon>frmImportacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operaciones\FrmRecalcularTarifa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operaciones\FrmRecalcularTarifa.Designer.cs">
+      <DependentUpon>FrmRecalcularTarifa.cs</DependentUpon>
     </Compile>
     <Compile Include="Operaciones\frmRecepcion.cs">
       <SubType>Form</SubType>
@@ -557,6 +563,9 @@
     <EmbeddedResource Include="Operaciones\frmImportacion.resx">
       <DependentUpon>frmImportacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Operaciones\FrmRecalcularTarifa.resx">
+      <DependentUpon>FrmRecalcularTarifa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Operaciones\frmRecepcion.resx">
       <DependentUpon>frmRecepcion.cs</DependentUpon>
     </EmbeddedResource>
@@ -642,9 +651,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Content Include="Reportes\CuandreCaja.rdlc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Reportes\rCuadreCaja2.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -661,6 +667,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Reportes\rInventariordlc.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reportes\CuadreCaja.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="Seguridad\frmAccesoRoles.resx">

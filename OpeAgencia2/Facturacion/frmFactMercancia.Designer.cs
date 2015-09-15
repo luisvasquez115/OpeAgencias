@@ -58,6 +58,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnCorres = new System.Windows.Forms.Button();
             this.dgCorr = new System.Windows.Forms.DataGridView();
+            this.lblCorrespondencia = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabDetalle.SuspendLayout();
@@ -419,11 +420,23 @@
             this.dgCorr.TabIndex = 1;
             this.dgCorr.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCorr_CellEndEdit);
             // 
+            // lblCorrespondencia
+            // 
+            this.lblCorrespondencia.AutoSize = true;
+            this.lblCorrespondencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorrespondencia.ForeColor = System.Drawing.Color.Red;
+            this.lblCorrespondencia.Location = new System.Drawing.Point(13, 410);
+            this.lblCorrespondencia.Name = "lblCorrespondencia";
+            this.lblCorrespondencia.Size = new System.Drawing.Size(13, 20);
+            this.lblCorrespondencia.TabIndex = 3;
+            this.lblCorrespondencia.Text = ".";
+            // 
             // frmFactMercancia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 471);
+            this.ClientSize = new System.Drawing.Size(860, 470);
+            this.Controls.Add(this.lblCorrespondencia);
             this.Controls.Add(this.tabDetalle);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -449,6 +462,7 @@
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgCorr)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -484,5 +498,6 @@
         private System.Windows.Forms.DataGridView dgCorr;
         private System.Windows.Forms.TextBox txtTarifa;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblCorrespondencia;
     }
 }

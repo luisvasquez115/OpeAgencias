@@ -58,6 +58,7 @@
             this.tabTransacc = new System.Windows.Forms.TabPage();
             this.tabReclamo = new System.Windows.Forms.TabPage();
             this.tabAudit = new System.Windows.Forms.TabPage();
+            this.lblCorrespondencia = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabGenerales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -116,6 +117,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblCorrespondencia);
             this.groupBox1.Controls.Add(this.txtMontoTotal);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtPaq);
@@ -181,6 +183,7 @@
             this.btnLimpiar.TabIndex = 11;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnConsultar
             // 
@@ -384,6 +387,17 @@
             this.tabAudit.Text = "Auditoria";
             this.tabAudit.UseVisualStyleBackColor = true;
             // 
+            // lblCorrespondencia
+            // 
+            this.lblCorrespondencia.AutoSize = true;
+            this.lblCorrespondencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorrespondencia.ForeColor = System.Drawing.Color.Red;
+            this.lblCorrespondencia.Location = new System.Drawing.Point(376, 79);
+            this.lblCorrespondencia.Name = "lblCorrespondencia";
+            this.lblCorrespondencia.Size = new System.Drawing.Size(13, 20);
+            this.lblCorrespondencia.TabIndex = 16;
+            this.lblCorrespondencia.Text = ".";
+            // 
             // frmConsultaMercancia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -443,5 +457,6 @@
         private System.Windows.Forms.Label lblPaquetes;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
+        private System.Windows.Forms.Label lblCorrespondencia;
     }
 }

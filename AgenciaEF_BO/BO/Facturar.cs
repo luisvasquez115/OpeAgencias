@@ -553,6 +553,8 @@ namespace AgenciaEF_BO.BO
             if (pTableCorr.Rows.Count > 0)
             {
                 bRetornoCorr = RegistroCorrespondencia(iCteId, iSucId, pTableCorr, iUsuarioId, ref pBultos);
+                oCliente.CTE_CORRESPONDENCIA = false;
+                unitOfWork.ClientesRepository.Update(oCliente);
             }
 
             if (bRetornoCorr == true)

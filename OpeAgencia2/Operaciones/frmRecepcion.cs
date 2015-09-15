@@ -310,6 +310,13 @@ namespace OpeAgencia2.Operaciones
                        // return;
                         btnSalvar.Enabled = false;
                     }
+                    if (sqlBultos.SUC_ID != Parametros.ParametrosSucursal.IdSucursal)
+                    {
+                        MessageBox.Show("Este paquete pertenece a otra sucursal", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        btnSalvar.Enabled = false;
+                        LimpiarCampos();
+                        return;
+                    }
                     else
                     { btnSalvar.Enabled = true; }
 

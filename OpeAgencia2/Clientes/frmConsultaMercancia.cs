@@ -31,7 +31,8 @@ namespace OpeAgencia2.Clientes
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-             
+            unitOfWork = new BO.DAL.UnitOfWork();
+
                 var oEmpresa = unitOfWork.SucursalesRepository.Get(xy=>xy.SUC_ID == Parametros.Parametros.SucursalActual).FirstOrDefault();
 
                 var oBultos = from p in unitOfWork.BultosRepository.GetByNumeroEPS(txtEPS.Text, txtGuiaMadre.Text, txtCodigoBarra.Text, txtTracking.Text, cmbEstado.SelectedIndex, oEmpresa.Empresas.COM_CODIGO)
@@ -42,6 +43,26 @@ namespace OpeAgencia2.Clientes
            
                 dg.DataSource = oBultos.ToList();
                 dg.Columns[0].Visible = false;
+
+            if (txtEPS.Text.TrimEnd() != "")
+            {
+                var oCliente = unitOfWork.ClientesRepository.Get(filter: xy => xy.CTE_NUMERO_EPS == txtEPS.Text ).FirstOrDefault();
+                if (oCliente != null)
+                {
+                    if (oCliente.CTE_CORRESPONDENCIA)
+                        lblCorrespondencia.Text = "Cliente tiene correspondencia";
+                    else
+                        lblCorrespondencia.Text = "";
+
+                }
+                else
+                    lblCorrespondencia.Text = "";
+
+            }
+            else
+            {
+                lblCorrespondencia.Text = "";
+            }
             
 
         }
@@ -134,6 +155,11 @@ namespace OpeAgencia2.Clientes
                 else
                     htValores[cargo.Cargo] = Convert.ToDecimal(htValores[cargo.Cargo]) + cargo.Monto;
             }
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
 
         }
 

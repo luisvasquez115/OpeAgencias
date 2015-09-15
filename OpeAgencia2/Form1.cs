@@ -153,6 +153,14 @@ namespace OpeAgencia2
             //  mOpciones = unitOfWork.OpcionesRepository.Get().ToList();
             //  mUsuariosOpciones = unitOfWork.vwUsuarioOpcionesRepository.Get(xy => xy.USUARIO_ID == iUserId).ToList();
             mUsuariosOpciones = unitOfWork.vwUsuarioOpcionesRepository.Get(xy => xy.USUARIO_ID == iUserId && xy.SUC_ID == iSucId).ToList();
+            //var mOpcionesRoles = unitOfWork.UsuariosRolesRepository.Get(xy => xy.USR_ROLE_ID == iUserId && xy.USR_SUC_ID == iSucId).ToList();
+            //foreach (var rol in mOpcionesRoles)
+            //{
+            //    foreach (var opcion in unitOfWork.RolesOpcionesRepository.GetByID(rol.ROL_ID))
+            //    {
+                    
+            //    }
+            //}
             /*
                var MyQry = from s in mUsuariosOpciones
                         where s.OPC_ID == piOpcId && s.UsuariosModulos.MOD_ID == iModId && s.UsuariosModulos.UsuarioSucursal.USR_SUC_ID == iSucUsrId

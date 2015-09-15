@@ -33,6 +33,7 @@ namespace OpeAgencia2.Operaciones
             oAgencias = new wsAgencias.wsAgenciasSoapClient();
             oAgencias.InnerChannel.OperationTimeout = System.TimeSpan.FromSeconds(20);
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             CodigoAgencia = Parametros.ParametrosSucursal.CodigoSucursal;

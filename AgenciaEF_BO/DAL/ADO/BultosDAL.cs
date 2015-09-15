@@ -22,9 +22,9 @@ namespace AgenciaEF_BO.DAL.ADO
             {
                 iRetorno = _connection.ExecuteScalar<int>(@"[PROC_MFR2_INSERTAR_CARGOS]", new {BLT_NUMERO_LOCAL= piBultoLocal, BLT_NUMERO_EPS=piBltNumero }, commandType: CommandType.StoredProcedure);
 
-               // iRetorno = _connection.ExecuteScalar<int>(@"[PROC_MFR2_INSERTAR_UNIDADES]", new { BLT_NUMERO_LOCAL = piBultoLocal, BLT_NUMERO_EPS = piBltNumero }, commandType: CommandType.StoredProcedure);
+                //iRetorno = _connection.ExecuteScalar<int>(@"[PROC_MFR2_INSERTAR_UNIDADES]", new { BLT_NUMERO_LOCAL = piBultoLocal, BLT_NUMERO_EPS = piBltNumero }, commandType: CommandType.StoredProcedure);
 
-              //  iRetorno = _connection.ExecuteScalar<int>(@"[PROC_MFR2_INSERTAR_ITEBIS]", new { BLT_NUMERO_LOCAL = piBultoLocal}, commandType: CommandType.StoredProcedure);
+                //iRetorno = _connection.ExecuteScalar<int>(@"[PROC_MFR2_INSERTAR_ITEBIS]", new { BLT_NUMERO_LOCAL = piBultoLocal}, commandType: CommandType.StoredProcedure);
                 
             }
 

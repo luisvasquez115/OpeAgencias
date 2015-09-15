@@ -104,7 +104,7 @@ namespace OpeAgencia2.Precios
         }
 
         void CombosCargos(int iProductoId)
-        {
+        {   
             var Cargos = from p in unitOfWork.CargosProductoRepository.Get(filter: s => (s.PROD_ID == iProductoId && s.Cargos.CAR_DIRECTO_TABLA == "T"))
                          select new { Id = p.CARGO_PROD_ID, Nombre = p.Cargos.CAR_CODIGO + "-->" + p.Cargos.CAR_DESCRIPCION + "(" + p.TasaCambio.TASA_CODIGO + ")" };
 

@@ -847,6 +847,10 @@ namespace AgenciaEF_BO.DAL {
             
             private global::System.Data.DataColumn columnCounter;
             
+            private global::System.Data.DataColumn columnFactura;
+            
+            private global::System.Data.DataColumn columnFormaPago;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CuadreCajaDataTable() {
@@ -938,6 +942,22 @@ namespace AgenciaEF_BO.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FacturaColumn {
+                get {
+                    return this.columnFactura;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FormaPagoColumn {
+                get {
+                    return this.columnFormaPago;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -973,7 +993,7 @@ namespace AgenciaEF_BO.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CuadreCajaRow AddCuadreCajaRow(int Id, System.DateTime Fecha, string Tipo, string Descr, string EPS, decimal Importe, string Counter) {
+            public CuadreCajaRow AddCuadreCajaRow(int Id, System.DateTime Fecha, string Tipo, string Descr, string EPS, decimal Importe, string Counter, string Factura, string FormaPago) {
                 CuadreCajaRow rowCuadreCajaRow = ((CuadreCajaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
@@ -982,7 +1002,9 @@ namespace AgenciaEF_BO.DAL {
                         Descr,
                         EPS,
                         Importe,
-                        Counter};
+                        Counter,
+                        Factura,
+                        FormaPago};
                 rowCuadreCajaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCuadreCajaRow);
                 return rowCuadreCajaRow;
@@ -1012,6 +1034,8 @@ namespace AgenciaEF_BO.DAL {
                 this.columnEPS = base.Columns["EPS"];
                 this.columnImporte = base.Columns["Importe"];
                 this.columnCounter = base.Columns["Counter"];
+                this.columnFactura = base.Columns["Factura"];
+                this.columnFormaPago = base.Columns["FormaPago"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1031,6 +1055,10 @@ namespace AgenciaEF_BO.DAL {
                 base.Columns.Add(this.columnImporte);
                 this.columnCounter = new global::System.Data.DataColumn("Counter", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCounter);
+                this.columnFactura = new global::System.Data.DataColumn("Factura", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFactura);
+                this.columnFormaPago = new global::System.Data.DataColumn("FormaPago", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFormaPago);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2223,6 +2251,38 @@ namespace AgenciaEF_BO.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Factura {
+                get {
+                    try {
+                        return ((string)(this[this.tableCuadreCaja.FacturaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Factura\' in table \'CuadreCaja\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCuadreCaja.FacturaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FormaPago {
+                get {
+                    try {
+                        return ((string)(this[this.tableCuadreCaja.FormaPagoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FormaPago\' in table \'CuadreCaja\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCuadreCaja.FormaPagoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsIdNull() {
                 return this.IsNull(this.tableCuadreCaja.IdColumn);
             }
@@ -2303,6 +2363,30 @@ namespace AgenciaEF_BO.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCounterNull() {
                 this[this.tableCuadreCaja.CounterColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFacturaNull() {
+                return this.IsNull(this.tableCuadreCaja.FacturaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFacturaNull() {
+                this[this.tableCuadreCaja.FacturaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFormaPagoNull() {
+                return this.IsNull(this.tableCuadreCaja.FormaPagoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFormaPagoNull() {
+                this[this.tableCuadreCaja.FormaPagoColumn] = global::System.Convert.DBNull;
             }
         }
         
