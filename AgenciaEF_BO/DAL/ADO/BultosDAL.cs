@@ -31,38 +31,23 @@ namespace AgenciaEF_BO.DAL.ADO
             return true;
         }
 
-        /*public Agencias ObtenerAgenciaPorCodigo(string ageCodigo, int tipoBusqueda = 1)
+        //(DocCodigo, FacCodigo, Parametros.ParametrosSucursal.CodigoAlmacen, Parametros.ParametrosSucursal.Ubicacion, Parametros.ParametrosSucursal.IdSucursal)
+        public IEnumerable<ImportacionAgencia> ImportarBultos(string psDocCodigo, string psFacCodigo, int piCodAlmacen, string psUbicacion, int piSucId, int piUserId)
         {
-            Agencias _agencia = null;
+            IEnumerable<ImportacionAgencia> oImpAgencia;
+
             using (_connection = Acceso.ObtenerConexion())
             {
-                _agencia = _connection.Query<Agencias>(@"sp_sopv2_ObtenerAgenciaPorCodigo", new { ageCodigo, tipoBusqueda }, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                oImpAgencia = _connection.Query<ImportacionAgencia>(@"[SP_MFR2_IMPORTA_MANIFIESTO]", new { DOC_CODIGO = psDocCodigo, FAC_CODIGO = psFacCodigo,
+                                                                                                           ALM_CODIGO = piCodAlmacen,
+                                                                                                           BLT_UBICACION = psUbicacion,
+                                                                                                           SUC_ID = piSucId,
+                                                                                                           USUARIO_ID = piUserId
+                }, commandType: CommandType.StoredProcedure);
+
             }
-            return _agencia;
+
+            return oImpAgencia;
         }
-         */ 
-
-        /*public ICollection<Agencias> ObtenerAgencias(string parametro, int tipoBusqueda)
-        {
-            ICollection<Agencias> _agencias;
-            using (_connection = Acceso.ObtenerConexion())
-            {
-                _agencias = _connection.Query<Agencias>("sp_sopv2_ObtenerAgencias", new { parametro, tipoBusqueda }, commandType: CommandType.StoredProcedure).ToList();
-            }
-            return _agencias;
-        }*/
-
-        /*public string ObtenerDescripcionAgencia(string ageCodigo)
-        {
-            string _descripcionAgencia = null;
-            using (_connection = Acceso.ObtenerConexion())
-            {
-                _descripcionAgencia = _connection.Query<string>("sp_sopv2_ObtenerDescripcionAgencia", new
-                {
-                    ageCodigo
-                }, commandType: CommandType.StoredProcedure).FirstOrDefault();
-            }
-            return _descripcionAgencia;
-        }*/
     }
 }
