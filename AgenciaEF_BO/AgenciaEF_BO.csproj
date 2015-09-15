@@ -157,6 +157,7 @@
     <Compile Include="Models\DatosPago.cs" />
     <Compile Include="Models\Envios.cs" />
     <Compile Include="Models\EquivalenciaBultos.cs" />
+    <Compile Include="Models\ImportacionAgencia.cs" />
     <Compile Include="Models\Modulos.cs" />
     <Compile Include="Models\PagosRecibos.cs" />
     <Compile Include="Models\Pagos.cs" />

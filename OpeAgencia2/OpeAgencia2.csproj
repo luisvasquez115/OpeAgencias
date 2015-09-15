@@ -272,6 +272,12 @@
     <Compile Include="Operaciones\frmImportacion.Designer.cs">
       <DependentUpon>frmImportacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Operaciones\frmNuevaImportacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operaciones\frmNuevaImportacion.Designer.cs">
+      <DependentUpon>frmNuevaImportacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Operaciones\frmRecepcion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -556,6 +562,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Operaciones\frmImportacion.resx">
       <DependentUpon>frmImportacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operaciones\frmNuevaImportacion.resx">
+      <DependentUpon>frmNuevaImportacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operaciones\frmRecepcion.resx">
       <DependentUpon>frmRecepcion.cs</DependentUpon>

@@ -22,6 +22,9 @@ namespace OpeAgencia2.Operaciones
 
         int iTotal = 0;
 
+        string FacCodigo;
+        string DocCodigo;
+
         DataSet ds;
         string CodigoAgencia;
         wsAgencias.wsAgenciasSoapClient oAgencias;
@@ -86,8 +89,8 @@ namespace OpeAgencia2.Operaciones
             lblMensaje.Text = "[Estableciendo comunicacion con Servidor.]";
             lblMensaje.Refresh();
 
-            string FacCodigo = dgFacturas.Rows[dgFacturas.CurrentRow.Index].Cells[0].Value.ToString();
-            string DocCodigo = dgFacturas.Rows[dgFacturas.CurrentRow.Index].Cells[1].Value.ToString();
+             FacCodigo = dgFacturas.Rows[dgFacturas.CurrentRow.Index].Cells[0].Value.ToString();
+             DocCodigo = dgFacturas.Rows[dgFacturas.CurrentRow.Index].Cells[1].Value.ToString();
 
 
             try
@@ -381,6 +384,7 @@ namespace OpeAgencia2.Operaciones
             oBultos.ALM_CODIGO = Parametros.ParametrosSucursal.CodigoAlmacen;
             oBultos.BLT_UBICACION = Parametros.ParametrosSucursal.Ubicacion;
             oBultos.SUC_ID = Parametros.ParametrosSucursal.IdSucursal;
+
             var oCliente = unitOfWork.ClientesRepository.ClienteIdFromEps(oRow["CTE_NUMERO_EPS"].ToString().TrimEnd());
             if (oCliente.Count() != 0)
                 oBultos.CTE_ID = oCliente.FirstOrDefault().CTE_ID;
