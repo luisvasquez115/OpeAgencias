@@ -200,7 +200,7 @@ namespace OpeAgencia2.Clientes
             //
             cmbCTE_SUC_ID.DataSource = Qry.ToList();
 
-            cmbCTE_SUC_ID.SelectedValue = -1;
+            //cmbCTE_SUC_ID.SelectedValue = -1;
 
         }
 

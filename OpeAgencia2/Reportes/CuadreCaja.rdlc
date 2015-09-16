@@ -376,6 +376,7 @@
                               <Value>Sub-Total</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -394,6 +395,7 @@
                         <PaddingBottom>0cm</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -407,6 +409,7 @@
                               <Value>=Sum(Fields!Importe.Value)</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Format>n2</Format>
                               </Style>
                             </TextRun>
@@ -428,6 +431,7 @@
                         <PaddingBottom>0cm</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -682,7 +686,6 @@
                       <PaddingBottom>0cm</PaddingBottom>
                     </Style>
                   </Textbox>
-                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
               <TablixMembers>
@@ -741,7 +744,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>0.10583cm</Top>
         <Height>2.23271cm</Height>
-        <Width>19.05cm</Width>
+        <Width>19.04999cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
