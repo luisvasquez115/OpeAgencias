@@ -189,7 +189,8 @@ namespace OpeAgencia2.Operaciones
         private void btnProcesar_Click(object sender, EventArgs e)
         {
             // ImportarBultos();
-            if (MessageBox.Show("Seguro que quiere importar datos a su base de datos local", "Aviso", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+            if (MessageBox.Show("¿Seguro que quiere importar datos a su base de datos local?", "Aviso", 
+                MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
             {
                 return;
             }

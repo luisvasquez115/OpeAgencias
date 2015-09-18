@@ -69,7 +69,7 @@ namespace OpeAgencia2.Operaciones
             catch (Exception ex)
             {
                 lblMensaje.Text = "[Error.....]";
-                MessageBox.Show("No se puedo hacer conexion con el Servidor " + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se puedo hacer conexión con el Servidor " + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
            
             lblMensaje.Visible = false;
@@ -80,7 +80,8 @@ namespace OpeAgencia2.Operaciones
             IEnumerable<BO.Models.ImportacionAgencia> oImpAgencia;
 
             // ImportarBultos();
-            if (MessageBox.Show("Seguro que quiere importar datos a su base de datos local", "Aviso", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+            if (MessageBox.Show("¿Seguro que quiere importar datos a su base de datos local?", "Aviso", 
+                MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
             {
                 return;
             }
@@ -88,38 +89,30 @@ namespace OpeAgencia2.Operaciones
             try
             {
                 string DocCodigo = dgFacturas.Rows[dgFacturas.CurrentRow.Index].Cells[0].Value.ToString();
-                string FacCodigo = dgFacturas.Rows[dgFacturas.CurrentRow.Index].Cells[1].Value.ToString();
-              
-            
-            AgenciaEF_BO.DAL.ADO.BultosDal Bultos = new BO.DAL.ADO.BultosDal();
-
-            //EXEC [SP_MFR2_IMPORTA_MANIFIESTO] 'FT01','20898323',4,'656565',4,1
-            oImpAgencia=  Bultos.ImportarBultos(DocCodigo, FacCodigo, Parametros.ParametrosSucursal.CodigoAlmacen,
-                                                Parametros.ParametrosSucursal.Ubicacion, 
-                                                Parametros.ParametrosSucursal.IdSucursal,
-                                                Parametros.Parametros.UsuarioId);
-
-
+                string FacCodigo = dgFacturas.Rows[dgFacturas.CurrentRow.Index].Cells[1].Value.ToString();            
+                AgenciaEF_BO.DAL.ADO.BultosDal Bultos = new BO.DAL.ADO.BultosDal();
+                //EXEC [SP_MFR2_IMPORTA_MANIFIESTO] 'FT01','20898323',4,'656565',4,1
+                oImpAgencia = Bultos.ImportarBultos(DocCodigo, FacCodigo, Parametros.ParametrosSucursal.CodigoAlmacen,
+                    Parametros.ParametrosSucursal.Ubicacion, 
+                    Parametros.ParametrosSucursal.IdSucursal,
+                    Parametros.Parametros.UsuarioId);
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Error en proceso ..." + ex.Message.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error en proceso... " + ex.Message.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             if (oImpAgencia != null)
             {
                 var oSeleccion = from p in oImpAgencia
-                                 select new { p.BLT_CODIGO_BARRA, p.IMPORTADO, p.MENSAJE };
-
+                                 from q in unitOfWork.BultosRepository.Get(filter: xy => xy.BLT_CODIGO_BARRA == p.BLT_CODIGO_BARRA)
+                                 from r in unitOfWork.ClientesRepository.Get(filter: yz => yz.CTE_ID == q.CTE_ID)
+                                 select new { CodigoBarras = p.BLT_CODIGO_BARRA, Importado = p.IMPORTADO, Mensaje = p.MENSAJE, EPC = r.CTE_NUMERO_EPS };
                 dg.DataSource = oSeleccion.ToList();
             }
             else
                 dg.DataSource = null;
-
-
             MessageBox.Show("Proceso ejecutado satisfactoriamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
     }
 }

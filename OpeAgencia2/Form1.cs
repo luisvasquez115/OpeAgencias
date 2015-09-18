@@ -428,11 +428,15 @@ namespace OpeAgencia2
             x.Show();
         }
 
-        private void toolStripButton3_Click(object sender, EventArgs e)
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Close();
+            e.Cancel = MessageBox.Show("¿Está seguro de que desea salir del sistema?", "Salir del sistema",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes;
         }
 
-
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

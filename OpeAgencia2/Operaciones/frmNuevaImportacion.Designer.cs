@@ -53,13 +53,13 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(461, 39);
+            this.groupBox1.Size = new System.Drawing.Size(564, 39);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(325, 9);
+            this.button1.Location = new System.Drawing.Point(458, 10);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 23);
             this.button1.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             // DateTimePicker1
             // 
-            this.DateTimePicker1.Location = new System.Drawing.Point(79, 12);
+            this.DateTimePicker1.Location = new System.Drawing.Point(55, 13);
             this.DateTimePicker1.Name = "DateTimePicker1";
             this.DateTimePicker1.Size = new System.Drawing.Size(221, 20);
             this.DateTimePicker1.TabIndex = 1;
@@ -77,7 +77,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 12);
+            this.label1.Location = new System.Drawing.Point(9, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 0;
@@ -95,10 +95,13 @@
             // 
             // GroupBox2
             // 
+            this.GroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.GroupBox2.Controls.Add(this.dgFacturas);
             this.GroupBox2.Location = new System.Drawing.Point(12, 70);
             this.GroupBox2.Name = "GroupBox2";
-            this.GroupBox2.Size = new System.Drawing.Size(498, 107);
+            this.GroupBox2.Size = new System.Drawing.Size(567, 106);
             this.GroupBox2.TabIndex = 25;
             this.GroupBox2.TabStop = false;
             this.GroupBox2.Text = "Facturas";
@@ -112,7 +115,7 @@
             this.dgFacturas.Location = new System.Drawing.Point(3, 16);
             this.dgFacturas.Name = "dgFacturas";
             this.dgFacturas.ReadOnly = true;
-            this.dgFacturas.Size = new System.Drawing.Size(492, 88);
+            this.dgFacturas.Size = new System.Drawing.Size(561, 87);
             this.dgFacturas.TabIndex = 0;
             // 
             // groupBox3
@@ -120,7 +123,7 @@
             this.groupBox3.Controls.Add(this.dg);
             this.groupBox3.Location = new System.Drawing.Point(15, 183);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(495, 356);
+            this.groupBox3.Size = new System.Drawing.Size(561, 356);
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
             // 
@@ -128,17 +131,19 @@
             // 
             this.dg.AllowUserToAddRows = false;
             this.dg.AllowUserToDeleteRows = false;
+            this.dg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dg.Location = new System.Drawing.Point(3, 16);
+            this.dg.Location = new System.Drawing.Point(-3, 6);
             this.dg.Name = "dg";
             this.dg.ReadOnly = true;
-            this.dg.Size = new System.Drawing.Size(489, 337);
+            this.dg.Size = new System.Drawing.Size(564, 337);
             this.dg.TabIndex = 0;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(350, 545);
+            this.btnCancelar.Location = new System.Drawing.Point(504, 545);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 28;
@@ -147,7 +152,7 @@
             // 
             // btnProcesar
             // 
-            this.btnProcesar.Location = new System.Drawing.Point(432, 545);
+            this.btnProcesar.Location = new System.Drawing.Point(423, 545);
             this.btnProcesar.Name = "btnProcesar";
             this.btnProcesar.Size = new System.Drawing.Size(75, 23);
             this.btnProcesar.TabIndex = 27;
@@ -159,7 +164,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(522, 580);
+            this.ClientSize = new System.Drawing.Size(591, 579);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnProcesar);
             this.Controls.Add(this.groupBox3);
@@ -167,7 +172,7 @@
             this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmNuevaImportacion";
-            this.Text = "frmNuevaImportacion";
+            this.Text = "Importacion";
             this.Load += new System.EventHandler(this.frmNuevaImportacion_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

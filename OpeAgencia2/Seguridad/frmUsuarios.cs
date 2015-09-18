@@ -423,7 +423,7 @@ namespace OpeAgencia2.Seguridad
 
         private void btnQuitarSuc_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Seguro que quiere quitar el acceso a la sucursal seleccionada", "Pregunta",
+            if (MessageBox.Show("¿Seguro que quiere quitar el acceso a la sucursal seleccionada?", "Quitar acceso a sucursal",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
                 == System.Windows.Forms.DialogResult.Yes)
             {

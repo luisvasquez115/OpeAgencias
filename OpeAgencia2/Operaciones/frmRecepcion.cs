@@ -496,20 +496,20 @@ namespace OpeAgencia2.Operaciones
         {
             if (iNumeroEPS == -1)
             {
-                MessageBox.Show("Es necesario registrar un numero de eps", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Es necesario especificar un número de eps", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
             int iCargoProd = -1;
             /* select new { p.ID, p.CARGO_PROD_ID, Desc = p.CargosProducto.Cargos.CAR_CODIGO + "-->" + p.CargosProducto.Cargos.CAR_DESCRIPCION + "(" + p.CargosProducto.TasaCambio.TASA_CODIGO + ")",
                             Monto = p.BVA_MONTO, Tasa= p.BVA_TASA, MontoLocal = p.BVA_MONTO_LOCAL };*/
             iCargoProd = Convert.ToInt32(cmbCargos.SelectedValue);
-            if (iCargoProd == null)
+            var cargosProd = unitOfWork.CargosProductoRepository.GetByID(iCargoProd);
+            if (iCargoProd == null || cargosProd == null)
             {
                 MessageBox.Show("Debe seleccionar un cargo para agregar", "Seleccionar cargos", MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
                 return;
             }
-            var cargosProd = unitOfWork.CargosProductoRepository.GetByID(iCargoProd);
             DataRow dr = oCargos.NewRow();
             dr["ID"] = -1;
             dr["CARGO_PROD_ID"] = iCargoProd;
@@ -533,7 +533,7 @@ namespace OpeAgencia2.Operaciones
             oCargos.Rows.Add(dr);
             cmbCargos.SelectedValue = -1;
             txtMonto.Text = "";
-            cmbCargos.Focus();
+            //cmbCargos.Focus();
         }
 
         decimal  BuscarMontoAplicar(int piCargoId, decimal Monto)
