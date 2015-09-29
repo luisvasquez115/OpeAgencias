@@ -51,6 +51,7 @@ namespace OpeAgencia2
 
             if (x.DialogResult != System.Windows.Forms.DialogResult.OK)
             {
+                FormClosing -= Form1_FormClosing;
                 this.Close();
             }
             else
