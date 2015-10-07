@@ -19,6 +19,7 @@ namespace AgenciaEF_BO.DAL
 
         }
 
+        
         public DbSet<Opciones> Opciones { get; set; }
         public DbSet<Empresas> Empresas { get; set; }
         public DbSet<Sucursales> Sucursales { get; set; }

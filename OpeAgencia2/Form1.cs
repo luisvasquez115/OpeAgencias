@@ -45,7 +45,6 @@ namespace OpeAgencia2
         {
            // oParamSuc = new Parametros.ParametrosSucursal();
             // oParamSuc.IdSucursal = 5;
-
             Seguridad.frmLogin x = new Seguridad.frmLogin();
             x.ShowDialog();
 

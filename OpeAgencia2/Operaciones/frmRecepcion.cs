@@ -13,6 +13,14 @@ namespace OpeAgencia2.Operaciones
 {
     public partial class frmRecepcion : Form
     {
+        int consulta = 0;
+        int _Id = -1;
+        int iNumeroEPS = -1;
+        int iSucursalId = -1;
+        BO.DAL.dsDatos.BultosValoresCargosDataTable oCargos = new BO.DAL.dsDatos.BultosValoresCargosDataTable();
+        BO.DAL.dsDatos.BultosValoresCargosDataTable oUnidades = new BO.DAL.dsDatos.BultosValoresCargosDataTable();
+        private BO.DAL.UnitOfWork unitOfWork = new BO.DAL.UnitOfWork();
+
         public frmRecepcion()
         {
             InitializeComponent();
@@ -23,14 +31,11 @@ namespace OpeAgencia2.Operaciones
             InitializeComponent();
             _Id = piBltNumero;
             grbNavegacion.Visible = false;
+            txtCodigoBarra.Enabled = true;
+            txtCodigoBarra.KeyDown -= txtCodigoBarra_KeyDown;
+            txtCodigoBarra.Leave -= txtCodigoBarra_Leave;
+            consulta = 1;
         }
-
-        int _Id = -1;
-        int iNumeroEPS = -1;
-        int iSucursalId =-1;
-        BO.DAL.dsDatos.BultosValoresCargosDataTable oCargos = new BO.DAL.dsDatos.BultosValoresCargosDataTable();
-        BO.DAL.dsDatos.BultosValoresCargosDataTable oUnidades = new BO.DAL.dsDatos.BultosValoresCargosDataTable();
-        private BO.DAL.UnitOfWork unitOfWork = new BO.DAL.UnitOfWork();
         //using BO = AgenciaEF_BO;
     
         private void frmRecepcion_Load(object sender, EventArgs e)
@@ -72,7 +77,7 @@ namespace OpeAgencia2.Operaciones
                               select new { Id = p.CARGO_PROD_ID, Nombre = p.Cargos.CAR_CODIGO +"-->" + p.Cargos.CAR_DESCRIPCION + "("+p.TasaCambio.TASA_CODIGO + ")"};
             this.cmbCargos.ValueMember = "Id";
             cmbCargos.DisplayMember = "Nombre";
-            cmbCargos.DataSource = cargosExits.ToList();
+            cmbCargos.DataSource = cargosExits.ToList();  
             cmbCargos.SelectedValue = -1;
         }
 
@@ -305,10 +310,10 @@ namespace OpeAgencia2.Operaciones
                 {
                     if (sqlBultos.BLT_ESTADO_ID == 5 || sqlBultos.BLT_ESTADO_ID ==6)
                     {
-                        MessageBox.Show("Este paquete ya fué entregado, o está fuera de inventario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                       // LimpiarCampos();
-                       // return;
+                        MessageBox.Show("Este paquete ya fue entregado, o está fuera de inventario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        LimpiarCampos();
                         btnSalvar.Enabled = false;
+                        return;
                     }
                     if (sqlBultos.SUC_ID != Parametros.ParametrosSucursal.IdSucursal)
                     {
@@ -327,7 +332,7 @@ namespace OpeAgencia2.Operaciones
                 {
                     LimpiarCampos();
                 }
-                this.txtCodigoBarra.Enabled = false;
+                this.txtCodigoBarra.Enabled = consulta == 1;
                 BuscarCargos();
                 BuscarUnidades();
             }
@@ -467,6 +472,7 @@ namespace OpeAgencia2.Operaciones
             txtRemitente.Text = "";
             iNumeroEPS = -1;
             txtNumeroEPS.Text = "";
+            txtCodigoBarra.Enabled = true;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -486,10 +492,10 @@ namespace OpeAgencia2.Operaciones
             cmbCargos.FindString(cmbCargos.Text);
         }
 
-        private void cmbCargos_Enter(object sender, EventArgs e)
-        {
-            cmbCargos.DroppedDown = true;
-        }
+        //private void cmbCargos_Enter(object sender, EventArgs e)
+        //{
+        //    cmbCargos.DroppedDown = true;
+        //}
 
         //Agregar cargos
         private void btnCargoAdd_Click(object sender, EventArgs e)
@@ -510,12 +516,25 @@ namespace OpeAgencia2.Operaciones
                     MessageBoxIcon.Exclamation);
                 return;
             }
+            if (oCargos.Any(xy => xy.CARGO_PROD_ID == iCargoProd))
+            {
+                MessageBox.Show("Este paquete ya tiene este cargo ", "Cargo duplicado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            decimal monto;
+            if (Decimal.TryParse(txtMonto.Text, out monto) == false)
+            {
+                MessageBox.Show("Debe especificar un monto válido a aplicar", "Especificar monto",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             DataRow dr = oCargos.NewRow();
             dr["ID"] = -1;
             dr["CARGO_PROD_ID"] = iCargoProd;
             dr["Desc"] = cmbCargos.Text;
             dr["Tasa"] = cargosProd.TasaCambio.FACTOR_CONV;
-            dr["Monto"] = Convert.ToDecimal(txtMonto.Text);
+            dr["Monto"] = monto;
             if (cargosProd.Cargos.CAR_DIRECTO_TABLA == "D")
                 dr["MontoAplicar"] = Convert.ToDecimal(txtMonto.Text);
             else
@@ -608,7 +627,7 @@ namespace OpeAgencia2.Operaciones
             {
                 iCargoProductoId = -1;
             }
-            if (iCargoProductoId!= -1)
+            if (iCargoProductoId != -1)
             {
                 oCargos.Rows.RemoveAt(iCargoProductoId);
                 //oCargos.Rows.Remove(dr);
@@ -620,6 +639,52 @@ namespace OpeAgencia2.Operaciones
         {
             if(e.KeyCode == Keys.Enter)
                 BuscarDatosPorCodigoBarra();
+        }
+
+        private void dgCargos_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            foreach (DataGridViewColumn column in dgCargos.Columns)
+                column.ReadOnly = (column.HeaderText.Equals("Monto") == false);
+        }
+
+        private void txtMonto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter)
+                return;
+            btnCargoAdd.PerformClick();
+        }
+
+        private void dgCargos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            decimal monto;
+            if (dgCargos.CurrentRow.Cells["Monto"].Value == null || 
+                Decimal.TryParse(dgCargos.CurrentRow.Cells["Monto"].Value.ToString(), out monto) == false ||
+                monto <= 0)
+            {
+                MessageBox.Show("Debe especificar un monto válido a aplicar", "Especificar monto",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            int iCargoProd = Convert.ToInt16(dgCargos.CurrentRow.Cells["CARGO_PROD_ID"].Value);
+            var cargosProd = unitOfWork.CargosProductoRepository.GetByID(iCargoProd);
+            if (cargosProd.Cargos.CAR_DIRECTO_TABLA == "D")
+                dgCargos.CurrentRow.Cells["MontoAplicar"].Value = Convert.ToDecimal(monto);
+            else
+                dgCargos.CurrentRow.Cells["MontoAplicar"].Value = 
+                    BuscarMontoAplicar(iCargoProd, Convert.ToDecimal(monto));
+            if (Convert.ToDecimal(dgCargos.CurrentRow.Cells["MontoAplicar"].Value) < 
+                Convert.ToDecimal(cargosProd.Cargos.CAR_MINIMO_FACTURAR))
+            {
+                Convert.ToDecimal(dgCargos.CurrentRow.Cells["MontoAplicar"].Value = 
+                    Convert.ToDecimal(cargosProd.Cargos.CAR_MINIMO_FACTURAR));
+            }
+            if (cargosProd.Cargos.CAR_FIJO_MULTIPLICAR == "F")
+                dgCargos.CurrentRow.Cells["MontoLocal"].Value = 
+                    Convert.ToInt32(dgCargos.CurrentRow.Cells["MontoAplicar"].Value) * cargosProd.TasaCambio.FACTOR_CONV;
+            else
+                dgCargos.CurrentRow.Cells["MontoLocal"].Value = 
+                    Convert.ToInt32(monto) * Convert.ToInt32(dgCargos.CurrentRow.Cells["MontoAplicar"].Value) * 
+                    cargosProd.TasaCambio.FACTOR_CONV;
         }
     }
 }

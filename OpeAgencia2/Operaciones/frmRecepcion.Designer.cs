@@ -244,6 +244,11 @@
             // txtPiezas
             // 
             this.txtPiezas.Location = new System.Drawing.Point(96, 87);
+            this.txtPiezas.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.txtPiezas.Name = "txtPiezas";
             this.txtPiezas.Size = new System.Drawing.Size(63, 20);
             this.txtPiezas.TabIndex = 11;
@@ -461,6 +466,7 @@
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(100, 20);
             this.txtMonto.TabIndex = 2;
+            this.txtMonto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMonto_KeyDown);
             // 
             // cmbCargos
             // 
@@ -472,7 +478,6 @@
             this.cmbCargos.Size = new System.Drawing.Size(226, 21);
             this.cmbCargos.TabIndex = 1;
             this.cmbCargos.TextChanged += new System.EventHandler(this.cmbCargos_TextChanged);
-            this.cmbCargos.Enter += new System.EventHandler(this.cmbCargos_Enter);
             // 
             // label5
             // 
@@ -493,9 +498,10 @@
             this.dgCargos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgCargos.Location = new System.Drawing.Point(0, 0);
             this.dgCargos.Name = "dgCargos";
-            this.dgCargos.ReadOnly = true;
             this.dgCargos.Size = new System.Drawing.Size(614, 208);
             this.dgCargos.TabIndex = 0;
+            this.dgCargos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCargos_CellEndEdit);
+            this.dgCargos.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgCargos_RowsAdded);
             // 
             // contextMenuStrip1
             // 

@@ -25,22 +25,17 @@ namespace OpeAgencia2.Precios
         int iCargoProdId = -1;
         int iTarifaId = -1;
 
-
         private BO.DAL.UnitOfWork unitOfWork = new BO.DAL.UnitOfWork();
-
 
         private void frmValores_Load(object sender, EventArgs e)
         {
-
             this.usrbntMant1.ButtonClickAdd += new EventHandler(btnAdd_Click);
             this.usrbntMant1.ButtonClickDel += new EventHandler(btnDel_Click);
             this.usrbntMant1.ButtonClickMod += new EventHandler(btnMod_Click);
             this.usrbntMant1.ButtonClickSalir += new EventHandler(btnSal_Click);
             this.usrbntMant1.ButtonClickSave += new EventHandler(btnSav_Click);
             this.usrbntMant1.ButtonClickUndo += new EventHandler(btnUn_Click);
-
             CargarCombos();
-
             ManejarEstado(false);
         }
 
@@ -57,49 +52,35 @@ namespace OpeAgencia2.Precios
         {
             var codigoCompania = unitOfWork.SucursalesRepository.GetByID(Parametros.ParametrosSucursal.IdSucursal).COM_CODIGO;
             var Empresas = from p in unitOfWork.EmpresasRepository.Get(filter: xy => xy.COM_CODIGO == codigoCompania)
-                             select new { Id = p.COM_CODIGO, Nombre = p.COM_DESCORTA };
-
-
+                           select new { Id = p.COM_CODIGO, Nombre = p.COM_DESCORTA };
             cmbEmpresa.DisplayMember = "Nombre";
             cmbEmpresa.ValueMember ="Id";
-
             cmbEmpresa.DataSource = Empresas.ToList();
             cmbEmpresa.SelectedIndex = 0;
-
         }
 
         void CombosSucursal(int piSucursalId)
         {
             var Sucursal = from p in unitOfWork.SucursalesRepository.Get(filter: s => s.COM_CODIGO == piSucursalId)
                            select new { Id = p.SUC_ID, Nombre = p.SUC_CODIGO +"-->"+p.SUC_DESCRIPCION };
-
-
             cmbSucursal.DisplayMember = "Nombre";
             cmbSucursal.ValueMember = "Id";
-
             cmbSucursal.DataSource = Sucursal.ToList();
-
             cmbSucursal.SelectedIndex = 0;
-
             iSucId = Convert.ToInt32(cmbSucursal.SelectedValue);
         }
-
 
         private void cmbSucursal_SelectedIndexChanged(object sender, EventArgs e)
         {
             iSucId = Convert.ToInt32(cmbSucursal.SelectedValue);
-       
         }
 
         void CombosProductos()
         {
             var Productos = from p in unitOfWork.ProductosRepository.Get()
                            select new { Id = p.PROD_ID, Nombre = p.PRO_CODIGO + "-->" + p.PRO_DESCRIPCION };
-
-
             cmbProducto.DisplayMember = "Nombre";
             cmbProducto.ValueMember = "Id";
-
             this.cmbProducto.DataSource = Productos.ToList();
         }
 
@@ -107,36 +88,27 @@ namespace OpeAgencia2.Precios
         {   
             var Cargos = from p in unitOfWork.CargosProductoRepository.Get(filter: s => (s.PROD_ID == iProductoId && s.Cargos.CAR_DIRECTO_TABLA == "T"))
                          select new { Id = p.CARGO_PROD_ID, Nombre = p.Cargos.CAR_CODIGO + "-->" + p.Cargos.CAR_DESCRIPCION + "(" + p.TasaCambio.TASA_CODIGO + ")" };
-
-
             cmbCargo.DisplayMember = "Nombre";
             cmbCargo.ValueMember = "Id";
-
             this.cmbCargo.DataSource = Cargos.ToList();
-
-            this.cmbCargo.SelectedIndex = 0;
+            this.cmbCargo.SelectedIndex = -1;
         }
 
         void ComboTarifa()
         {
             var Tarifa = from p in unitOfWork.CodigosRepository.GetByGroupCode("CTAR")
                          select new { Id = p.CODIGO_ID, Nombre = p.CODIGO_COD + "-->" + p.CODIGO_NOMBRE };
-
-
             cmbTarifa.DisplayMember = "Nombre";
             cmbTarifa.ValueMember = "Id";
-
             this.cmbTarifa.DataSource = Tarifa.ToList();
             cmbTarifa.SelectedIndex = 0;
         }
-
 
         private void cmbProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.cmbProducto.SelectedValue != null)
                 CombosCargos(Convert.ToInt32(this.cmbProducto.SelectedValue));
         }
-
 
         private void cmbEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -158,28 +130,23 @@ namespace OpeAgencia2.Precios
 
         #endregion
 
-
         void CargarDatosIniciales()
         {
             if (iCargoProdId > 0 && iTarifaId > 0) {
                 try
                 {
-            var Valores = from p in unitOfWork.CargosValoresRepository.Get(filter: s => (s.CARGO_PROD_ID == iCargoProdId && s.SUC_ID == iSucId && s.COD_TAR_ID== iTarifaId))
-                          select new { Id = p.TABLA_VAL_ID,Hasta=p.VAL_HASTA, Valor=p.VAL_VALOR, Porcentaje= p.VAL_PORCENTAJE, Adicional=p.VAL_ADICIONAL};
-
-
-           
-                dg.DataSource = Valores.ToList();
-            }
+                    var Valores = from p in unitOfWork.CargosValoresRepository.Get(filter: s => (s.CARGO_PROD_ID 
+                        == iCargoProdId && s.SUC_ID == iSucId && s.COD_TAR_ID== iTarifaId))
+                    select new { Id = p.TABLA_VAL_ID,Hasta=p.VAL_HASTA, Valor=p.VAL_VALOR, Porcentaje = 
+                        p.VAL_PORCENTAJE, Adicional=p.VAL_ADICIONAL};
+                    dg.DataSource = Valores.ToList();
+                }
                 catch(Exception ex)
-            {
-                throw ex;
-
+                {
+                    throw ex;
                 }
             }
-         
         }
-
 
         #region "botones"
 
@@ -190,36 +157,37 @@ namespace OpeAgencia2.Precios
             this.TextId.Text = "";
             LimpiarCampos();
             ManejarEstado(true);
-
         }
+
         private void btnDel_Click(object sender, EventArgs e)
         {
             DeleteData();
             //CargarDatosIniciales();
         }
+
         private void btnMod_Click(object sender, EventArgs e)
         {
             // MessageBox.Show("Modificar");
             Modificar();
             ManejarEstado(true);
         }
+
         private void btnSal_Click(object sender, EventArgs e)
         {
             this.Close();
             /// MessageBox.Show("Salir");
         }
+
         private void btnSav_Click(object sender, EventArgs e)
         {
-
             usrbntMant1.bExito = false;
-
             if (SalvarDatos())
             {
                 usrbntMant1.bExito = true;
                 ManejarEstado(false);
-              
             }
         }
+
         private void btnUn_Click(object sender, EventArgs e)
         {
             // MessageBox.Show("Deshacer");
@@ -231,40 +199,27 @@ namespace OpeAgencia2.Precios
 
         void DeleteData()
         {
-
-
             int iId = Convert.ToInt32(this.TextId.Text);
-
             //var opciones = unitOfWork.SucursalesRepository.GetByID(iId);
-
             try
             {
-
                 unitOfWork.CargosValoresRepository.Delete(iId);
                 unitOfWork.Save();
                 MessageBox.Show("Datos Actualizados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 usrbntMant1.bExito = true;
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
-
-
         }
 
         bool SalvarDatos()
         {
             int iId = -1;
             bool bRetorno = false;
-
             //CompaniasRecord oCom = new CompaniasRecord();
-
-
             BO.Models.CargosValores oCom;
-
-
             if (usrbntMant1.bAdiciona == false)
             {
                 iId = Convert.ToInt32(this.TextId.Text);
@@ -274,30 +229,22 @@ namespace OpeAgencia2.Precios
             {
                 oCom = new BO.Models.CargosValores();
             }
-
             oCom.CARGO_PROD_ID = Convert.ToInt32(this.cmbCargo.SelectedValue);
             oCom.SUC_ID = Convert.ToInt32(this.cmbSucursal.SelectedValue.ToString());
             oCom.VAL_ADICIONAL = Convert.ToDecimal(txtAdicional.Text.ToString());
-
             oCom.VAL_HASTA = Convert.ToDecimal(txtHasta.Text);
-
             oCom.VAL_PORCENTAJE = Convert.ToDecimal(txtPorcentaje.Text);
             oCom.VAL_VALOR = Convert.ToDecimal(txtValor.Text);
-            //
             oCom.COD_TAR_ID = Convert.ToInt32(cmbTarifa.SelectedValue);
-           
-
             try
             {
                 if (usrbntMant1.bAdiciona == false)
                     unitOfWork.CargosValoresRepository.Update(oCom);
                 else
                     unitOfWork.CargosValoresRepository.Insert(oCom);
-
                 unitOfWork.Save();
                 bRetorno = true;
                 usrbntMant1.bExito = true;
-
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException e)
             {
@@ -308,8 +255,6 @@ namespace OpeAgencia2.Precios
                     Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
                         eve.Entry.Entity.GetType().Name, eve.Entry.State);
                     */
-
-
                     foreach (var ve in eve.ValidationErrors)
                     {
                         s += ve.ErrorMessage + "\n";
@@ -318,28 +263,19 @@ namespace OpeAgencia2.Precios
                     }
                     MessageBox.Show("Existen los siguientes errores:" + s, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                //throw;
             }
             catch (DataException ex)
             {
-
                 throw ex;
             }
-
-
             return bRetorno;
-
         }
-
-
 
         public void Modificar()
         {
-
             try
             {
                 _Id = Convert.ToInt32(dg.CurrentRow.Cells[0].Value);
-
             }
             catch
             {
@@ -348,20 +284,15 @@ namespace OpeAgencia2.Precios
             if (_Id != -1)
             {
                 tabMant.SelectedTab = tabPage2;
-
             }
             ConsultarDatos(_Id);
-
         }
 
         void ConsultarDatos(int Id)
         {
             var Prod = unitOfWork.CargosValoresRepository.GetByID(Id);
-
             MoverDatos(Prod);
-           
         }
-
         
         void MoverDatos(BO.Models.CargosValores MyComp)
         {
@@ -370,8 +301,6 @@ namespace OpeAgencia2.Precios
             {
                 if (ctr.Tag == null)
                     continue;
-
-
                 switch (ctr.Tag.ToString())
                 {
                     case "TABLA_VAL_ID":
@@ -389,11 +318,7 @@ namespace OpeAgencia2.Precios
                     case "VAL_ADICIONAL":
                         ((TextBox)ctr).Text = MyComp.VAL_ADICIONAL.ToString();
                         break;
-            
-
                 }
-
-
             }
         }
 
@@ -408,12 +333,8 @@ namespace OpeAgencia2.Precios
                         ctr.Enabled = false;
                     else
                         ctr.Enabled = bEstado;
-
-
                 }
-
             }
-
         }
 
         void LimpiarCampos()
@@ -424,7 +345,6 @@ namespace OpeAgencia2.Precios
                 {
                     if (ctr.Name.Substring(0, 3) == "txt")
                         ctr.Text = "";
-
                 }
                 else if (ctr.GetType().Name == "ComboBox")
                     ((ComboBox)ctr).SelectedValue = -1;
@@ -432,8 +352,6 @@ namespace OpeAgencia2.Precios
                     ((CheckBox)ctr).Checked = false;
                 else if (ctr.GetType().Name == "NumericUpDown")
                     ((NumericUpDown)ctr).Value = 0;
-
-
             }
         }
 
@@ -444,10 +362,8 @@ namespace OpeAgencia2.Precios
                 try
                 {
                     _Id = Convert.ToInt32(dg.CurrentRow.Cells[0].Value);
-
                     if (!usrbntMant1.bAdiciona)
                         ConsultarDatos(_Id);
-
                   }
                 catch (Exception ex)
                 {
@@ -457,24 +373,13 @@ namespace OpeAgencia2.Precios
                 if ((_Id != -1) && (tabMant.SelectedIndex == 1))
                 {
                     tabMant.SelectedTab = tabPage2;
-
                 }
             }
-
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             CargarDatosIniciales();
         }
-
-      
-
-      
-
-
-
-
-
     }
 }
