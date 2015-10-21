@@ -251,10 +251,10 @@ namespace OpeAgencia2.Facturacion
                 {
                     if (Bultos.Clientes.CTE_CEDULA.KeepOnlyNumbers().Trim() != string.Empty)
                         oFactRow.RNC = Bultos.Clientes.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd();
-                    //else if (Bultos.Clientes.CTE_PASAPORTE.Trim() != string.Empty)
-                    //    oFactRow.RNC = Bultos.Clientes.CTE_PASAPORTE;
-                    else
+                    else if (Bultos.Clientes.CTE_RNC.Trim() != string.Empty)
                         oFactRow.RNC = Bultos.Clientes.CTE_RNC;
+                    else
+                        oFactRow.RNC = Bultos.Clientes.CTE_PASAPORTE;
                 }
                 if (iBltNumero != Bultos.BLT_NUMERO)
                 {

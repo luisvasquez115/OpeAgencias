@@ -546,9 +546,9 @@ namespace OpeAgencia2.Operaciones
                 Convert.ToDecimal(dr["MontoAplicar"] = Convert.ToDecimal(cargosProd.Cargos.CAR_MINIMO_FACTURAR));
             }
             if (cargosProd.Cargos.CAR_FIJO_MULTIPLICAR == "F")
-                dr["MontoLocal"] = Convert.ToInt32(dr["MontoAplicar"]) * cargosProd.TasaCambio.FACTOR_CONV;
+                dr["MontoLocal"] = Convert.ToDecimal(dr["MontoAplicar"]) * cargosProd.TasaCambio.FACTOR_CONV;
             else
-                dr["MontoLocal"] = Convert.ToInt32(txtMonto.Text) * Convert.ToInt32(dr["MontoAplicar"]) * cargosProd.TasaCambio.FACTOR_CONV;
+                dr["MontoLocal"] = Convert.ToDecimal(txtMonto.Text) * Convert.ToDecimal(dr["MontoAplicar"]) * cargosProd.TasaCambio.FACTOR_CONV;
             oCargos.Rows.Add(dr);
             cmbCargos.SelectedValue = -1;
             txtMonto.Text = "";
@@ -680,10 +680,10 @@ namespace OpeAgencia2.Operaciones
             }
             if (cargosProd.Cargos.CAR_FIJO_MULTIPLICAR == "F")
                 dgCargos.CurrentRow.Cells["MontoLocal"].Value = 
-                    Convert.ToInt32(dgCargos.CurrentRow.Cells["MontoAplicar"].Value) * cargosProd.TasaCambio.FACTOR_CONV;
+                    Convert.ToDecimal(dgCargos.CurrentRow.Cells["MontoAplicar"].Value) * cargosProd.TasaCambio.FACTOR_CONV;
             else
                 dgCargos.CurrentRow.Cells["MontoLocal"].Value = 
-                    Convert.ToInt32(monto) * Convert.ToInt32(dgCargos.CurrentRow.Cells["MontoAplicar"].Value) * 
+                    Convert.ToDecimal(monto) * Convert.ToDecimal(dgCargos.CurrentRow.Cells["MontoAplicar"].Value) * 
                     cargosProd.TasaCambio.FACTOR_CONV;
         }
     }
