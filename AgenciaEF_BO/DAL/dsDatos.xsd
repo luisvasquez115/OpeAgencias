@@ -94,6 +94,29 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="EntregaPaq2" msprop:Generator_TableClassName="EntregaPaq2DataTable" msprop:Generator_TableVarName="tableEntregaPaq2" msprop:Generator_RowChangedName="EntregaPaq2RowChanged" msprop:Generator_TablePropName="EntregaPaq2" msprop:Generator_RowDeletingName="EntregaPaq2RowDeleting" msprop:Generator_RowChangingName="EntregaPaq2RowChanging" msprop:Generator_RowEvHandlerName="EntregaPaq2RowChangeEventHandler" msprop:Generator_RowDeletedName="EntregaPaq2RowDeleted" msprop:Generator_RowClassName="EntregaPaq2Row" msprop:Generator_UserTableName="EntregaPaq2" msprop:Generator_RowEvArgName="EntregaPaq2RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BLT_NUMERO" msprop:Generator_ColumnVarNameInTable="columnBLT_NUMERO" msprop:Generator_ColumnPropNameInRow="BLT_NUMERO" msprop:Generator_ColumnPropNameInTable="BLT_NUMEROColumn" msprop:Generator_UserColumnName="BLT_NUMERO" type="xs:int" />
+              <xs:element name="CODIGO_BARRA" msprop:Generator_ColumnVarNameInTable="columnCODIGO_BARRA" msprop:Generator_ColumnPropNameInRow="CODIGO_BARRA" msprop:Generator_ColumnPropNameInTable="CODIGO_BARRAColumn" msprop:Generator_UserColumnName="CODIGO_BARRA" type="xs:string" minOccurs="0" />
+              <xs:element name="CONTENIDO" msprop:Generator_ColumnVarNameInTable="columnCONTENIDO" msprop:Generator_ColumnPropNameInRow="CONTENIDO" msprop:Generator_ColumnPropNameInTable="CONTENIDOColumn" msprop:Generator_UserColumnName="CONTENIDO" type="xs:string" minOccurs="0" />
+              <xs:element name="PESO" msprop:Generator_ColumnVarNameInTable="columnPESO" msprop:Generator_ColumnPropNameInRow="PESO" msprop:Generator_ColumnPropNameInTable="PESOColumn" msprop:Generator_UserColumnName="PESO" type="xs:string" minOccurs="0" />
+              <xs:element name="VALOR" msprop:Generator_ColumnVarNameInTable="columnVALOR" msprop:Generator_ColumnPropNameInRow="VALOR" msprop:Generator_ColumnPropNameInTable="VALORColumn" msprop:Generator_UserColumnName="VALOR" type="xs:string" minOccurs="0" />
+              <xs:element name="LIBRAS_GRATIS" msprop:Generator_ColumnVarNameInTable="columnLIBRAS_GRATIS" msprop:Generator_ColumnPropNameInRow="LIBRAS_GRATIS" msprop:Generator_ColumnPropNameInTable="LIBRAS_GRATISColumn" msprop:Generator_UserColumnName="LIBRAS_GRATIS" type="xs:decimal" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TARESP_VAL" msprop:Generator_TableClassName="TARESP_VALDataTable" msprop:Generator_TableVarName="tableTARESP_VAL" msprop:Generator_TablePropName="TARESP_VAL" msprop:Generator_RowDeletingName="TARESP_VALRowDeleting" msprop:Generator_RowChangingName="TARESP_VALRowChanging" msprop:Generator_RowEvHandlerName="TARESP_VALRowChangeEventHandler" msprop:Generator_RowDeletedName="TARESP_VALRowDeleted" msprop:Generator_UserTableName="TARESP_VAL" msprop:Generator_RowChangedName="TARESP_VALRowChanged" msprop:Generator_RowEvArgName="TARESP_VALRowChangeEvent" msprop:Generator_RowClassName="TARESP_VALRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" minOccurs="0" />
+              <xs:element name="VAL_HASTA" msprop:Generator_ColumnVarNameInTable="columnVAL_HASTA" msprop:Generator_ColumnPropNameInRow="VAL_HASTA" msprop:Generator_ColumnPropNameInTable="VAL_HASTAColumn" msprop:Generator_UserColumnName="VAL_HASTA" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="VAL_VALOR" msprop:Generator_ColumnVarNameInTable="columnVAL_VALOR" msprop:Generator_ColumnPropNameInRow="VAL_VALOR" msprop:Generator_ColumnPropNameInTable="VAL_VALORColumn" msprop:Generator_UserColumnName="VAL_VALOR" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="VAL_PORCENTAJE" msprop:Generator_ColumnVarNameInTable="columnVAL_PORCENTAJE" msprop:Generator_ColumnPropNameInRow="VAL_PORCENTAJE" msprop:Generator_ColumnPropNameInTable="VAL_PORCENTAJEColumn" msprop:Generator_UserColumnName="VAL_PORCENTAJE" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="VAL_ADICIONAL" msprop:Generator_ColumnVarNameInTable="columnVAL_ADICIONAL" msprop:Generator_ColumnPropNameInRow="VAL_ADICIONAL" msprop:Generator_ColumnPropNameInTable="VAL_ADICIONALColumn" msprop:Generator_UserColumnName="VAL_ADICIONAL" type="xs:decimal" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -112,6 +135,10 @@
     <xs:unique name="Envios_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Envios" />
       <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="EntregaPaq2_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:EntregaPaq2" />
+      <xs:field xpath="mstns:BLT_NUMERO" />
     </xs:unique>
   </xs:element>
 </xs:schema>

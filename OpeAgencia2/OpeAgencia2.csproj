@@ -126,6 +126,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clientes\frmAgregarLibrasGratis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmAgregarLibrasGratis.Designer.cs">
+      <DependentUpon>frmAgregarLibrasGratis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\frmAplicarLibrasGratis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmAplicarLibrasGratis.Designer.cs">
+      <DependentUpon>frmAplicarLibrasGratis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clientes\frmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +155,24 @@
     </Compile>
     <Compile Include="Clientes\frmConsultaMercancia.Designer.cs">
       <DependentUpon>frmConsultaMercancia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\frmLibrasGratis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmLibrasGratis.Designer.cs">
+      <DependentUpon>frmLibrasGratis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\frmTarEspValores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmTarEspValores.Designer.cs">
+      <DependentUpon>frmTarEspValores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\frmTarifasEspeciales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmTarifasEspeciales.Designer.cs">
+      <DependentUpon>frmTarifasEspeciales.cs</DependentUpon>
     </Compile>
     <Compile Include="Creditos\frmCargosVarios.cs">
       <SubType>Form</SubType>
@@ -277,6 +307,12 @@
     </Compile>
     <Compile Include="Operaciones\frmNuevaImportacion.Designer.cs">
       <DependentUpon>frmNuevaImportacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operaciones\frmRecalcularTarifas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operaciones\frmRecalcularTarifas.Designer.cs">
+      <DependentUpon>frmRecalcularTarifas.cs</DependentUpon>
     </Compile>
     <Compile Include="Operaciones\frmRecepcion.cs">
       <SubType>Form</SubType>
@@ -491,6 +527,12 @@
     <Compile Include="usrbntMant.Designer.cs">
       <DependentUpon>usrbntMant.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Clientes\frmAgregarLibrasGratis.resx">
+      <DependentUpon>frmAgregarLibrasGratis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\frmAplicarLibrasGratis.resx">
+      <DependentUpon>frmAplicarLibrasGratis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Clientes\frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -499,6 +541,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Clientes\frmConsultaMercancia.resx">
       <DependentUpon>frmConsultaMercancia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\frmLibrasGratis.resx">
+      <DependentUpon>frmLibrasGratis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\frmTarEspValores.resx">
+      <DependentUpon>frmTarEspValores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\frmTarifasEspeciales.resx">
+      <DependentUpon>frmTarifasEspeciales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Creditos\frmCargosVarios.resx">
       <DependentUpon>frmCargosVarios.cs</DependentUpon>
@@ -565,6 +616,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Operaciones\frmNuevaImportacion.resx">
       <DependentUpon>frmNuevaImportacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operaciones\frmRecalcularTarifas.resx">
+      <DependentUpon>frmRecalcularTarifas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operaciones\frmRecepcion.resx">
       <DependentUpon>frmRecepcion.cs</DependentUpon>
@@ -661,6 +715,7 @@
     <Content Include="Reportes\rFactura.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\DataSources\AgenciaEF_BO.DAL.dsDatos+TARESP_VALDataTable.datasource" />
     <None Include="Reportes\rReciboIngreso.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

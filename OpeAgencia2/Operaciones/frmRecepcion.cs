@@ -159,7 +159,13 @@ namespace OpeAgencia2.Operaciones
                 }
                 SalvarDetalle(oBulto.BLT_NUMERO);
                 unitOfWork.Save();
-                ActualizarItbis(oBulto.BLT_NUMERO);
+               // ActualizarItbis(oBulto.BLT_NUMERO);
+
+                AgenciaEF_BO.DAL.ADO.BultosDal Bultos = new BO.DAL.ADO.BultosDal();
+
+                Bultos.RecalcularUnidades(oBulto.BLT_NUMERO);
+                Bultos.RecalcularItebis(oBulto.BLT_NUMERO);
+
                 unitOfWork.Save();
                 MessageBox.Show("Datos salvados satisfactoriamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarCampos();
@@ -612,6 +618,11 @@ namespace OpeAgencia2.Operaciones
         {
             if(e.KeyCode == Keys.Enter)
                 BuscarDatosPorCodigoBarra();
+        }
+
+        private void txtNumeroEPS_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

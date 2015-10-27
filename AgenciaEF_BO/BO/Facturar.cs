@@ -243,7 +243,7 @@ namespace AgenciaEF_BO.BO
                 oRecDet.MONTO_LOCAL = sQry.IMPORTE;
                 if (sQry.Cargos.CAR_ITBIS == true && sQry.Cargos.ITBIS > 0 && oCliente.CTE_TIPO_FISCAL != 45)
                 {
-                    oRecDet.MONTO_ITBIS = Math.Round((sQry.IMPORTE * sQry.Cargos.ITBIS) / 100, 2);
+                    oRecDet.MONTO_ITBIS = Math.Round((sQry.IMPORTE * sQry.Cargos.ITBIS) / 100, 2, MidpointRounding.ToEven);
                     oRecDet.MONTO_TOTAL = sQry.IMPORTE + oRecDet.MONTO_ITBIS;
                 }
                 else
@@ -609,7 +609,7 @@ namespace AgenciaEF_BO.BO
                         oRecDet.MONTO_LOCAL = sQry.BVA_MONTO_LOCAL;
                         if (sQry.CargosProducto.Cargos.CAR_ITBIS == true && sQry.CargosProducto.Cargos.ITBIS > 0 && oCliente.CTE_TIPO_FISCAL != 45) //zona franca
                         {
-                            oRecDet.MONTO_ITBIS = Math.Round((sQry.BVA_MONTO_LOCAL * sQry.CargosProducto.Cargos.ITBIS) / 100, 2);
+                            oRecDet.MONTO_ITBIS = Math.Round((sQry.BVA_MONTO_LOCAL * sQry.CargosProducto.Cargos.ITBIS) / 100, 2, MidpointRounding.ToEven);
                             oRecDet.MONTO_TOTAL = sQry.BVA_MONTO_LOCAL + oRecDet.MONTO_ITBIS;
                             dTasaItbis = sQry.CargosProducto.Cargos.ITBIS;
                             dMontoGrabado += sQry.BVA_MONTO_LOCAL;
@@ -1145,7 +1145,7 @@ namespace AgenciaEF_BO.BO
                         oRecDet.MONTO_LOCAL = sQry.BVA_MONTO_LOCAL;
                         if (sQry.CargosProducto.Cargos.CAR_ITBIS == true && sQry.CargosProducto.Cargos.ITBIS > 0 && oCliente.CTE_TIPO_FISCAL != 45)
                         {
-                            oRecDet.MONTO_ITBIS = Math.Round((sQry.BVA_MONTO_LOCAL * sQry.CargosProducto.Cargos.ITBIS) / 100, 2);
+                            oRecDet.MONTO_ITBIS = Math.Round((sQry.BVA_MONTO_LOCAL * sQry.CargosProducto.Cargos.ITBIS) / 100, 2, MidpointRounding.ToEven);
                             oRecDet.MONTO_TOTAL = sQry.BVA_MONTO_LOCAL + oRecDet.MONTO_ITBIS;
                             dTasaItbis = sQry.CargosProducto.Cargos.ITBIS;
                             dMontoGrabado = sQry.BVA_MONTO_LOCAL;

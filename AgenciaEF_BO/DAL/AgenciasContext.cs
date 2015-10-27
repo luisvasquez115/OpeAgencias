@@ -92,6 +92,15 @@ namespace AgenciaEF_BO.DAL
 
         public DbSet<Correspondencia> Correspondencia { set; get; }
 
+
+        public DbSet<LibrasGratis> LibrasGratis { set; get; }
+
+        public DbSet<RegistroLibrasGratis> RegistroLibrasGratis { set; get; }
+
+        public DbSet<TarifasEspeciales> TarifasEspeciales { set; get; }
+
+        public DbSet<TarifasEspecialesValores> TarifasEspecialesValores { set; get; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
           //  modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

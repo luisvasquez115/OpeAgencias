@@ -31,6 +31,43 @@ namespace AgenciaEF_BO.DAL.ADO
             return true;
         }
 
+
+        public bool RecalcularUnidades(int piBultoLocal)
+        {
+            int iRetorno;
+
+            using (_connection = Acceso.ObtenerConexion())
+            {
+                iRetorno = _connection.ExecuteScalar<int>(@"[PROC_MFR2_INSERTAR_UNIDADES]", new { BLT_NUMERO_LOCAL = piBultoLocal, BLT_NUMERO_EPS = -1 }, commandType: CommandType.StoredProcedure);
+
+                // iRetorno = _connection.ExecuteScalar<int>(@"[PROC_MFR2_INSERTAR_UNIDADES]", new { BLT_NUMERO_LOCAL = piBultoLocal, BLT_NUMERO_EPS = piBltNumero }, commandType: CommandType.StoredProcedure);
+
+                //  iRetorno = _connection.ExecuteScalar<int>(@"[PROC_MFR2_INSERTAR_ITEBIS]", new { BLT_NUMERO_LOCAL = piBultoLocal}, commandType: CommandType.StoredProcedure);
+
+            }
+
+            return true;
+        }
+
+        public bool RecalcularItebis(int piBultoLocal)
+        {
+            int iRetorno;
+
+            using (_connection = Acceso.ObtenerConexion())
+            {
+                iRetorno = _connection.ExecuteScalar<int>(@"PROC_MFR2_INSERTAR_ITEBIS", new { BLT_NUMERO_LOCAL = piBultoLocal }, commandType: CommandType.StoredProcedure);
+
+                // iRetorno = _connection.ExecuteScalar<int>(@"[PROC_MFR2_INSERTAR_UNIDADES]", new { BLT_NUMERO_LOCAL = piBultoLocal, BLT_NUMERO_EPS = piBltNumero }, commandType: CommandType.StoredProcedure);
+
+                //  iRetorno = _connection.ExecuteScalar<int>(@"[PROC_MFR2_INSERTAR_ITEBIS]", new { BLT_NUMERO_LOCAL = piBultoLocal}, commandType: CommandType.StoredProcedure);
+
+            }
+
+            return true;
+        }
+
+
+
         //(DocCodigo, FacCodigo, Parametros.ParametrosSucursal.CodigoAlmacen, Parametros.ParametrosSucursal.Ubicacion, Parametros.ParametrosSucursal.IdSucursal)
         public IEnumerable<ImportacionAgencia> ImportarBultos(string psDocCodigo, string psFacCodigo, int piCodAlmacen, string psUbicacion, int piSucId, int piUserId)
         {

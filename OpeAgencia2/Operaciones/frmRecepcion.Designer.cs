@@ -244,6 +244,11 @@
             // txtPiezas
             // 
             this.txtPiezas.Location = new System.Drawing.Point(96, 87);
+            this.txtPiezas.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.txtPiezas.Name = "txtPiezas";
             this.txtPiezas.Size = new System.Drawing.Size(63, 20);
             this.txtPiezas.TabIndex = 11;
@@ -284,6 +289,7 @@
             this.txtNumeroEPS.Name = "txtNumeroEPS";
             this.txtNumeroEPS.Size = new System.Drawing.Size(100, 20);
             this.txtNumeroEPS.TabIndex = 2;
+            this.txtNumeroEPS.TextChanged += new System.EventHandler(this.txtNumeroEPS_TextChanged);
             this.txtNumeroEPS.Leave += new System.EventHandler(this.txtNumeroEPS_Leave);
             // 
             // label2

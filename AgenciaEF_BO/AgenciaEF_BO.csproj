@@ -67,6 +67,8 @@
     <Compile Include="DAL\ADO\Acceso.cs" />
     <Compile Include="DAL\ADO\BultosDAL.cs" />
     <Compile Include="DAL\ADO\ClientesDAL.cs" />
+    <Compile Include="DAL\RegistroLibrasGratisRepository.cs" />
+    <Compile Include="DAL\LibrasGratisRepository.cs" />
     <Compile Include="DAL\BultosEnviosRepository.cs" />
     <Compile Include="DAL\CorrespondenciaRepository.cs" />
     <Compile Include="DAL\dsReportes.cs">
@@ -74,6 +76,8 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DAL\SecuencialesRepository.cs" />
+    <Compile Include="DAL\TarifasEspecialesValoresRepository.cs" />
+    <Compile Include="DAL\TarifasEspecialesRepository.cs" />
     <Compile Include="DAL\TerminalRepository.cs" />
     <Compile Include="DAL\dsReportes.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -158,6 +162,7 @@
     <Compile Include="Models\Envios.cs" />
     <Compile Include="Models\EquivalenciaBultos.cs" />
     <Compile Include="Models\ImportacionAgencia.cs" />
+    <Compile Include="Models\LibrasGratis.cs" />
     <Compile Include="Models\Modulos.cs" />
     <Compile Include="Models\PagosRecibos.cs" />
     <Compile Include="Models\Pagos.cs" />
@@ -176,6 +181,7 @@
     <Compile Include="Models\Productos.cs" />
     <Compile Include="Models\Recibos.cs" />
     <Compile Include="Models\RecibosDet.cs" />
+    <Compile Include="Models\RegistroLibrasGratis.cs" />
     <Compile Include="Models\Secuenciales.cs" />
     <Compile Include="Models\Seguridad\UsuariosRoles.cs" />
     <Compile Include="Models\Seguridad\RolesOpciones.cs" />
@@ -189,6 +195,8 @@
     <Compile Include="Models\Codigos.cs" />
     <Compile Include="Models\TarifaEnvio.cs" />
     <Compile Include="Models\TarifaEnvioZona.cs" />
+    <Compile Include="Models\TarifasEspecialesValores.cs" />
+    <Compile Include="Models\TarifasEspeciales.cs" />
     <Compile Include="Models\TasaCambio.cs" />
     <Compile Include="Models\Terminal.cs" />
     <Compile Include="Models\Tipos.cs" />

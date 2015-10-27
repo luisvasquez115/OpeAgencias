@@ -13,6 +13,75 @@ namespace AgenciaEF_BO.BO
 
         private UnitOfWork unitOfWork = new UnitOfWork();
 
+
+        public bool AplicarLibrasGratis(int bltNumero, int LibrasGratis, int CteId, int iUserId, ref string  sMensaje )
+        {
+
+            var BultosValores = unitOfWork.BultosValoresRepository.Get(filter: xy => xy.CargosProducto.Cargos.CAR_CODIGO == "010" && xy.BLT_NUMERO == bltNumero).FirstOrDefault();
+
+            bool bRetorno = false;
+
+            if (BultosValores != null)
+            {
+
+                var oCargosProducto  = unitOfWork.CargosProductoRepository.Get(filter: xy=>xy.Cargos.CAR_CODIGO=="093" && xy.PROD_ID== BultosValores.CargosProducto.PROD_ID).FirstOrDefault();
+
+                if (oCargosProducto != null)
+                {
+                    Models.BultosValores oCargoExiste = unitOfWork.BultosValoresRepository.Get(filter: xy => xy.BLT_NUMERO == BultosValores.BLT_NUMERO && xy.CargosProducto.Cargos.CAR_CODIGO == "093").FirstOrDefault();
+
+                    if (oCargoExiste !=null)
+                    {
+                        unitOfWork.BultosValoresRepository.Delete(oCargoExiste);
+                    }
+
+
+                    Models.BultosValores oDescuento = new BultosValores();
+
+                    oDescuento.BLT_NUMERO = BultosValores.BLT_NUMERO;
+                    oDescuento.CARGO_PROD_ID = oCargosProducto.CARGO_PROD_ID;
+                    oDescuento.BVA_TASA = BultosValores.BVA_TASA;
+                    oDescuento.BVA_MONTO_APLICAR = 1;
+                    oDescuento.BVA_MONTO  = (LibrasGratis * BultosValores.BVA_MONTO_APLICAR) * -1;
+                    oDescuento.BVA_MONTO_LOCAL = (LibrasGratis * BultosValores.BVA_MONTO_APLICAR * BultosValores.BVA_TASA) * -1;
+
+                    unitOfWork.BultosValoresRepository.Insert(oDescuento);
+
+                    var oLibrasGratis = unitOfWork.LibrasGratisRepository.Get(filter: xy => xy.CTE_ID == CteId).FirstOrDefault();
+
+                    oLibrasGratis.LIBRAS_GRATIS = oLibrasGratis.LIBRAS_GRATIS - LibrasGratis;
+
+                    oLibrasGratis.LIBRAS_GRATIS_ACUMULADAS += LibrasGratis;
+
+                    oLibrasGratis.USUARIO_ID = iUserId;
+                    oLibrasGratis.FECHA_ULT_ASIGNACION = DateTime.Now;
+
+
+                    unitOfWork.LibrasGratisRepository.Update(oLibrasGratis);
+
+                    try
+                    {
+                        unitOfWork.Save();
+                        bRetorno = true;
+                    }
+                    catch(Exception ex)
+                    {
+
+                        sMensaje = ex.ToString();
+                    }
+ 
+                }
+
+       
+
+            }
+
+
+
+
+            return bRetorno;
+        }
+
         public decimal BuscarMontoAplicar(int piCargoId, decimal Monto, int iNumeroEPS)
         {
             decimal dRetorno = 1;

@@ -284,8 +284,6 @@ namespace OpeAgencia2.Clientes
         #endregion
 
 
-
-
         #region "botones"
 
         private void btnAdd_Click(object sender, EventArgs e)

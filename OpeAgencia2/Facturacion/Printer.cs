@@ -93,12 +93,12 @@ namespace OpeAgencia2.Facturacion
                          Description = oRow.CODIGO,
                          Quantity = 1,
                          Rate = oRow.TASA_ITBIS,
-                         Price = System.Math.Round(oRow.MONTO_TOTAL, 2, MidpointRounding.ToEven),
-                         Type = ItemTypes.SalesItem
+                         Price = System.Math.Round(Math.Abs(oRow.MONTO_TOTAL), 2, MidpointRounding.ToEven),
+                         Type = (oRow.DESCUENTO ? ItemTypes.DiscountPerItem : ItemTypes.SalesItem)
                      };
 
                     items.Add(itemsBulto);
-                    dSubTotal += oRow.MONTO_TOTAL;
+                    dSubTotal += System.Math.Round(oRow.MONTO_TOTAL,2, MidpointRounding.ToEven);
                     _MontoTotalFactura += System.Math.Round(oRow.MONTO_TOTAL, 2, MidpointRounding.ToEven);
 
                     sDescAdicional = new[]{
@@ -150,12 +150,12 @@ namespace OpeAgencia2.Facturacion
                          Description = oRow.CODIGO,
                          Quantity = 1,
                          Rate = oRow.TASA_ITBIS,
-                         Price = System.Math.Round(oRow.MONTO_TOTAL, 2, MidpointRounding.ToEven),
-                         Type = ItemTypes.SalesItem
+                         Price = System.Math.Round(Math.Abs(oRow.MONTO_TOTAL), 2, MidpointRounding.ToEven),
+                         Type = (oRow.DESCUENTO ? ItemTypes.DiscountPerItem : ItemTypes.SalesItem)
                      };
 
                     items.Add(itemsBulto);
-                    dSubTotal += oRow.MONTO_TOTAL;
+                    dSubTotal += Math.Round(oRow.MONTO_TOTAL,2, MidpointRounding.ToEven);
                     _MontoTotalFactura += System.Math.Round(oRow.MONTO_TOTAL, 2, MidpointRounding.ToEven);
 
                 }

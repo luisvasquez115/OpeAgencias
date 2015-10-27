@@ -92,6 +92,76 @@ namespace AgenciaEF_BO.DAL
 
         private CorrespondenciaRepository correspondenciaRepository;
 
+        // Promociones
+
+        private RegistroLibrasGratisRepository registroLibrasGratisRepository;
+
+        private LibrasGratisRepository librasGratisRepository;
+
+
+        private TarifasEspecialesRepository tarifasEspecialesRepository;
+
+
+        private TarifasEspecialesValoresRepository tarifasEspecialesValoresRepository;
+
+
+        public TarifasEspecialesValoresRepository TarifasEspecialesValoresRepository
+        {
+            get
+            {
+
+                if (this.tarifasEspecialesValoresRepository == null)
+                {
+                    this.tarifasEspecialesValoresRepository = new TarifasEspecialesValoresRepository(context);
+                }
+                return tarifasEspecialesValoresRepository;
+            }
+        }
+
+
+        public TarifasEspecialesRepository TarifasEspecialesRepository
+        {
+            get
+            {
+
+                if (this.tarifasEspecialesRepository == null)
+                {
+                    this.tarifasEspecialesRepository = new TarifasEspecialesRepository(context);
+                }
+                return tarifasEspecialesRepository;
+            }
+        }
+
+
+        public LibrasGratisRepository LibrasGratisRepository
+        {
+            get
+            {
+
+                if (this.librasGratisRepository == null)
+                {
+                    this.librasGratisRepository = new LibrasGratisRepository(context);
+                }
+                return librasGratisRepository;
+            }
+        }
+
+        public RegistroLibrasGratisRepository RegistroLibrasGratisRepository
+        {
+            get
+            {
+
+                if (this.registroLibrasGratisRepository == null)
+                {
+                    this.registroLibrasGratisRepository = new RegistroLibrasGratisRepository(context);
+                }
+                return registroLibrasGratisRepository;
+            }
+        }
+
+
+
+
         public CorrespondenciaRepository CorrespondenciaRepository
         {
             get

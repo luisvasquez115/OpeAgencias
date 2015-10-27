@@ -425,6 +425,8 @@ namespace AgenciaEF_BO.DAL {
             
             private global::System.Data.DataColumn columnENTREGADO_A;
             
+            private global::System.Data.DataColumn columnDESCUENTO;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public FACTURASDataTable() {
@@ -764,6 +766,14 @@ namespace AgenciaEF_BO.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DESCUENTOColumn {
+                get {
+                    return this.columnDESCUENTO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -836,7 +846,8 @@ namespace AgenciaEF_BO.DAL {
                         string REC_TIPO_DESC, 
                         string USUARIO, 
                         string NCF_AFECTADO, 
-                        string ENTREGADO_A) {
+                        string ENTREGADO_A, 
+                        bool DESCUENTO) {
                 FACTURASRow rowFACTURASRow = ((FACTURASRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -876,7 +887,8 @@ namespace AgenciaEF_BO.DAL {
                         REC_TIPO_DESC,
                         USUARIO,
                         NCF_AFECTADO,
-                        ENTREGADO_A};
+                        ENTREGADO_A,
+                        DESCUENTO};
                 rowFACTURASRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFACTURASRow);
                 return rowFACTURASRow;
@@ -944,6 +956,7 @@ namespace AgenciaEF_BO.DAL {
                 this.columnUSUARIO = base.Columns["USUARIO"];
                 this.columnNCF_AFECTADO = base.Columns["NCF_AFECTADO"];
                 this.columnENTREGADO_A = base.Columns["ENTREGADO_A"];
+                this.columnDESCUENTO = base.Columns["DESCUENTO"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1025,6 +1038,8 @@ namespace AgenciaEF_BO.DAL {
                 base.Columns.Add(this.columnNCF_AFECTADO);
                 this.columnENTREGADO_A = new global::System.Data.DataColumn("ENTREGADO_A", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnENTREGADO_A);
+                this.columnDESCUENTO = new global::System.Data.DataColumn("DESCUENTO", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDESCUENTO);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("HEADERKey1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -1033,6 +1048,7 @@ namespace AgenciaEF_BO.DAL {
                 this.columnID.AllowDBNull = false;
                 this.columnID.Unique = true;
                 this.columnREC_ID.AllowDBNull = false;
+                this.columnDESCUENTO.DefaultValue = ((bool)(false));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2753,6 +2769,22 @@ namespace AgenciaEF_BO.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool DESCUENTO {
+                get {
+                    try {
+                        return ((bool)(this[this.tableFACTURAS.DESCUENTOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DESCUENTO\' in table \'FACTURAS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFACTURAS.DESCUENTOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsREC_TIPONull() {
                 return this.IsNull(this.tableFACTURAS.REC_TIPOColumn);
             }
@@ -3181,6 +3213,18 @@ namespace AgenciaEF_BO.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetENTREGADO_ANull() {
                 this[this.tableFACTURAS.ENTREGADO_AColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDESCUENTONull() {
+                return this.IsNull(this.tableFACTURAS.DESCUENTOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDESCUENTONull() {
+                this[this.tableFACTURAS.DESCUENTOColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -310,7 +310,16 @@ namespace OpeAgencia2.Facturacion
                 oFactRow.CANT_ELEMENTOS = iCantElementos;
                 oFactRow.NCF_AFECTADO = sNCF_ANUL;
                 oFactRow.ENTREGADO_A = Bultos.Clientes.CTE_NOMBRE;
+
+                if (oRecDet.Cargos.CAR_CODIGO == "093") //Descuento a fuego
+                    oFactRow.DESCUENTO = true;
+                else
+                    oFactRow.DESCUENTO = false;
+
+
                 oTable.Rows.Add(oFactRow);
+
+                
             }
             return oTable;
         }
