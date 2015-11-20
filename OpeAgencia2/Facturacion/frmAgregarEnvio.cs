@@ -241,8 +241,22 @@ namespace OpeAgencia2.Facturacion
                     dMonto += Math.Round(drBV.MontoLocal, 2);
                     oUnidadesReturn.Rows.Add(drBV);
                 }
+                foreach (BO.DAL.dsDatos.BultosValoresCargosRow drUnidades in oCargos.Rows)
+                {
+                    BO.DAL.dsDatos.BultosValoresCargosRow drBV = oUnidadesReturn.NewBultosValoresCargosRow();
+                    drBV.CARGO_PROD_ID = drUnidades.CARGO_PROD_ID;
+                    drBV.Desc = drUnidades.Desc;
+                    drBV.ID = drUnidades.ID;
+                    drBV.Monto = drUnidades.Monto;
+                    drBV.MontoAplicar = drUnidades.MontoAplicar;
+                    drBV.MontoLocal = drUnidades.MontoLocal;
+                    drBV.Tasa = drUnidades.Tasa;
+                    dMonto += Math.Round(drBV.MontoLocal, 2);
+                    oUnidadesReturn.Rows.Add(drBV);
+                    // oUnidades.Rows.Add(drBV);
+                }
                 BO.BO.Facturar oFact = new BO.BO.Facturar();
-                dMontoItebis = oFact.ActualizarItbisEnvios(ref oUnidades);
+                dMontoItebis = oFact.ActualizarItbisEnvios(ref oUnidadesReturn);
                 dr.Monto = dMonto + dMontoItebis;
                 oEnvio.Rows.Add(dr);
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
