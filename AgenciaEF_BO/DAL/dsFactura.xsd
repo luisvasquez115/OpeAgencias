@@ -12,7 +12,7 @@
   <xs:element name="dsFactura" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsFactura" msprop:Generator_UserDSName="dsFactura">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="FACTURAS" msprop:Generator_TableClassName="FACTURASDataTable" msprop:Generator_TableVarName="tableFACTURAS" msprop:Generator_RowChangedName="FACTURASRowChanged" msprop:Generator_TablePropName="FACTURAS" msprop:Generator_RowDeletingName="FACTURASRowDeleting" msprop:Generator_RowChangingName="FACTURASRowChanging" msprop:Generator_RowEvHandlerName="FACTURASRowChangeEventHandler" msprop:Generator_RowDeletedName="FACTURASRowDeleted" msprop:Generator_RowClassName="FACTURASRow" msprop:Generator_UserTableName="FACTURAS" msprop:Generator_RowEvArgName="FACTURASRowChangeEvent">
+        <xs:element name="FACTURAS" msprop:Generator_TableClassName="FACTURASDataTable" msprop:Generator_TableVarName="tableFACTURAS" msprop:Generator_TablePropName="FACTURAS" msprop:Generator_RowDeletingName="FACTURASRowDeleting" msprop:Generator_RowChangingName="FACTURASRowChanging" msprop:Generator_RowEvHandlerName="FACTURASRowChangeEventHandler" msprop:Generator_RowDeletedName="FACTURASRowDeleted" msprop:Generator_UserTableName="FACTURAS" msprop:Generator_RowChangedName="FACTURASRowChanged" msprop:Generator_RowEvArgName="FACTURASRowChangeEvent" msprop:Generator_RowClassName="FACTURASRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -57,7 +57,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MOVCAJA" msprop:Generator_TableClassName="MOVCAJADataTable" msprop:Generator_TableVarName="tableMOVCAJA" msprop:Generator_TablePropName="MOVCAJA" msprop:Generator_RowDeletingName="MOVCAJARowDeleting" msprop:Generator_RowChangingName="MOVCAJARowChanging" msprop:Generator_RowEvHandlerName="MOVCAJARowChangeEventHandler" msprop:Generator_RowDeletedName="MOVCAJARowDeleted" msprop:Generator_UserTableName="MOVCAJA" msprop:Generator_RowChangedName="MOVCAJARowChanged" msprop:Generator_RowEvArgName="MOVCAJARowChangeEvent" msprop:Generator_RowClassName="MOVCAJARow">
+        <xs:element name="MOVCAJA" msprop:Generator_TableClassName="MOVCAJADataTable" msprop:Generator_TableVarName="tableMOVCAJA" msprop:Generator_RowChangedName="MOVCAJARowChanged" msprop:Generator_TablePropName="MOVCAJA" msprop:Generator_RowDeletingName="MOVCAJARowDeleting" msprop:Generator_RowChangingName="MOVCAJARowChanging" msprop:Generator_RowEvHandlerName="MOVCAJARowChangeEventHandler" msprop:Generator_RowDeletedName="MOVCAJARowDeleted" msprop:Generator_RowClassName="MOVCAJARow" msprop:Generator_UserTableName="MOVCAJA" msprop:Generator_RowEvArgName="MOVCAJARowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -80,7 +80,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="EstadoCuenta" msprop:Generator_TableClassName="EstadoCuentaDataTable" msprop:Generator_TableVarName="tableEstadoCuenta" msprop:Generator_RowChangedName="EstadoCuentaRowChanged" msprop:Generator_TablePropName="EstadoCuenta" msprop:Generator_RowDeletingName="EstadoCuentaRowDeleting" msprop:Generator_RowChangingName="EstadoCuentaRowChanging" msprop:Generator_RowEvHandlerName="EstadoCuentaRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadoCuentaRowDeleted" msprop:Generator_RowClassName="EstadoCuentaRow" msprop:Generator_UserTableName="EstadoCuenta" msprop:Generator_RowEvArgName="EstadoCuentaRowChangeEvent">
+        <xs:element name="EstadoCuenta" msprop:Generator_TableClassName="EstadoCuentaDataTable" msprop:Generator_TableVarName="tableEstadoCuenta" msprop:Generator_TablePropName="EstadoCuenta" msprop:Generator_RowDeletingName="EstadoCuentaRowDeleting" msprop:Generator_RowChangingName="EstadoCuentaRowChanging" msprop:Generator_RowEvHandlerName="EstadoCuentaRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadoCuentaRowDeleted" msprop:Generator_UserTableName="EstadoCuenta" msprop:Generator_RowChangedName="EstadoCuentaRowChanged" msprop:Generator_RowEvArgName="EstadoCuentaRowChangeEvent" msprop:Generator_RowClassName="EstadoCuentaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="REC_ID" msprop:Generator_ColumnVarNameInTable="columnREC_ID" msprop:Generator_ColumnPropNameInRow="REC_ID" msprop:Generator_ColumnPropNameInTable="REC_IDColumn" msprop:Generator_UserColumnName="REC_ID" type="xs:int" minOccurs="0" />
@@ -102,6 +102,18 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Articulos" msprop:Generator_TableClassName="ArticulosDataTable" msprop:Generator_TableVarName="tableArticulos" msprop:Generator_TablePropName="Articulos" msprop:Generator_RowDeletingName="ArticulosRowDeleting" msprop:Generator_RowChangingName="ArticulosRowChanging" msprop:Generator_RowEvHandlerName="ArticulosRowChangeEventHandler" msprop:Generator_RowDeletedName="ArticulosRowDeleted" msprop:Generator_UserTableName="Articulos" msprop:Generator_RowChangedName="ArticulosRowChanged" msprop:Generator_RowEvArgName="ArticulosRowChangeEvent" msprop:Generator_RowClassName="ArticulosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ArticuloId_x0020_" msprop:Generator_ColumnVarNameInTable="columnArticuloId_" msprop:Generator_ColumnPropNameInRow="ArticuloId_" msprop:Generator_ColumnPropNameInTable="ArticuloId_Column" msprop:Generator_UserColumnName="ArticuloId " type="xs:int" />
+              <xs:element name="Articulo" msprop:Generator_ColumnVarNameInTable="columnArticulo" msprop:Generator_ColumnPropNameInRow="Articulo" msprop:Generator_ColumnPropNameInTable="ArticuloColumn" msprop:Generator_UserColumnName="Articulo" type="xs:string" minOccurs="0" />
+              <xs:element name="Descripcion" msprop:Generator_ColumnVarNameInTable="columnDescripcion" msprop:Generator_ColumnPropNameInRow="Descripcion" msprop:Generator_ColumnPropNameInTable="DescripcionColumn" msprop:Generator_UserColumnName="Descripcion" type="xs:string" minOccurs="0" />
+              <xs:element name="Cantidad" msprop:Generator_ColumnVarNameInTable="columnCantidad" msprop:Generator_ColumnPropNameInRow="Cantidad" msprop:Generator_ColumnPropNameInTable="CantidadColumn" msprop:Generator_UserColumnName="Cantidad" type="xs:int" minOccurs="0" />
+              <xs:element name="Valor" msprop:Generator_ColumnVarNameInTable="columnValor" msprop:Generator_ColumnPropNameInRow="Valor" msprop:Generator_ColumnPropNameInTable="ValorColumn" msprop:Generator_UserColumnName="Valor" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="HEADERKey1" msdata:PrimaryKey="true">
@@ -111,6 +123,10 @@
     <xs:unique name="MOVCAJA_HEADERKey1" msdata:ConstraintName="HEADERKey1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:MOVCAJA" />
       <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Articulos" />
+      <xs:field xpath="mstns:ArticuloId_x0020_" />
     </xs:unique>
   </xs:element>
 </xs:schema>

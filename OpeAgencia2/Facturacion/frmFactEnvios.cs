@@ -169,6 +169,19 @@ namespace OpeAgencia2.Facturacion
                         oUnidaesRow.ID = iSecuenciaId;
                         oUnidades.Rows.Add(oUnidaesRow);
                     }
+
+                    /*foreach (DataRow drnew in x.CargosRetorno.Rows)
+                    {
+                        BO.DAL.dsDatos.BultosValoresCargosRow oUnidaesRow = oUnidades.NewBultosValoresCargosRow();
+
+                        for (int i = 0; i < oUnidades.Columns.Count; i++)
+                        {
+                            oUnidaesRow[i] = drnew[i];
+                        }
+                        oUnidaesRow.ID = iSecuenciaId;
+                        oUnidades.Rows.Add(oUnidaesRow);
+                    }*/
+
                     ActualizaTotal();
                 }
             }

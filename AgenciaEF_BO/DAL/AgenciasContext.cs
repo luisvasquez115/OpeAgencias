@@ -101,6 +101,8 @@ namespace AgenciaEF_BO.DAL
 
         public DbSet<TarifasEspecialesValores> TarifasEspecialesValores { set; get; }
 
+        public DbSet<CargosSucursales> CargosSucursales { set; get; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
           //  modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

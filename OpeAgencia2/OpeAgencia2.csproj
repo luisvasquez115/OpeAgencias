@@ -430,6 +430,12 @@
     <Compile Include="Precios\frmCargosProducto.Designer.cs">
       <DependentUpon>frmCargosProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Precios\frmCargosSucursales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Precios\frmCargosSucursales.Designer.cs">
+      <DependentUpon>frmCargosSucursales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Precios\frmEnvios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -520,6 +526,24 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Telemercadeo\frmAgregarArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telemercadeo\frmAgregarArticulo.Designer.cs">
+      <DependentUpon>frmAgregarArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telemercadeo\frmAgregarOrdenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telemercadeo\frmAgregarOrdenes.Designer.cs">
+      <DependentUpon>frmAgregarOrdenes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telemercadeo\frmOrdenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telemercadeo\frmOrdenes.Designer.cs">
+      <DependentUpon>frmOrdenes.cs</DependentUpon>
     </Compile>
     <Compile Include="usrbntMant.cs">
       <SubType>UserControl</SubType>
@@ -677,6 +701,9 @@
     <EmbeddedResource Include="Precios\frmCargosProducto.resx">
       <DependentUpon>frmCargosProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Precios\frmCargosSucursales.resx">
+      <DependentUpon>frmCargosSucursales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Precios\frmEnvios.resx">
       <DependentUpon>frmEnvios.cs</DependentUpon>
     </EmbeddedResource>
@@ -748,6 +775,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telemercadeo\frmAgregarArticulo.resx">
+      <DependentUpon>frmAgregarArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telemercadeo\frmAgregarOrdenes.resx">
+      <DependentUpon>frmAgregarOrdenes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telemercadeo\frmOrdenes.resx">
+      <DependentUpon>frmOrdenes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="usrbntMant.resx">
       <DependentUpon>usrbntMant.cs</DependentUpon>

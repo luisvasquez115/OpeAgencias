@@ -104,6 +104,23 @@ namespace AgenciaEF_BO.DAL
 
         private TarifasEspecialesValoresRepository tarifasEspecialesValoresRepository;
 
+        private CargosSucursalesRepository cargosSucursalesRepository;
+
+
+        public CargosSucursalesRepository CargosSucursalesRepository
+        {
+            get
+            {
+
+                if (this.cargosSucursalesRepository == null)
+                {
+                    this.cargosSucursalesRepository = new CargosSucursalesRepository(context);
+                }
+                return cargosSucursalesRepository;
+            }
+        }
+
+
 
         public TarifasEspecialesValoresRepository TarifasEspecialesValoresRepository
         {

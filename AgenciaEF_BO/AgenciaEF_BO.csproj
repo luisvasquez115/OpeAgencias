@@ -67,6 +67,7 @@
     <Compile Include="DAL\ADO\Acceso.cs" />
     <Compile Include="DAL\ADO\BultosDAL.cs" />
     <Compile Include="DAL\ADO\ClientesDAL.cs" />
+    <Compile Include="DAL\CargosSucursalesRepository.cs" />
     <Compile Include="DAL\RegistroLibrasGratisRepository.cs" />
     <Compile Include="DAL\LibrasGratisRepository.cs" />
     <Compile Include="DAL\BultosEnviosRepository.cs" />
@@ -152,6 +153,7 @@
     <Compile Include="Models\Bultos.cs" />
     <Compile Include="Models\BultosEnvios.cs" />
     <Compile Include="Models\BultosValores.cs" />
+    <Compile Include="Models\CargosSucursales.cs" />
     <Compile Include="Models\CargosValores.cs" />
     <Compile Include="Models\Cargos.cs" />
     <Compile Include="Models\CargosProducto.cs" />
@@ -198,6 +200,7 @@
     <Compile Include="Models\TarifasEspecialesValores.cs" />
     <Compile Include="Models\TarifasEspeciales.cs" />
     <Compile Include="Models\TasaCambio.cs" />
+    <Compile Include="Models\Telemercadeo\Ordenes.cs" />
     <Compile Include="Models\Terminal.cs" />
     <Compile Include="Models\Tipos.cs" />
     <Compile Include="Models\VW\vw_bultos_valores.cs" />
