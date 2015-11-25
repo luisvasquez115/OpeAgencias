@@ -94,17 +94,14 @@ namespace OpeAgencia2.Clientes
             //}
         }
 
-        private void dg_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dg_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (dg.CurrentRow == null || dg.CurrentRow.Index < 0)
+                return;
             int iBltNumero = -1;
-
             iBltNumero = Convert.ToInt32(dg.Rows[dg.CurrentRow.Index].Cells[0].Value);
-
             Operaciones.frmRecepcion oFrom = new Operaciones.frmRecepcion(iBltNumero);
-
             oFrom.ShowDialog();
-
-       
         }
 
         private void dg_SelectionChanged(object sender, EventArgs e)
@@ -150,7 +147,6 @@ namespace OpeAgencia2.Clientes
         {
             var loBultosVal = from p in  unitOfWork.BultosValoresRepository.Get(filter: xy => xy.BLT_NUMERO == bltNumero)
                             select new {Cargo = p.CargosProducto.Cargos.CAR_CODIGO + '-' + p.CargosProducto.Cargos.CAR_DESCRIPCION, Monto = p.BVA_MONTO_LOCAL};
-
             foreach (var cargo in loBultosVal)
             {
                 if (htValores[cargo.Cargo] == null)
@@ -158,17 +154,27 @@ namespace OpeAgencia2.Clientes
                 else
                     htValores[cargo.Cargo] = Convert.ToDecimal(htValores[cargo.Cargo]) + cargo.Monto;
             }
-
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-
+            Limpiar();
         }
 
-      
+        private void textboxes_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter)
+                return;
+            btnConsultar.PerformClick();
+        }
 
-    
-    
+        private void Limpiar()
+        {
+            dgResumen.Rows.Clear();
+            //dg.Rows.Clear();
+            foreach (var textbox in groupBox1.Controls.OfType<TextBox>())
+                textbox.Clear();
+            //cmbEstado.SelectedIndex = -1;
+        }
     }
 }

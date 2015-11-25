@@ -59,6 +59,7 @@
             this.dgSucursales = new System.Windows.Forms.DataGridView();
             this.tabRoles = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.btnEliminarRol = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbSucursal = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -421,6 +422,7 @@
             // 
             // splitContainer3.Panel1
             // 
+            this.splitContainer3.Panel1.Controls.Add(this.btnEliminarRol);
             this.splitContainer3.Panel1.Controls.Add(this.label7);
             this.splitContainer3.Panel1.Controls.Add(this.cmbSucursal);
             this.splitContainer3.Panel1.Controls.Add(this.button1);
@@ -431,6 +433,16 @@
             this.splitContainer3.Size = new System.Drawing.Size(598, 379);
             this.splitContainer3.SplitterDistance = 42;
             this.splitContainer3.TabIndex = 0;
+            // 
+            // btnEliminarRol
+            // 
+            this.btnEliminarRol.Location = new System.Drawing.Point(92, 8);
+            this.btnEliminarRol.Name = "btnEliminarRol";
+            this.btnEliminarRol.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarRol.TabIndex = 22;
+            this.btnEliminarRol.Text = "Eliminar";
+            this.btnEliminarRol.UseVisualStyleBackColor = true;
+            this.btnEliminarRol.Click += new System.EventHandler(this.btnEliminarRol_Click);
             // 
             // label7
             // 
@@ -548,5 +560,6 @@
         private System.Windows.Forms.ComboBox cmbSucursal;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgRoles;
+        private System.Windows.Forms.Button btnEliminarRol;
     }
 }

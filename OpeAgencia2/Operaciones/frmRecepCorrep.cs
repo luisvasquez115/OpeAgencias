@@ -44,7 +44,6 @@ namespace OpeAgencia2.Operaciones
                 Cancelar();
                 return;
             }
-
         }
 
         void  Cancelar()
@@ -60,13 +59,13 @@ namespace OpeAgencia2.Operaciones
         {
             if (txtPesoCorr.DecimalValue <= 0)
             {
-                MessageBox.Show("Aviso", "Debe registrar el peso ", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+                MessageBox.Show("Debe registrar el peso", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
              if (txtPiezaNormal.IntValue <= 0)
             {
-                MessageBox.Show("Aviso", "Debe registrar el numero de piezas ", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+                MessageBox.Show("Debe registrar el número de piezas", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             //
@@ -78,31 +77,92 @@ namespace OpeAgencia2.Operaciones
                 oCorre.PESO = txtPesoCorr.DecimalValue;
                 oCorre.PIEZAS = txtPiezaNormal.IntValue;
                 oCorre.USER_ID = Parametros.Parametros.UsuarioId;
-
                 unitOfWork.CorrespondenciaRepository.Insert(oCorre);
-
-                var oclientes = unitOfWork.ClientesRepository.GetByID(iNumeroEPS);
-
-                oclientes.CTE_CORRESPONDENCIA = true;
-
-                unitOfWork.ClientesRepository.Update(oclientes);
-                unitOfWork.Save();
-
+                CambiarMensajeCorrespondencia(true);
                 Cancelar();
-
+                MessageBox.Show("Correspondencia registrada correctamente", "Correspondencia registrada",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(Exception ex)
             {
                 throw ex;
-
             }
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Cancelar();
+        }
+
+        public void CambiarMensajeCorrespondencia(bool activado)
+        {
+            var oclientes = unitOfWork.ClientesRepository.GetByID(iNumeroEPS);
+            if (oclientes == null)
+            {
+                MessageBox.Show("Debe especificar un cliente", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtNumeroEPS.Focus();
+                return;
+            }
+            oclientes.CTE_CORRESPONDENCIA = activado;
+            unitOfWork.ClientesRepository.Update(oclientes);
+            unitOfWork.Save();
+        }
+
+        private void btnPonerMensaje_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CambiarMensajeCorrespondencia(true);
+                MessageBox.Show("Mensaje activado correctamente", "Mensaje activado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnQuitarMensaje_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CambiarMensajeCorrespondencia(false);
+                MessageBox.Show("Mensaje desactivado correctamente", "Mensaje desactivado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtNumeroEPS_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter || txtNumeroEPS.Text == string.Empty)
+                return;
+            var Eps = unitOfWork.ClientesRepository.Get(filter: s => s.CTE_NUMERO_EPS == txtNumeroEPS.Text).FirstOrDefault();
+            if (Eps != null)
+            {
+                lblEps.Text = Eps.CTE_NOMBRE.ToString() + " " + Eps.CTE_APELLIDO;
+                iNumeroEPS = Eps.CTE_ID;
+                // iSucursalId = Eps.CTE_SUC_ID;
+            }
+            else
+            {
+                lblEps.Text = "";
+                iNumeroEPS = -1;
+                // iSucursalId = -1;
+                return;
+            }
+            if (Eps.CTE_SUC_ID != Parametros.Parametros.SucursalActual)
+            {
+                MessageBox.Show("No puede registrar correspondencia para este cliente, debe ingresar con la sucursal del mismo ", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+                Cancelar();
+                return;
+            }
+            txtPiezaNormal.Focus();
         }
     }
 }

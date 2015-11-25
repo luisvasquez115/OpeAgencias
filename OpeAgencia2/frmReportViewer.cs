@@ -18,44 +18,44 @@ namespace OpeAgencia2
             InitializeComponent();
         }
 
-         //LocalReport report;
-         DataTable dt = new DataTable();
-         string sReportPath = "";
+        //LocalReport report;
+        DataTable dt = new DataTable();
+        string sReportPath = "";
 
-         string sTitulo = "";
+        string sTitulo = "";
 
-         LocalReport _Report;
-      
-         public frmReportViewer(string psReportPath, DataTable pDt)
-         {
-             InitializeComponent();
+        LocalReport _Report;
 
-             sReportPath = psReportPath;
-             dt = pDt;
-         }
+        public frmReportViewer(string psReportPath, DataTable pDt)
+        {
+            InitializeComponent();
 
-         public frmReportViewer(LocalReport oReport)
-         {
-             InitializeComponent();
+            sReportPath = psReportPath;
+            dt = pDt;
+        }
 
-             _Report = oReport;
-         }
+        public frmReportViewer(LocalReport oReport)
+        {
+            InitializeComponent();
 
-         public frmReportViewer(string psReportPath, DataTable pDt, string psTitulo)
-         {
-             InitializeComponent();
+            _Report = oReport;
+        }
 
-             sReportPath = psReportPath;
-             dt = pDt;
-             sTitulo = psTitulo;
-         }
+        public frmReportViewer(string psReportPath, DataTable pDt, string psTitulo)
+        {
+            InitializeComponent();
+
+            sReportPath = psReportPath;
+            dt = pDt;
+            sTitulo = psTitulo;
+        }
 
         private void frmReportViewer_Load(object sender, EventArgs e)
         {
 
             if (_Report == null)
             {
-                this.reportViewer1.LocalReport.ReportEmbeddedResource = sReportPath;
+                this.reportViewer1.LocalReport.ReportPath = sReportPath; //sReportPath;
 
                 this.reportViewer1.LocalReport.SetParameters(new ReportParameter("Encabezado1", Parametros.ParametrosSucursal.EncabezadoFactura1));
                 this.reportViewer1.LocalReport.SetParameters(new ReportParameter("Encabezado2", Parametros.ParametrosSucursal.EncabezadoFactura2));
@@ -107,10 +107,10 @@ namespace OpeAgencia2
                 //show the report
                 reportViewer1.RefreshReport();
             }
-           
+
         }
 
 
-      
+
     }
 }

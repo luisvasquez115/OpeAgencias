@@ -258,9 +258,8 @@ namespace OpeAgencia2.Facturacion
                     drBV.Tasa = drUnidades.Tasa;
                     dMonto += Math.Round(drBV.MontoLocal, 2);
                     oUnidadesReturn.Rows.Add(drBV);
-                   // oUnidades.Rows.Add(drBV);
+                    // oUnidades.Rows.Add(drBV);
                 }
-
                 BO.BO.Facturar oFact = new BO.BO.Facturar();
                 dMontoItebis = oFact.ActualizarItbisEnvios(ref oUnidadesReturn);
                 dr.Monto = dMonto + dMontoItebis;
@@ -363,6 +362,11 @@ namespace OpeAgencia2.Facturacion
                 }
             }
             return dRetorno;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -543,6 +543,7 @@
             this.txtSellos.Location = new System.Drawing.Point(284, 150);
             this.txtSellos.Name = "txtSellos";
             this.txtSellos.Size = new System.Drawing.Size(63, 21);
+            this.txtSellos.StringValue = "0";
             this.txtSellos.TabIndex = 29;
             // 
             // label28
@@ -566,6 +567,7 @@
             this.txtValorFOB.Location = new System.Drawing.Point(95, 150);
             this.txtValorFOB.Name = "txtValorFOB";
             this.txtValorFOB.Size = new System.Drawing.Size(63, 21);
+            this.txtValorFOB.StringValue = "0";
             this.txtValorFOB.TabIndex = 27;
             // 
             // btnCancelar
@@ -576,6 +578,7 @@
             this.btnCancelar.TabIndex = 25;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 

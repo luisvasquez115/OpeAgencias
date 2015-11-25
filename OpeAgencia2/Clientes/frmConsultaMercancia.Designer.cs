@@ -32,6 +32,7 @@
             this.tabGenerales = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblCorrespondencia = new System.Windows.Forms.Label();
             this.txtMontoTotal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPaq = new System.Windows.Forms.TextBox();
@@ -58,7 +59,6 @@
             this.tabTransacc = new System.Windows.Forms.TabPage();
             this.tabReclamo = new System.Windows.Forms.TabPage();
             this.tabAudit = new System.Windows.Forms.TabPage();
-            this.lblCorrespondencia = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabGenerales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -140,6 +140,17 @@
             this.groupBox1.Size = new System.Drawing.Size(685, 142);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // lblCorrespondencia
+            // 
+            this.lblCorrespondencia.AutoSize = true;
+            this.lblCorrespondencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorrespondencia.ForeColor = System.Drawing.Color.Red;
+            this.lblCorrespondencia.Location = new System.Drawing.Point(376, 79);
+            this.lblCorrespondencia.Name = "lblCorrespondencia";
+            this.lblCorrespondencia.Size = new System.Drawing.Size(13, 20);
+            this.lblCorrespondencia.TabIndex = 16;
+            this.lblCorrespondencia.Text = ".";
             // 
             // txtMontoTotal
             // 
@@ -223,6 +234,7 @@
             this.txtTracking.Name = "txtTracking";
             this.txtTracking.Size = new System.Drawing.Size(207, 20);
             this.txtTracking.TabIndex = 7;
+            this.txtTracking.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textboxes_KeyDown);
             // 
             // label4
             // 
@@ -239,6 +251,7 @@
             this.txtCodigoBarra.Name = "txtCodigoBarra";
             this.txtCodigoBarra.Size = new System.Drawing.Size(117, 20);
             this.txtCodigoBarra.TabIndex = 5;
+            this.txtCodigoBarra.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textboxes_KeyDown);
             // 
             // label3
             // 
@@ -255,6 +268,7 @@
             this.txtGuiaMadre.Name = "txtGuiaMadre";
             this.txtGuiaMadre.Size = new System.Drawing.Size(117, 20);
             this.txtGuiaMadre.TabIndex = 3;
+            this.txtGuiaMadre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textboxes_KeyDown);
             // 
             // label2
             // 
@@ -271,6 +285,7 @@
             this.txtEPS.Name = "txtEPS";
             this.txtEPS.Size = new System.Drawing.Size(117, 20);
             this.txtEPS.TabIndex = 1;
+            this.txtEPS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textboxes_KeyDown);
             // 
             // label1
             // 
@@ -315,7 +330,7 @@
             this.dg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dg.Size = new System.Drawing.Size(671, 278);
             this.dg.TabIndex = 0;
-            this.dg.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_CellContentClick);
+            this.dg.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_CellDoubleClick);
             this.dg.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dg_DataBindingComplete);
             this.dg.SelectionChanged += new System.EventHandler(this.dg_SelectionChanged);
             // 
@@ -386,17 +401,6 @@
             this.tabAudit.TabIndex = 3;
             this.tabAudit.Text = "Auditoria";
             this.tabAudit.UseVisualStyleBackColor = true;
-            // 
-            // lblCorrespondencia
-            // 
-            this.lblCorrespondencia.AutoSize = true;
-            this.lblCorrespondencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorrespondencia.ForeColor = System.Drawing.Color.Red;
-            this.lblCorrespondencia.Location = new System.Drawing.Point(376, 79);
-            this.lblCorrespondencia.Name = "lblCorrespondencia";
-            this.lblCorrespondencia.Size = new System.Drawing.Size(13, 20);
-            this.lblCorrespondencia.TabIndex = 16;
-            this.lblCorrespondencia.Text = ".";
             // 
             // frmConsultaMercancia
             // 

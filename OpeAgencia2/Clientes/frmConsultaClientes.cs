@@ -38,13 +38,16 @@ namespace OpeAgencia2.Clientes
              */
             int piUserId;
             piUserId = Parametros.Parametros.UsuarioId;
-            var opciones = from p in unitOfWork.ClientesRepository.Get(filter: s => s.CTE_NUMERO_EPS == "-1")
-                           join j in unitOfWork.UsuarioSucursalRepository.Get(filter: s => s.USUARIO_ID == piUserId) on p.CTE_SUC_ID equals j.SUC_ID
+            var opciones = from p in unitOfWork.ClientesRepository.Get(filter: s => s.CTE_NUMERO_EPS == "-1" &&
+                           s.CTE_SUC_ID == Parametros.ParametrosSucursal.IdSucursal)
+                           join j in unitOfWork.UsuarioSucursalRepository.Get(filter: s => s.USUARIO_ID == piUserId) 
+                           on p.CTE_SUC_ID equals j.SUC_ID
                            select new { Id = p.CTE_ID, EPS = p.CTE_NUMERO_EPS, Nombres = p.CTE_NOMBRE, Apellidos = p.CTE_APELLIDO };
             if (txtFindEPS.Text != "")
             {
                 opciones = from p in unitOfWork.ClientesRepository.Get(filter: s => s.CTE_NUMERO_EPS == txtFindEPS.Text)
-                           join j in unitOfWork.UsuarioSucursalRepository.Get(filter: s => s.USUARIO_ID == piUserId) on p.CTE_SUC_ID equals j.SUC_ID
+                           join j in unitOfWork.UsuarioSucursalRepository.Get(filter: s => s.USUARIO_ID == piUserId) 
+                           on p.CTE_SUC_ID equals j.SUC_ID
                            select new { Id = p.CTE_ID, EPS = p.CTE_NUMERO_EPS, Nombres = p.CTE_NOMBRE, Apellidos = p.CTE_APELLIDO };
             }
             else if (txtNombreBuscar.Text != "" && txtApellidoBuscar.Text == "")

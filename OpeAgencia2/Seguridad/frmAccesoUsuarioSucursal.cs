@@ -260,26 +260,19 @@ namespace OpeAgencia2.Seguridad
 
         }
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-        }
-
         void VerificaParentCheck(TreeNode oNode)
         {
-
             if (oNode.Level > 0)
             {
                 if (oNode.Parent != null)
                 {
                     if (oNode.Parent.Checked == false)
                     {
-                        oNode.Parent.Checked = true;
+                        oNode.Parent.Checked = oNode.Checked;
                         VerificaParentCheck(oNode.Parent);
                     }
                 }
             }
-
         }
 
         void VerificaHijosCheck(TreeNode pNode)
@@ -293,13 +286,23 @@ namespace OpeAgencia2.Seguridad
                     VerificaHijosCheck(oNode);
                 }
             }
+        }
 
-
+        private void CheckAllChildNodes(TreeNode treeNode, bool nodeChecked)
+        {
+            foreach (TreeNode node in treeNode.Nodes)
+            {
+                node.Checked = nodeChecked;
+                if (node.Nodes.Count > 0)
+                {
+                    this.CheckAllChildNodes(node, nodeChecked);
+                }
+            }
         }
 
         private void treeView1_AfterCheck(object sender, TreeViewEventArgs e)
         {
-
+            CheckAllChildNodes(e.Node, e.Node.Checked);
             if (e.Node.Checked)
             {
                 VerificaParentCheck(e.Node);

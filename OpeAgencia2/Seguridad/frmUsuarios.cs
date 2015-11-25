@@ -423,7 +423,7 @@ namespace OpeAgencia2.Seguridad
 
         private void btnQuitarSuc_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Seguro que quiere quitar el acceso a la sucursal seleccionada", "Pregunta",
+            if (MessageBox.Show("¿Seguro que quiere quitar el acceso a la sucursal seleccionada?", "Quitar acceso a sucursal",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
                 == System.Windows.Forms.DialogResult.Yes)
             {
@@ -475,6 +475,14 @@ namespace OpeAgencia2.Seguridad
         private void txtClave_Leave(object sender, EventArgs e)
         {
             txtClave.Text = string.Join("", new MD5CryptoServiceProvider().ComputeHash(new MemoryStream(Encoding.UTF8.GetBytes(this.txtClave.Text))).Select(x => x.ToString("X2")));
+        }
+
+        private void btnEliminarRol_Click(object sender, EventArgs e)
+        {
+            var rolUsuario = unitOfWork.UsuariosRolesRepository.GetByID(dgRoles.CurrentRow.Cells["id"].Value);
+            unitOfWork.UsuariosRolesRepository.Delete(dgRoles.CurrentRow.Cells["id"].Value);
+            unitOfWork.Save();
+            ConsultaRoles();
         }
     }
 }

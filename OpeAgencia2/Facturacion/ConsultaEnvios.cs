@@ -122,8 +122,8 @@ namespace OpeAgencia2.Facturacion
             }
             if (recibo != null)
             {//"0,0.00", CultureInfo.InvariantCulture
-                if (MessageBox.Show("Desea anular el recibo por un monto de: " + recibo.IMPORTE_TOTAL.ToString("0,0.00", 
-                    CultureInfo.InvariantCulture), "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == 
+                if (MessageBox.Show("¿Desea anular el recibo por un monto de: " + recibo.IMPORTE_TOTAL.ToString("0,0.00", 
+                    CultureInfo.InvariantCulture) + "?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == 
                     System.Windows.Forms.DialogResult.Yes)
                 {
                     if (ProcesoAnulacion(iReciboId) == false)
@@ -184,7 +184,7 @@ namespace OpeAgencia2.Facturacion
 
                 if (bImpreso == false && Recibos.ESTADO_ID != 15)
                 {
-                    DialogResult oResult = MessageBox.Show("Este recibo no se ha impreso fiscalmente, desea imprimirlo ahora?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                    DialogResult oResult = MessageBox.Show("Este recibo no se ha impreso fiscalmente, ¿desea imprimirlo ahora?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                     if (oResult == System.Windows.Forms.DialogResult.No)
                         return;
                 }

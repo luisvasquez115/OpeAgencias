@@ -155,8 +155,8 @@ namespace OpeAgencia2.Facturacion
 
             oTable.TableName = "CuadreCaja";
 
-            // string sPath = @".\Reportes\CuandreCaja.rdlc";
-            string sPath = "OpeAgencia2.Reportes.CuadreCaja.rdlc";
+            string sPath = @".\Reportes\CuadreCaja.rdlc";
+            //string sPath = "OpeAgencia2.Reportes.CuadreCaja.rdlc";
 
             frmReportViewer x = new frmReportViewer(sPath, oTable, "Reporte de Movimientos de Caja -" + txtFecha.Value.Date.ToShortDateString());
 
@@ -213,7 +213,7 @@ namespace OpeAgencia2.Facturacion
             oTable.TableName = "VW_CUADRE_CAJA";
       
            // string sPath = @".\Reportes\CuandreCaja.rdlc";
-            string sPath = "OpeAgencia2.Reportes.rCuadreCaja2.rdlc";
+            string sPath = @".\Reportes\rCuadreCaja2.rdlc";
 
             frmReportViewer x = new frmReportViewer(sPath,oTable,"Reporte de Movimientos de Caja -" + txtFecha.Value.Date.ToShortDateString());
 

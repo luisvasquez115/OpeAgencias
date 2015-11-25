@@ -76,12 +76,8 @@ namespace OpeAgencia2.Creditos
                               p.IMPORTE_CTA,
                               BALANCE = (p.IMPORTE_TOTAL - p.IMPORTE_CTA)
                           };
-
-
-
             this.dgRecibos.DataSource = oRecibos.ToList();
             this.dgRecibos.Columns[0].Visible = false;
-
         }
 
         private void dgRecibos_SelectionChanged(object sender, EventArgs e)

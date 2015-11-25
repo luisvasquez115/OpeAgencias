@@ -542,7 +542,8 @@ namespace OpeAgencia2.Precios
         private void btnEliminar_Click(object sender, EventArgs e)
         {
 
-            DialogResult x = MessageBox.Show("Seguro que quiere borrar el cargo seleccionado", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button2);
+            DialogResult x = MessageBox.Show("¿Seguro que quiere borrar el cargo seleccionado?", "Aviso", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button2);
 
             if (x == System.Windows.Forms.DialogResult.No)
                 return;

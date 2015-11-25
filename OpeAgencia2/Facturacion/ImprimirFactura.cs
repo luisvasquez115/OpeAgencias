@@ -251,10 +251,10 @@ namespace OpeAgencia2.Facturacion
                 {
                     if (Bultos.Clientes.CTE_CEDULA.KeepOnlyNumbers().Trim() != string.Empty)
                         oFactRow.RNC = Bultos.Clientes.CTE_CEDULA.KeepOnlyNumbers().ToString().TrimEnd();
-                    //else if (Bultos.Clientes.CTE_PASAPORTE.Trim() != string.Empty)
-                    //    oFactRow.RNC = Bultos.Clientes.CTE_PASAPORTE;
-                    else
+                    else if (Bultos.Clientes.CTE_RNC.Trim() != string.Empty)
                         oFactRow.RNC = Bultos.Clientes.CTE_RNC;
+                    else
+                        oFactRow.RNC = Bultos.Clientes.CTE_PASAPORTE;
                 }
                 if (iBltNumero != Bultos.BLT_NUMERO)
                 {
@@ -284,7 +284,7 @@ namespace OpeAgencia2.Facturacion
                 oFactRow.PRODUCTO = Bultos.Productos.PRO_CODIGO + " " + Bultos.Productos.PRO_DESCRIPCION;
                 oFactRow.REC_CREDITO = oRecibo.REC_CREDITO == false ? "N" : "S";
                 oFactRow.REC_FECHA = oRecibo.FECHA.ToShortDateString();
-                oFactRow.SUCURSAL = Bultos.Sucursales.SUC_DESCRIPCION;
+                oFactRow.SUCURSAL = Bultos.Sucursales.SUC_CODIGO;
 
                 if (Bultos.Clientes.CTE_TIPO_FISCAL == 45) /*regimenes especiales*/
                 {

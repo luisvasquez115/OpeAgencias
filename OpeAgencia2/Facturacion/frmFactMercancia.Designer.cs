@@ -335,6 +335,7 @@
             this.dgPaq.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgPaq.Size = new System.Drawing.Size(531, 303);
             this.dgPaq.TabIndex = 4;
+            this.dgPaq.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPaq_CellDoubleClick);
             this.dgPaq.SelectionChanged += new System.EventHandler(this.dgPaq_SelectionChanged);
             // 
             // txtTarifa

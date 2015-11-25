@@ -121,7 +121,6 @@
             this.treeView1.Size = new System.Drawing.Size(258, 422);
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterCheck);
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // btnActualizar
             // 

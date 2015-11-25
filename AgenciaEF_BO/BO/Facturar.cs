@@ -8,7 +8,6 @@ using AgenciaEF_BO.Models;
 using System.Collections;
 using System.Data;
 
-
 namespace AgenciaEF_BO.BO
 {
     public class Facturar
@@ -49,6 +48,7 @@ namespace AgenciaEF_BO.BO
 
                 RecAnul.RECIBO_ID_ANUL = recibo.RECIBO_ID;
                 RecAnul.REC_CREDITO = false;
+                RecAnul.SUC_ID = recibo.SUC_ID;
 
                 var oSecuencial = unitOfWork.SecuencialesRepository.Get(filter: xy => xy.SUC_ID == recibo.SUC_ID && xy.TIPO_ID == 5).FirstOrDefault();
 
@@ -58,7 +58,7 @@ namespace AgenciaEF_BO.BO
 
                 unitOfWork.SecuencialesRepository.Update(oSecuencial);
 
-                RecAnul.SUC_ID = recibo.SUC_ID;
+                //RecAnul.SUC_ID = recibo.SUC_ID;
                 RecAnul.TIP_FISCAL = recibo.TIP_FISCAL;
                 RecAnul.TIPO_REC_ID = 5;  //Anulaciones
                 RecAnul.USER_CREA = recibo.USER_CREA;
@@ -674,7 +674,6 @@ namespace AgenciaEF_BO.BO
                 oCaja.SUC_ID = iSucId;
                 if (bCredito)
                 {
-
                     iTipoMovCaja = 53;
                     oCaja.TIP_MOV = 53;// "MV001"  Facturacion de mercancia;
                 }

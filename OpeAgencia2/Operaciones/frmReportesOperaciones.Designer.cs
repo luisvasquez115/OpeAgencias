@@ -30,8 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.cmbReporte = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -57,15 +57,6 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Reporte:";
-            // 
             // cmbReporte
             // 
             this.cmbReporte.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -76,6 +67,15 @@
             this.cmbReporte.Name = "cmbReporte";
             this.cmbReporte.Size = new System.Drawing.Size(209, 21);
             this.cmbReporte.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Reporte:";
             // 
             // button1
             // 
