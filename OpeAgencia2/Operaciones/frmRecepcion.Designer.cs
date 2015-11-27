@@ -289,7 +289,7 @@
             this.txtNumeroEPS.Name = "txtNumeroEPS";
             this.txtNumeroEPS.Size = new System.Drawing.Size(100, 20);
             this.txtNumeroEPS.TabIndex = 2;
-            this.txtNumeroEPS.TextChanged += new System.EventHandler(this.txtNumeroEPS_TextChanged);
+         
             this.txtNumeroEPS.Leave += new System.EventHandler(this.txtNumeroEPS_Leave);
             // 
             // label2
