@@ -99,7 +99,7 @@ namespace OpeAgencia2.Clientes
 
             var opciones = from p in unitOfWork.TarifasEspecialesRepository.Get(filter: s => s.Clientes.CTE_NUMERO_EPS == "-1")
                            join j in unitOfWork.UsuarioSucursalRepository.Get(filter: s => s.USUARIO_ID == piUserId) on p.Clientes.CTE_SUC_ID equals j.SUC_ID
-                           select new { Id = p.TAR_ESP_ID, EPS = p.Clientes.CTE_NUMERO_EPS, Nombres = p.Clientes.CTE_NOMBRE, Apellidos = p.Clientes.CTE_APELLIDO };
+                           select new { Id = p.TAR_ESP_ID, EPS = p.Clientes.CTE_NUMERO_EPS, Nombres = p.Clientes.CTE_NOMBRE, Apellidos = p.Clientes.CTE_APELLIDO, p.CargosProducto.Cargos.CAR_DESCRIPCION };
 
 
 
@@ -109,7 +109,7 @@ namespace OpeAgencia2.Clientes
                
                 opciones = from p in unitOfWork.TarifasEspecialesRepository.Get(filter: s => s.Clientes.CTE_NUMERO_EPS == txtFindEPS.Text)
                            join j in unitOfWork.UsuarioSucursalRepository.Get(filter: s => s.USUARIO_ID == piUserId) on p.Clientes.CTE_SUC_ID equals j.SUC_ID
-                           select new { Id = p.TAR_ESP_ID, EPS = p.Clientes.CTE_NUMERO_EPS, Nombres = p.Clientes.CTE_NOMBRE, Apellidos = p.Clientes.CTE_APELLIDO };
+                           select new { Id = p.TAR_ESP_ID, EPS = p.Clientes.CTE_NUMERO_EPS, Nombres = p.Clientes.CTE_NOMBRE, Apellidos = p.Clientes.CTE_APELLIDO, p.CargosProducto.Cargos.CAR_DESCRIPCION };
 
 
             }
