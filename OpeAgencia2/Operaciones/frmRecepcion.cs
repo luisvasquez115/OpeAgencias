@@ -395,6 +395,8 @@ namespace OpeAgencia2.Operaciones
             //oBulto.MAN_MANIFIESTO = "NA";
             //oBulto.ORI_ID = 130;
             //oBulto.PRO_ID = Convert.ToInt32(cmbProducto.SelectedValue);
+            cmbProducto.SelectedValue = Convert.ToInt32(oBulto.PROD_ID);
+
             txtRemitente.Text = oBulto.REMITENTE;
             //oBulto.UBI_CODIGO = "NA";
             //Bulto.USUARIO_ID = 1; /* Usuarios */

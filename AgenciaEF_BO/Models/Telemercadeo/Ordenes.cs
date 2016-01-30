@@ -89,7 +89,6 @@ namespace AgenciaEF_BO.Models.Telemercadeo
         
         public virtual Clientes Clientes { set; get; }
 
-        public virtual Suplidores Suplidores { set; get; }
 
         
     }

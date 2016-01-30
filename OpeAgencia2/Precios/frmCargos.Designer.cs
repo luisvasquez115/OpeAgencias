@@ -126,6 +126,7 @@
             // 
             this.dg.AllowUserToAddRows = false;
             this.dg.AllowUserToDeleteRows = false;
+            this.dg.AllowUserToOrderColumns = true;
             this.dg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -206,6 +207,7 @@
             this.txtPorITBIS.Location = new System.Drawing.Point(495, 99);
             this.txtPorITBIS.Name = "txtPorITBIS";
             this.txtPorITBIS.Size = new System.Drawing.Size(70, 21);
+            this.txtPorITBIS.StringValue = "0";
             this.txtPorITBIS.TabIndex = 47;
             this.txtPorITBIS.Tag = "ITBIS";
             // 

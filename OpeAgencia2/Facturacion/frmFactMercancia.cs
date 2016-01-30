@@ -36,7 +36,7 @@ namespace OpeAgencia2.Facturacion
             if (Parametros.ParametrosSucursal.TermFiscalId == -1)
             {
                 MessageBox.Show("Esta unidad no tiene configurada una impresora fiscal", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                return;
+                //return;
             }
             CargarCorrespondencia();
             LimpiarPantalla();
@@ -146,7 +146,7 @@ namespace OpeAgencia2.Facturacion
                 if (dgPaq.Rows[i].Selected == true)
                 {
                     iPaq++;
-                    dMonto += Math.Round(Convert.ToDecimal(dgPaq.Rows[i].Cells[5].Value), 2);
+                    dMonto += Math.Round(Convert.ToDecimal(dgPaq.Rows[i].Cells[5].Value), 2, MidpointRounding.ToEven);
                     BuscarValores(Convert.ToInt32(dgPaq.Rows[i].Cells[0].Value));
                 }
             }
@@ -154,8 +154,8 @@ namespace OpeAgencia2.Facturacion
             for (int i = 0; i < this.dgCorr.Rows.Count; i++)
             {
                 iPaq++;
-                dMonto += Convert.ToDecimal(dgCorr.Rows[i].Cells[2].Value);
-                dMontoCorr = dMontoCorr + Convert.ToDecimal(dgCorr.Rows[i].Cells[2].Value);
+                dMonto += Math.Round(Convert.ToDecimal(dgCorr.Rows[i].Cells[2].Value),2,  MidpointRounding.ToEven);
+                dMontoCorr = dMontoCorr + Math.Round(Convert.ToDecimal(dgCorr.Rows[i].Cells[2].Value),2, MidpointRounding.ToEven);
             }
             dMontoVenta += dMontoCorr;
             this.txtPaq.Text = iPaq.ToString();

@@ -71,6 +71,7 @@ namespace OpeAgencia2.Precios
         {
 
             var opciones = from p in unitOfWork.CargosRepository.Get()
+                           orderby(p.CAR_CODIGO)
                            select new { Id = p.CARGO_ID, Código = p.CAR_CODIGO, Descripción = p.CAR_DESCRIPCION };
 
 
