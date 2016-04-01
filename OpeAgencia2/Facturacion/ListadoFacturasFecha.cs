@@ -37,6 +37,7 @@ namespace OpeAgencia2.Facturacion
             DateTime dFechaFin;
             dFechaIni = this.txtFechaDesde.Value.Date;
             dFechaFin = this.txtFechaHasta.Value.Date.AddDays(1);
+
             var sQuery = from p in unitOfWork.RecibosRepository.Get(filter: s => s.FECHA >= dFechaIni && s.FECHA < 
                 dFechaFin && s.SUC_ID == Parametros.ParametrosSucursal.IdSucursal)
                          orderby p.FECHA

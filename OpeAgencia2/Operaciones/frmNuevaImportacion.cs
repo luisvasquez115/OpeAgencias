@@ -107,11 +107,24 @@ namespace OpeAgencia2.Operaciones
                 var oSeleccion = from p in oImpAgencia
                                  from q in unitOfWork.BultosRepository.Get(filter: xy => xy.BLT_CODIGO_BARRA == p.BLT_CODIGO_BARRA)
                                  from r in unitOfWork.ClientesRepository.Get(filter: yz => yz.CTE_ID == q.CTE_ID)
-                                 select new { CodigoBarras = p.BLT_CODIGO_BARRA, Importado = p.IMPORTADO, Mensaje = p.MENSAJE, EPC = r.CTE_NUMERO_EPS };
+                                 select new { CodigoBarras = p.BLT_CODIGO_BARRA, Importado = p.IMPORTADO, Mensaje = p.MENSAJE, EPC = r.CTE_NUMERO_EPS , p.BLT_NUMERO};
                 dg.DataSource = oSeleccion.ToList();
+
+                foreach(var r in oSeleccion)
+                {
+                    //Hay que actulizar el itebis, en sql server el rendondeo es difernte
+                    var oEquiBulto = unitOfWork.EquivalenciaBultosRepository.Get(filter: xy => xy.BLT_NUMERO_SDQ == r.BLT_NUMERO).FirstOrDefault();
+
+                    BO.BO.Facturar oFact = new BO.BO.Facturar();
+                    oFact.ActualizarItbis(oEquiBulto.BLT_NUMERO_LOCAL);
+                   
+                }
+
             }
             else
                 dg.DataSource = null;
+
+
             MessageBox.Show("Proceso ejecutado satisfactoriamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }

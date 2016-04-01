@@ -169,9 +169,14 @@ namespace OpeAgencia2.Operaciones
                 AgenciaEF_BO.DAL.ADO.BultosDal Bultos = new BO.DAL.ADO.BultosDal();
 
                 Bultos.RecalcularUnidades(oBulto.BLT_NUMERO);
-                Bultos.RecalcularItebis(oBulto.BLT_NUMERO);
-
+                //Bultos.RecalcularItebis(oBulto.BLT_NUMERO);
+               
                 unitOfWork.Save();
+
+                BO.BO.Facturar oFact = new BO.BO.Facturar();
+                oFact.ActualizarItbis(oBulto.BLT_NUMERO);
+
+
                 MessageBox.Show("Datos salvados satisfactoriamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarCampos();
                 txtCodigoBarra.Text = "";
@@ -203,55 +208,7 @@ namespace OpeAgencia2.Operaciones
             }
         }
 
-        /// <summary>
-        /// Actualizar los datos del itbis
-        /// </summary>
-        /// <param name="pEquivalencia"></param>
-        void ActualizarItbis(int piBltNumero)
-        {
-            var vQryBultosValores = unitOfWork.BultosValoresRepository.Get(filter: s => s.BLT_NUMERO == piBltNumero);
-            decimal dMontoItebis = 0;
-            //No se le pone itbis
-            if (unitOfWork.BultosRepository.Get(filter: s => s.BLT_NUMERO == piBltNumero).FirstOrDefault().Clientes.CTE_TIPO_FISCAL == 45)
-            {
-                return;
-            };
-            var QrycargosProd = unitOfWork.CargosProductoRepository.Get(filter: s => s.Cargos.CAR_CODIGO == "999").FirstOrDefault();
-            if (QrycargosProd != null)
-            {
-                foreach (var sQry in vQryBultosValores)
-                {
-                    if (sQry.CargosProducto.Cargos.CAR_ITBIS == true && sQry.CargosProducto.Cargos.ITBIS > 0)
-                    {
-                        dMontoItebis += Math.Round((sQry.BVA_MONTO_LOCAL * sQry.CargosProducto.Cargos.ITBIS) / 100, 2);
-                    }
-                }
-                if (dMontoItebis > 0)
-                {
-                    AgenciaEF_BO.Models.BultosValores oBultosValores;
-                    oBultosValores = unitOfWork.BultosValoresRepository.Get(filter: xy => xy.BLT_NUMERO == piBltNumero && xy.CARGO_PROD_ID == QrycargosProd.CARGO_PROD_ID).FirstOrDefault();
-                    if (oBultosValores == null)
-                    {
-                        oBultosValores = new BO.Models.BultosValores();
-                        oBultosValores.BLT_NUMERO = piBltNumero;
-                        oBultosValores.BVA_MONTO = dMontoItebis;
-                        oBultosValores.BVA_MONTO_APLICAR = dMontoItebis;
-                        oBultosValores.BVA_MONTO_LOCAL = dMontoItebis;
-                        oBultosValores.BVA_TASA = 18;
-                        oBultosValores.CARGO_PROD_ID = QrycargosProd.CARGO_PROD_ID;
-                        unitOfWork.BultosValoresRepository.Insert(oBultosValores);
-                    }
-                    else
-                    {
-                        oBultosValores.BVA_MONTO = dMontoItebis;
-                        oBultosValores.BVA_MONTO_APLICAR = dMontoItebis;
-                        oBultosValores.BVA_MONTO_LOCAL = dMontoItebis;
-                        unitOfWork.BultosValoresRepository.Update(oBultosValores);
-                    }
-                }
-            }
-        }
-         
+       
         private void SalvarDetalle(int bltNumero)
         {
             var oBultosValores = unitOfWork.BultosValoresRepository.Get(filter: s => s.BLT_NUMERO == bltNumero);
@@ -553,10 +510,17 @@ namespace OpeAgencia2.Operaciones
             {
                 Convert.ToDecimal(dr["MontoAplicar"] = Convert.ToDecimal(cargosProd.Cargos.CAR_MINIMO_FACTURAR));
             }
+
+            if (cargosProd.Cargos.CAR_SUMAR == true)
+            {
+                dr["MontoAplicar"]  = (Convert.ToDecimal(txtMonto.Text) + Convert.ToDecimal(dr["MontoAplicar"]));
+            }
+
             if (cargosProd.Cargos.CAR_FIJO_MULTIPLICAR == "F")
                 dr["MontoLocal"] = Convert.ToDecimal(dr["MontoAplicar"]) * cargosProd.TasaCambio.FACTOR_CONV;
-            else
+            else 
                 dr["MontoLocal"] = Convert.ToDecimal(txtMonto.Text) * Convert.ToDecimal(dr["MontoAplicar"]) * cargosProd.TasaCambio.FACTOR_CONV;
+
             oCargos.Rows.Add(dr);
             cmbCargos.SelectedValue = -1;
             txtMonto.Text = "";
@@ -602,17 +566,18 @@ namespace OpeAgencia2.Operaciones
                 {
                     if (Convert.ToDecimal(oRow["MontoAplicar"]) < Convert.ToDecimal(cargo.Cargos.CAR_MINIMO_FACTURAR))
                     {
-                        Convert.ToDecimal(oRow["MontoAplicar"] = Convert.ToDecimal(cargo.Cargos.CAR_MINIMO_FACTURAR));
+                        oRow["MontoAplicar"] = Convert.ToDecimal(cargo.Cargos.CAR_MINIMO_FACTURAR);
                     }
-                    oRow["MontoLocal"] = Convert.ToDecimal(oRow["MontoAplicar"]) * cargo.TasaCambio.FACTOR_CONV;
+                    oRow["MontoLocal"] = Math.Round(Convert.ToDecimal(oRow["MontoAplicar"]) * cargo.TasaCambio.FACTOR_CONV, 2, MidpointRounding.ToEven);
                 }
                 else
                 {
                     if (Convert.ToDecimal(oRow["Monto"]) < Convert.ToDecimal(cargo.Cargos.CAR_MINIMO_FACTURAR))
                     {
-                        oRow["Monto"] = Convert.ToDecimal(cargo.Cargos.CAR_MINIMO_FACTURAR);
+                        oRow["Monto"] = Math.Round(Convert.ToDecimal(cargo.Cargos.CAR_MINIMO_FACTURAR),2, MidpointRounding.ToEven);
                     }
                     oRow["MontoLocal"] = Convert.ToDecimal(oRow["Monto"]) * Convert.ToDecimal(oRow["MontoAplicar"]) * cargo.TasaCambio.FACTOR_CONV;
+                    oRow["MontoLocal"] = Math.Round(Convert.ToDecimal(oRow["MontoLocal"]),2, MidpointRounding.ToEven);
                 }
                 oUnidades.Rows.Add(oRow);
             }

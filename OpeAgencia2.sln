@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clsUtils", "clsUtils\clsUti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpresoraFiscal", "ImpresoraFiscal\ImpresoraFiscal.csproj", "{10C7F73A-86B1-419B-B0E9-0338F5994A22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MacoSolution", "MacoSolution\MacoSolution.csproj", "{400D3672-DD56-45A7-B6BD-77FF2064EAB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{10C7F73A-86B1-419B-B0E9-0338F5994A22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10C7F73A-86B1-419B-B0E9-0338F5994A22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10C7F73A-86B1-419B-B0E9-0338F5994A22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{400D3672-DD56-45A7-B6BD-77FF2064EAB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{400D3672-DD56-45A7-B6BD-77FF2064EAB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{400D3672-DD56-45A7-B6BD-77FF2064EAB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{400D3672-DD56-45A7-B6BD-77FF2064EAB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

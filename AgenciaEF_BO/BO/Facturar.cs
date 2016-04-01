@@ -17,6 +17,81 @@ namespace AgenciaEF_BO.BO
         public int FacturaGenerada { set; get; }
 
 
+        public void RevisarTotales(int iReciboId)
+        {
+            decimal dMontoTotal = 0;
+            decimal dMontoGravado = 0;
+            decimal dMontoItebis = 0;
+
+            var reciboDet = from p in unitOfWork.RecibosDetRepository.Get(filter: zx => zx.RECIBO_ID == iReciboId)
+                            select new { p.MONTO_TOTAL, p.MONTO_ITBIS, p.MONTO_LOCAL };
+
+            foreach (var dr in reciboDet)
+            {
+                dMontoTotal += dr.MONTO_TOTAL;
+                dMontoItebis += dr.MONTO_ITBIS;
+                if (dr.MONTO_ITBIS > 0)
+                    dMontoGravado += dr.MONTO_LOCAL;
+            }
+
+
+            var recibos = unitOfWork.RecibosRepository.GetByID(iReciboId);
+            recibos.IMPORTE_TOTAL = dMontoTotal;
+            recibos.IMPORTE_ITEBIS = dMontoItebis;
+            recibos.IMPORTE_GRAVADO = dMontoGravado;
+
+            unitOfWork.RecibosRepository.Update(recibos);
+
+            unitOfWork.Save();
+        }
+
+
+        public void ActualizarItbis(int piBltNumero)
+        {
+            var vQryBultosValores = unitOfWork.BultosValoresRepository.Get(filter: s => s.BLT_NUMERO == piBltNumero);
+            decimal dMontoItebis = 0;
+            //No se le pone itbis
+            if (unitOfWork.BultosRepository.Get(filter: s => s.BLT_NUMERO == piBltNumero).FirstOrDefault().Clientes.CTE_TIPO_FISCAL == 45)
+            {
+                return;
+            };
+            var QrycargosProd = unitOfWork.CargosProductoRepository.Get(filter: s => s.Cargos.CAR_CODIGO == "999").FirstOrDefault();
+            if (QrycargosProd != null)
+            {
+                foreach (var sQry in vQryBultosValores)
+                {
+                    if (sQry.CargosProducto.Cargos.CAR_ITBIS == true && sQry.CargosProducto.Cargos.ITBIS > 0)
+                    {
+                        dMontoItebis += Math.Round((Math.Round(sQry.BVA_MONTO_LOCAL, 2, MidpointRounding.ToEven) * sQry.CargosProducto.Cargos.ITBIS) / 100, 2, MidpointRounding.ToEven);
+                    }
+                }
+                if (dMontoItebis > 0)
+                {
+                    AgenciaEF_BO.Models.BultosValores oBultosValores;
+                    oBultosValores = unitOfWork.BultosValoresRepository.Get(filter: xy => xy.BLT_NUMERO == piBltNumero && xy.CARGO_PROD_ID == QrycargosProd.CARGO_PROD_ID).FirstOrDefault();
+                    if (oBultosValores == null)
+                    {
+                        oBultosValores = new BultosValores();
+                        oBultosValores.BLT_NUMERO = piBltNumero;
+                        oBultosValores.BVA_MONTO = dMontoItebis;
+                        oBultosValores.BVA_MONTO_APLICAR = dMontoItebis;
+                        oBultosValores.BVA_MONTO_LOCAL = dMontoItebis;
+                        oBultosValores.BVA_TASA = 18;
+                        oBultosValores.CARGO_PROD_ID = QrycargosProd.CARGO_PROD_ID;
+                        unitOfWork.BultosValoresRepository.Insert(oBultosValores);
+                    }
+                    else
+                    {
+                        oBultosValores.BVA_MONTO = dMontoItebis;
+                        oBultosValores.BVA_MONTO_APLICAR = dMontoItebis;
+                        oBultosValores.BVA_MONTO_LOCAL = dMontoItebis;
+                        unitOfWork.BultosValoresRepository.Update(oBultosValores);
+                    }
+                }
+            }
+            unitOfWork.Save();
+        }
+
 
         public bool ProcesarAnulacion(int iReciboId, int iUsuarioId, ref string psMensaje)
         {
@@ -609,16 +684,16 @@ namespace AgenciaEF_BO.BO
                         oRecDet.MONTO_LOCAL = Math.Round(sQry.BVA_MONTO_LOCAL,2, MidpointRounding.ToEven);
                         if (sQry.CargosProducto.Cargos.CAR_ITBIS == true && sQry.CargosProducto.Cargos.ITBIS > 0 && oCliente.CTE_TIPO_FISCAL != 45) //zona franca
                         {
-                            oRecDet.MONTO_ITBIS = Math.Round((sQry.BVA_MONTO_LOCAL * sQry.CargosProducto.Cargos.ITBIS) / 100, 2, MidpointRounding.ToEven);
-                            oRecDet.MONTO_TOTAL = Math.Round(sQry.BVA_MONTO_LOCAL + oRecDet.MONTO_ITBIS,2, MidpointRounding.ToEven);
+                            oRecDet.MONTO_ITBIS = Math.Round((oRecDet.MONTO_LOCAL * sQry.CargosProducto.Cargos.ITBIS) / 100, 2, MidpointRounding.ToEven);
+                            oRecDet.MONTO_TOTAL = oRecDet.MONTO_LOCAL + oRecDet.MONTO_ITBIS;
                             dTasaItbis = sQry.CargosProducto.Cargos.ITBIS;
-                            dMontoGrabado += Math.Round(sQry.BVA_MONTO_LOCAL,2, MidpointRounding.ToEven);
+                            dMontoGrabado += oRecDet.MONTO_LOCAL;
 
                         }
                         else
                         {
                             oRecDet.MONTO_ITBIS = 0;
-                            oRecDet.MONTO_TOTAL = Math.Round(sQry.BVA_MONTO_LOCAL,2, MidpointRounding.ToEven);
+                            oRecDet.MONTO_TOTAL = oRecDet.MONTO_LOCAL;
                         }
 
                         MontoFact += oRecDet.MONTO_TOTAL;
