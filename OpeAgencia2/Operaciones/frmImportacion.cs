@@ -207,9 +207,7 @@ namespace OpeAgencia2.Operaciones
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error cargando registros a base de datos local " + ex.Message + " \n" +
-                    ex.InnerException != null ? ex.InnerException.InnerException != null ?
-                    ex.InnerException.InnerException.Message : "" : "",
+                MessageBox.Show("Error cargando registros a base de datos local " + ex.Message + " \n",
                     "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             if (sErrores.Length > 0)
@@ -327,7 +325,10 @@ namespace OpeAgencia2.Operaciones
                         //InsertaCargos(oEquivalencia);
                         InsertaUnidades(oEquivalencia);
                         //ActualizarItbis(oEquivalencia);
-                        unitOfWork.Save();
+                        BO.BO.Facturar oFact = new BO.BO.Facturar();
+                        oFact.ActualizarItbis(oEquivalencia.BLT_NUMERO_LOCAL);
+
+                       // unitOfWork.Save();
                     }
                     catch (Exception ex)
                     {
@@ -610,51 +611,7 @@ namespace OpeAgencia2.Operaciones
             Bultos.InsertarCargos(pEquivalencia.BLT_NUMERO_LOCAL, pEquivalencia.BLT_NUMERO_SDQ);
         }
 
-        void ActualizarItbis(BO.Models.EquivalenciaBultos pEquivalencia)
-        {
-            var vQryBultosValores = unitOfWork.BultosValoresRepository.Get(filter: s => s.BLT_NUMERO == pEquivalencia.BLT_NUMERO_LOCAL);
-            decimal dMontoItebis = 0;
-            var QrycargosProd = unitOfWork.CargosProductoRepository.Get(filter: s => s.Cargos.CAR_CODIGO == "999").FirstOrDefault();
-            //No se le pone itbis
-            if (unitOfWork.BultosRepository.Get(filter: s => s.BLT_NUMERO == pEquivalencia.BLT_NUMERO_LOCAL).FirstOrDefault().Clientes.CTE_TIPO_FISCAL == 45)
-            {
-                return;
-            };
-            if (QrycargosProd != null)
-            {
-                foreach (var sQry in vQryBultosValores)
-                {
-                    if (sQry.CargosProducto.Cargos.CAR_ITBIS == true && sQry.CargosProducto.Cargos.ITBIS > 0)
-                    {
-                        dMontoItebis += Math.Round((sQry.BVA_MONTO_LOCAL * sQry.CargosProducto.Cargos.ITBIS) / 100, 2);
-                    }
-                }
-                if (dMontoItebis > 0)
-                {
-                    AgenciaEF_BO.Models.BultosValores oBultosValores;
-                    oBultosValores = unitOfWork.BultosValoresRepository.Get(filter: xy => xy.BLT_NUMERO == pEquivalencia.BLT_NUMERO_LOCAL && xy.CARGO_PROD_ID == QrycargosProd.CARGO_PROD_ID).FirstOrDefault();
-                    if (oBultosValores == null)
-                    {
-                        oBultosValores = new BO.Models.BultosValores();
-                        oBultosValores.BLT_NUMERO = pEquivalencia.BLT_NUMERO_LOCAL;
-                        oBultosValores.BVA_MONTO = dMontoItebis;
-                        oBultosValores.BVA_MONTO_APLICAR = dMontoItebis;
-                        oBultosValores.BVA_MONTO_LOCAL = dMontoItebis;
-                        oBultosValores.BVA_TASA = 18;
-                        oBultosValores.CARGO_PROD_ID = QrycargosProd.CARGO_PROD_ID;
-                        unitOfWork.BultosValoresRepository.Insert(oBultosValores);
-                    }
-                    else
-                    {
-                        oBultosValores.BVA_MONTO = dMontoItebis;
-                        oBultosValores.BVA_MONTO_APLICAR = dMontoItebis;
-                        oBultosValores.BVA_MONTO_LOCAL = dMontoItebis;
-                        unitOfWork.BultosValoresRepository.Update(oBultosValores);
-                    }
-                }
-            }
-        }
-
+     
         void InsertaCargos(BO.Models.EquivalenciaBultos pEquivalencia)
         {
             ds.Tables["BULTOS_VALORES"].DefaultView.RowFilter = "BLT_NUMERO = " + pEquivalencia.BLT_NUMERO_SDQ.ToString();

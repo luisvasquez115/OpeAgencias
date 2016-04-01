@@ -66,7 +66,7 @@ namespace OpeAgencia2.Creditos
         {
             unitOfWork = new BO.DAL.UnitOfWork();
 
-            var oRecibos = from p in unitOfWork.RecibosRepository.Get(filter: s => s.CTE_ID == iCteId && s.ESTADO_ID == 13)
+            var oRecibos = from p in unitOfWork.RecibosRepository.Get(filter: s => s.CTE_ID == iCteId && s.ESTADO_ID == 13 && s.Tipos.TIPO_ID != 5)
                           select new
                           {
                               p.RECIBO_ID,

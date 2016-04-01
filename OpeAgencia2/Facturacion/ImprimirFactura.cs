@@ -64,6 +64,9 @@ namespace OpeAgencia2.Facturacion
             //Print();
         }
 
+       
+          
+
         public void Imprimir(int iReciboId, BO.DAL.dsDatos.DatosPagoDataTable oDatosPago, bool pbImpreso = false)
         {
             //bool bError = false;
@@ -75,21 +78,26 @@ namespace OpeAgencia2.Facturacion
             //dt.TableName = "FACTURAS";
             BO.Models.Terminal oTerm = new BO.Models.Terminal();
             oTerm = unitOfWork.TerminalRepository.GetByID(Parametros.ParametrosSucursal.TermFiscalId);
-            Printer oPrinter = new Printer(oTerm);
-            oPrinter.SetInvoiceData(dtFatura, oDatosPago, !pbImpreso, 1);
-            response = oPrinter.Print();
-            if (response == PrinterResponses.Success)
+            if (oTerm != null)
             {
-                var oRecibos = unitOfWork.RecibosRepository.GetByID(iReciboId);
-                oRecibos.IMPRESO = true;
-                unitOfWork.RecibosRepository.Update(oRecibos);
-                unitOfWork.Save();
+                Printer oPrinter = new Printer(oTerm);
+                oPrinter.SetInvoiceData(dtFatura, oDatosPago, !pbImpreso, 1);
+                response = oPrinter.Print();
+                if (response == PrinterResponses.Success)
+                {
+                    var oRecibos = unitOfWork.RecibosRepository.GetByID(iReciboId);
+                    oRecibos.IMPRESO = true;
+                    unitOfWork.RecibosRepository.Update(oRecibos);
+                    unitOfWork.Save();
+                }
+                else
+                {
+                    MessageBox.Show(Printer.GetPrinterReturnMessage(response), "Aviso", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+
             }
-            else
-            {
-                MessageBox.Show(Printer.GetPrinterReturnMessage(response), "Aviso", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
+            
             //dsFacturas.Tables.Add(dt);
         }
 

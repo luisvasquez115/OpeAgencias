@@ -292,7 +292,7 @@ namespace OpeAgencia2.Precios
                         ((TextBox)ctr).Text = MyComp.CAR_DESCRIPCION;
                         break;
                     case "CAR_TIPO":
-                        ((ComboBox)ctr).SelectedIndex = MyComp.CAR_TIPO == "UN" ? 0 : 1;
+                        ((ComboBox)ctr).SelectedIndex = MyComp.CAR_TIPO.ToString().TrimEnd() == "U" ? 0 : 1;
                         break;
                     case "CAR_ESTADO":
                         ((CheckBox)ctr).Checked = MyComp.CAR_ESTADO;

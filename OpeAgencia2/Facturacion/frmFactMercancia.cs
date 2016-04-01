@@ -66,6 +66,42 @@ namespace OpeAgencia2.Facturacion
             this.dgPaq.Columns[0].Visible = false;
         }
 
+        void BuscarPaquetes2(int iCteId)
+        {
+            BO.DAL.dsDatos.VW_BULTOSDataTable dt = new BO.DAL.dsDatos.VW_BULTOSDataTable();
+
+            var oBultos = unitOfWork.BultosRepository.Get(filter: s => s.CTE_ID == iCteId && s.BLT_ESTADO_ID == 2);
+
+           
+
+            foreach(var oBulto in oBultos  )
+            {
+                BO.DAL.dsDatos.VW_BULTOSRow oRow = dt.NewVW_BULTOSRow();
+                 decimal dMonto = 0;
+                oRow.BLT_CODIGO_BARRA = oBulto.BLT_CODIGO_BARRA;
+                oRow.BLT_NUMERO = oBulto.BLT_NUMERO;
+                oRow.BLT_PESO = oBulto.BLT_PESO;
+                oRow.BLT_TRACKING_NUMBER = oBulto.BLT_TRACKING_NUMBER;
+                oRow.CONTENIDO = oBulto.CONTENIDO;
+                
+                var oBultosDet = unitOfWork.BultosValoresRepository.Get(filter: s=>s.BLT_NUMERO == oBulto.BLT_NUMERO);
+
+                foreach (var v in oBultosDet)
+                {
+                    dMonto += Math.Round(v.BVA_MONTO_LOCAL, 2, MidpointRounding.ToEven);
+
+                }
+
+                oRow.MONTO = dMonto;
+
+                dt.Rows.Add(oRow);
+            }
+
+
+            this.dgPaq.DataSource = dt;
+            this.dgPaq.Columns[0].Visible = false;
+        }
+
         void BuscarCliente()
         {
             unitOfWork = new BO.DAL.UnitOfWork();
@@ -75,7 +111,7 @@ namespace OpeAgencia2.Facturacion
             {
                 lblNombres.Text = oCliente.CTE_NOMBRE + " " + oCliente.CTE_APELLIDO;
                 dFechaVenc.Value = oCliente.CTE_FECHA_VENCIMIENTO;
-                BuscarPaquetes(oCliente.CTE_ID);
+                BuscarPaquetes2(oCliente.CTE_ID);
                 if (oCliente.CTE_CREDITO == true)
                 {
                     cmbTipoFact.Enabled = true;
@@ -180,13 +216,14 @@ namespace OpeAgencia2.Facturacion
             foreach (var cargo in loBultosVal)
             {
                 if (htValores[cargo.Cargo] == null)
-                    htValores.Add(cargo.Cargo, cargo.Monto);
+                    htValores.Add(cargo.Cargo, Math.Round(cargo.Monto,2,MidpointRounding.ToEven));
                 else
-                    htValores[cargo.Cargo] = Convert.ToDecimal(htValores[cargo.Cargo]) + cargo.Monto;
+                    htValores[cargo.Cargo] = Convert.ToDecimal(htValores[cargo.Cargo]) +  Math.Round(cargo.Monto,2, MidpointRounding.ToEven);
                 if (cargo.ncf == false && cargo.CAR_CODIGO != "999")
-                    dMontoNoVenta += cargo.Monto;
+                    dMontoNoVenta +=  Math.Round(cargo.Monto,2, MidpointRounding.ToEven);
                 else
-                    dMontoVenta += cargo.Monto;
+                    dMontoVenta +=  Math.Round(cargo.Monto,2, MidpointRounding.ToEven);
+
                 if (cargo.CAR_CODIGO == "010")
                     txtTarifa.Text = cargo.MontoAplicar.ToString();
             }
@@ -340,6 +377,9 @@ namespace OpeAgencia2.Facturacion
                                    oTableCorr, dMontoVenta, bCredito))
                 {//Todo anduvo bien. Entonces Imprimo y limpio la pantalla.
                     //ImprimirFactura(oFact.FacturaGenerada);
+                    //BO.BO.Facturar oFact = new BO.BO.Facturar();
+                    oFact.RevisarTotales(oFact.FacturaGenerada);
+
                     ImprimirFactura oImpFact = new ImprimirFactura();
                     oImpFact.Imprimir(oFact.FacturaGenerada, DatosPago);
                 }

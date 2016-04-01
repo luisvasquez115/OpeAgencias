@@ -167,9 +167,14 @@ namespace OpeAgencia2.Facturacion
         private void reImprimirToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+            
+
             int iReciboId = -1;
 
             iReciboId = Convert.ToInt32(dgDatos[0, dgDatos.CurrentCell.RowIndex].Value);
+
+            //BO.BO.Facturar oFact = new BO.BO.Facturar();
+            //oFact.RevisarTotales(iReciboId);
 
             // MessageBox.Show("Anulación realizada exitosamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //ImprimirFactura(oFact.FacturaGenerada);
