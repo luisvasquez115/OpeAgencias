@@ -401,6 +401,13 @@ namespace OpeAgencia2.Operaciones
             /* */
             //var weii = oRow["ORI_CODIGO"].ToString().TrimEnd() + oRow["SUP_CODIGO"].ToString().TrimEnd() +
             //    oRow["PRO_CODIGO"].ToString().TrimEnd();
+
+            if (oRow["PRO_CODIGO"].ToString().TrimEnd() == "019")
+            {
+                oRow["SUP_CODIGO"] = "EPS";
+                oRow["ORI_CODIGO"] = "DOM";
+            }
+
             var oProd = unitOfWork.ProductosRepository.ProdIdFromCode(oRow["ORI_CODIGO"].ToString().TrimEnd(),
                                                                                 oRow["SUP_CODIGO"].ToString().TrimEnd(),
                                                                                  oRow["PRO_CODIGO"].ToString().TrimEnd()).FirstOrDefault();

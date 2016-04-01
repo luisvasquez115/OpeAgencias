@@ -57,7 +57,7 @@ namespace OpeAgencia2.Telemercadeo
         {
             LlenarCombosEstado();
             CombosProductos();
-            ComboSuplidores();
+
 
         }
 
@@ -90,21 +90,7 @@ namespace OpeAgencia2.Telemercadeo
             this.cmbServicio.DataSource = Productos.ToList();
         }
 
-        void ComboSuplidores()
-        {
-            var sup = from p in unitOfWork.SuplidoresRepository.Get(orderBy: s => s.OrderBy(x => x.SUP_NOMBRE), filter: s => s.SOCIO == false)
-                      select new { Id = p.SUP_ID, Nombre = p.SUP_NOMBRE + "-->" + p.SUP_CODIGO }
-                         ;
-
-            //
-            cmbSuplidorId.ValueMember = "Id";
-            cmbSuplidorId.DisplayMember = "Nombre";
-            //
-            cmbSuplidorId.DataSource = sup.ToList();
-
-            cmbSuplidorId.SelectedValue = -1;
-
-        }
+      
 
         #endregion
 
@@ -290,6 +276,75 @@ namespace OpeAgencia2.Telemercadeo
                 }
             }
             return dRetorno;
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (ValidarDatos())
+           {
+
+           }
+        }
+
+        bool ValidarDatos()
+        {
+
+            if (iCteId == -1)
+            {
+                MessageBox.Show("Debe digitar un número válido de EPS", "Aviso",  MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return false;
+            }
+
+            if (txtNombres.Text == "")
+            {
+
+            MessageBox.Show("Debe digitar un nombre válido", "Aviso",  MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return false;
+            }
+            if (this.txtDireccion.Text == "")
+            {
+
+            MessageBox.Show("Debe digitar la dirección 1", "Aviso",  MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return false;
+            }
+            if (this.txtDireccion2.Text == "")
+            {
+
+            MessageBox.Show("Debe digitar la dirección 2", "Aviso",  MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return false;
+            }
+            if (this.txtCiudad.Text == "")
+            {
+
+            MessageBox.Show("Debe digitar la ciudad ", "Aviso",  MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return false;
+            }
+             if (this.txtDocumento.Text == "")
+            {
+
+            MessageBox.Show("Debe digitar el documento ", "Aviso",  MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return false;
+            }
+
+             if (this.cmbServicio.SelectedIndex == -1)
+            {
+
+            MessageBox.Show("Debe digitar el servicio ", "Aviso",  MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return false;
+            }
+
+            if (this.txtSuplidor.Text =="")
+            {
+
+                MessageBox.Show("Debe digitar el Suplidor ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return false;
+            }
+
+      
+
+
+            return true;
+
         }
 
 

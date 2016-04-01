@@ -35,6 +35,9 @@ namespace OpeAgencia2.Facturacion
         public Printer(Terminal terminal)
         {
             _terminal = terminal;
+            if (_terminal == null)
+                return;
+
             _fiscalPrinterWrapper = new FiscalPrinterWrapper(Convert.ToUInt16(_terminal.PUERTO));
             //Connect();
         }

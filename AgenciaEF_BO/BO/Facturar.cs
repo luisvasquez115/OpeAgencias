@@ -606,19 +606,19 @@ namespace AgenciaEF_BO.BO
                         oRecDet.RECIBO_ID = oRecibos.RECIBO_ID;
                         oRecDet.CARGO_ID = unitOfWork.CargosProductoRepository.GetByID(sQry.CARGO_PROD_ID).CARGO_ID;
 
-                        oRecDet.MONTO_LOCAL = sQry.BVA_MONTO_LOCAL;
+                        oRecDet.MONTO_LOCAL = Math.Round(sQry.BVA_MONTO_LOCAL,2, MidpointRounding.ToEven);
                         if (sQry.CargosProducto.Cargos.CAR_ITBIS == true && sQry.CargosProducto.Cargos.ITBIS > 0 && oCliente.CTE_TIPO_FISCAL != 45) //zona franca
                         {
                             oRecDet.MONTO_ITBIS = Math.Round((sQry.BVA_MONTO_LOCAL * sQry.CargosProducto.Cargos.ITBIS) / 100, 2, MidpointRounding.ToEven);
-                            oRecDet.MONTO_TOTAL = sQry.BVA_MONTO_LOCAL + oRecDet.MONTO_ITBIS;
+                            oRecDet.MONTO_TOTAL = Math.Round(sQry.BVA_MONTO_LOCAL + oRecDet.MONTO_ITBIS,2, MidpointRounding.ToEven);
                             dTasaItbis = sQry.CargosProducto.Cargos.ITBIS;
-                            dMontoGrabado += sQry.BVA_MONTO_LOCAL;
+                            dMontoGrabado += Math.Round(sQry.BVA_MONTO_LOCAL,2, MidpointRounding.ToEven);
 
                         }
                         else
                         {
                             oRecDet.MONTO_ITBIS = 0;
-                            oRecDet.MONTO_TOTAL = sQry.BVA_MONTO_LOCAL;
+                            oRecDet.MONTO_TOTAL = Math.Round(sQry.BVA_MONTO_LOCAL,2, MidpointRounding.ToEven);
                         }
 
                         MontoFact += oRecDet.MONTO_TOTAL;
