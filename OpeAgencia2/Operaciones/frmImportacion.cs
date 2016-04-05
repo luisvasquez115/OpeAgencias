@@ -415,10 +415,16 @@ namespace OpeAgencia2.Operaciones
             oBultos.PROD_ID = oProd.PROD_ID;
             oBultos.MAN_MANIFIESTO = oRow["MAN_MANIFIESTO"].ToString();
             oBultos.BLT_GUIA_HIJA = oRow["BLT_GUIA_HIJA"].ToString();
+            
             oBultos.BLT_CODIGO_BARRA = oRow["BLT_CODIGO_BARRA"].ToString();
             sOrigen = oRow["BLT_DESTINO"].ToString();
             if (sOrigen.TrimEnd() == "")
                 sOrigen = "SDQ";
+
+
+            if (oRow["BLT_GUIA_HIJA"].ToString() == "")
+                oBultos.BLT_GUIA_HIJA = oBultos.BLT_CODIGO_BARRA;
+
             var sQryDst = unitOfWork.OrigenRepository.Get(filter: s => s.ORI_CODIGO == sOrigen).FirstOrDefault();
 
             oBultos.DEST_ID = sQryDst.ORI_ID;
@@ -452,10 +458,16 @@ namespace OpeAgencia2.Operaciones
 
             oBultos.BLT_TRACKING_NUMBER = oRow["BLT_TRACKING_NUMBER"].ToString().TrimEnd();
 
-            oBultos.MAN_GUIA = oRow["MAN_GUIA"].ToString();
+            if (oRow["MAN_GUIA"].ToString() =="")
+                oBultos.MAN_GUIA = "NA";
+            else
+               oBultos.MAN_GUIA = oRow["MAN_GUIA"].ToString();
 
             oBultos.CON_CODIGO_ID = 7;
 
+            if (oRow["BLT_VALOR_FOB"].ToString() == "")
+                oBultos.BLT_VALOR_FOB = 0;
+            else
             oBultos.BLT_VALOR_FOB = Convert.ToDecimal(oRow["BLT_VALOR_FOB"]);
 
             oBultos.BLT_OBSERVACION = oRow["BLT_OBSERVACION"].ToString();

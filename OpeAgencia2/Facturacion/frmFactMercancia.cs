@@ -111,6 +111,15 @@ namespace OpeAgencia2.Facturacion
             {
                 lblNombres.Text = oCliente.CTE_NOMBRE + " " + oCliente.CTE_APELLIDO;
                 dFechaVenc.Value = oCliente.CTE_FECHA_VENCIMIENTO;
+                
+                //Si el cliente no esta activo, no puede seguir
+               if( oCliente.CTE_ESTADO_ID != 8)
+               {
+                   MessageBox.Show("El cliente está Activo, no se pudede facturar ", " Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                   return;
+               }
+
+
                 BuscarPaquetes2(oCliente.CTE_ID);
                 if (oCliente.CTE_CREDITO == true)
                 {
