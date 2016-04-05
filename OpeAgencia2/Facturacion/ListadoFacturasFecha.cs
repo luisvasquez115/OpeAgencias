@@ -39,7 +39,7 @@ namespace OpeAgencia2.Facturacion
             dFechaFin = this.txtFechaHasta.Value.Date.AddDays(1);
 
             var sQuery = from p in unitOfWork.RecibosRepository.Get(filter: s => s.FECHA >= dFechaIni && s.FECHA < 
-                dFechaFin && s.SUC_ID == Parametros.ParametrosSucursal.IdSucursal)
+                dFechaFin && s.SUC_ID == Parametros.ParametrosSucursal.IdSucursal && s.RECIBO_ID_ANUL == -1 && s.Tipos.TIPO_CODIGO != "NC01")
                          orderby p.FECHA
                          select new { Fecha = p.FECHA, Cliente = p.Clientes.CTE_NUMERO_EPS.TrimEnd() + "-" + p.Clientes.CTE_NOMBRE.TrimEnd() + " " + p.Clientes.CTE_APELLIDO.TrimEnd() ,
                                       Factura = p.Tipos.TIPO_CODIGO + "-" + p.NUM_REC,
