@@ -52,7 +52,7 @@ namespace OpeAgencia2.Operaciones
                 AgenciaEF_BO.DAL.ADO.BultosDal Bultos = new BO.DAL.ADO.BultosDal();
 
                 Bultos.RecalcularUnidades(oBulto.BLT_NUMERO);
-                Bultos.RecalcularItebis(oBulto.BLT_NUMERO);
+                //Bultos.RecalcularItebis(oBulto.BLT_NUMERO);
                 BO.BO.Facturar oFact = new BO.BO.Facturar();
                 oFact.ActualizarItbis(oBulto.BLT_NUMERO);
                 
