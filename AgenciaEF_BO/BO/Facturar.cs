@@ -1222,7 +1222,7 @@ namespace AgenciaEF_BO.BO
                             oRecDet.MONTO_ITBIS = Math.Round((sQry.BVA_MONTO_LOCAL * sQry.CargosProducto.Cargos.ITBIS) / 100, 2, MidpointRounding.ToEven);
                             oRecDet.MONTO_TOTAL = sQry.BVA_MONTO_LOCAL + oRecDet.MONTO_ITBIS;
                             dTasaItbis = sQry.CargosProducto.Cargos.ITBIS;
-                            dMontoGrabado = sQry.BVA_MONTO_LOCAL;
+                            dMontoGrabado += sQry.BVA_MONTO_LOCAL;
                         }
                         else
                         {
