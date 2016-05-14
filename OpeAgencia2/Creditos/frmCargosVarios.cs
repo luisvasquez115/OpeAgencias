@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BO = AgenciaEF_BO;
 using System.Collections;
+using System.Transactions;
 
 namespace OpeAgencia2.Creditos
 {
@@ -163,6 +164,10 @@ namespace OpeAgencia2.Creditos
             {
                 ConsultarDatos();
             }
+            if (tabControl1.SelectedIndex == 2)
+            {
+                ConsultarDatosRecibos();
+            }
         }
 
 
@@ -219,6 +224,78 @@ namespace OpeAgencia2.Creditos
         {
             if (txtEPS.Text != "" && e.KeyCode == Keys.Enter)
                 BuscarCliente();
+        }
+
+        private void anularToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        void ProcesoDeAnulacion()
+        {
+            ArrayList oFacturas = new ArrayList();
+            //
+            //Facturacion de cargos varioas.
+            foreach (DataGridViewRow gvRow in this.dgFacturas.SelectedRows)
+            {
+                int iReciboId = -1;
+                unitOfWork = new BO.DAL.UnitOfWork();
+
+
+                iReciboId= Convert.ToInt32(gvRow.Cells[0].Value);
+
+                var oRecibos = unitOfWork.RecibosRepository.GetByID(iReciboId);
+
+                oRecibos.ESTADO_ID = 15;
+
+                unitOfWork.RecibosRepository.Update(oRecibos);
+
+                unitOfWork.Save();
+               
+
+            }
+            //ArrayList pCargVar, int iCteId, int iUsuarioId, int iSucId, int iTipoFiscal
+           
+            
+        }
+
+        void ConsultarDatosRecibos()
+        {
+            unitOfWork = new BO.DAL.UnitOfWork();
+
+            var oRecibos = from p in unitOfWork.RecibosRepository.Get(filter: s => s.CTE_ID == iCteId  && s.Tipos.TIPO_ID == 54 && s.IMPORTE_CTA==0)
+                           select new
+                           {
+                               p.RECIBO_ID,
+                               Tipo= p.Tipos.TIPO_DESCR,
+                               Fecha = p.FECHA,
+                               Estado = p.Estados.ESTADO_NOMBRE,
+                               Monto= p.IMPORTE_TOTAL
+                           };
+            this.dgFacturas.DataSource = oRecibos.ToList();
+            this.dgFacturas.Columns[0].Visible = false;
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            /*Anular Cargovario*/
+            try
+            {
+                using (TransactionScope scope = new TransactionScope())
+                {
+                    ProcesoDeAnulacion();
+                    scope.Complete();
+                }
+            }
+            catch (TransactionAbortedException ex)
+            {
+                throw ex;
+            }
+            catch (ApplicationException ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }

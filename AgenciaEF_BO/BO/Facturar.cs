@@ -141,6 +141,7 @@ namespace AgenciaEF_BO.BO
                 RecAnul.IMPORTE_TOTAL = recibo.IMPORTE_TOTAL;
                 RecAnul.IMPORTE_ITEBIS = recibo.IMPORTE_ITEBIS;
                 RecAnul.IMPORTE_CTA = recibo.IMPORTE_CTA;
+                RecAnul.IMPORTE_GRAVADO = recibo.IMPORTE_GRAVADO;
                 RecAnul.FECHA_MODIF = DateTime.Now;
                 RecAnul.FECHA_CREA = DateTime.Now;
                 RecAnul.FECHA = DateTime.Now;

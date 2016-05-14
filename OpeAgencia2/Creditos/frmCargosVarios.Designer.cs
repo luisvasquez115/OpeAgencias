@@ -49,6 +49,10 @@
             this.cmCargvar = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.facturarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.anularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabFacturas = new System.Windows.Forms.TabPage();
+            this.dgFacturas = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -59,6 +63,9 @@
             this.tabCargos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCargos)).BeginInit();
             this.cmCargvar.SuspendLayout();
+            this.tabFacturas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgFacturas)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -122,6 +129,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabAddCargo);
             this.tabControl1.Controls.Add(this.tabCargos);
+            this.tabControl1.Controls.Add(this.tabFacturas);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -188,6 +196,7 @@
             this.txtMonto.Location = new System.Drawing.Point(160, 131);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(172, 21);
+            this.txtMonto.StringValue = "0";
             this.txtMonto.TabIndex = 6;
             // 
             // txtDesc
@@ -273,6 +282,47 @@
             this.anularToolStripMenuItem.Name = "anularToolStripMenuItem";
             this.anularToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.anularToolStripMenuItem.Text = "Anular";
+            this.anularToolStripMenuItem.Click += new System.EventHandler(this.anularToolStripMenuItem_Click);
+            // 
+            // tabFacturas
+            // 
+            this.tabFacturas.Controls.Add(this.dgFacturas);
+            this.tabFacturas.Location = new System.Drawing.Point(4, 22);
+            this.tabFacturas.Name = "tabFacturas";
+            this.tabFacturas.Padding = new System.Windows.Forms.Padding(3);
+            this.tabFacturas.Size = new System.Drawing.Size(543, 239);
+            this.tabFacturas.TabIndex = 2;
+            this.tabFacturas.Text = "Facturas";
+            this.tabFacturas.UseVisualStyleBackColor = true;
+            // 
+            // dgFacturas
+            // 
+            this.dgFacturas.AllowUserToAddRows = false;
+            this.dgFacturas.AllowUserToDeleteRows = false;
+            this.dgFacturas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgFacturas.ContextMenuStrip = this.contextMenuStrip1;
+            this.dgFacturas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgFacturas.Location = new System.Drawing.Point(3, 3);
+            this.dgFacturas.Name = "dgFacturas";
+            this.dgFacturas.ReadOnly = true;
+            this.dgFacturas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgFacturas.Size = new System.Drawing.Size(537, 233);
+            this.dgFacturas.TabIndex = 1;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2});
+            this.contextMenuStrip1.Name = "cmCargvar";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Text = "Anular";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // frmCargosVarios
             // 
@@ -296,6 +346,9 @@
             this.tabCargos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgCargos)).EndInit();
             this.cmCargvar.ResumeLayout(false);
+            this.tabFacturas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgFacturas)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -322,5 +375,9 @@
         private System.Windows.Forms.ContextMenuStrip cmCargvar;
         private System.Windows.Forms.ToolStripMenuItem facturarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem anularToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabFacturas;
+        private System.Windows.Forms.DataGridView dgFacturas;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
     }
 }

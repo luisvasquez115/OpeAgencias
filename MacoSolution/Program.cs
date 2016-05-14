@@ -20,10 +20,67 @@ namespace MacoSolution
             //DiferenciaMontoFact();
 
             CorrigeMontoGravado();
+            CorrigeMontoGravadoAnul();
 
             
-            Console.Read();
+            //Console.Read();
         }
+
+        /*
+         * SELECT  A.RECIBO_ID RECIBO_ANUL, B.RECIBO_ID , 
+       A.IMPORTE_TOTAL  IMPORTE_TOTAL_ANUL, A.IMPORTE_ITEBIS IMPORTE_ITEBIS_ANUL, A.IMPORTE_GRAVADO IMPORTE_GRAVADO_ANUL,
+       B.IMPORTE_TOTAL  IMPORTE_TOTAL, B.IMPORTE_ITEBIS , B.IMPORTE_GRAVADO 
+        FROM RECIBOS A, RECIBOS B
+ WHERE A.TIPO_REC_ID = 5
+ AND B.RECIBO_ID = A.RECIBO_ID_ANUL
+ AND A.IMPORTE_GRAVADO <> B.IMPORTE_GRAVADO*/
+
+        private static void CorrigeMontoGravadoAnul()
+        {
+            UnitOfWork unitOfWork = new UnitOfWork();
+
+
+            string sSql = "SELECT  A.RECIBO_ID RECIBO_ANUL, B.RECIBO_ID, " +
+                           "  A.IMPORTE_TOTAL  IMPORTE_TOTAL_ANUL, A.IMPORTE_ITEBIS IMPORTE_ITEBIS_ANUL, A.IMPORTE_GRAVADO IMPORTE_GRAVADO_ANUL, " +
+                          " B.IMPORTE_TOTAL  IMPORTE_TOTAL, B.IMPORTE_ITEBIS , B.IMPORTE_GRAVADO " +
+                          "  FROM RECIBOS A, RECIBOS B " +
+                          "WHERE A.TIPO_REC_ID = 5 " +
+                          "AND B.RECIBO_ID = A.RECIBO_ID_ANUL " +
+                          "  AND A.IMPORTE_GRAVADO <> B.IMPORTE_GRAVADO ";
+
+            DataTable dt = new DataTable();
+
+            SqlDataAdapter da = new SqlDataAdapter(sSql, ConfigurationManager.ConnectionStrings["dbepsContext"].ToString());
+
+            da.Fill(dt);
+
+
+            int i = 0;
+            foreach (DataRow dr in dt.Rows)
+            {
+
+
+                i++;
+                int iReciboId = 0;
+
+                Console.WriteLine("{0}\t recibo {1} \t ImporteFact {2} \tImporteDet {3}  \n", i, dr["RECIBO_ANUL"].ToString(), dr["IMPORTE_GRAVADO_ANUL"].ToString(), dr["IMPORTE_GRAVADO"].ToString());
+
+                iReciboId = Convert.ToInt32(dr["RECIBO_ANUL"]);
+                var oRecibo = unitOfWork.RecibosRepository.GetByID(iReciboId);
+
+                oRecibo.IMPORTE_GRAVADO = Convert.ToDecimal(dr["IMPORTE_GRAVADO"]);
+       
+
+                unitOfWork.RecibosRepository.Update(oRecibo);
+
+            }
+
+
+
+            unitOfWork.Save();
+        }
+
+         
 
 
         private static void CorrigeMontoGravado()
